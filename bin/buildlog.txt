@@ -1,0 +1,24 @@
+Output dir: /home/lenovo1/DEVELOPER/C64/code/mylibs/bin
+parsing
+flex pass 1
+flex pass 2
+flex pass 3
+Output pass
+Writing prg file: main.prg
+
+Memory Map
+----------
+Default-segment:
+  $0801-$080c Basic
+  $080e-$080d Basic End
+  $0810-$11bc Main Code
+  $2000-$20ff Tileset
+  $2400-$24ff Charset Attrib
+  $2500-$2a6f Variables
+  $3000-$32ff Sprites
+  $3800-$3fff Charset
+  $4000-$40e3 Tables
+  $5000-$62fe Libraries
+  $7000-$9fff Maps
+
+Writing Symbol file: main.sym
