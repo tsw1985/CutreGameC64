@@ -9,7 +9,8 @@ BasicUpstart2(main)
 
 
 *=TILESET_ADDRESS "Tileset"
-.import binary "/tileset/tileset.bin"
+//.import binary "/tileset/tileset.bin"
+.import binary "/tileset/cutregametileset.bin"
 
 
 *=CHARSET_ATTRIB_ADDRESS "Charset Attrib"

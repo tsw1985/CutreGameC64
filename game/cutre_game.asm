@@ -26,10 +26,10 @@ print_map(0)
 
 
 /* Global */
-//sprite_set_extra_colors(LIGHT_GREEN,GREEN)
+sprite_set_extra_colors(LIGHT_GREEN,GREEN)
 
 /* Enable sprites */
-//sprite_enable_sprite(0)
+sprite_enable_sprite(0)
 //sprite_enable_sprite(1)
 //sprite_enable_sprite(2)
 //sprite_enable_sprite(3)
