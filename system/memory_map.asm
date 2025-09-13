@@ -12,7 +12,7 @@
 .label TABLES_ADDRESS		   = $4000
 .label LIBRARIES_ADDRESS	   = $5000
 
-.label MAP_ADDRESS			   = $7000
+.label MAP_ADDRESS			   =  $9C7C  //$7000
 //.label MAPS_COLOR_ADDRESS		= $8900
 
 
