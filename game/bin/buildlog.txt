@@ -1,0 +1,20 @@
+Output dir: /home/lenovo1/DEVELOPER/C64/code/cutregame/game/bin
+parsing
+Got 217 errors and 0 warnings while executing:
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 25:1) Error: Macro command 'print_map' not defined
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 29:1) Error: Macro command 'sprite_set_extra_colors' not defined
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 32:1) Error: Macro command 'sprite_enable_sprite' not defined
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 43:1) Error: Macro command 'sprite_load_like_multicolor' not defined
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 44:1) Error: Macro command 'sprite_set_position' not defined
+  ...
+
+
+
+/* Load map #0 */
+print_map(0)
+^
+
+Error: Macro command 'print_map' not defined
+at line 25, column 1 in cutre_game.asm
+
+

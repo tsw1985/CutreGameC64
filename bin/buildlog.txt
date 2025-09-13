@@ -4,6 +4,21 @@ flex pass 1
 flex pass 2
 flex pass 3
 Output pass
+Writing prg file: main.prg
 
-Error: In segment 'Default' the memoryblock 'Sprites' ($3000-$3a3f) overlaps 'Charset' ($3800-$3fff)
+Memory Map
+----------
+Default-segment:
+  $0801-$080c Basic
+  $080e-$080d Basic End
+  $0810-$0f94 Main Code
+  $2000-$20ff Tileset
+  $2400-$24ff Charset Attrib
+  $2500-$2769 Variables
+  $2800-$31ff Sprites
+  $3800-$3fff Charset
+  $4000-$40e3 Tables
+  $5000-$5c96 Libraries
+  $9c7c-$9d3b Maps
 
+Writing Symbol file: main.sym

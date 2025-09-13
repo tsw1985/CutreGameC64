@@ -9,18 +9,12 @@ BasicUpstart2(main)
 
 
 *=TILESET_ADDRESS "Tileset"
-.import binary "/tileset/cutregametileset.bin"
-
-
-/*
-*=MUSIC_ADDRESS "Music"
-.import binary "/music/music.sid"
-*/
+.import binary "/tileset/tileset.bin"
 
 
 *=CHARSET_ATTRIB_ADDRESS "Charset Attrib"
-//.import binary "/charset/charsetcutregame.bin"
-
+//.import binary "/charset/cutregametilesetattr.bin"
+.import binary "/charset/charsetAttrib.bin"
 
 
 *=VARIABLES_ADDRESS "Variables"
@@ -32,8 +26,8 @@ BasicUpstart2(main)
 
 
 *=CHARSET_ADDRESS "Charset"
-//.import binary "/charset/charset.bin"
-.import binary "/charset/charsetcutregame.bin"
+.import binary "/charset/cutregamecharset.bin"
+//.import binary "/charset/charsetcutregame.bin"
 
 
 *=TABLES_ADDRESS "Tables"
@@ -44,8 +38,7 @@ BasicUpstart2(main)
 
 
 *=MAP_ADDRESS "Maps"
-//.import binary "/maps/demomap.bin"
-.import binary "/maps/cutregamemap.bin"
+.import binary "/maps/backgroundmap.bin"
 
 
 //*=MAPS_COLOR_ADDRESS "Maps Colors"

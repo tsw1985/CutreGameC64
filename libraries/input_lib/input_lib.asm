@@ -121,12 +121,6 @@ read_key:
     jsr unblock_because_is_not_printing
 
 
-    /***********************/
-    /* Only for  debugging */
-    /***********************/
-    jsr print_debug_params
-  
-    
     skip_print_string_and_cursor:
 
     /* clear the table where are save the keys pressed before save the keys 
@@ -175,42 +169,6 @@ unblock_because_is_not_printing:
     pull_regs_from_stack()
 rts
 
-
-print_debug_params:
-    push_regs_to_stack()
-    // debug: print offset result
-
-    jsr block_because_is_printing
-        jsr print_offset_result
-    jsr unblock_because_is_not_printing
-
-    // debug : show current pressed char
-    jsr block_because_is_printing
-        jsr print_current_pressed_char
-    jsr unblock_because_is_not_printing
-
-    // debug : // see X row value of keyboard
-    jsr block_because_is_printing
-        jsr print_x_coord
-    jsr unblock_because_is_not_printing
-
-    // debug : // see Y row value of keyboard
-    jsr block_because_is_printing
-        jsr print_y_coord
-    jsr unblock_because_is_not_printing
-
-    // debug : print current index position
-    jsr block_because_is_printing
-        jsr print_cursor_index_pos
-    jsr unblock_because_is_not_printing
-
-    // debug : print current col position
-    jsr block_because_is_printing
-        jsr print_cursor_col_pos
-    jsr unblock_because_is_not_printing
-
-    pull_regs_from_stack()
-rts
 
 reset_key_flags:
     push_regs_to_stack()
@@ -425,28 +383,6 @@ save_key_pressed:
     pull_regs_from_stack()
     rts
 
-/* 
-    Function:
-        This is a function for debugging, to see the offset value of each
-        key press . Must be commented. Remember we have 38911 bytes :( 
-*/
-print_offset_result:
-
-    push_regs_to_stack()
-    insert_text(4,0,calc_offset_str,WHITE)
-
-    lda TABLE_KEY_ASCII_X_OFFSET
-    sta div_res_0
-    lda #0
-    sta div_res_1
-    sta div_res_2
-    sta div_res_3
-
-    jsr PRINT_LIB.clean_location_screen
-    print_calculation_result(4,8,YELLOW,div_res_0,div_res_1,div_res_2,div_res_3)
-
-    pull_regs_from_stack()
-    rts
 
 /*
     Function: This function do a small delay of half second
@@ -552,132 +488,7 @@ print_cursor:
     rts
 
 
-/* Function:
 
-        This is a debuggin function . To know the X value of the keyboard
-        matrix.
-*/
-print_x_coord:
-
-    push_regs_to_stack()
-    insert_text(2,0,coor_x_str,WHITE)
-
-    txa // the current row value is in X register
-    sta div_res_0
-    lda #0
-    sta div_res_1
-    sta div_res_2
-    sta div_res_3
-
-    // Print the result of calculation on screen
-    print_calculation_result(2,3,YELLOW,div_res_0,div_res_1,div_res_2,div_res_3)
-
-    pull_regs_from_stack()
-    rts
-
-
-/* Function:
-
-        This is a debuggin function . To know the Y value of the keyboard
-        matrix.
-*/
-print_y_coord:
-
-    push_regs_to_stack()
-    insert_text(3,0,coor_y_str,WHITE)
-
-    tya  // the Y col value is in Y register
-    sta div_res_0
-    lda #0
-    sta div_res_1
-    sta div_res_2
-    sta div_res_3
-    // Print the result of calculation on screen
-    print_calculation_result(3,3,YELLOW,div_res_0,div_res_1,div_res_2,div_res_3)
-
-    pull_regs_from_stack()
-
-    rts
-
-/* Function:
-
-    Debugging function to see the current index position
-*/
-print_cursor_pos:
-    
-    push_regs_to_stack()
-    insert_text(6,0,cursor_index_str,WHITE)
-
-    lda INPUT_CURSOR_COL
-    sta div_res_0
-    lda #0
-    sta div_res_1
-    sta div_res_2
-    sta div_res_3
-    // Print the result of calculation on screen
-    print_calculation_result(6,8,YELLOW,div_res_0,div_res_1,div_res_2,div_res_3)
-    pull_regs_from_stack()
-rts
-
-
-/* Function:
-
-    Debugging function to see the current pressed key
-*/
-print_current_pressed_char:
-
-    push_regs_to_stack()
-    insert_text(5,0,current_char_str,WHITE)
-
-
-    ldx TABLE_KEY_ASCII_X_OFFSET
-    lda TABLE_KEY_ASCII,x
-    sta SCREEN_CHAR
-    locate_text(5,5,YELLOW)
-    jsr PRINT_LIB.print_char  // print single char
-
-    pull_regs_from_stack()
-    rts
-
-/* Function:
-
-    Debugging function to see the current index position
-*/
-print_cursor_index_pos:
-
-    push_regs_to_stack()
-    insert_text(6,0,cursor_index_str,WHITE)
-
-    lda INPUT_INDEX_COUNTER
-    sta div_res_0
-    lda #0
-    sta div_res_1
-    sta div_res_2
-    sta div_res_3
-    // Print the result of calculation on screen
-    print_calculation_result(6,10,YELLOW,div_res_0,div_res_1,div_res_2,div_res_3)
-    pull_regs_from_stack()
-rts
-
-/* Function:
-
-    Debugging function to see the current col position
-*/
-print_cursor_col_pos:
-
-    push_regs_to_stack()
-    insert_text(7,0,cursor_col_str,WHITE)
-
-    lda INPUT_CURSOR_COL
-    sta div_res_0
-    lda #0
-    sta div_res_1
-    sta div_res_2
-    sta div_res_3
-    // Print the result of calculation on screen
-    print_calculation_result(7,8,YELLOW,div_res_0,div_res_1,div_res_2,div_res_3)
-    pull_regs_from_stack()
-rts
 
 /*
     Function:

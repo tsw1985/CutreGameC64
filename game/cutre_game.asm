@@ -24,18 +24,12 @@
 /* Load map #0 */
 print_map(0)
 
-insert_text(1,1,sprites_colls_demo_str,YELLOW)
-insert_text(3,33,sprites_player_y_str,YELLOW)
-insert_text(4,33,sprites_player_x_str,YELLOW)
-insert_text(6,33,sprites_enemy_y_str,YELLOW)
-insert_text(7,33,sprites_enemy_x_str,YELLOW)
-insert_text(8,33,sprites_enemy_n_str,YELLOW)
 
 /* Global */
-sprite_set_extra_colors(GRAY,YELLOW)
+//sprite_set_extra_colors(LIGHT_GREEN,GREEN)
 
 /* Enable sprites */
-sprite_enable_sprite(0)
+//sprite_enable_sprite(0)
 //sprite_enable_sprite(1)
 //sprite_enable_sprite(2)
 //sprite_enable_sprite(3)
@@ -48,7 +42,7 @@ sprite_enable_sprite(0)
 /* Setup for sprite 1 PLAYER */
 sprite_load_like_multicolor(0)
 sprite_set_position(0,145,150)
-sprite_set_color(0,YELLOW)
+sprite_set_color(0,GREEN)
 sprite_set_frame_to_sprite(0,0) // $00c0 ... $00c1 ... $00c2 ...
 /* Setup for sprite 1 */
 
