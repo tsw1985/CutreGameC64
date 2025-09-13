@@ -15,7 +15,7 @@ Default-segment:
   $1000-$10ff Charset Attrib
   $1100-$11ff Tileset
   $1200-$1469 Variables
-  $2000-$29ff Sprites
+  $2000-$263f Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
   $5000-$5c96 Libraries
