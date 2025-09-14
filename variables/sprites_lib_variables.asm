@@ -74,10 +74,6 @@ IGNORE_RESET_ANIMATION_NO_COLLISION_INDEX_TABLE:
 
 
 
-
-
-
-
 /* SPRITE_COLOR: Value to set a sprite color */
 SPRITE_COLOR:         .byte 0
 
@@ -120,9 +116,9 @@ ANIMATION_FRAMES_LIST_HI: .byte 0
 
 *******************************************************************************/
 sprite_animations_list_LO_table:
-    .byte <sprite_animation_1_to_10  // Animation for sprite 1
-    .byte <sprite_animation_1_to_10  // Animation for sprite 2
-    .byte <sprite_animation_1_to_10  // Animation for sprite 3
+    .byte <sprite_player_down_normal_tank  // Animation for sprite 1
+    .byte <sprite_player_down_bullet_tank  // Animation for sprite 2
+    .byte <sprite_player_2_up_normal_tank  // Animation for sprite 3
     .byte <sprite_animation_1_to_10  // Animation for sprite 4
     .byte <sprite_animation_1_to_10  // Animation for sprite 5
     .byte <sprite_animation_1_to_10  // Animation for sprite 6
@@ -131,9 +127,9 @@ sprite_animations_list_LO_table:
 
     
 sprite_animations_list_HI_table:
-    .byte >sprite_animation_1_to_10  // Animation for sprite 1
-    .byte >sprite_animation_1_to_10  // Animation for sprite 2
-    .byte >sprite_animation_1_to_10  // Animation for sprite 3
+    .byte >sprite_player_down_normal_tank  // Animation for sprite 1
+    .byte >sprite_player_down_bullet_tank// Animation for sprite 2
+    .byte >sprite_player_2_up_normal_tank  // Animation for sprite 3
     .byte >sprite_animation_1_to_10  // Animation for sprite 4
     .byte >sprite_animation_1_to_10  // Animation for sprite 5
     .byte >sprite_animation_1_to_10  // Animation for sprite 6
@@ -141,9 +137,9 @@ sprite_animations_list_HI_table:
     .byte >sprite_animation_1_to_10  // Animation for sprite 8
 
 sprite_animations_list_LO_table_backup:
-    .byte <sprite_animation_1_to_10  // Animation for sprite 1
-    .byte <sprite_animation_1_to_10  // Animation for sprite 2
-    .byte <sprite_animation_1_to_10  // Animation for sprite 3
+    .byte <sprite_player_down_normal_tank  // Animation for sprite 1
+    .byte <sprite_player_down_bullet_tank  // Animation for sprite 2
+    .byte <sprite_player_2_up_normal_tank  // Animation for sprite 3
     .byte <sprite_animation_1_to_10  // Animation for sprite 4
     .byte <sprite_animation_1_to_10  // Animation for sprite 5
     .byte <sprite_animation_1_to_10  // Animation for sprite 6
@@ -152,9 +148,9 @@ sprite_animations_list_LO_table_backup:
 
     
 sprite_animations_list_HI_table_backup:
-    .byte >sprite_animation_1_to_10  // Animation for sprite 1
-    .byte >sprite_animation_1_to_10  // Animation for sprite 2
-    .byte >sprite_animation_1_to_10  // Animation for sprite 3
+    .byte >sprite_player_down_normal_tank  // Animation for sprite 1
+    .byte >sprite_player_down_bullet_tank  // Animation for sprite 2
+    .byte >sprite_player_2_up_normal_tank  // Animation for sprite 3
     .byte >sprite_animation_1_to_10  // Animation for sprite 4
     .byte >sprite_animation_1_to_10  // Animation for sprite 5
     .byte >sprite_animation_1_to_10  // Animation for sprite 6
@@ -358,10 +354,38 @@ sprite_animation_dead:
     .byte 255 // Finish animation
 
 
+sprite_player_down_normal_tank:
+    .byte 0   // Frame 0 in Sprite pad
+    .byte 255
+
+sprite_player_down_bullet_tank:
+    .byte 24   // Frame 0 in Sprite pad
+    .byte 255    
+  
+
+
+
+sprite_player_2_up_normal_tank:
+    .byte 12   // Frame 0 in Sprite pad
+    .byte 255
+
+sprite_player_2_up_bullet_tank:
+    .byte 24   // Frame 0 in Sprite pad
+    .byte 255    
+
+
+
+
+
+
+
+
+
 /* Animation full: count 1 to 10 */
 sprite_animation_1_to_10:
     .byte 0   // Frame 0 in Sprite pad
-    .byte 1   // Frame 1 in Sprite pad
+    .byte 255
+    /*.byte 1   // Frame 1 in Sprite pad
     .byte 2   // Frame 2 in Sprite pad
     .byte 3   // Frame 3 in Sprite pad
     .byte 4   // Frame 3 in Sprite pad
@@ -370,66 +394,7 @@ sprite_animation_1_to_10:
     .byte 7   // Frame 2 in Sprite pad
     .byte 8   // Frame 3 in Sprite pad
     .byte 9   // Frame 3 in Sprite pad
-    .byte 255 // Finish animation
-
-/* Animation 1: count 1 to 5 */
-sprite_animation_1_to_5:
-    .byte 0    // Frame 0 in Sprite pad
-    .byte 1   // Frame 1 in Sprite pad
-    .byte 2   // Frame 2 in Sprite pad
-    .byte 3   // Frame 3 in Sprite pad
-    .byte 4   // Frame 3 in Sprite pad
-    .byte 255 // Finish animation
-
-/* Animation 2: count 5 to 10 */
-sprite_animation_5_to_9:
-    .byte 4   // Frame 5 in Sprite pad
-    .byte 5   // Frame 6 in Sprite pad
-    .byte 6   // Frame 7 in Sprite pad
-    .byte 7   // Frame 8 in Sprite pad
-    .byte 8   // Frame 8 in Sprite pad
-    .byte 255 // Finish animation
-
-/* Animation 3: count 1 to 3 */
-sprite_animation_1_to_3:
-    .byte 0   // Frame 5 in Sprite pad
-    .byte 1   // Frame 6 in Sprite pad
-    .byte 2   // Frame 7 in Sprite pad
-    .byte 255 // Finish animation
+    .byte 255 // Finish animation*/
 
 
-/* Animation 4: count 1 to 2 */
-sprite_animation_1_to_2:
-    .byte 0   // Frame 5 in Sprite pad
-    .byte 1   // Frame 6 in Sprite pad
-    .byte 255 // Finish animation
-
-/* Animation 5: count 4 to 1 */
-sprite_animation_4_to_1:
-    .byte 3   // Frame 5 in Sprite pad
-    .byte 2   // Frame 6 in Sprite pad
-    .byte 1   // Frame 6 in Sprite pad
-    .byte 0   // Frame 6 in Sprite pad
-    .byte 255 // Finish animation    
-
-
-/* Animation 6: show 2-4-6-8 */
-sprite_animation_2_4_6_8:
-    .byte 1   // Frame 5 in Sprite pad
-    .byte 3   // Frame 6 in Sprite pad
-    .byte 5   // Frame 6 in Sprite pad
-    .byte 7   // Frame 6 in Sprite pad
-    .byte 255 // Finish animation        
-
-/* Animation 7: show 2-4 */
-sprite_animation_2_4:
-    .byte 1   // Frame 5 in Sprite pad
-    .byte 3   // Frame 6 in Sprite pad
-    .byte 255 // Finish animation        
-
-/* Animation 8: show 2-4 */
-sprite_animation_9_10:
-    .byte 8   // Frame 5 in Sprite pad
-    .byte 9   // Frame 6 in Sprite pad
-    .byte 255 // Finish animation
 
