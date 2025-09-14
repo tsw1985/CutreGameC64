@@ -520,6 +520,22 @@ actions_in_raster:
 
         process_this_sprite:
 
+            /* CHECK IF PLAYER */
+            // Player 1 fire bullet
+            lda $d003 // save Y
+            cmp #80  // si llego al tope, desaparecemos bala player 1
+            bcc hide_bullet_player_1
+            sec
+            sbc #10 // decrement Y of bullet sprite player 1
+            sta $d003
+            jmp ignore_disable_bullet_player_1
+
+            hide_bullet_player_1:
+                sprite_disable_sprite(1)
+
+            ignore_disable_bullet_player_1:
+            
+
             /* ??? Change to next frame in the animnation */
 
             // Get the LO and HI bytes values of the associated animation list
@@ -614,12 +630,11 @@ actions_in_raster:
         jsr SPRITE_LIB.set_frame_to_sprite_0
         jmp reset_sprite_raster_counter_in_current_sprite
 
-        x_1:   // sprite 2
+        x_1:  // sprite 2 : Bullet Player 1
             cpx #1   
             bne x_2
             jsr SPRITE_LIB.set_frame_to_sprite_1
             jmp reset_sprite_raster_counter_in_current_sprite
-
 
         x_2:   // Enemy sprite
             cpx #2
@@ -679,7 +694,7 @@ actions_in_raster:
             iny
             sty SPRITE_TO_CHECK
             
-            //jsr check_sprite_collisions
+            jsr check_sprite_collisions
 
 
             cpy #8
@@ -798,16 +813,15 @@ push_regs_to_stack()
 
     change_border_color:
 
-    
+
+        /* CODE FOR COLLISION . COMMENTED AT THE MOMENT TO ALLOW SEE Y X */
 
         //If exists collision , increment border color
         // change color ,save temp values and allow print
-        inc $d020 // change border color
+        //inc $d020 // change border color
 
         /* Play sound */
-        jsr SOUND_LIB.play_sound
-
-
+        //jsr SOUND_LIB.play_sound
 
         /* Save positions of enemy Y-X for print them in the main loop */
         lda SPRITE_ENEMY_Y
@@ -839,14 +853,15 @@ push_regs_to_stack()
             each sprite index point to a animation.
 
         */
-        lda sprite_dead_list_LO_table,x
-        sta sprite_animations_list_LO_table,x
-        
-        sta sprite_current_anim_LO_table,x 
-        lda sprite_dead_list_HI_table,x
 
-        sta sprite_animations_list_HI_table,x
-        sta sprite_current_anim_HI_table,x 
+        //lda sprite_dead_list_LO_table,x
+        //sta sprite_animations_list_LO_table,x
+        
+        //sta sprite_current_anim_LO_table,x 
+        //lda sprite_dead_list_HI_table,x
+
+        //sta sprite_animations_list_HI_table,x
+        //sta sprite_current_anim_HI_table,x 
 
 
         /* Set to 1 ignore  */

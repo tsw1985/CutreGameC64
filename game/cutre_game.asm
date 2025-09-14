@@ -140,6 +140,7 @@ simulate_game_loop:
     ******************************/
 
     /*   Y   */
+    
     lda SPRITE_CENTER_PLAYER_POS_Y
     sta sum_res_0
     lda #0
@@ -148,7 +149,9 @@ simulate_game_loop:
     sta sum_res_3
     print_calculation_result(3,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
     
+    
     /*  X */
+    
     lda SPRITE_CENTER_PLAYER_POS_X
     sta sum_res_0
     lda #0
@@ -156,12 +159,13 @@ simulate_game_loop:
     sta sum_res_2
     sta sum_res_3
     print_calculation_result(4,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+    
 
 
     /************************************************
         PRINT ENEMY COORDS VALUES IN COLLISION
     **************************************************/
-
+    
     print_enemy_values:
         lda SPRITE_TEMP_Y
         sta sum_res_0
@@ -183,6 +187,7 @@ simulate_game_loop:
 
 
     /* Print with sprite is in collision */
+
     lda SPRITE_IN_COLLISION
     sta sum_res_0
     lda #0
@@ -190,6 +195,7 @@ simulate_game_loop:
     sta sum_res_2
     sta sum_res_3
     print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
 
 
 jmp simulate_game_loop
@@ -271,18 +277,21 @@ joy_fire:
 
     sprite_load_like_multicolor(1)
 
+    // Get Y and X from Player 1
     ldx #0
     lda sprites_coord_table_y,x // get Y player position
     ldx #1
     sta sprites_coord_table_y,x
 
+    // Set Y to bullet player 1
     sta $d003 // save Y
     sec
-    sbc #50
-    sta $d003 // mover el sprite bala en la misma Y del sprite player , para eso quitamos un poco para subirlo
+    sbc #10  // substract 10 px to put the buller front the tank
+    sta $d003 // mover el sprite bala en la misma Y del sprite player , 
+              // para eso quitamos un poco para subirlo
 
     ldx #0
-    lda sprites_coord_table_x,x // get Y player position
+    lda sprites_coord_table_x,x // get X player position
     ldx #1
     sta sprites_coord_table_x,x
     sta $d002 // save Y
@@ -298,9 +307,9 @@ sleep_sprite:
 
     push_regs_to_stack()
 
-    ldx #25 //50
+    ldx #25 //25
     sleep_sprite_outer_loop:
-        ldy #25 //50
+        ldy #25 //25
     sleep_sprite_inner_loop:
         nop
         dey

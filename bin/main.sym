@@ -18,13 +18,13 @@
   .label multiplication_32=$4f50 {
   }
 }
-.label TILES_LIB=$562b {
-  .label next_tail=$56c9
-  .label exit_load_map=$56f1 {
+.label TILES_LIB=$562e {
+  .label next_tail=$56cc
+  .label exit_load_map=$56f4 {
   }
-  .label load_map=$56ad {
+  .label load_map=$56b0 {
   }
-  .label print_tile=$562b {
+  .label print_tile=$562e {
   }
 }
 .label JOY_GO_RIGHT=$8
@@ -213,10 +213,10 @@
 }
 .label joy_fire=$d27 {
 }
-.label SOUND_LIB=$56f7 {
-  .label stop_sound=$570c {
+.label SOUND_LIB=$56fa {
+  .label stop_sound=$570f {
   }
-  .label play_sound=$56f7 {
+  .label play_sound=$56fa {
   }
 }
 .label CYAN=$3
@@ -278,15 +278,15 @@
 .label div_num1_1=$1252
 .label CHARSET_ATTRIB_ADDRESS=$1000
 .label SPRITE_LIB=$5076 {
-  .label end_reset_cases=$5620
-  .label x_enemy_2=$55b1
-  .label x_enemy_3=$55c4
-  .label x_enemy_4=$55d7
-  .label x_enemy_5=$55ea
-  .label ignore_reset_animation_index=$5561
-  .label x_enemy_6=$55fd
-  .label x_enemy_7=$5610
-  .label skip_exit_check_collision=$5571
+  .label end_reset_cases=$5623
+  .label x_enemy_2=$55b4
+  .label x_enemy_3=$55c7
+  .label x_enemy_4=$55da
+  .label x_enemy_5=$55ed
+  .label ignore_reset_animation_index=$5564
+  .label x_enemy_6=$5600
+  .label x_enemy_7=$5613
+  .label skip_exit_check_collision=$5574
   .label set_frame_to_sprite_0=$52fe {
   }
   .label set_frame_to_sprite_1=$530f {
@@ -306,38 +306,41 @@
   }
   .label set_frame_to_sprite_7=$5375 {
   }
-  .label check_sprite_collisions=$549a {
+  .label check_sprite_collisions=$54b5 {
   }
   .label sprite_0_increment_x=$510e {
   }
-  .label continue_check_1=$54ef
-  .label continue_check_2=$54fa
-  .label continue_check_3=$5505
-  .label sprite_no_hit=$5564
-  .label reset_animation=$541b
-  .label go_to_next_sprite=$5485
+  .label continue_check_1=$550a
+  .label continue_check_2=$5515
+  .label continue_check_3=$5520
+  .label sprite_no_hit=$5567
+  .label reset_animation=$5433
+  .label go_to_next_sprite=$549d
   .label sprite_0_increment_y=$523e {
   }
   .label sprite_1_increment_x=$5121 {
   }
-  .label x_2=$5447
+  .label x_2=$545f
   .label sprite_1_increment_y=$5251 {
   }
   .label setupRasterInterrupt=$53a6 {
   }
-  .label x_1=$543d
+  .label x_1=$5455
   .label sprite_2_increment_x=$5134 {
   }
-  .label x_4=$545b
-  .label x_3=$5451
-  .label x_6=$546f
+  .label x_4=$5473
+  .label x_3=$5469
+  .label x_6=$5487
   .label sprite_2_increment_y=$5264 {
   }
-  .label x_5=$5465
+  .label ignore_disable_bullet_player_1=$5411
+  .label x_5=$547d
   .label sprite_4_increment_x=$515a {
   }
   .label actions_in_raster=$53e3
-  .label x_7=$5479
+  .label hide_bullet_player_1=$5409 {
+  }
+  .label x_7=$5491
   .label sprite_3_increment_x=$5147 {
   }
   .label sprite_5_increment_x=$516d {
@@ -362,12 +365,12 @@
   }
   .label sprite_0_decrement_y=$51a6 {
   }
-  .label reset_sprite_raster_counter_in_current_sprite=$5480
+  .label reset_sprite_raster_counter_in_current_sprite=$5498
   .label sprite_6_increment_y=$52b0 {
   }
   .label sprite_5_decrement_y=$5205 {
   }
-  .label exit_check_collision=$5625 {
+  .label exit_check_collision=$5628 {
   }
   .label sprite_4_decrement_x=$50c2 {
   }
@@ -393,12 +396,12 @@
   }
   .label sprite_4_decrement_y=$51f2 {
   }
-  .label put_animation_frame_in_screen=$5429
+  .label put_animation_frame_in_screen=$5441
   .label sprites_loop=$53e8
-  .label exit_sprites_loop=$548d
-  .label check_sprite_loop=$548f
+  .label exit_sprites_loop=$54a5
+  .label check_sprite_loop=$54a7
   .label enableRasterInterrupt=$53d7
-  .label change_border_color=$5510
+  .label change_border_color=$552b
   .label sprite_get_current_index_sprite_pad_value_animation=$5386 {
   }
   .label process_this_sprite=$53f9
