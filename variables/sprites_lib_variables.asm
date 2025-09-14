@@ -125,9 +125,9 @@ ANIMATION_FRAMES_LIST_HI: .byte 0
 
 *******************************************************************************/
 sprite_animations_list_LO_table:
-    .byte <sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
-    .byte <sprite_player_2_normal_tank  // Animation for sprite 3
+    .byte <sprite_player_2_down_tank  // Animation for sprite 3
     .byte <sprite_animation_1_to_10  // Animation for sprite 4
     .byte <sprite_animation_1_to_10  // Animation for sprite 5
     .byte <sprite_animation_1_to_10  // Animation for sprite 6
@@ -136,9 +136,9 @@ sprite_animations_list_LO_table:
 
     
 sprite_animations_list_HI_table:
-    .byte >sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte >sprite_player_1_up_tank  // Animation for sprite 1
     .byte >sprite_player_1_bullet_tank// Animation for sprite 2
-    .byte >sprite_player_2_normal_tank  // Animation for sprite 3
+    .byte >sprite_player_2_down_tank  // Animation for sprite 3
     .byte >sprite_animation_1_to_10  // Animation for sprite 4
     .byte >sprite_animation_1_to_10  // Animation for sprite 5
     .byte >sprite_animation_1_to_10  // Animation for sprite 6
@@ -146,9 +146,9 @@ sprite_animations_list_HI_table:
     .byte >sprite_animation_1_to_10  // Animation for sprite 8
 
 sprite_animations_list_LO_table_backup:
-    .byte <sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
-    .byte <sprite_player_2_normal_tank  // Animation for sprite 3
+    .byte <sprite_player_2_down_tank  // Animation for sprite 3
     .byte <sprite_animation_1_to_10  // Animation for sprite 4
     .byte <sprite_animation_1_to_10  // Animation for sprite 5
     .byte <sprite_animation_1_to_10  // Animation for sprite 6
@@ -157,9 +157,9 @@ sprite_animations_list_LO_table_backup:
 
     
 sprite_animations_list_HI_table_backup:
-    .byte >sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte >sprite_player_1_up_tank  // Animation for sprite 1
     .byte >sprite_player_1_bullet_tank  // Animation for sprite 2
-    .byte >sprite_player_2_normal_tank  // Animation for sprite 3
+    .byte >sprite_player_2_down_tank  // Animation for sprite 3
     .byte >sprite_animation_1_to_10  // Animation for sprite 4
     .byte >sprite_animation_1_to_10  // Animation for sprite 5
     .byte >sprite_animation_1_to_10  // Animation for sprite 6
@@ -363,11 +363,145 @@ sprite_animation_dead:
     .byte 255 // Finish animation
 
 
-sprite_player_1_normal_tank:
+/* Player 1 UP */
+sprite_player_1_up_tank:
     .byte 0   // Frame 0 in Sprite pad
     .byte 255
 
-sprite_player_2_normal_tank:
+
+/* Player 1 RIGHT */
+sprite_player_1_right_tank:
+    .byte 8   // Frame 0 in Sprite pad
+    .byte 255
+
+/* Player 1 DOWN */
+sprite_player_1_down_tank:
+    .byte 37   // Frame 0 in Sprite pad
+    .byte 255
+
+
+/* Player 1 LEFT */
+sprite_player_1_left_tank:
+    .byte 19   // Frame 0 in Sprite pad
+    .byte 255        
+
+
+/* Player 1 : Animation UP to RIGHT  */
+sprite_player_1_animation_up_right_tank:
+    .byte 0   
+    .byte 1   
+    .byte 2   
+    .byte 3   
+    .byte 4   
+    .byte 5   
+    .byte 6   
+    .byte 7   
+    .byte 8   
+    .byte 255        
+
+
+/* Player 1 : Animation UP to LEFT  */
+sprite_player_1_animation_up_left_tank:
+    .byte 11   
+    .byte 12   
+    .byte 13   
+    .byte 14   
+    .byte 15   
+    .byte 16   
+    .byte 17   
+    .byte 18   
+    .byte 19   
+    .byte 255
+
+
+/* Player 1 : Animation RIGHT to TOP  */
+sprite_player_1_animation_right_top_tank:
+    .byte 20
+    .byte 21
+    .byte 22
+    .byte 23
+    .byte 24
+    .byte 25
+    .byte 26
+    .byte 27
+    .byte 28
+    .byte 255
+
+
+/* Player 1 : Animation RIGHT to DOWN  */
+sprite_player_1_animation_right_down_tank:
+    .byte 29
+    .byte 30
+    .byte 31
+    .byte 32
+    .byte 33
+    .byte 34
+    .byte 35
+    .byte 36
+    .byte 37
+    .byte 255
+
+
+
+
+/* Player 1 : Animation LEFT to TOP  */
+sprite_player_1_animation_left_top_tank:
+
+    .byte 38
+    .byte 39
+    .byte 40
+    .byte 41
+    .byte 42
+    .byte 43
+    .byte 44
+    .byte 45
+    .byte 46
+    .byte 255
+
+
+/* Player 1 : Animation LEFT to DOWN  */
+sprite_player_1_animation_left_down_tank:
+    .byte 47
+    .byte 48
+    .byte 49
+    .byte 50
+    .byte 51
+    .byte 52
+    .byte 53
+    .byte 54
+    .byte 55
+    .byte 255
+
+
+/* Player 1 : Animation DOWN to LEFT  */
+sprite_player_1_animation_down_left_tank:
+    .byte 56
+    .byte 57
+    .byte 58
+    .byte 59
+    .byte 60
+    .byte 61
+    .byte 62
+    .byte 63
+    .byte 64
+    .byte 255
+
+/* Player 1 : Animation DOWN to RIGHT  */
+sprite_player_1_animation_down_right_tank:
+
+    .byte 65
+    .byte 66
+    .byte 67
+    .byte 68
+    .byte 69
+    .byte 70
+    .byte 71
+    .byte 72
+    .byte 73
+    .byte 255
+
+
+sprite_player_2_down_tank:
     .byte 37   // Frame 0 in Sprite pad
     .byte 255
 

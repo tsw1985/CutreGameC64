@@ -14,7 +14,7 @@ Default-segment:
   $0810-$0c08 Main Code
   $1000-$10ff Charset Attrib
   $1100-$11ff Tileset
-  $1200-$1447 Variables
+  $1200-$149d Variables
   $2000-$32bf Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
