@@ -21,6 +21,12 @@
  */
 
 
+/* Init position Player 1 to TOP */
+lda #0
+sta PLAYER_1_TANK_POSITION
+
+
+
 /* Load map #0 */
 print_map(0)
 
@@ -35,10 +41,6 @@ sprite_enable_sprite(0) // Player 1 down
 
 sprite_enable_sprite(2) // Player 2 Up
 sprite_enable_sprite(3) // Bullet Player 2
-//sprite_enable_sprite(4)
-//sprite_enable_sprite(5)
-//sprite_enable_sprite(6)
-//sprite_enable_sprite(7)
 
 
 /* Setup for sprite 1 PLAYER */
@@ -59,8 +61,8 @@ sprite_set_frame_to_sprite(24,1)*/
 /* Setup for sprite 3 PLAYER 2 */
 sprite_load_like_multicolor(2)
 sprite_set_position(2,75,140)
-sprite_set_color(2,GREEN)
-sprite_set_frame_to_sprite(12,2)
+sprite_set_color(2,BLUE)
+sprite_set_frame_to_sprite(37,2)
 /* Setup for sprite 3 */
 
 
@@ -72,35 +74,6 @@ sprite_set_frame_to_sprite(12,2)
 /* Setup for sprite 4 */
 
 
-/* Setup for sprite 5 ENEMY */
-//sprite_load_like_multicolor(4)
-//sprite_set_position(4,170,62)
-//sprite_set_color(4,ORANGE)
-//sprite_set_frame_to_sprite(0,4)
-/* Setup for sprite 5 */
-
-
-/* Setup for sprite 6 ENEMY */
-//sprite_load_like_multicolor(5)
-//sprite_set_position(5,200,215)
-//sprite_set_color(5,LIGHT_BLUE)
-//sprite_set_frame_to_sprite(0,5)
-/* Setup for sprite 6 */
-
-
-/* Setup for sprite 7 ENEMY */
-//sprite_load_like_multicolor(6)
-//sprite_set_position(6,165,230)
-//sprite_set_color(6,GRAY)
-//sprite_set_frame_to_sprite(0,6)
-/* Setup for sprite 7 */
-
-/* Setup for sprite 8 ENEMY */
-//sprite_load_like_multicolor(7)
-//sprite_set_position(7,200,120)
-//sprite_set_color(7,BLACK)
-//sprite_set_frame_to_sprite(0,7)
-/* Setup for sprite 7 */
 
 
 /*  RASTER INTERRUPT */
@@ -165,18 +138,9 @@ simulate_game_loop:
     /************************************************
         PRINT ENEMY COORDS VALUES IN COLLISION
     **************************************************/
-    
-    print_enemy_values:
-        lda SPRITE_TEMP_Y
-        sta sum_res_0
-        lda #0
-        sta sum_res_1
-        sta sum_res_2
-        sta sum_res_3
-        print_calculation_result(6,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
-
-        lda SPRITE_TEMP_X
+        // Print position PLAYER 1
+        lda PLAYER_1_TANK_POSITION
         sta sum_res_0
         lda #0
         sta sum_res_1
@@ -188,13 +152,15 @@ simulate_game_loop:
 
     /* Print with sprite is in collision */
 
-    lda SPRITE_IN_COLLISION
-    sta sum_res_0
-    lda #0
-    sta sum_res_1
-    sta sum_res_2
-    sta sum_res_3
-    print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        /*
+        lda SPRITE_IN_COLLISION
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        */
 
 
 
@@ -256,18 +222,34 @@ rts
 /////////////////////////////////////////////
 */
 joy_up:
+
+    lda #PLAYER_1_UP
+    sta PLAYER_1_TANK_POSITION
+
     jsr SPRITE_LIB.sprite_0_decrement_y
     rts
     
 joy_down:
+
+    lda #PLAYER_1_DOWN
+    sta PLAYER_1_TANK_POSITION
+
     jsr SPRITE_LIB.sprite_0_increment_y
     rts
     
 joy_left:
+
+    lda #PLAYER_1_LEFT
+    sta PLAYER_1_TANK_POSITION
+
     jsr SPRITE_LIB.sprite_0_decrement_x
     rts
     
 joy_right:
+
+    lda #PLAYER_1_RIGHT
+    sta PLAYER_1_TANK_POSITION
+
     jsr SPRITE_LIB.sprite_0_increment_x
     rts
 
@@ -298,7 +280,7 @@ joy_fire:
 
     sprite_enable_sprite(1)
     sprite_set_color(1,YELLOW)
-    sprite_set_frame_to_sprite(24,1)
+    sprite_set_frame_to_sprite(74,1) // bullet frame
 
     pull_regs_from_stack()
     rts

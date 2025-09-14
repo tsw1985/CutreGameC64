@@ -1,3 +1,12 @@
+// 0 UP
+// 1 RIGHT
+// 2 DOWN
+// 3 LEFT
+PLAYER_1_TANK_POSITION: .byte 0
+
+PLAYER_2_TANK_POSITION: .byte 0
+
+
 /* Pointer where start the sprites information, the pictures.
 Each sprite are 64 bytes. */
 SPRITE_INDEX_POINTER: .byte SPRITES_ADDRESS / $40  //  ( $3000 / 64 )
@@ -116,9 +125,9 @@ ANIMATION_FRAMES_LIST_HI: .byte 0
 
 *******************************************************************************/
 sprite_animations_list_LO_table:
-    .byte <sprite_player_down_normal_tank  // Animation for sprite 1
-    .byte <sprite_player_down_bullet_tank  // Animation for sprite 2
-    .byte <sprite_player_2_up_normal_tank  // Animation for sprite 3
+    .byte <sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
+    .byte <sprite_player_2_normal_tank  // Animation for sprite 3
     .byte <sprite_animation_1_to_10  // Animation for sprite 4
     .byte <sprite_animation_1_to_10  // Animation for sprite 5
     .byte <sprite_animation_1_to_10  // Animation for sprite 6
@@ -127,9 +136,9 @@ sprite_animations_list_LO_table:
 
     
 sprite_animations_list_HI_table:
-    .byte >sprite_player_down_normal_tank  // Animation for sprite 1
-    .byte >sprite_player_down_bullet_tank// Animation for sprite 2
-    .byte >sprite_player_2_up_normal_tank  // Animation for sprite 3
+    .byte >sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte >sprite_player_1_bullet_tank// Animation for sprite 2
+    .byte >sprite_player_2_normal_tank  // Animation for sprite 3
     .byte >sprite_animation_1_to_10  // Animation for sprite 4
     .byte >sprite_animation_1_to_10  // Animation for sprite 5
     .byte >sprite_animation_1_to_10  // Animation for sprite 6
@@ -137,9 +146,9 @@ sprite_animations_list_HI_table:
     .byte >sprite_animation_1_to_10  // Animation for sprite 8
 
 sprite_animations_list_LO_table_backup:
-    .byte <sprite_player_down_normal_tank  // Animation for sprite 1
-    .byte <sprite_player_down_bullet_tank  // Animation for sprite 2
-    .byte <sprite_player_2_up_normal_tank  // Animation for sprite 3
+    .byte <sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
+    .byte <sprite_player_2_normal_tank  // Animation for sprite 3
     .byte <sprite_animation_1_to_10  // Animation for sprite 4
     .byte <sprite_animation_1_to_10  // Animation for sprite 5
     .byte <sprite_animation_1_to_10  // Animation for sprite 6
@@ -148,9 +157,9 @@ sprite_animations_list_LO_table_backup:
 
     
 sprite_animations_list_HI_table_backup:
-    .byte >sprite_player_down_normal_tank  // Animation for sprite 1
-    .byte >sprite_player_down_bullet_tank  // Animation for sprite 2
-    .byte >sprite_player_2_up_normal_tank  // Animation for sprite 3
+    .byte >sprite_player_1_normal_tank  // Animation for sprite 1
+    .byte >sprite_player_1_bullet_tank  // Animation for sprite 2
+    .byte >sprite_player_2_normal_tank  // Animation for sprite 3
     .byte >sprite_animation_1_to_10  // Animation for sprite 4
     .byte >sprite_animation_1_to_10  // Animation for sprite 5
     .byte >sprite_animation_1_to_10  // Animation for sprite 6
@@ -233,7 +242,7 @@ animation list.
 */
 sprites_rasters_limit_table:
     .byte 50 // Speed for Sprite 1
-    .byte 100 // Speed for Sprite 2
+    .byte 100 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
@@ -244,7 +253,7 @@ sprites_rasters_limit_table:
 
 sprites_rasters_limit_table_backup:
     .byte 50 // Speed for Sprite 1
-    .byte 100 // Speed for Sprite 2
+    .byte 100 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
@@ -349,33 +358,27 @@ sprite_current_anim_HI_table:
 
 /* Animation full: count 1 to 10 */
 sprite_animation_dead:
-    .byte 10   // Frame 0 in Sprite pad
-    .byte 11  // Frame 1 in Sprite pad
+    .byte 9   // Frame 0 in Sprite pad
+    .byte 10  // Frame 1 in Sprite pad
     .byte 255 // Finish animation
 
 
-sprite_player_down_normal_tank:
+sprite_player_1_normal_tank:
     .byte 0   // Frame 0 in Sprite pad
     .byte 255
 
-sprite_player_down_bullet_tank:
-    .byte 24   // Frame 0 in Sprite pad
-    .byte 255    
-  
-
-
-
-sprite_player_2_up_normal_tank:
-    .byte 12   // Frame 0 in Sprite pad
+sprite_player_2_normal_tank:
+    .byte 37   // Frame 0 in Sprite pad
     .byte 255
 
-sprite_player_2_up_bullet_tank:
-    .byte 24   // Frame 0 in Sprite pad
+
+sprite_player_1_bullet_tank:
+    .byte 74   // Frame 0 in Sprite pad
     .byte 255    
 
-
-
-
+sprite_player_2_up_bullet_tank:
+    .byte 74   // Frame 0 in Sprite pad
+    .byte 255    
 
 
 
