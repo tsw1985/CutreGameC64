@@ -1,10 +1,26 @@
-// 0 UP
-// 1 RIGHT
-// 2 DOWN
-// 3 LEFT
-PLAYER_1_TANK_POSITION: .byte 0
+/* Variable to save the position tank player 1 */
+PLAYER_1_TANK_POSITION: .byte PLAYER_UP
 
-PLAYER_2_TANK_POSITION: .byte 0
+/* Variable to save the current position tank player 1 */
+PLAYER_1_CURRENT_POSITION: .byte PLAYER_UP 
+
+/* Variable to set if the player 1 can move. This is used in the moment of
+animation rotation. We want block the sprite movement in this rotation move.
+0 = true
+1 = false
+ */
+PLAYER_1_ALLOWED_MOVE: .byte 1
+
+
+
+
+/*
+    ------------- PLAYER 2 -------------
+ */
+
+
+/* PLAYER 2 */
+PLAYER_2_TANK_POSITION: .byte PLAYER_DOWN
 
 
 /* Pointer where start the sprites information, the pictures.
@@ -128,43 +144,43 @@ sprite_animations_list_LO_table:
     .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
     .byte <sprite_player_2_down_tank  // Animation for sprite 3
-    .byte <sprite_animation_1_to_10  // Animation for sprite 4
-    .byte <sprite_animation_1_to_10  // Animation for sprite 5
-    .byte <sprite_animation_1_to_10  // Animation for sprite 6
-    .byte <sprite_animation_1_to_10  // Animation for sprite 7
-    .byte <sprite_animation_1_to_10  // Animation for sprite 8
+    .byte 0  // Animation for sprite 4
+    .byte 0  // Animation for sprite 5
+    .byte 0  // Animation for sprite 6
+    .byte 0  // Animation for sprite 7
+    .byte 0  // Animation for sprite 8
 
     
 sprite_animations_list_HI_table:
     .byte >sprite_player_1_up_tank  // Animation for sprite 1
     .byte >sprite_player_1_bullet_tank// Animation for sprite 2
     .byte >sprite_player_2_down_tank  // Animation for sprite 3
-    .byte >sprite_animation_1_to_10  // Animation for sprite 4
-    .byte >sprite_animation_1_to_10  // Animation for sprite 5
-    .byte >sprite_animation_1_to_10  // Animation for sprite 6
-    .byte >sprite_animation_1_to_10  // Animation for sprite 7
-    .byte >sprite_animation_1_to_10  // Animation for sprite 8
+    .byte 0  // Animation for sprite 4
+    .byte 0  // Animation for sprite 5
+    .byte 0  // Animation for sprite 6
+    .byte 0  // Animation for sprite 7
+    .byte 0  // Animation for sprite 8
 
 sprite_animations_list_LO_table_backup:
     .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
     .byte <sprite_player_2_down_tank  // Animation for sprite 3
-    .byte <sprite_animation_1_to_10  // Animation for sprite 4
-    .byte <sprite_animation_1_to_10  // Animation for sprite 5
-    .byte <sprite_animation_1_to_10  // Animation for sprite 6
-    .byte <sprite_animation_1_to_10  // Animation for sprite 7
-    .byte <sprite_animation_1_to_10  // Animation for sprite 8
+    .byte 0  // Animation for sprite 4
+    .byte 0  // Animation for sprite 5
+    .byte 0  // Animation for sprite 6
+    .byte 0  // Animation for sprite 7
+    .byte 0  // Animation for sprite 8
 
     
 sprite_animations_list_HI_table_backup:
     .byte >sprite_player_1_up_tank  // Animation for sprite 1
     .byte >sprite_player_1_bullet_tank  // Animation for sprite 2
     .byte >sprite_player_2_down_tank  // Animation for sprite 3
-    .byte >sprite_animation_1_to_10  // Animation for sprite 4
-    .byte >sprite_animation_1_to_10  // Animation for sprite 5
-    .byte >sprite_animation_1_to_10  // Animation for sprite 6
-    .byte >sprite_animation_1_to_10  // Animation for sprite 7
-    .byte >sprite_animation_1_to_10  // Animation for sprite 8
+    .byte 0  // Animation for sprite 4
+    .byte 0  // Animation for sprite 5
+    .byte 0  // Animation for sprite 6
+    .byte 0  // Animation for sprite 7
+    .byte 0  // Animation for sprite 8
 
 
 /* DEAD ANIMATION FOR EACH SPRITE  */
@@ -513,25 +529,4 @@ sprite_player_1_bullet_tank:
 sprite_player_2_up_bullet_tank:
     .byte 74   // Frame 0 in Sprite pad
     .byte 255    
-
-
-
-
-
-/* Animation full: count 1 to 10 */
-sprite_animation_1_to_10:
-    .byte 0   // Frame 0 in Sprite pad
-    .byte 255
-    /*.byte 1   // Frame 1 in Sprite pad
-    .byte 2   // Frame 2 in Sprite pad
-    .byte 3   // Frame 3 in Sprite pad
-    .byte 4   // Frame 3 in Sprite pad
-    .byte 5   // Frame 0 in Sprite pad
-    .byte 6   // Frame 1 in Sprite pad
-    .byte 7   // Frame 2 in Sprite pad
-    .byte 8   // Frame 3 in Sprite pad
-    .byte 9   // Frame 3 in Sprite pad
-    .byte 255 // Finish animation*/
-
-
 

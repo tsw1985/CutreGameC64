@@ -854,8 +854,10 @@ push_regs_to_stack()
 
         */
 
+
+        /* CODE FOR CHANGING ANIMATION !!!!!! */
         //lda sprite_dead_list_LO_table,x
-        //sta sprite_animations_list_LO_table,x
+        //sta sprite_animations_list_LO_table,x //<-- X = sprite target
         
         //sta sprite_current_anim_LO_table,x 
         //lda sprite_dead_list_HI_table,x

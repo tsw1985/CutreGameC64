@@ -22,8 +22,9 @@
 
 
 /* Init position Player 1 to TOP */
-lda #0
+lda #PLAYER_UP
 sta PLAYER_1_TANK_POSITION
+
 
 
 
@@ -223,7 +224,7 @@ rts
 */
 joy_up:
 
-    lda #PLAYER_1_UP
+    lda #PLAYER_UP
     sta PLAYER_1_TANK_POSITION
 
     jsr SPRITE_LIB.sprite_0_decrement_y
@@ -231,7 +232,7 @@ joy_up:
     
 joy_down:
 
-    lda #PLAYER_1_DOWN
+    lda #PLAYER_DOWN
     sta PLAYER_1_TANK_POSITION
 
     jsr SPRITE_LIB.sprite_0_increment_y
@@ -239,7 +240,7 @@ joy_down:
     
 joy_left:
 
-    lda #PLAYER_1_LEFT
+    lda #PLAYER_LEFT
     sta PLAYER_1_TANK_POSITION
 
     jsr SPRITE_LIB.sprite_0_decrement_x
@@ -247,7 +248,7 @@ joy_left:
     
 joy_right:
 
-    lda #PLAYER_1_RIGHT
+    lda #PLAYER_RIGHT
     sta PLAYER_1_TANK_POSITION
 
     jsr SPRITE_LIB.sprite_0_increment_x
@@ -260,23 +261,40 @@ joy_fire:
     sprite_load_like_multicolor(1)
 
     // Get Y and X from Player 1
-    ldx #0
-    lda sprites_coord_table_y,x // get Y player position
-    ldx #1
-    sta sprites_coord_table_y,x
+    ldx #0 // <-- Sprite 0 . Is player
+    lda sprites_coord_table_y,x // get Y player position to put this value
+                                // in the Y of sprite 2 ( bullet)
+    
+    ldx #1 // <-- Sprite 1 . Player 1 bullet
+    sta sprites_coord_table_y,x // Save the position Y of Player in Y of bullet
+
+
+    ldx #0  // <--- Sprite 0 ( player )
+    lda sprites_coord_table_x,x // get X player position to save it in sprite 2
+
+    ldx #1  // <---- Sprite 1 ( bullet )
+    sta sprites_coord_table_x,x // Save the Player X in X of sprite 2 ( bullet )
+    sta $d002                   // writing the value directly in the Sprite 2 X
+                                // position memory
+
+
+    /* Move the bullet */
+
+    ldx #1 // Load the current Y of sprite 2 ( bullet ). 
+           // Was saved it a few lines ago
+    lda sprites_coord_table_y,x
 
     // Set Y to bullet player 1
     sta $d003 // save Y
     sec
-    sbc #10  // substract 10 px to put the buller front the tank
+    sbc #10   // substract 10 px to put the buller front the tank
     sta $d003 // mover el sprite bala en la misma Y del sprite player , 
               // para eso quitamos un poco para subirlo
+    
+    sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)             
 
-    ldx #0
-    lda sprites_coord_table_x,x // get X player position
-    ldx #1
-    sta sprites_coord_table_x,x
-    sta $d002 // save Y
+    /* End Move the bullet */
+
 
     sprite_enable_sprite(1)
     sprite_set_color(1,YELLOW)

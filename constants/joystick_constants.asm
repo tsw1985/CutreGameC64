@@ -1,3 +1,4 @@
+/* Values to check joystick positions */
 .label JOY_GO_LEFT   = %00000100
 .label JOY_GO_RIGHT  = %00001000  
 .label JOY_GO_UP     = %00000001
@@ -6,11 +7,11 @@
 
 
 /* Tank Positions */
-// 0 UP
-// 1 RIGHT
-// 2 DOWN
-// 3 LEFT
-.label PLAYER_1_UP = 1
-.label PLAYER_1_RIGHT = 2
-.label PLAYER_1_DOWN = 3
-.label PLAYER_1_LEFT = 4
+.label PLAYER_UP    = 1
+.label PLAYER_RIGHT = 2
+.label PLAYER_DOWN  = 3
+.label PLAYER_LEFT  = 4
+
+/* Constants to set true - false , if player can move */
+.label PLAYER_NOT_ALLOWED_MOVE = 1
+.label PLAYER_ALLOWED_MOVE = 0
