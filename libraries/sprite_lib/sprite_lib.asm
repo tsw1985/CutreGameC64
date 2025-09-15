@@ -577,6 +577,12 @@ actions_in_raster:
             jmp put_animation_frame_in_screen             
 
     reset_animation:
+
+
+        //check current position tank to set the normal direction
+        
+
+
        
         lda #0 // Set to 0 this index in the table
         sta sprites_current_animation_index_position_table,x
@@ -596,6 +602,15 @@ actions_in_raster:
         // frame of this sprite in the next iteration of the loop. With this
         // we create the ilusion of a infinity animation loop
         inc sprites_current_animation_index_position_table,x
+
+
+
+
+
+
+
+
+
        
     put_animation_frame_in_screen:
         
@@ -1072,8 +1087,9 @@ enable_player_1_movements:
     pull_regs_from_stack()
 rts
 
-
-/* Function Moving Player 1 */
+/******************************************************************************/
+/*                        Function Moving Player 1                            */
+/******************************************************************************/
 rotate_tank_player_1:
 
     push_regs_to_stack()

@@ -1,8 +1,18 @@
 /* Variable to save the position tank player 1 */
-PLAYER_1_TANK_POSITION: .byte PLAYER_UP
+PLAYER_1_TANK_CURRENT_DIRECTION: .byte PLAYER_UP
 
-/* Variable to save the current position tank player 1 */
-PLAYER_1_NEW_POSITION: .byte PLAYER_UP 
+/* Variable to save the NEW position tank player 1 */
+PLAYER_1_TANK_NEW_DIRECTION: .byte PLAYER_UP 
+
+PLAYER_1_TANK_ROTATED_UP:    .byte 0
+PLAYER_1_TANK_ROTATED_DOWN:  .byte 0
+PLAYER_1_TANK_ROTATED_RIGHT: .byte 0
+PLAYER_1_TANK_ROTATED_LEFT:  .byte 0
+
+
+
+
+
 
 /* Variable to set if the player 1 can move. This is used in the moment of
 animation rotation. We want block the sprite movement in this rotation move.
@@ -257,7 +267,7 @@ the frame in the current animation, this is move the the next item in the
 animation list.
 */
 sprites_rasters_limit_table:
-    .byte 5 // Speed for Sprite 1
+    .byte 50 // Speed for Sprite 1
     .byte 100 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
@@ -268,7 +278,7 @@ sprites_rasters_limit_table:
 
 
 sprites_rasters_limit_table_backup:
-    .byte 5 // Speed for Sprite 1
+    .byte 50 // Speed for Sprite 1
     .byte 100 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4

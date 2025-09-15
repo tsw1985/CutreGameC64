@@ -1,33 +1,8 @@
-/******************************************************************************
-
-    Sprites collision version RASTER.
-    
-  ===> NEW: This version , change de animation when the sprite is in collision
-
-
-    This means , the collision checking is doing into the RASTER INTERRUPT
-    and in main loop we are doing other stuffs.
-
-    NOTE: 
-  -----------------------------------------------------------------------------
-  |  The sprite movement is SLOW because we are using the print functions     |
-  |  for printing the Y-X coords of player and enemies in collision time.     |
-  |                                                                           |
-  |  If you remove this, the sprite will fly. Anyway you can play with the    |
-  |   "sleep_sprite" function .                                               |
-  |                                                                           |
-  -----------------------------------------------------------------------------
-
- */
-
-.label debug_mode = 0; // 1 ON - 0 OFF
+.label debug_mode = 1; // 1 ON - 0 OFF
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
-sta PLAYER_1_TANK_POSITION
-
-
-
+sta PLAYER_1_TANK_CURRENT_DIRECTION
 
 /* Load map #0 */
 print_map(0)
@@ -109,7 +84,6 @@ simulate_game_loop:
 
     jsr start_read_joystick
 
-
     /*****************************
         PRINT PLAYER COORDS
     ******************************/
@@ -140,7 +114,7 @@ simulate_game_loop:
     **************************************************/
 
     // Print position PLAYER 1
-    lda PLAYER_1_TANK_POSITION
+    lda PLAYER_1_TANK_CURRENT_DIRECTION
     sta sum_res_0
     lda #0
     sta sum_res_1
@@ -221,15 +195,35 @@ rts
 joy_up:
 
     lda #PLAYER_UP
-    sta PLAYER_1_TANK_POSITION
-
-    //jsr SPRITE_LIB.sprite_0_decrement_y
+    sta PLAYER_1_TANK_NEW_DIRECTION
+    jsr SPRITE_LIB.sprite_0_decrement_y
     rts
+
+joy_right:
+
+    lda #PLAYER_RIGHT
+    sta PLAYER_1_TANK_CURRENT_DIRECTION
+
+    // Si el tanque NO HA SIDO ROTADO , ROTAMOS y ponemos a 1 que fue
+    // rotado a la derecha
+    lda PLAYER_1_TANK_ROTATED_RIGHT
+    cmp #0 // si NO es rotado
+    beq rotate_right
+    jmp ignore_rotate_right
+    rotate_right:
+        jsr SPRITE_LIB.rotate_tank_player_1
+        lda #1
+        sta PLAYER_1_TANK_ROTATED_RIGHT
+
+    ignore_rotate_right:
+        jsr sprite_set_animation_rotate_tank_right
+        jsr SPRITE_LIB.sprite_0_increment_x
+rts
     
 joy_down:
 
     lda #PLAYER_DOWN
-    sta PLAYER_1_TANK_POSITION
+    sta PLAYER_1_TANK_CURRENT_DIRECTION
 
     //jsr SPRITE_LIB.sprite_0_increment_y
     rts
@@ -237,23 +231,11 @@ joy_down:
 joy_left:
 
     lda #PLAYER_LEFT
-    sta PLAYER_1_TANK_POSITION
-
-    
-
+    sta PLAYER_1_TANK_CURRENT_DIRECTION
     //jsr SPRITE_LIB.sprite_0_decrement_x
     rts
     
-joy_right:
 
-    lda #PLAYER_RIGHT
-    sta PLAYER_1_TANK_POSITION
-
-
-    jsr SPRITE_LIB.rotate_tank_player_1
-
-    //jsr SPRITE_LIB.sprite_0_increment_x
-    rts
 
 joy_fire:
 

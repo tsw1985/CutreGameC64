@@ -1,0 +1,20 @@
+Output dir: /home/lenovo1/DEVELOPER/C64/code/cutregame/game/bin
+parsing
+Got 91 errors and 0 warnings while executing:
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 4:6) Error: Unknown symbol 'PLAYER_UP'
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 5:5) Error: Unknown symbol 'PLAYER_1_TANK_CURRENT_DIRECTION'
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 8:1) Error: Macro command 'print_map' not defined
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 12:1) Error: Macro command 'sprite_set_extra_colors' not defined
+  (/home/lenovo1/DEVELOPER/C64/code/cutregame/game/cutre_game.asm 15:1) Error: Macro command 'sprite_enable_sprite' not defined
+  ...
+
+.label debug_mode = 1; // 1 ON - 0 OFF
+
+/* Init position Player 1 to TOP */
+lda #PLAYER_UP
+     ^
+
+Error: Unknown symbol 'PLAYER_UP'
+at line 4, column 6 in cutre_game.asm
+
+
