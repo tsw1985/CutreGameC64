@@ -3,8 +3,6 @@
 SPRITE_LIB:
 {
 
-    
-
     /*
         This functions increment and decrement de X and Y position for each
         sprite. 0 to 7 ( 8 Sprites )
@@ -1084,24 +1082,185 @@ rotate_tank_player_1:
     jsr block_player_1_movements
 
     /* If TANK is UP and move to Right */
+    jsr sprite_set_animation_rotate_tank_up_right    
+    //jsr sprite_set_animation_rotate_tank_up_left
     
-    ldx #0 // <--- Sprite 0
-    //sta sprite_animations_list_LO_table,x //<-- X = sprite target
-    
-    lda sprite_player_1_rotation_LO_table,x
-    sta sprite_animations_list_LO_table,x 
-
-    lda sprite_player_1_rotation_HI_table,x 
-    sta sprite_animations_list_HI_table,x
 
     pull_regs_from_stack()
     rts
-
-
-
-
-
-
-
-    
 }
+
+
+
+/* Play animation rotation: UP */
+sprite_set_animation_rotate_tank_up:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_up_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_up_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+/* Play animation rotation: RIGHT */
+sprite_set_animation_rotate_tank_right:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_right_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_right_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+
+/* Play animation rotation: LEFT */
+sprite_set_animation_rotate_tank_left:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_left_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_left_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+/* Play animation rotation: DOWN */
+sprite_set_animation_rotate_tank_down:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_down_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_down_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+
+
+/* Play animation rotation : TOP -> RIGHT  */
+sprite_set_animation_rotate_tank_up_right:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_up_right_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_up_right_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+/* Play animation rotation : TOP -> LEFT  */
+sprite_set_animation_rotate_tank_up_left:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_up_left_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_up_left_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+/* Play animation rotation : RIGHT -> UP  */
+sprite_set_animation_rotate_tank_right_up:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_right_up_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_right_up_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+/* Play animation rotation : RIGHT -> DOWN  */
+sprite_set_animation_rotate_tank_right_down:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_right_down_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_right_down_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+/* Play animation rotation : LEFT -> UP  */
+sprite_set_animation_rotate_tank_left_up:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_left_up_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_left_up_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+/* Play animation rotation : LEFT -> DOWN  */
+sprite_set_animation_rotate_tank_left_down:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_left_down_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_left_down_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+/* Play animation rotation : DOWN -> LEFT */
+sprite_set_animation_rotate_tank_down_left:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_down_left_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_down_left_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+/* Play animation rotation : DOWN -> RIGHT */
+sprite_set_animation_rotate_tank_down_right:
+push_regs_to_stack()
+
+    ldx #0 // <--- Sprite 0 Player
+    lda #<sprite_player_1_animation_down_right_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_1_animation_down_right_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+
+
+
+

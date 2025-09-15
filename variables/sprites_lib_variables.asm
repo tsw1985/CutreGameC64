@@ -206,32 +206,6 @@ sprite_dead_list_HI_table:
     .byte >sprite_animation_dead
 
 
-/* Player 1 ROTATION TABLES */
-sprite_player_1_rotation_LO_table:
-
-    .byte <sprite_player_1_animation_up_right_tank // rotation sprite 0 ( player1)
-    .byte 0
-    .byte 0 // player 2
-    .byte 0 // Bullet Player 2
-    .byte 0
-    .byte 0
-    .byte 0
-    .byte 0
-    
-
-
-
-sprite_player_1_rotation_HI_table:
-
-    .byte >sprite_player_1_animation_up_right_tank // rotation sprite 0 ( player1)
-    .byte 0
-    .byte 0 // player 2
-    .byte 0 // Bullet Player 2
-    .byte 0
-    .byte 0
-    .byte 0
-    .byte 0
-
 
 /* SPRITE STATE TABLE: 
     0 = normal
@@ -456,8 +430,8 @@ sprite_player_1_animation_up_left_tank:
     .byte 255
 
 
-/* Player 1 : Animation RIGHT to TOP  */
-sprite_player_1_animation_right_top_tank:
+/* Player 1 : Animation RIGHT to UP */
+sprite_player_1_animation_right_up_tank:
     .byte 20
     .byte 21
     .byte 22
@@ -486,8 +460,8 @@ sprite_player_1_animation_right_down_tank:
 
 
 
-/* Player 1 : Animation LEFT to TOP  */
-sprite_player_1_animation_left_top_tank:
+/* Player 1 : Animation LEFT to UP  */
+sprite_player_1_animation_left_up_tank:
 
     .byte 38
     .byte 39
