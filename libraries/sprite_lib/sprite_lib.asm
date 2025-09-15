@@ -599,10 +599,13 @@ actions_in_raster:
 
 
         set_tank_to_position:
+            // Ponemos animacion a la derecha
             jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
+            
+            //Pasamos a otro sprite
+            jmp go_to_next_sprite
 
         not_set_tank_to_position:
-
         not_is_sprite_tank_1:
         /********************* END ROTATE TANK ********************/
         
