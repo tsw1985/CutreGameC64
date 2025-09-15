@@ -201,23 +201,20 @@ joy_up:
 
 joy_right:
 
+    // Ponemos nueva direccion a donde va a apuntar el tanke
     lda #PLAYER_RIGHT
     sta PLAYER_1_TANK_CURRENT_DIRECTION
 
-    // Si el tanque NO HA SIDO ROTADO , ROTAMOS y ponemos a 1 que fue
-    // rotado a la derecha
-    lda PLAYER_1_TANK_ROTATED_RIGHT
-    cmp #0 // si NO es rotado
-    beq rotate_right
-    jmp ignore_rotate_right
-    rotate_right:
-        jsr SPRITE_LIB.rotate_tank_player_1
-        lda #1
-        sta PLAYER_1_TANK_ROTATED_RIGHT
+    // Tanke EN ROTACION
+    lda #1
+    sta PLAYER_1_TANK_IS_ROTATING       
+    
+    // Rotamos el tanque lanzando la animacion
+    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up_right    
+        
 
-    ignore_rotate_right:
-        jsr sprite_set_animation_rotate_tank_right
-        jsr SPRITE_LIB.sprite_0_increment_x
+
+
 rts
     
 joy_down:

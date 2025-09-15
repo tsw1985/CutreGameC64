@@ -521,7 +521,7 @@ actions_in_raster:
 
         process_this_sprite:
 
-            /* CHECK IF PLAYER */
+            /* CHECK IF PLAYER BALA -----------------*/
             // Player 1 fire bullet
             lda $d003 // save Y
             cmp #80  // si llego al tope, desaparecemos bala player 1
@@ -535,7 +535,9 @@ actions_in_raster:
                 sprite_disable_sprite(1)
 
             ignore_disable_bullet_player_1:
-            
+            /* END CHECK IF PLAYER BALA -----------------*/
+
+
             /* ??? Change to next frame in the animnation */
 
             // Get the LO and HI bytes values of the associated animation list
@@ -573,17 +575,39 @@ actions_in_raster:
             // we increment this value in the table, 
             inc sprites_current_animation_index_position_table,x    
 
-            // Finally we show this new slide (frame) of the animation in screen
-            jmp put_animation_frame_in_screen             
+            continue_put_animation_frame_in_screen:
+
+                // Finally we show this new slide (frame) of the animation in screen
+                jmp put_animation_frame_in_screen
+                
 
     reset_animation:
 
+        /********************* ROTATE TANK ********************/
+        // Si es el Sprite 0 y esta en rotacion, ponemos el tanque a la derecha
+        lda SPRITE_INDEX_COUNTER_RASTER_LOOP
+        cmp #0  // <---- Sprite 0 Tank 1
+        beq is_sprite_tank_1
+        jmp not_is_sprite_tank_1
 
-        //check current position tank to set the normal direction
+        is_sprite_tank_1:
+            // ¿ estaba en rotacion ?
+            lda PLAYER_1_TANK_IS_ROTATING        
+            cmp #1   // ¿ Estaba en rotacion ? Si , ya termino , por lo ponemos el tanque a la derecha
+            beq set_tank_to_position
+            jmp not_set_tank_to_position
+
+
+        set_tank_to_position:
+            jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
+
+        not_set_tank_to_position:
+
+        not_is_sprite_tank_1:
+        /********************* END ROTATE TANK ********************/
         
-
-
-       
+        reset_index_sprite_index_table:
+        
         lda #0 // Set to 0 this index in the table
         sta sprites_current_animation_index_position_table,x
        
@@ -596,22 +620,16 @@ actions_in_raster:
 
         sta SPRITE_ANIMATION_VALUE_OFFSET
         jsr SPRITE_LIB.sprite_get_current_index_sprite_pad_value_animation
+        
 
         // Finally we increment the value of: 
         // "sprites_current_animation_index_position_table" to show the next
         // frame of this sprite in the next iteration of the loop. With this
         // we create the ilusion of a infinity animation loop
         inc sprites_current_animation_index_position_table,x
+        
 
 
-
-
-
-
-
-
-
-       
     put_animation_frame_in_screen:
         
         // If we are NOT in the LIMIT of the animation list ( final slide )
@@ -640,7 +658,9 @@ actions_in_raster:
 
         cpx #0
         bne x_1
-        
+
+
+
         jsr SPRITE_LIB.set_frame_to_sprite_0
         jmp reset_sprite_raster_counter_in_current_sprite
 
@@ -1087,27 +1107,12 @@ enable_player_1_movements:
     pull_regs_from_stack()
 rts
 
-/******************************************************************************/
-/*                        Function Moving Player 1                            */
-/******************************************************************************/
-rotate_tank_player_1:
-
-    push_regs_to_stack()
-
-    // Block movement player 1
-    jsr block_player_1_movements
-
-    /* If TANK is UP and move to Right */
-    jsr sprite_set_animation_rotate_tank_up_right    
-    //jsr sprite_set_animation_rotate_tank_up_left
-    
-
-    pull_regs_from_stack()
-    rts
-}
 
 
 
+/**********************************/
+/*          ANIMATIONS            */
+/**********************************/
 /* Play animation rotation: UP */
 sprite_set_animation_rotate_tank_up:
 push_regs_to_stack()
@@ -1280,3 +1285,37 @@ rts
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
