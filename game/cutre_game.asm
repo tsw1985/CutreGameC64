@@ -20,6 +20,7 @@
 
  */
 
+.label debug_mode = 0; // 1 ON - 0 OFF
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
@@ -114,6 +115,8 @@ simulate_game_loop:
     ******************************/
 
     /*   Y   */
+
+    .if(debug_mode == 1){
     
     lda SPRITE_CENTER_PLAYER_POS_Y
     sta sum_res_0
@@ -122,10 +125,8 @@ simulate_game_loop:
     sta sum_res_2
     sta sum_res_3
     print_calculation_result(3,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
-    
-    
+
     /*  X */
-    
     lda SPRITE_CENTER_PLAYER_POS_X
     sta sum_res_0
     lda #0
@@ -134,22 +135,18 @@ simulate_game_loop:
     sta sum_res_3
     print_calculation_result(4,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
     
-
-
     /************************************************
         PRINT ENEMY COORDS VALUES IN COLLISION
     **************************************************/
 
-        // Print position PLAYER 1
-        lda PLAYER_1_TANK_POSITION
-        sta sum_res_0
-        lda #0
-        sta sum_res_1
-        sta sum_res_2
-        sta sum_res_3
-        print_calculation_result(7,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
-
-
+    // Print position PLAYER 1
+    lda PLAYER_1_TANK_POSITION
+    sta sum_res_0
+    lda #0
+    sta sum_res_1
+    sta sum_res_2
+    sta sum_res_3
+    print_calculation_result(7,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
     /* Print with sprite is in collision */
 
@@ -162,8 +159,7 @@ simulate_game_loop:
         sta sum_res_3
         print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
         */
-
-
+}
 
 jmp simulate_game_loop
 
@@ -227,7 +223,7 @@ joy_up:
     lda #PLAYER_UP
     sta PLAYER_1_TANK_POSITION
 
-    jsr SPRITE_LIB.sprite_0_decrement_y
+    //jsr SPRITE_LIB.sprite_0_decrement_y
     rts
     
 joy_down:
@@ -235,7 +231,7 @@ joy_down:
     lda #PLAYER_DOWN
     sta PLAYER_1_TANK_POSITION
 
-    jsr SPRITE_LIB.sprite_0_increment_y
+    //jsr SPRITE_LIB.sprite_0_increment_y
     rts
     
 joy_left:
@@ -243,7 +239,9 @@ joy_left:
     lda #PLAYER_LEFT
     sta PLAYER_1_TANK_POSITION
 
-    jsr SPRITE_LIB.sprite_0_decrement_x
+    
+
+    //jsr SPRITE_LIB.sprite_0_decrement_x
     rts
     
 joy_right:
@@ -251,7 +249,10 @@ joy_right:
     lda #PLAYER_RIGHT
     sta PLAYER_1_TANK_POSITION
 
-    jsr SPRITE_LIB.sprite_0_increment_x
+
+    jsr SPRITE_LIB.rotate_tank_player_1
+
+    //jsr SPRITE_LIB.sprite_0_increment_x
     rts
 
 joy_fire:
@@ -279,7 +280,6 @@ joy_fire:
 
 
     /* Move the bullet */
-
     ldx #1 // Load the current Y of sprite 2 ( bullet ). 
            // Was saved it a few lines ago
     lda sprites_coord_table_y,x
@@ -292,9 +292,7 @@ joy_fire:
               // para eso quitamos un poco para subirlo
     
     sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)             
-
     /* End Move the bullet */
-
 
     sprite_enable_sprite(1)
     sprite_set_color(1,YELLOW)

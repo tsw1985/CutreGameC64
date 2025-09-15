@@ -2,6 +2,9 @@
 
 SPRITE_LIB:
 {
+
+    
+
     /*
         This functions increment and decrement de X and Y position for each
         sprite. 0 to 7 ( 8 Sprites )
@@ -535,7 +538,6 @@ actions_in_raster:
 
             ignore_disable_bullet_player_1:
             
-
             /* ??? Change to next frame in the animnation */
 
             // Get the LO and HI bytes values of the associated animation list
@@ -549,7 +551,6 @@ actions_in_raster:
 
             // Once we have the address of this list ...
             lda sprites_current_animation_index_position_table,x
-
 
 
             // We save the value in the next variable ...
@@ -859,7 +860,7 @@ push_regs_to_stack()
         //lda sprite_dead_list_LO_table,x
         //sta sprite_animations_list_LO_table,x //<-- X = sprite target
         
-        //sta sprite_current_anim_LO_table,x 
+        //sta sprite_current_anim_HI_table,x 
         //lda sprite_dead_list_HI_table,x
 
         //sta sprite_animations_list_HI_table,x
@@ -921,9 +922,7 @@ push_regs_to_stack()
         skip_exit_check_collision:
 
 
-
         // Put the sprite in normal state
-
         /* Set sprite to normal animation and retet if from zero. 
         To achive this, we get the original values of the HI and LO (pointer) 
         saved into the backup tables.  */
@@ -1050,6 +1049,57 @@ push_regs_to_stack()
 
 pull_regs_from_stack()
 rts
+
+
+/* Block player 1 movements */
+block_player_1_movements:
+    push_regs_to_stack()
+
+    // Block movements of player 1 because here is a rotation
+    lda #PLAYER_NOT_ALLOWED_MOVE
+    sta PLAYER_1_ALLOWED_MOVE
+
+    pull_regs_from_stack()
+rts
+
+
+/* Unblock player 1 movements */
+enable_player_1_movements:
+    push_regs_to_stack()
+
+    // Block movements of player 1 because here is a rotation
+    lda #PLAYER_ALLOWED_MOVE
+    sta PLAYER_1_ALLOWED_MOVE
+
+    pull_regs_from_stack()
+rts
+
+
+/* Function Moving Player 1 */
+rotate_tank_player_1:
+
+    push_regs_to_stack()
+
+    // Block movement player 1
+    jsr block_player_1_movements
+
+    /* If TANK is UP and move to Right */
+    
+    ldx #0 // <--- Sprite 0
+    //sta sprite_animations_list_LO_table,x //<-- X = sprite target
+    
+    lda sprite_player_1_rotation_LO_table,x
+    sta sprite_animations_list_LO_table,x 
+
+    lda sprite_player_1_rotation_HI_table,x 
+    sta sprite_animations_list_HI_table,x
+
+    pull_regs_from_stack()
+    rts
+
+
+
+
 
 
 
