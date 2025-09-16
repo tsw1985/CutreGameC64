@@ -10,6 +10,7 @@ PLAYER_1_TANK_FIRED_IN_RIGHT: .byte 0
 PLAYER_1_TANK_FIRED_IN_LEFT:  .byte 0
 PLAYER_1_TANK_FIRED_IN_DOWN:  .byte 0
 PLAYER_1_TANK_FIRED_IN_UP:    .byte 0
+PLAYER_1_TANK_IS_FIRING: .byte 0
 
 
 
@@ -268,7 +269,7 @@ animation list.
 */
 sprites_rasters_limit_table:
     .byte 1 // Speed for Sprite 1
-    .byte 100 // Speed for Sprite 2 Bullet Player 1
+    .byte 1 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
@@ -279,7 +280,7 @@ sprites_rasters_limit_table:
 
 sprites_rasters_limit_table_backup:
     .byte 1 // Speed for Sprite 1
-    .byte 100 // Speed for Sprite 2 Bullet Player 1
+    .byte 1 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
@@ -559,10 +560,10 @@ sprite_player_2_down_tank:
 
 
 sprite_player_1_bullet_tank:
-    .byte 74   // Frame 0 in Sprite pad
+    .byte 75   // Frame 0 in Sprite pad
     .byte 255    
 
 sprite_player_2_up_bullet_tank:
-    .byte 74   // Frame 0 in Sprite pad
+    .byte 75   // Frame 0 in Sprite pad
     .byte 255    
 

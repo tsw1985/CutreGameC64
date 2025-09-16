@@ -207,6 +207,10 @@ rts
 */
 joy_up:
 
+    lda PLAYER_1_TANK_IS_FIRING
+    cmp #1
+    beq skip_joy_up
+
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
 
@@ -220,54 +224,18 @@ joy_up:
     // put animation
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up
 
+
+    skip_joy_up:
+
     // move to left
     jsr SPRITE_LIB.sprite_0_decrement_y
     rts
 
-
-joy_right:
-
-
-    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
-
-    // set new tank direction
-    lda #PLAYER_RIGHT
-    sta PLAYER_1_TANK_FIRED_IN_RIGHT
-
-    //reset index frame to 0 for Sprite 0 ( player 1)
-    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
-
-    // Rotamos el tanque lanzando la animacion
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
-
-    // Move to right
-    jsr SPRITE_LIB.sprite_0_increment_x
-
-rts
-
-
-    
-joy_down:
-
-    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
-
-
-    // set new tank direction
-    lda #PLAYER_DOWN
-    sta PLAYER_1_TANK_FIRED_IN_DOWN
-
-    // reset index frame to 0 for Sprite 0 ( player 1)
-    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
-
-    // Rotamos el tanque lanzando la animacion
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down
-
-    // move to down
-    jsr SPRITE_LIB.sprite_0_increment_y
-    rts
-
-
 joy_left:
+
+    lda PLAYER_1_TANK_IS_FIRING
+    cmp #1
+    beq skip_joy_left
 
 
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
@@ -282,13 +250,78 @@ joy_left:
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_left
 
+    skip_joy_left:
     // move to left
     jsr SPRITE_LIB.sprite_0_decrement_x
+
     rts
+
+
+
+joy_right:
+
+    lda PLAYER_1_TANK_IS_FIRING
+    cmp #1
+    beq skip_joy_right
+
+
+    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
+    // set new tank direction
+    lda #PLAYER_RIGHT
+    sta PLAYER_1_TANK_FIRED_IN_RIGHT
+
+    //reset index frame to 0 for Sprite 0 ( player 1)
+    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+
+    // Rotamos el tanque lanzando la animacion
+    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
+
+    skip_joy_right:
+    // Move to right
+    jsr SPRITE_LIB.sprite_0_increment_x
+
+
+rts
+
+
+    
+joy_down:
+
+    lda PLAYER_1_TANK_IS_FIRING
+    cmp #1
+    beq skip_joy_down
+
+    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
+
+    // set new tank direction
+    lda #PLAYER_DOWN
+    sta PLAYER_1_TANK_FIRED_IN_DOWN
+
+    // reset index frame to 0 for Sprite 0 ( player 1)
+    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+
+    // Rotamos el tanque lanzando la animacion
+    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down
+
+    skip_joy_down:
+
+    // move to down
+    jsr SPRITE_LIB.sprite_0_increment_y
+
+    rts
+
+
 
 joy_fire:
 
     push_regs_to_stack()
+
+    lda PLAYER_1_TANK_IS_FIRING
+    cmp #1
+    beq skip_fire
+
 
     sprite_load_like_multicolor(1)
     sprite_enable_sprite(1)
@@ -298,8 +331,17 @@ joy_fire:
     // Reset current direction when the user press fire button
     //jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
+
+    // Tank is firing
+    lda #1
+    sta PLAYER_1_TANK_IS_FIRING
+
+
+
     // Draw bullet
     jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
+
+    skip_fire:
 
     pull_regs_from_stack()
     rts
