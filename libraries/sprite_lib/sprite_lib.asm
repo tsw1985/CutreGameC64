@@ -583,32 +583,6 @@ actions_in_raster:
 
     reset_animation:
 
-        /********************* ROTATE TANK ********************/
-        // Si es el Sprite 0 y esta en rotacion, ponemos el tanque a la derecha
-        lda SPRITE_INDEX_COUNTER_RASTER_LOOP
-        cmp #0  // <---- Sprite 0 Tank 1
-        beq is_sprite_tank_1
-        jmp not_is_sprite_tank_1
-
-        is_sprite_tank_1:
-            // ¿ estaba en rotacion ?
-            lda PLAYER_1_TANK_IS_ROTATING        
-            cmp #1   // ¿ Estaba en rotacion ? Si , ya termino , por lo ponemos el tanque a la derecha
-            beq set_tank_to_position
-            jmp not_set_tank_to_position
-
-
-        set_tank_to_position:
-            // Ponemos animacion a la derecha
-            jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
-            
-            //Pasamos a otro sprite
-            jmp go_to_next_sprite
-
-        not_set_tank_to_position:
-        not_is_sprite_tank_1:
-        /********************* END ROTATE TANK ********************/
-        
         reset_index_sprite_index_table:
         
         lda #0 // Set to 0 this index in the table
@@ -631,7 +605,6 @@ actions_in_raster:
         // we create the ilusion of a infinity animation loop
         inc sprites_current_animation_index_position_table,x
         
-
 
     put_animation_frame_in_screen:
         
@@ -661,8 +634,6 @@ actions_in_raster:
 
         cpx #0
         bne x_1
-
-
 
         jsr SPRITE_LIB.set_frame_to_sprite_0
         jmp reset_sprite_raster_counter_in_current_sprite
@@ -719,7 +690,6 @@ actions_in_raster:
 
         exit_sprites_loop:
 
-
         /* Call to check collision in any sprite */
         /* This loop is execute in the last part of the RASTER Interrupt.
            Here we retrieve each sprite ( from 1 to 7. Sprite 0 is player )
@@ -742,6 +712,19 @@ actions_in_raster:
 
 jmp INTERRUPT_RETURN // $ea81 - Return from interrupt
 
+
+
+/* Reset to 0 sprite index Player 1 */
+sprite_reset_0_sprite_index_player_1:
+push_regs_to_stack()
+
+    ldx #0
+    lda #0 // Set to 0 this index in the table
+    sta sprites_current_animation_index_position_table,x
+
+
+pull_regs_from_stack()
+rts
 
 
 
