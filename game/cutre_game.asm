@@ -144,7 +144,7 @@ start_read_joystick:
 
     push_regs_to_stack()
 
-    /* clean screen */
+    /* lag move sprite in screen */
     jsr sleep_sprite
 
     /* read joystick positions */
@@ -180,6 +180,7 @@ start_read_joystick:
         and #JOY_GO_FIRE
         beq end_read_joystick
         jsr joy_fire
+
 
     end_read_joystick:
 
@@ -308,9 +309,20 @@ sleep_sprite:
 
     push_regs_to_stack()
 
-    ldx #25 //25
+    .if(debug_mode == 0){    
+        ldx #25
+     }
+    .if(debug_mode == 1){    
+        ldx #40
+    }
+
     sleep_sprite_outer_loop:
-        ldy #25 //25
+        .if(debug_mode == 0){    
+            ldy #25
+        }
+        .if(debug_mode == 1){    
+            ldy #40
+        }
     sleep_sprite_inner_loop:
         nop
         dey

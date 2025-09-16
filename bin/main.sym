@@ -293,7 +293,8 @@
 .label MAP_TEMP_Y=$14a2
 .label div_num1_0=$1251
 .label ZERO_PAGE_ROW_COLOR_HIGHT_BYTE=$25
-.label sleep_sprite_outer_loop=$c0d
+.label sleep_sprite_outer_loop=$c0d {
+}
 .label div_num1_1=$1252
 .label PLAYER_NOT_ALLOWED_MOVE=$1
 .label CHARSET_ATTRIB_ADDRESS=$1000
