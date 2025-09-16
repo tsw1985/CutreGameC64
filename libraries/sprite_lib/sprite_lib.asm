@@ -718,16 +718,11 @@ jmp INTERRUPT_RETURN // $ea81 - Return from interrupt
 sprite_reset_0_sprite_index_player_1:
 push_regs_to_stack()
 
+    sei
     ldx #0
     lda #0 // Set to 0 this index in the table
-    //sta sprites_raster_counters_table,x
     sta sprites_current_animation_index_position_table,x
-
-
-    //lda #4
-    //sta sprites_rasters_limit_table,x
-
-
+    cli
 
 pull_regs_from_stack()
 rts

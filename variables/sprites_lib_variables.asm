@@ -267,7 +267,7 @@ the frame in the current animation, this is move the the next item in the
 animation list.
 */
 sprites_rasters_limit_table:
-    .byte 15 // Speed for Sprite 1
+    .byte 1 // Speed for Sprite 1
     .byte 100 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
@@ -278,7 +278,7 @@ sprites_rasters_limit_table:
 
 
 sprites_rasters_limit_table_backup:
-    .byte 15 // Speed for Sprite 1
+    .byte 1 // Speed for Sprite 1
     .byte 100 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4

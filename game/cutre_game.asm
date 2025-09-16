@@ -1,4 +1,4 @@
-.label debug_mode = 1; // 1 ON - 0 OFF
+.label debug_mode = 0; // 1 ON - 0 OFF
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
@@ -84,6 +84,9 @@ simulate_game_loop:
 
     jsr start_read_joystick
 
+    /* lag move sprite in screen */
+    jsr sleep_sprite
+
     /*****************************
         PRINT PLAYER COORDS
     ******************************/
@@ -145,7 +148,7 @@ start_read_joystick:
     push_regs_to_stack()
 
     /* lag move sprite in screen */
-    jsr sleep_sprite
+    //jsr sleep_sprite
 
     /* read joystick positions */
     jsr JOYSTICK_LIB.read_joystick
@@ -310,7 +313,7 @@ sleep_sprite:
     push_regs_to_stack()
 
     .if(debug_mode == 0){    
-        ldx #25
+        ldx #50
      }
     .if(debug_mode == 1){    
         ldx #40
@@ -318,7 +321,7 @@ sleep_sprite:
 
     sleep_sprite_outer_loop:
         .if(debug_mode == 0){    
-            ldy #25
+            ldy #50
         }
         .if(debug_mode == 1){    
             ldy #40
