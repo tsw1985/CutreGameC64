@@ -4,11 +4,13 @@ PLAYER_1_TANK_CURRENT_DIRECTION: .byte PLAYER_UP
 /* Variable to save the NEW position tank player 1 */
 PLAYER_1_TANK_NEW_DIRECTION: .byte PLAYER_UP 
 
-PLAYER_1_TANK_ROTATED_UP:    .byte 0
-PLAYER_1_TANK_ROTATED_DOWN:  .byte 0
 PLAYER_1_TANK_ROTATED_RIGHT: .byte 0
 PLAYER_1_TANK_ROTATED_LEFT:  .byte 0
-PLAYER_1_TANK_IS_ROTATING: .byte 0
+PLAYER_1_TANK_ROTATED_DOWN:  .byte 0
+PLAYER_1_TANK_ROTATED_UP:    .byte 0
+
+
+PLAYER_1_TANK_IS_ROTATING:   .byte 0
 
 
 
@@ -395,6 +397,12 @@ sprite_player_1_up_tank:
     .byte 255
 
 
+/* Player 1 UP  + RIGHT*/
+sprite_player_1_up_and_right_tank:
+    .byte 4   // Frame 0 in Sprite pad
+    .byte 255
+
+
 /* Player 1 RIGHT */
 sprite_player_1_right_tank:
     .byte 8   // Frame 0 in Sprite pad
@@ -405,11 +413,31 @@ sprite_player_1_down_tank:
     .byte 37   // Frame 0 in Sprite pad
     .byte 255
 
+/* Player 1 DOWN + RIGHT*/
+sprite_player_1_down_and_right_tank:
+    .byte 33   // Frame 0 in Sprite pad
+    .byte 255
+
 
 /* Player 1 LEFT */
 sprite_player_1_left_tank:
     .byte 19   // Frame 0 in Sprite pad
-    .byte 255        
+    .byte 255
+
+
+/* Player 1 DOWN + LEFT */
+sprite_player_1_down_and_left_tank:
+    .byte 51   // Frame 0 in Sprite pad
+    .byte 255
+
+
+/* Player 1 UP  + LEFT */
+sprite_player_1_up_and_left_tank:
+    .byte 15   // Frame 0 in Sprite pad
+    .byte 255
+
+
+
 
 
 /* Player 1 : Animation UP to RIGHT  */

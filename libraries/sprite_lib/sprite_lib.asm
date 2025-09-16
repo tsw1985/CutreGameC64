@@ -728,6 +728,40 @@ pull_regs_from_stack()
 rts
 
 
+/* 
+    Reset all positions
+*/
+sprite_reset_current_directions:
+push_regs_to_stack()
+
+    lda #0
+    sta PLAYER_1_TANK_ROTATED_RIGHT
+    sta PLAYER_1_TANK_ROTATED_LEFT
+    sta PLAYER_1_TANK_ROTATED_DOWN
+    sta PLAYER_1_TANK_ROTATED_UP
+
+pull_regs_from_stack()
+rts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

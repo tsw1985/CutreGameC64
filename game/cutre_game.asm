@@ -84,6 +84,9 @@ simulate_game_loop:
 
     jsr start_read_joystick
 
+
+    //jsr SPRITE_LIB.sprite_reset_current_directions
+
     /* lag move sprite in screen */
     jsr sleep_sprite
 
@@ -159,24 +162,28 @@ start_read_joystick:
     and #JOY_GO_LEFT 
     beq check_joy_right 
     jsr joy_left
+    jmp check_joy_fire
 
     check_joy_right:
         lda JOYSTICK_POSITIONS
         and #JOY_GO_RIGHT
         beq check_joy_up
         jsr joy_right
+        jmp check_joy_fire
 
     check_joy_up:
         lda JOYSTICK_POSITIONS
         and #JOY_GO_UP
         beq check_joy_down
         jsr joy_up
+        jmp check_joy_fire
 
     check_joy_down:
         lda JOYSTICK_POSITIONS
         and #JOY_GO_DOWN
         beq check_joy_fire
         jsr joy_down
+        jmp check_joy_fire
 
     check_joy_fire:
         lda JOYSTICK_POSITIONS
@@ -200,7 +207,7 @@ joy_up:
 
     // set new tank direction
     lda #PLAYER_UP
-    sta PLAYER_1_TANK_NEW_DIRECTION
+    sta PLAYER_1_TANK_ROTATED_UP
 
     //reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -212,11 +219,12 @@ joy_up:
     jsr SPRITE_LIB.sprite_0_decrement_y
     rts
 
+
 joy_right:
 
     // set new tank direction
     lda #PLAYER_RIGHT
-    sta PLAYER_1_TANK_CURRENT_DIRECTION
+    sta PLAYER_1_TANK_ROTATED_RIGHT
 
     //reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -228,12 +236,14 @@ joy_right:
     jsr SPRITE_LIB.sprite_0_increment_x
 
 rts
+
+
     
 joy_down:
 
     // set new tank direction
     lda #PLAYER_DOWN
-    sta PLAYER_1_TANK_CURRENT_DIRECTION
+    sta PLAYER_1_TANK_ROTATED_DOWN
 
     // reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -244,13 +254,13 @@ joy_down:
     // move to down
     jsr SPRITE_LIB.sprite_0_increment_y
     rts
-    
-joy_left:
 
+
+joy_left:
 
     // set new tank direction
     lda #PLAYER_LEFT
-    sta PLAYER_1_TANK_CURRENT_DIRECTION
+    sta PLAYER_1_TANK_ROTATED_LEFT
 
     // reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
