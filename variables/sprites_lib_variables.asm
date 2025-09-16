@@ -1,17 +1,15 @@
-/* Variable to save the position tank player 1 */
+/* Variables to save the position tank player 1 */
 PLAYER_1_TANK_CURRENT_DIRECTION: .byte PLAYER_UP
 
-/* Variable to save the NEW position tank player 1 */
+/* Variables to save the NEW position tank player 1 */
 PLAYER_1_TANK_NEW_DIRECTION: .byte PLAYER_UP 
-
-PLAYER_1_TANK_ROTATED_RIGHT: .byte 0
-PLAYER_1_TANK_ROTATED_LEFT:  .byte 0
-PLAYER_1_TANK_ROTATED_DOWN:  .byte 0
-PLAYER_1_TANK_ROTATED_UP:    .byte 0
-
-
 PLAYER_1_TANK_IS_ROTATING:   .byte 0
 
+/* Variables to save the position when the player press fire button */
+PLAYER_1_TANK_FIRED_IN_RIGHT: .byte 0
+PLAYER_1_TANK_FIRED_IN_LEFT:  .byte 0
+PLAYER_1_TANK_FIRED_IN_DOWN:  .byte 0
+PLAYER_1_TANK_FIRED_IN_UP:    .byte 0
 
 
 

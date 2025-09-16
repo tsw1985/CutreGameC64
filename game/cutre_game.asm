@@ -1,4 +1,4 @@
-.label debug_mode = 0; // 1 ON - 0 OFF
+.label debug_mode = 1; // 1 ON - 0 OFF
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
@@ -85,7 +85,9 @@ simulate_game_loop:
     jsr start_read_joystick
 
 
-    //jsr SPRITE_LIB.sprite_reset_current_directions
+    /* Move bullets tanks */ 
+    jsr SPRITE_LIB.sprite_move_bullets_tank_1
+
 
     /* lag move sprite in screen */
     jsr sleep_sprite
@@ -205,9 +207,12 @@ rts
 */
 joy_up:
 
+    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
+
     // set new tank direction
     lda #PLAYER_UP
-    sta PLAYER_1_TANK_ROTATED_UP
+    sta PLAYER_1_TANK_FIRED_IN_UP
 
     //reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -222,9 +227,12 @@ joy_up:
 
 joy_right:
 
+
+    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
     // set new tank direction
     lda #PLAYER_RIGHT
-    sta PLAYER_1_TANK_ROTATED_RIGHT
+    sta PLAYER_1_TANK_FIRED_IN_RIGHT
 
     //reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -241,9 +249,12 @@ rts
     
 joy_down:
 
+    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
+
     // set new tank direction
     lda #PLAYER_DOWN
-    sta PLAYER_1_TANK_ROTATED_DOWN
+    sta PLAYER_1_TANK_FIRED_IN_DOWN
 
     // reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -258,9 +269,12 @@ joy_down:
 
 joy_left:
 
+
+    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
     // set new tank direction
     lda #PLAYER_LEFT
-    sta PLAYER_1_TANK_ROTATED_LEFT
+    sta PLAYER_1_TANK_FIRED_IN_LEFT
 
     // reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
@@ -277,43 +291,15 @@ joy_fire:
     push_regs_to_stack()
 
     sprite_load_like_multicolor(1)
-
-    // Get Y and X from Player 1
-    ldx #0 // <-- Sprite 0 . Is player
-    lda sprites_coord_table_y,x // get Y player position to put this value
-                                // in the Y of sprite 2 ( bullet)
-    
-    ldx #1 // <-- Sprite 1 . Player 1 bullet
-    sta sprites_coord_table_y,x // Save the position Y of Player in Y of bullet
-
-
-    ldx #0  // <--- Sprite 0 ( player )
-    lda sprites_coord_table_x,x // get X player position to save it in sprite 2
-
-    ldx #1  // <---- Sprite 1 ( bullet )
-    sta sprites_coord_table_x,x // Save the Player X in X of sprite 2 ( bullet )
-    sta $d002                   // writing the value directly in the Sprite 2 X
-                                // position memory
-
-
-    /* Move the bullet */
-    ldx #1 // Load the current Y of sprite 2 ( bullet ). 
-           // Was saved it a few lines ago
-    lda sprites_coord_table_y,x
-
-    // Set Y to bullet player 1
-    sta $d003 // save Y
-    sec
-    sbc #10   // substract 10 px to put the buller front the tank
-    sta $d003 // mover el sprite bala en la misma Y del sprite player , 
-              // para eso quitamos un poco para subirlo
-    
-    sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)             
-    /* End Move the bullet */
-
     sprite_enable_sprite(1)
     sprite_set_color(1,YELLOW)
     sprite_set_frame_to_sprite(74,1) // bullet frame
+
+    // Reset current direction when the user press fire button
+    //jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+
+    // Draw bullet
+    jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
 
     pull_regs_from_stack()
     rts
