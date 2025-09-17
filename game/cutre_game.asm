@@ -1,4 +1,4 @@
-.label debug_mode = 1; // 1 ON - 0 OFF
+.label debug_mode = 0; // 1 ON - 0 OFF
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
@@ -86,7 +86,7 @@ simulate_game_loop:
 
 
     /* Move bullets tanks */ 
-    jsr SPRITE_LIB.sprite_move_bullets_tank_1
+    //jsr SPRITE_LIB.sprite_move_bullets_tank_1
 
 
     /* lag move sprite in screen */
@@ -218,14 +218,12 @@ joy_up:
     lda #PLAYER_UP
     sta PLAYER_1_TANK_FIRED_IN_UP
 
+    skip_joy_up:
     //reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // put animation
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up
-
-
-    skip_joy_up:
 
     // move to left
     jsr SPRITE_LIB.sprite_0_decrement_y
@@ -244,14 +242,15 @@ joy_left:
     lda #PLAYER_LEFT
     sta PLAYER_1_TANK_FIRED_IN_LEFT
 
+    // move to left
+    skip_joy_left:
+
     // reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_left
 
-    skip_joy_left:
-    // move to left
     jsr SPRITE_LIB.sprite_0_decrement_x
 
     rts
@@ -271,13 +270,13 @@ joy_right:
     lda #PLAYER_RIGHT
     sta PLAYER_1_TANK_FIRED_IN_RIGHT
 
+    skip_joy_right:
     //reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
 
-    skip_joy_right:
     // Move to right
     jsr SPRITE_LIB.sprite_0_increment_x
 
@@ -299,13 +298,14 @@ joy_down:
     lda #PLAYER_DOWN
     sta PLAYER_1_TANK_FIRED_IN_DOWN
 
+    
+    skip_joy_down:
     // reset index frame to 0 for Sprite 0 ( player 1)
     jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down
 
-    skip_joy_down:
 
     // move to down
     jsr SPRITE_LIB.sprite_0_increment_y

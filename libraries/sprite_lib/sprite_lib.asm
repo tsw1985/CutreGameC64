@@ -676,6 +676,12 @@ actions_in_raster:
 
         exit_sprites_loop:
 
+
+        // Move bullets
+        jsr SPRITE_LIB.sprite_move_bullets_tank_1
+
+
+
         /* Call to check collision in any sprite */
         /* This loop is execute in the last part of the RASTER Interrupt.
            Here we retrieve each sprite ( from 1 to 7. Sprite 0 is player )
@@ -726,12 +732,12 @@ push_regs_to_stack()
     move_bullet_to_up:
 
         lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #80   // si llego al tope, o colisiona con alguna pared ( de momento 
+        cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
 
         bcc bullet_limit_top               // si la bala llega a 80 px de alto
         sec
-        sbc #15                         // decrement Y of bullet sprite player 1
+        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d003
         jmp exit_move_bullet_tank_1
 
@@ -749,12 +755,12 @@ push_regs_to_stack()
     move_bullet_to_down:
 
         lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #235   // si llego al tope, o colisiona con alguna pared ( de momento 
+        cmp #225   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
 
         bcs bullet_limit_bottom               // si la bala llega a 80 px de alto
         clc
-        adc #15                         // decrement Y of bullet sprite player 1
+        adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d003
         jmp exit_move_bullet_tank_1
 
@@ -771,12 +777,12 @@ push_regs_to_stack()
     move_bullet_to_left:
 
         lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #60   // si llego al tope, o colisiona con alguna pared ( de momento 
+        cmp #40   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
 
         bcc bullet_limit_left               // si la bala llega a 80 px de alto
         sec
-        sbc #15                         // decrement Y of bullet sprite player 1
+        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d002
         jmp exit_move_bullet_tank_1
 
@@ -794,12 +800,12 @@ push_regs_to_stack()
     move_bullet_to_right:
 
         lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #230   // si llego al tope, o colisiona con alguna pared ( de momento 
+        cmp #240   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
 
         bcs bullet_limit_right               // si la bala llega a 80 px de alto
         sec
-        adc #15                         // decrement Y of bullet sprite player 1
+        adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d002
         jmp exit_move_bullet_tank_1
 
@@ -857,10 +863,12 @@ push_regs_to_stack()
         /* Set Y to bullet player 1 */
         sta $d003           // save Y MEM of sprite 1
         
-        //sec
-        //sbc #10             // substract 10 px to put the buller front the tank
-        //sta $d003           // mover el sprite bala en la misma Y del sprite 
-                            // player , para eso quitamos un poco para subirlo
+
+        lda $d002
+        sec
+        sbc #3      // 10 px    
+        sta $d002   // move X to left to adjust the bullet from the tank       
+                            
 
         ldx #1        
         sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
@@ -875,9 +883,9 @@ push_regs_to_stack()
 
         /* Set Y to bullet player 1 */
         sta $d003           // save Y MEM of sprite 1
-        //clc
-        //adc #10             // substract 10 px to put the buller front the tank
-        //sta $d003           // mover el sprite bala en la misma Y del sprite 
+        clc
+        adc #10             // substract 10 px to put the buller front the tank
+        sta $d003           // mover el sprite bala en la misma Y del sprite 
                             // player , para eso quitamos un poco para subirlo
         
 

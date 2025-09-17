@@ -15,3 +15,5 @@
 /* Constants to set true - false , if player can move */
 .label PLAYER_NOT_ALLOWED_MOVE = 1
 .label PLAYER_ALLOWED_MOVE = 0
+
+.label BULLET_SPEED = 10

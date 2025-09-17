@@ -395,22 +395,35 @@ sprite_player_1_up_tank:
     .byte 0   // Frame 0 in Sprite pad
     .byte 255
 
-
-/* Player 1 UP  + RIGHT*/
-sprite_player_1_up_and_right_tank:
-    .byte 4   // Frame 0 in Sprite pad
+/* Player 1 DOWN */
+sprite_player_1_down_tank:
+    .byte 37   // Frame 0 in Sprite pad
     .byte 255
 
+/* Player 1 LEFT */
+sprite_player_1_left_tank:
+    .byte 19   // Frame 0 in Sprite pad
+    .byte 255
 
 /* Player 1 RIGHT */
 sprite_player_1_right_tank:
     .byte 8   // Frame 0 in Sprite pad
     .byte 255
 
-/* Player 1 DOWN */
-sprite_player_1_down_tank:
-    .byte 37   // Frame 0 in Sprite pad
+
+
+
+
+
+
+    
+/* Player 1 UP  + RIGHT*/
+sprite_player_1_up_and_right_tank:
+    .byte 4   // Frame 0 in Sprite pad
     .byte 255
+
+
+
 
 /* Player 1 DOWN + RIGHT*/
 sprite_player_1_down_and_right_tank:
@@ -418,10 +431,6 @@ sprite_player_1_down_and_right_tank:
     .byte 255
 
 
-/* Player 1 LEFT */
-sprite_player_1_left_tank:
-    .byte 19   // Frame 0 in Sprite pad
-    .byte 255
 
 
 /* Player 1 DOWN + LEFT */
