@@ -559,7 +559,38 @@ actions_in_raster:
 
             // So , if we are NOT in the final of the animation, 
             // we increment this value in the table, 
-            inc sprites_current_animation_index_position_table,x    
+
+
+
+            // if it is sprite 0 ( player 1 tank ). We need check if it is in
+            // movement, to allow increment next frame , the otherwise , we not
+            // increment frame to animate
+            lda SPRITE_INDEX_COUNTER_RASTER_LOOP
+            cmp #0                                  // 0 is Player tank 1 SPRITE
+            beq is_sprite_tank_1
+            jmp continue_default
+            is_sprite_tank_1:
+
+                // if sprite is in moving
+                lda PLAYER_1_TANK_IS_IN_MOVING
+                cmp #1
+                beq player_1_is_in_moving
+                jmp continue_put_animation_frame_in_screen
+
+                player_1_is_in_moving:
+
+                   /* if player 1 is in moving, we change the frame animation */
+                    inc sprites_current_animation_index_position_table,x
+
+                    /* Reset to 0 again the flag if tank is in movement.
+                       When the player move the joystick again, this will be 1*/
+                    lda #0
+                    sta PLAYER_1_TANK_IS_IN_MOVING
+                    jmp continue_put_animation_frame_in_screen
+
+            continue_default:
+                // default
+                inc sprites_current_animation_index_position_table,x    
 
             continue_put_animation_frame_in_screen:
 
@@ -679,7 +710,6 @@ actions_in_raster:
 
         // Move bullets
         jsr SPRITE_LIB.sprite_move_bullets_tank_1
-
 
 
         /* Call to check collision in any sprite */

@@ -81,9 +81,7 @@ simulate_game_loop:
     lda sprite_animations_list_HI_table,x
     sta sprite_current_anim_HI_table,x
     
-
     jsr start_read_joystick
-
 
     /* Move bullets tanks */ 
     //jsr SPRITE_LIB.sprite_move_bullets_tank_1
@@ -207,6 +205,9 @@ rts
 */
 joy_up:
 
+    lda #1
+    sta PLAYER_1_TANK_IS_IN_MOVING
+
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
     beq skip_joy_up
@@ -230,6 +231,9 @@ joy_up:
     rts
 
 joy_left:
+
+    lda #1
+    sta PLAYER_1_TANK_IS_IN_MOVING
 
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
@@ -259,6 +263,11 @@ joy_left:
 
 joy_right:
 
+    lda #1
+    sta PLAYER_1_TANK_IS_IN_MOVING
+
+
+
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
     beq skip_joy_right
@@ -286,6 +295,11 @@ rts
 
     
 joy_down:
+
+
+    lda #1
+    sta PLAYER_1_TANK_IS_IN_MOVING
+
 
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
