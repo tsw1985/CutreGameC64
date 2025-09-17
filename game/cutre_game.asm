@@ -220,7 +220,7 @@ joy_up:
 
     skip_joy_up:
     //reset index frame to 0 for Sprite 0 ( player 1)
-    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // put animation
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up
@@ -246,7 +246,7 @@ joy_left:
     skip_joy_left:
 
     // reset index frame to 0 for Sprite 0 ( player 1)
-    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_left
@@ -272,7 +272,7 @@ joy_right:
 
     skip_joy_right:
     //reset index frame to 0 for Sprite 0 ( player 1)
-    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
@@ -301,7 +301,7 @@ joy_down:
     
     skip_joy_down:
     // reset index frame to 0 for Sprite 0 ( player 1)
-    jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
     // Rotamos el tanque lanzando la animacion
     jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down

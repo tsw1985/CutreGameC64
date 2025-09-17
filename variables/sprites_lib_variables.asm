@@ -268,7 +268,7 @@ the frame in the current animation, this is move the the next item in the
 animation list.
 */
 sprites_rasters_limit_table:
-    .byte 1 // Speed for Sprite 1
+    .byte 5 // Speed for Sprite 1
     .byte 1 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
@@ -279,7 +279,7 @@ sprites_rasters_limit_table:
 
 
 sprites_rasters_limit_table_backup:
-    .byte 1 // Speed for Sprite 1
+    .byte 5 // Speed for Sprite 1
     .byte 1 // Speed for Sprite 2 Bullet Player 1
     .byte 40 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
@@ -393,21 +393,25 @@ sprite_animation_dead:
 /* Player 1 UP */
 sprite_player_1_up_tank:
     .byte 0   // Frame 0 in Sprite pad
+    .byte 76
     .byte 255
 
 /* Player 1 DOWN */
 sprite_player_1_down_tank:
     .byte 37   // Frame 0 in Sprite pad
+    .byte 78
     .byte 255
 
 /* Player 1 LEFT */
 sprite_player_1_left_tank:
     .byte 19   // Frame 0 in Sprite pad
+    .byte 77
     .byte 255
 
 /* Player 1 RIGHT */
 sprite_player_1_right_tank:
     .byte 8   // Frame 0 in Sprite pad
+    .byte 75
     .byte 255
 
 
@@ -416,7 +420,7 @@ sprite_player_1_right_tank:
 
 
 
-    
+
 /* Player 1 UP  + RIGHT*/
 sprite_player_1_up_and_right_tank:
     .byte 4   // Frame 0 in Sprite pad
@@ -569,7 +573,7 @@ sprite_player_2_down_tank:
 
 
 sprite_player_1_bullet_tank:
-    .byte 75   // Frame 0 in Sprite pad
+    .byte 79   // Frame 0 in Sprite pad
     .byte 255    
 
 sprite_player_2_up_bullet_tank:

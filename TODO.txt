@@ -1,0 +1,5 @@
+// IDEAS FOR GAME:
+
+- Animations rotations
+- Stop run animation if tank is not moving
+- Animation bullet if impact with enemy. Show a implosion
