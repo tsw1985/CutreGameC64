@@ -886,77 +886,79 @@ push_regs_to_stack()
 
     draw_bullet_to_up:
 
-        /* Load the current Y of sprite 2 ( bullet ). */
-        ldx #0
+        /* Load the current Y of sprite ( bullet ). */
+        ldx #SPRITE_BULLET_TANK_1
         lda sprites_coord_table_y,x
 
-        /* Set Y to bullet player 1 */
-        sta $d003           // save Y MEM of sprite 1
-        
-
-        lda $d002
+        /* Put the bullet front the cannon . Move a little X*/
+        /* Set Y to bullet player 1 - Sprite 1 . Rest a little bit Y */
         sec
-        sbc #3      // 10 px    
-        sta $d002   // move X to left to adjust the bullet from the tank       
-                            
-
-        ldx #1        
+        sbc #15
+        sta SPRITE_1_MEM_Y           // save Y MEM of sprite 1
+        
+        ldx #SPRITE_BULLET_TANK_1        
         sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
         jmp exit_draw_bullet
 
 
     draw_bullet_to_down:
 
-        /* Load the current Y of sprite 2 ( bullet ). */
-        ldx #0
+        /* Load the current Y of bullet. */
+        ldx #SPRITE_BULLET_TANK_1
         lda sprites_coord_table_y,x
 
         /* Set Y to bullet player 1 */
-        sta $d003           // save Y MEM of sprite 1
+        sta SPRITE_1_MEM_Y           // save Y MEM of sprite 1
         clc
-        adc #10             // substract 10 px to put the buller front the tank
-        sta $d003           // mover el sprite bala en la misma Y del sprite 
+        adc #15             // substract 10 px to put the buller front the tank
+        sta SPRITE_1_MEM_Y           // mover el sprite bala en la misma Y del sprite 
                             // player , para eso quitamos un poco para subirlo
         
 
-        ldx #1        
+        ldx #SPRITE_BULLET_TANK_1        
         sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
         jmp exit_draw_bullet
 
 
     draw_bullet_to_left:
 
-        /* Load the current X of sprite 2 ( bullet ). */
-        ldx #0
-        lda sprites_coord_table_x,x
+        /* Load the current Y of sprite 2 ( bullet ). */
+        ldx #SPRITE_BULLET_TANK_1
+        lda sprites_coord_table_y,x
 
-        /* Set X to bullet player 1 */
-        sta $d002           // save Y MEM of sprite 1
-        //sec
-        //sbc #10             // substract 10 px to put the buller front the tank
-        //sta $d002           // mover el sprite bala en la misma Y del sprite 
-                            // player , para eso quitamos un poco para subirlo
+        /* Set Y to bullet player 1 */
+        sta SPRITE_1_MEM_Y           // save Y MEM of sprite 1
+        clc
+        adc #1                // substract 10 px to put the buller front the tank
+        sta SPRITE_1_MEM_Y           // mover el sprite bala en la misma Y del sprite 
+
+        /* X */
+        ldx #SPRITE_BULLET_TANK_1
+        lda sprites_coord_table_x,x
+        sta SPRITE_1_MEM_X           // save Y MEM of sprite 1
+        sec
+        sbc #20                // substract 10 px to put the buller front the tank
+        sta SPRITE_1_MEM_X           // mover el sprite bala en la misma Y del sprite 
+
         
-        ldx #1        
-        sta sprites_coord_table_x,x // save the current Y pos in Sprite 2 (bullet P1)
+        ldx #SPRITE_BULLET_TANK_1        
+        sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
         jmp exit_draw_bullet
 
 
     draw_bullet_to_right:
 
         /* Load the current X of sprite 2 ( bullet ). */
-        ldx #0
+        ldx #SPRITE_BULLET_TANK_1
         lda sprites_coord_table_x,x
 
         /* Set X to bullet player 1 */
-        sta $d002           // save Y MEM of sprite 1
-        //clc
-        //adc #10             // substract 10 px to put the buller front the tank
-        //sta $d002           // mover el sprite bala en la misma Y del sprite 
-                            // player , para eso quitamos un poco para subirlo
+        clc
+        adc #20             // substract 10 px to put the buller front the tank
+        sta SPRITE_1_MEM_X           // save Y MEM of sprite 1
         
-        ldx #1        
-        sta sprites_coord_table_x,x // save the current Y pos in Sprite 2 (bullet P1)
+        ldx #SPRITE_BULLET_TANK_1
+        sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
         jmp exit_draw_bullet
 
     exit_draw_bullet:
@@ -972,23 +974,25 @@ sprite_copy_coords_tank_1_to_his_bullet:
 push_regs_to_stack()
 
     /* Get Y from Tank 1 */
-    ldx #0                      // <-- Sprite 0 . Is tank 1
+    ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x // get Y player position to put this value
                                 // in the Y of sprite 2 ( bullet)
     
-    ldx #1                      // <-- Sprite 1 . Tank 1 bullet
+    ldx #SPRITE_BULLET_TANK_1   
     sta sprites_coord_table_y,x // Save the position Y of Player in Y of bullet
-    sta $d003
+    sta SPRITE_1_MEM_Y
 
 
     /* Get X from Tank 1 */
-    ldx #0                      // <--- Sprite 0 ( player )
+    /* Copy X from tank 1 */
+    ldx #SPRITE_TANK_1       
     lda sprites_coord_table_x,x // get X player position to save it in sprite 2
 
-    ldx #1                      // <---- Sprite 1 ( bullet )
+    /* Paste X to bullet tank 1 */
+    ldx #SPRITE_BULLET_TANK_1
     sta sprites_coord_table_x,x // Save the Player X in X of sprite 2 ( bullet )
     
-    sta $d002                   // writing the value directly in the Sprite 2 X
+    sta SPRITE_1_MEM_X          // writing the value directly in the Sprite 2 X
                                 // position memory
 
 pull_regs_from_stack()

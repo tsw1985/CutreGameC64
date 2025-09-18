@@ -70,3 +70,39 @@
 .label SPRITE_WIDTH  = 24
 .label SPRITE_CENTER_WIDTH_OFFSET  = 12 // 24px / 2 = 12
 .label SPRITE_CENTER_HEIGHT_OFFSET = 10 // 21px / 2 = 10.5 ( 10 rounded )
+
+//SPRITE COORDS MEMORY MAPS POSITIONS:
+//====================================
+
+// Y
+.label SPRITE_0_MEM_Y = $d001
+.label SPRITE_1_MEM_Y = $d003
+.label SPRITE_2_MEM_Y = $d005
+.label SPRITE_3_MEM_Y = $d007
+.label SPRITE_4_MEM_Y = $d009
+.label SPRITE_5_MEM_Y = $d00b
+.label SPRITE_6_MEM_Y = $d00d
+.label SPRITE_7_MEM_Y = $d00f
+
+// X
+.label SPRITE_0_MEM_X = $d000
+.label SPRITE_1_MEM_X = $d002
+.label SPRITE_2_MEM_X = $d004
+.label SPRITE_3_MEM_X = $d006
+.label SPRITE_4_MEM_X = $d008
+.label SPRITE_5_MEM_X = $d00a
+.label SPRITE_6_MEM_X = $d00c
+.label SPRITE_7_MEM_X = $d00e
+
+//GAME SPRITE CONSTANTS
+//=====================
+
+/* Player 1 */
+    .label SPRITE_TANK_1 = 0
+    .label SPRITE_BULLET_TANK_1 = 1
+
+/* Player 2 */
+    .label SPRITE_TANK_2 = 2
+    .label SPRITE_BULLET_TANK_2 = 3
+
+
