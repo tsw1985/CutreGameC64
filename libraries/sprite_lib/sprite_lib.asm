@@ -1087,25 +1087,12 @@ rts
 check_wall_top_collision_tank_1:
 push_regs_to_stack()
 
-    /* 
-        ldx SCREEN_ROW_POS
-        lda Row_LO,x                 // example: $5020 => $20
-        sta ZERO_PAGE_ROW_LOW_BYTE   // save $20
-        lda Row_HI,x                 // example: $5020 => $50
-        sta ZERO_PAGE_ROW_HIGHT_BYTE // save $50
-
-        ldy SCREEN_COL_POS             // col = 15 
-        lda SCREEN_CHAR                // char E
-        sta (ZERO_PAGE_ROW_LOW_BYTE),y // $2005  ($0520) , 15(f) = $052F .
-    */
-
-
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
 
-    /* apply Y offset */
+    /* apply Y offset to point to center of cannon*/
     sec
-    sbc #50 // 45
+    sbc #50
     lsr
     lsr
     lsr
@@ -1116,9 +1103,9 @@ push_regs_to_stack()
 
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
-    /* apply X offset */
+    /* apply X offset to point to center of cannon*/
     sec
-    sbc #20 //20
+    sbc #12
     lsr
     lsr
     lsr

@@ -99,32 +99,6 @@ simulate_game_loop:
 .if(debug_mode == 1){
 
 
-    // print demo A
-    lda #1
-    sta SCREEN_ROW_POS   // ( X position)
-    lda #1
-    sta SCREEN_COL_POS  // ( Y position)
-    lda #1
-    sta SCREEN_CHAR // write a A text example
-    lda #YELLOW
-    sta SCREEN_CHAR_COLOR
-    jsr PRINT_LIB.print_char
-
-
-
-    // print demo B
-    lda #7
-    sta SCREEN_ROW_POS   // ( X position)
-    lda #3
-    sta SCREEN_COL_POS  // ( Y position)
-    lda #2
-    sta SCREEN_CHAR // write a A text example
-    lda #GREEN
-    sta SCREEN_CHAR_COLOR
-    jsr PRINT_LIB.print_char
-
-
-
     
     lda SPRITE_CENTER_PLAYER_POS_Y
     sta sum_res_0
