@@ -20,8 +20,17 @@ PLAYER_1_TANK_IS_IN_MOVING: .byte 0
 PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON: .byte 0
 
 
-PLAYER_1_TANK_1_CURRENT_Y: .byte 0
-PLAYER_1_TANK_1_CURRENT_X: .byte 0
+/* Variables to save the zones of tank to collision with walls*/
+PLAYER_1_TANK_1_CANNON_TIP_Y: .byte 0
+PLAYER_1_TANK_1_CANNON_TIP_X: .byte 0
+
+/* Variables to save the left chains of tank to collision with walls*/
+PLAYER_1_TANK_1_LEFT_CHAIN_Y: .byte 0
+PLAYER_1_TANK_1_LEFT_CHAIN_X: .byte 0
+
+/* Variables to save the right chains of tank to collision with walls*/
+PLAYER_1_TANK_1_RIGHT_CHAIN_Y: .byte 0
+PLAYER_1_TANK_1_RIGHT_CHAIN_X: .byte 0
 
 
 

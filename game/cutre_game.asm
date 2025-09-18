@@ -121,8 +121,7 @@ simulate_game_loop:
         PRINT ENEMY COORDS VALUES IN COLLISION
     **************************************************/
 
-    /* Print with sprite is in collision */
-
+        /* Print with sprite is in collision */
         // Get screen char value
         lda PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
         sta sum_res_0
@@ -133,8 +132,11 @@ simulate_game_loop:
         print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
 
+
+        
         //print y IN TEXT MODE COORDS
-        lda PLAYER_1_TANK_1_CURRENT_Y
+         lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
+        //lda PLAYER_1_TANK_1_LEFT_CHAIN_Y /* Cadena Y izquierda */
         sta sum_res_0
         lda #0
         sta sum_res_1
@@ -142,9 +144,9 @@ simulate_game_loop:
         sta sum_res_3
         print_calculation_result(10,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
-
         //print x
-        lda PLAYER_1_TANK_1_CURRENT_X
+         lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
+        //lda PLAYER_1_TANK_1_LEFT_CHAIN_X /* Cadena X izquierda */
         sta sum_res_0
         lda #0
         sta sum_res_1

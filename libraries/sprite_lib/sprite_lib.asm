@@ -1087,30 +1087,79 @@ rts
 check_wall_top_collision_tank_1:
 push_regs_to_stack()
 
+    /* Checking Cannon TIP */ 
+    /*
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
 
-    /* apply Y offset to point to center of cannon*/
+    // apply Y offset to point to center of cannon
     sec
     sbc #50
     lsr
     lsr
     lsr
-    sta PLAYER_1_TANK_1_CURRENT_X
+    sta PLAYER_1_TANK_1_CANNON_TIP_X
     sta SCREEN_ROW_POS   // ( X position)
-    sta PLAYER_1_TANK_1_CURRENT_X // VALUE X in text mode
 
 
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
-    /* apply X offset to point to center of cannon*/
+    // apply X offset to point to center of cannon
     sec
     sbc #12
     lsr
     lsr
     lsr
     sta SCREEN_COL_POS  // ( Y position)
-    sta PLAYER_1_TANK_1_CURRENT_Y // VALUE Y in text mode
+    sta PLAYER_1_TANK_1_CANNON_TIP_Y // VALUE Y in text mode
+    */
+    /* end Checking Cannon TIP */ 
+
+
+
+    /* Check left tank chain */
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_y,x
+
+    // apply Y offset to point to center of cannon
+    sec
+    sbc #45
+    lsr
+    lsr
+    lsr
+    sta SCREEN_ROW_POS   // ( X position)
+    sta PLAYER_1_TANK_1_LEFT_CHAIN_X
+
+
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_x,x
+    sec
+    sbc #18
+    lsr
+    lsr
+    lsr
+    sta SCREEN_COL_POS  // ( Y position)
+    sta PLAYER_1_TANK_1_LEFT_CHAIN_Y // VALUE Y in text mode
+    /* end Check left tank chain */
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
