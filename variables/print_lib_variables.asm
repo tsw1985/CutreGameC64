@@ -24,3 +24,4 @@ counter_table:        .byte 10
 counter_str:          .byte 0
 total_digits:         .byte 0
 last_total_digits:    .byte 0
+CURRENT_CHAR_IN_SCREEN: .byte 0

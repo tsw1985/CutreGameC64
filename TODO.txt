@@ -1,6 +1,22 @@
 // IDEAS FOR GAME:
 
-PENDING - Animations rotations
-PENDING - Animation bullet if impact with enemy. Show a implosion
-PENDING - Collisions with walls
-OK - Stop run animation if tank is not moving
+PENDING:
+=======
+    - Animations rotations
+    - Animation bullet if impact with enemy. Show a implosion
+    - Refactor in X register to access to sprites 0 , 1  ... use constants
+
+
+DOING:
+=====
+
+    - TANK 1 Wall collisions
+
+
+
+
+
+DONE:
+=====
+    OK - Stop run animation if tank is not moving
+    OK - Set bullet front tank 1

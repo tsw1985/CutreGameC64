@@ -1,4 +1,4 @@
-.label debug_mode = 0; // 1 ON - 0 OFF
+.label debug_mode = 1; // 1 ON - 0 OFF
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
@@ -96,7 +96,35 @@ simulate_game_loop:
 
     /*   Y   */
 
-    .if(debug_mode == 1){
+.if(debug_mode == 1){
+
+
+    // print demo A
+    lda #1
+    sta SCREEN_ROW_POS   // ( X position)
+    lda #1
+    sta SCREEN_COL_POS  // ( Y position)
+    lda #1
+    sta SCREEN_CHAR // write a A text example
+    lda #YELLOW
+    sta SCREEN_CHAR_COLOR
+    jsr PRINT_LIB.print_char
+
+
+
+    // print demo B
+    lda #7
+    sta SCREEN_ROW_POS   // ( X position)
+    lda #3
+    sta SCREEN_COL_POS  // ( Y position)
+    lda #2
+    sta SCREEN_CHAR // write a A text example
+    lda #GREEN
+    sta SCREEN_CHAR_COLOR
+    jsr PRINT_LIB.print_char
+
+
+
     
     lda SPRITE_CENTER_PLAYER_POS_Y
     sta sum_res_0
@@ -104,7 +132,7 @@ simulate_game_loop:
     sta sum_res_1
     sta sum_res_2
     sta sum_res_3
-    print_calculation_result(3,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+    print_calculation_result(3,37,YELLOW,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
     /*  X */
     lda SPRITE_CENTER_PLAYER_POS_X
@@ -113,32 +141,44 @@ simulate_game_loop:
     sta sum_res_1
     sta sum_res_2
     sta sum_res_3
-    print_calculation_result(4,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+    print_calculation_result(4,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
     
     /************************************************
         PRINT ENEMY COORDS VALUES IN COLLISION
     **************************************************/
 
-    // Print position PLAYER 1
-    lda PLAYER_1_TANK_CURRENT_DIRECTION
-    sta sum_res_0
-    lda #0
-    sta sum_res_1
-    sta sum_res_2
-    sta sum_res_3
-    print_calculation_result(7,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
-
     /* Print with sprite is in collision */
 
-        /*
-        lda SPRITE_IN_COLLISION
+        // Get screen char value
+        lda PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
         sta sum_res_0
         lda #0
         sta sum_res_1
         sta sum_res_2
         sta sum_res_3
         print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
-        */
+
+
+        //print y IN TEXT MODE COORDS
+        lda PLAYER_1_TANK_1_CURRENT_Y
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(10,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
+
+        //print x
+        lda PLAYER_1_TANK_1_CURRENT_X
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(11,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
+        
 }
 
 jmp simulate_game_loop
@@ -205,6 +245,11 @@ rts
 */
 joy_up:
 
+    // Check tank collision with Wall
+    jsr SPRITE_LIB.check_wall_top_collision_tank_1
+
+
+
     lda #1
     sta PLAYER_1_TANK_IS_IN_MOVING
 
@@ -212,6 +257,7 @@ joy_up:
     cmp #1
     beq skip_joy_up
 
+    // Clean all flags fire directions. Where player fired.
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
 
@@ -220,15 +266,14 @@ joy_up:
     sta PLAYER_1_TANK_FIRED_IN_UP
 
     skip_joy_up:
-    //reset index frame to 0 for Sprite 0 ( player 1)
-    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
-    // put animation
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up
+        // put animation
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up
 
-    // move to left
-    jsr SPRITE_LIB.sprite_0_decrement_y
-    rts
+        // move to left
+        jsr SPRITE_LIB.sprite_0_decrement_y
+rts
+
 
 joy_left:
 
@@ -239,7 +284,7 @@ joy_left:
     cmp #1
     beq skip_joy_left
 
-
+    // Clean all flags fire directions. Where player fired.
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
     // set new tank direction
@@ -249,15 +294,11 @@ joy_left:
     // move to left
     skip_joy_left:
 
-    // reset index frame to 0 for Sprite 0 ( player 1)
-    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+        // Rotamos el tanque lanzando la animacion
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_left
+        jsr SPRITE_LIB.sprite_0_decrement_x
 
-    // Rotamos el tanque lanzando la animacion
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_left
-
-    jsr SPRITE_LIB.sprite_0_decrement_x
-
-    rts
+rts
 
 
 
@@ -267,12 +308,12 @@ joy_right:
     sta PLAYER_1_TANK_IS_IN_MOVING
 
 
-
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
     beq skip_joy_right
 
 
+    // Clean all flags fire directions. Where player fired.
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
     // set new tank direction
@@ -280,15 +321,12 @@ joy_right:
     sta PLAYER_1_TANK_FIRED_IN_RIGHT
 
     skip_joy_right:
-    //reset index frame to 0 for Sprite 0 ( player 1)
-    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
-    // Rotamos el tanque lanzando la animacion
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
+        // Rotamos el tanque lanzando la animacion
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
 
-    // Move to right
-    jsr SPRITE_LIB.sprite_0_increment_x
-
+        // Move to right
+        jsr SPRITE_LIB.sprite_0_increment_x
 
 rts
 
@@ -305,8 +343,8 @@ joy_down:
     cmp #1
     beq skip_joy_down
 
+    // Clean all flags fire directions. Where player fired.
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
-
 
     // set new tank direction
     lda #PLAYER_DOWN
@@ -314,17 +352,16 @@ joy_down:
 
     
     skip_joy_down:
-    // reset index frame to 0 for Sprite 0 ( player 1)
-    //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+        // reset index frame to 0 for Sprite 0 ( player 1)
+        //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
 
-    // Rotamos el tanque lanzando la animacion
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down
+        // Rotamos el tanque lanzando la animacion
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down
 
+        // move to down
+        jsr SPRITE_LIB.sprite_0_increment_y
 
-    // move to down
-    jsr SPRITE_LIB.sprite_0_increment_y
-
-    rts
+rts
 
 
 
@@ -342,15 +379,10 @@ joy_fire:
     sprite_set_color(1,YELLOW)
     sprite_set_frame_to_sprite(74,1) // bullet frame
 
-    // Reset current direction when the user press fire button
-    //jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
-
 
     // Tank is firing
     lda #1
     sta PLAYER_1_TANK_IS_FIRING
-
-
 
     // Draw bullet
     jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1

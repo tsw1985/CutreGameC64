@@ -11,14 +11,14 @@ Memory Map
 Default-segment:
   $0801-$080c Basic
   $080e-$080d Basic End
-  $0810-$09d2 Main Code
+  $0810-$0e22 Main Code
   $1000-$10ff Charset Attrib
   $1100-$11ff Tileset
-  $1200-$14b0 Variables
+  $1200-$14b4 Variables
   $2000-$33ff Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
-  $4800-$59df Libraries
+  $4800-$5ab3 Libraries
   $9c7c-$9d3b Maps
 
 Writing Symbol file: main.sym

@@ -11,64 +11,73 @@ SPRITE_LIB:
     sprite_0_decrement_x:
         push_regs_to_stack()
         ldx #0
-        dec sprites_coord_table_x,x
         dec $d000
+        lda $d000
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_1_decrement_x:
         push_regs_to_stack()
         ldx #1
-        dec sprites_coord_table_x,x
         dec $d002
+        lda $d002
+        sta sprites_coord_table_x,x
+
         pull_regs_from_stack()
         rts
 
     sprite_2_decrement_x:
         push_regs_to_stack()
         ldx #2
-        dec sprites_coord_table_x,x
         dec $d004
+        lda $d004
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_3_decrement_x:
         push_regs_to_stack()
         ldx #3
-        dec sprites_coord_table_x,x
         dec $d006
+        lda $d006
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_4_decrement_x:
         push_regs_to_stack()
         ldx #4
-        dec sprites_coord_table_x,x
         dec $d008
+        lda $d008
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_5_decrement_x:
         push_regs_to_stack()
         ldx #5
-        dec sprites_coord_table_x,x
         dec $d00a
+        lda $d00a
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_6_decrement_x:
         push_regs_to_stack()
         ldx #6
-        dec sprites_coord_table_x,x
         dec $d00c
+        lda $d00c
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_7_decrement_x:
         push_regs_to_stack()
         ldx #7
-        dec sprites_coord_table_x,x
         dec $d00e
+        lda $d00e
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
@@ -76,64 +85,72 @@ SPRITE_LIB:
     sprite_0_increment_x:
         push_regs_to_stack()
         ldx #0
-        inc sprites_coord_table_x,x
         inc $d000
+        lda $d000
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_1_increment_x:
         push_regs_to_stack()
         ldx #1
-        inc sprites_coord_table_x,x
         inc $d002
+        lda $d002
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_2_increment_x:
         push_regs_to_stack()
         ldx #2
-        inc sprites_coord_table_x,x
         inc $d004
+        lda $d004
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_3_increment_x:
         push_regs_to_stack()
         ldx #3
-        inc sprites_coord_table_x,x
         inc $d006
+        lda $d006
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
     
     sprite_4_increment_x:
         push_regs_to_stack()
         ldx #4
-        inc sprites_coord_table_x,x
         inc $d008
+        lda $d008
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_5_increment_x:
         push_regs_to_stack()
         ldx #5
-        inc sprites_coord_table_x,x
         inc $d00a
+        lda $d00a
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_6_increment_x:
         push_regs_to_stack()
         ldx #6
-        inc sprites_coord_table_x,x
         inc $d00c
+        lda $d00c
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
     sprite_7_increment_x:
         push_regs_to_stack()
         ldx #7
-        inc sprites_coord_table_x,x
         inc $d00e
+        lda $d00e
+        sta sprites_coord_table_x,x
         pull_regs_from_stack()
         rts
 
@@ -142,8 +159,9 @@ SPRITE_LIB:
     sprite_0_decrement_y:
         push_regs_to_stack()
         ldx #0
-        dec sprites_coord_table_y,x
         dec $d001
+        lda $d001
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
 
@@ -151,55 +169,62 @@ SPRITE_LIB:
     sprite_1_decrement_y:
         push_regs_to_stack()
         ldx #1
-        dec sprites_coord_table_y,x
         dec $d003
+        lda $d003
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
     
     sprite_2_decrement_y:
         push_regs_to_stack()
         ldx #2
-        dec sprites_coord_table_y,x
         dec $d005
+        lda $d005
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
     
     sprite_3_decrement_y:
         push_regs_to_stack()
         ldx #3
-        dec sprites_coord_table_y,x
         dec $d007
+        lda $d007
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
     sprite_4_decrement_y:
         push_regs_to_stack()
         ldx #4
-        dec sprites_coord_table_y,x
         dec $d009
+        lda $d009
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
     
     sprite_5_decrement_y:
         push_regs_to_stack()
         ldx #5
-        dec sprites_coord_table_y,x
         dec $d00b
+        lda $d00b
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
 
     sprite_6_decrement_y:
         push_regs_to_stack()
         ldx #6
-        dec sprites_coord_table_y,x
         dec $d00d
+        lda $d00d
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
         rts
     
     sprite_7_decrement_y:
         push_regs_to_stack()
         ldx #7
-        dec sprites_coord_table_y,x
         dec $d00f
+        lda $d00f
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
@@ -207,64 +232,72 @@ SPRITE_LIB:
     sprite_0_increment_y:
         push_regs_to_stack()
         ldx #0
-        inc sprites_coord_table_y,x
         inc $d001
+        lda $d001
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_1_increment_y:
         push_regs_to_stack()
         ldx #1
-        inc sprites_coord_table_y,x
         inc $d003
+        lda $d003
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_2_increment_y:
         push_regs_to_stack()
         ldx #2
-        inc sprites_coord_table_y,x
         inc $d005
+        lda $d005
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_3_increment_y:
         push_regs_to_stack()
         ldx #3
-        inc sprites_coord_table_y,x
         inc $d007
+        lda $d007
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_4_increment_y:
         push_regs_to_stack()
         ldx #4
-        inc sprites_coord_table_y,x
         inc $d009
+        lda $d009
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_5_increment_y:
         push_regs_to_stack()
         ldx #5
-        inc sprites_coord_table_y,x
         inc $d00b
+        lda $d00b
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_6_increment_y:
         push_regs_to_stack()
         ldx #6
-        inc sprites_coord_table_y,x
         inc $d00d
+        lda $d00d
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
     sprite_7_increment_y:
         push_regs_to_stack()
         ldx #7
-        inc sprites_coord_table_y,x
         inc $d00f
+        lda $d00f
+        sta sprites_coord_table_y,x
         pull_regs_from_stack()
     rts
 
@@ -1045,7 +1078,99 @@ rts
 
 
 
+/* Check WALL collision TOP of TANK 1 , offset cannon:
+    Y = 1  , X = 6
 
+    Wall char value : d67 - $43
+
+ */
+check_wall_top_collision_tank_1:
+push_regs_to_stack()
+
+    /* 
+        ldx SCREEN_ROW_POS
+        lda Row_LO,x                 // example: $5020 => $20
+        sta ZERO_PAGE_ROW_LOW_BYTE   // save $20
+        lda Row_HI,x                 // example: $5020 => $50
+        sta ZERO_PAGE_ROW_HIGHT_BYTE // save $50
+
+        ldy SCREEN_COL_POS             // col = 15 
+        lda SCREEN_CHAR                // char E
+        sta (ZERO_PAGE_ROW_LOW_BYTE),y // $2005  ($0520) , 15(f) = $052F .
+    */
+
+
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_y,x
+
+    /* apply Y offset */
+    sec
+    sbc #50 // 45
+    lsr
+    lsr
+    lsr
+    sta PLAYER_1_TANK_1_CURRENT_X
+    sta SCREEN_ROW_POS   // ( X position)
+    sta PLAYER_1_TANK_1_CURRENT_X // VALUE X in text mode
+
+
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_x,x
+    /* apply X offset */
+    sec
+    sbc #20 //20
+    lsr
+    lsr
+    lsr
+    sta SCREEN_COL_POS  // ( Y position)
+    sta PLAYER_1_TANK_1_CURRENT_Y // VALUE Y in text mode
+
+
+
+    // Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN // <-- out
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
+
+
+
+pull_regs_from_stack()
+rts
+
+
+
+/* Check WALL collision BOTTOM of TANK 1 
+    Y= 20 , X=6
+*/
+check_wall_bottom_collision_tank_1:
+push_regs_to_stack()
+
+
+pull_regs_from_stack()
+rts
+
+
+/* Check WALL collision LEFT of TANK 1 
+    Y= 10 - X = 10
+*/
+check_wall_left_collision_tank_1:
+push_regs_to_stack()
+
+
+pull_regs_from_stack()
+rts
+
+
+
+/* Check WALL collision RIGHT of TANK 1 
+    Y = 10 - X = 1
+*/
+check_wall_right_collision_tank_1:
+push_regs_to_stack()
+
+
+pull_regs_from_stack()
+rts
 
 
 
@@ -1101,17 +1226,17 @@ push_regs_to_stack()
     */
 
     /* set center Y */
-    ldx #0
+    ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
-    clc 
-    adc #10   // add 10 to point to the center of the sprite player COLS
+    //clc 
+    //adc #10   // add 10 to point to the center of the sprite player COLS
     sta SPRITE_CENTER_PLAYER_POS_Y
 
     /* set center X */
-    ldx #0
+    ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
-    clc 
-    adc #12 // add 12 to set the center of sprite player ROWS
+    //clc 
+    //adc #12 // add 12 to set the center of sprite player ROWS
     sta SPRITE_CENTER_PLAYER_POS_X
     
 

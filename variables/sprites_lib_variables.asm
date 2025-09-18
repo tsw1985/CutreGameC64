@@ -12,7 +12,16 @@ PLAYER_1_TANK_FIRED_IN_DOWN:  .byte 0
 PLAYER_1_TANK_FIRED_IN_UP:    .byte 0
 PLAYER_1_TANK_IS_FIRING: .byte 0
 
+/* Variable to check if the player tank 1 is in moving */
 PLAYER_1_TANK_IS_IN_MOVING: .byte 0
+
+
+/* Variable to save the current screen char from cannon of tank 1 */
+PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON: .byte 0
+
+
+PLAYER_1_TANK_1_CURRENT_Y: .byte 0
+PLAYER_1_TANK_1_CURRENT_X: .byte 0
 
 
 
