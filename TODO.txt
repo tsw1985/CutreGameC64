@@ -3,7 +3,10 @@
 PENDING:
 =======
     - Animations rotations
+    - Main Screen
     - Animation bullet if impact with enemy. Show a implosion
+    - Bullet wall collision
+    - Bullet tank collision
     - Refactor in X register to access to sprites 0 , 1  ... use constants
 
 
