@@ -18,7 +18,7 @@ Default-segment:
   $2000-$33ff Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
-  $4800-$5ab0 Libraries
+  $4800-$5af4 Libraries
   $9c7c-$9d3b Maps
 
 Writing Symbol file: main.sym
