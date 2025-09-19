@@ -57,6 +57,11 @@ sprite_set_frame_to_sprite(37,2)
 jsr SPRITE_LIB.setupRasterInterrupt
 
 
+
+
+
+
+
 /* MAIN LOOP.
 
     This is like a game loop
@@ -98,7 +103,45 @@ simulate_game_loop:
 
 .if(debug_mode == 1){
 
+    // print demo A
+    lda #1
+    sta SCREEN_ROW_POS   // ( X position)
+    lda #1
+    sta SCREEN_COL_POS  // ( Y position)
+    lda #1
+    sta SCREEN_CHAR // write a A text example
+    lda #YELLOW
+    sta SCREEN_CHAR_COLOR
+    jsr PRINT_LIB.print_char
 
+
+
+    // print demo B
+    lda #3
+    sta SCREEN_COL_POS  // ( Y position)
+    lda #7
+    sta SCREEN_ROW_POS   // ( X position)
+    lda #2
+    sta SCREEN_CHAR // write a A text example
+    lda #GREEN
+    sta SCREEN888_CHAR_COLOR
+    jsr PRINT_LIB.print_char
+
+
+    // print demo BRIK
+    lda #9
+    sta SCREEN_COL_POS  // ( Y position)
+    lda #12
+    sta SCREEN_ROW_POS   // ( X position)
+    lda #67
+    sta SCREEN_CHAR // write a A text example
+    lda #BROWN
+    sta SCREEN_CHAR_COLOR
+    jsr PRINT_LIB.print_char
+
+
+
+    //---------
     
     lda SPRITE_CENTER_PLAYER_POS_Y
     sta sum_res_0
@@ -135,26 +178,26 @@ simulate_game_loop:
 
         
         //print y IN TEXT MODE COORDS
-        // lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
+        lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
         //lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
-        lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
         sta sum_res_0
         lda #0
         sta sum_res_1
         sta sum_res_2
         sta sum_res_3
-        print_calculation_result(10,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        print_calculation_result(10,37,BROWN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
         //print x
-        // lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
+         lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
         //lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
-        lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
         sta sum_res_0
         lda #0
         sta sum_res_1
         sta sum_res_2
         sta sum_res_3
-        print_calculation_result(11,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        print_calculation_result(11,37,PINK,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
         
 }
