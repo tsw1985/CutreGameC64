@@ -1196,8 +1196,7 @@ check_wall_bottom_collision_tank_1:
 push_regs_to_stack()
 
     /* Checking Cannon TIP */ 
-    
-    /*ldx #SPRITE_TANK_1
+    ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
 
     // apply Y offset to point to center of cannon
@@ -1219,15 +1218,13 @@ push_regs_to_stack()
     lsr
     lsr
     sta SCREEN_COL_POS  // ( X position)
-    sta PLAYER_1_TANK_1_CANNON_TIP_X*/
-    
-    
+    sta PLAYER_1_TANK_1_CANNON_TIP_X
     /* end Checking Cannon TIP */ 
 
 
 
-    /* Check left tank chain */
-    /*ldx #SPRITE_TANK_1
+    /* Check LEFT tank chain */
+    ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
 
     // apply Y offset to point to center of cannon
@@ -1249,8 +1246,6 @@ push_regs_to_stack()
     lsr
     sta SCREEN_COL_POS  // ( X position)
     sta PLAYER_1_TANK_1_LEFT_CHAIN_X
-    */
-    
     /* end Check left tank chain */
 
 
@@ -1272,16 +1267,13 @@ push_regs_to_stack()
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
     sec
-    sbc #6
+    sbc #18
     lsr
     lsr
     lsr
     sta SCREEN_COL_POS  // ( X position)
     sta PLAYER_1_TANK_1_RIGHT_CHAIN_X
-    
     /* end Check RIGHT tank chain */
-    
-
 
     // MODE FUNCTION TO MAIN GAME: Get char of screen
     jsr PRINT_LIB.get_char_value_from_video_memory
