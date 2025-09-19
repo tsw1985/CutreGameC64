@@ -117,9 +117,9 @@ simulate_game_loop:
 
 
     // print demo B
-    lda #3
+    lda #1
     sta SCREEN_COL_POS  // ( Y position)
-    lda #7
+    lda #22
     sta SCREEN_ROW_POS   // ( X position)
     lda #2
     sta SCREEN_CHAR // write a A text example
@@ -128,12 +128,13 @@ simulate_game_loop:
     jsr PRINT_LIB.print_char
 
 
-    // print demo BRIK
-    lda #9
+    // print demo C
+    lda #15
     sta SCREEN_COL_POS  // ( Y position)
+
     lda #12
     sta SCREEN_ROW_POS   // ( X position)
-    lda #67
+    lda #3
     sta SCREEN_CHAR // write a A text example
     lda #BROWN
     sta SCREEN_CHAR_COLOR
@@ -177,10 +178,22 @@ simulate_game_loop:
 
 
         
+        //print x
+        lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
+        //lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(11,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
+
         //print y IN TEXT MODE COORDS
-        //lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
+        lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
         //lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
-        lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
         sta sum_res_0
         lda #0
         sta sum_res_1
@@ -188,16 +201,6 @@ simulate_game_loop:
         sta sum_res_3
         print_calculation_result(10,37,YELLOW,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
-        //print x
-        //lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
-        //lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
-        lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
-        sta sum_res_0
-        lda #0
-        sta sum_res_1
-        sta sum_res_2
-        sta sum_res_3
-        print_calculation_result(11,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
         
 }
@@ -354,6 +357,9 @@ rts
 
     
 joy_down:
+
+    // Check tank collision with Wall
+    jsr SPRITE_LIB.check_wall_bottom_collision_tank_1
 
 
     lda #1
