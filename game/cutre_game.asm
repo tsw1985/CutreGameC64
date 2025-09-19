@@ -124,7 +124,7 @@ simulate_game_loop:
     lda #2
     sta SCREEN_CHAR // write a A text example
     lda #GREEN
-    sta SCREEN888_CHAR_COLOR
+    sta SCREEN_CHAR_COLOR
     jsr PRINT_LIB.print_char
 
 
