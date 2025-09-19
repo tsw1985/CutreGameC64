@@ -1197,7 +1197,7 @@ push_regs_to_stack()
 
     /* Checking Cannon TIP */ 
     
-    ldx #SPRITE_TANK_1
+    /*ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
 
     // apply Y offset to point to center of cannon
@@ -1219,7 +1219,7 @@ push_regs_to_stack()
     lsr
     lsr
     sta SCREEN_COL_POS  // ( X position)
-    sta PLAYER_1_TANK_1_CANNON_TIP_X
+    sta PLAYER_1_TANK_1_CANNON_TIP_X*/
     
     
     /* end Checking Cannon TIP */ 
@@ -1227,13 +1227,12 @@ push_regs_to_stack()
 
 
     /* Check left tank chain */
-    /*
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_y,x
 
     // apply Y offset to point to center of cannon
     sec
-    sbc #45
+    sbc #36
     lsr
     lsr
     lsr
@@ -1244,13 +1243,12 @@ push_regs_to_stack()
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
     sec
-    sbc #12
+    sbc #6
     lsr
     lsr
     lsr
     sta SCREEN_COL_POS  // ( X position)
     sta PLAYER_1_TANK_1_LEFT_CHAIN_X
-    */
     
     /* end Check left tank chain */
 

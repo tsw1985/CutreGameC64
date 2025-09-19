@@ -45,7 +45,7 @@
 .label sum_res_3=$1275
 .label SPRITE_INDEX_COUNTER_RASTER_LOOP=$139a
 .label sprites_coord_table_x=$13f6
-.label skip_fire=$e14 {
+.label skip_fire=$e17 {
 }
 .label sprites_coord_table_y=$13ee
 .label PLAYER_1_TANK_IS_FIRING=$1385
@@ -61,7 +61,7 @@
 .label sprites_rasters_limit_table_backup=$1406
 .label INTERRUPT_CONTROL_AND_STATUS2=$dd0d
 .label PLAYER_UP=$1
-.label skip_joy_left=$d9f
+.label skip_joy_left=$da2
 .label sum_num1_0=$126a
 .label sprite_player_1_left_tank=$1447
 .label sum_num1_1=$126b
@@ -124,7 +124,7 @@
 .label LIGHT_GREEN=$d
 .label JOY_GO_FIRE=$10
 .label PLAYER_1_TANK_1_LEFT_CHAIN_X=$138b
-.label skip_joy_down=$dd8
+.label skip_joy_down=$ddb
 .label MAP_ROW=$14b5
 .label TASK_IRQ_COUNTER=$14ac
 .label SCREEN_BORDER_COLOR=$d020
@@ -190,7 +190,7 @@
 .label SPRITE_1_MEM_X=$d002
 .label mul_res_2=$1268
 .label SPRITE_1_MEM_Y=$d003
-.label joy_down=$dc1
+.label joy_down=$dc4
 .label mul_res_3=$1269
 .label coor_x_str=$1225
 .label SPRITE_IN_COLLISION=$1394
@@ -213,7 +213,7 @@
 .label DARK_GRAY=$b
 .label LIBRARIES_ADDRESS=$4800
 .label GREY=$c
-.label sleep_sprite=$e1a {
+.label sleep_sprite=$e1d {
 }
 .label sprite_animations_list_HI_table_backup=$13ce
 .label sub_num1_3=$1279
@@ -255,7 +255,7 @@
   .label input_left_check=$5045
   .label input_right_check=$5054
 }
-.label joy_fire=$ddf {
+.label joy_fire=$de2 {
 }
 .label SOUND_LIB=$5ab7 {
   .label stop_sound=$5acc {
@@ -331,7 +331,7 @@
 .label MAP_TEMP_Y=$14b8
 .label div_num1_0=$1252
 .label ZERO_PAGE_ROW_COLOR_HIGHT_BYTE=$25
-.label sleep_sprite_outer_loop=$e21 {
+.label sleep_sprite_outer_loop=$e24 {
 }
 .label div_num1_1=$1253
 .label PLAYER_NOT_ALLOWED_MOVE=$1
@@ -539,7 +539,7 @@
 .label SCREEN_CHAR_COLOR_OLD=$1321
 .label mul_num2_1=$1263
 .label SPRITE_INDEX_POINTER=$1390
-.label joy_right=$da6
+.label joy_right=$da9
 .label sprite_player_1_animation_right_up_tank=$1469
 .label SPRITE_CENTER_WIDTH_OFFSET=$c
 .label PLAYER_1_TANK_FIRED_IN_RIGHT=$1381
@@ -668,7 +668,7 @@
 .label sprites_rasters_limit_table=$13fe
 .label div_num2_3=$1259
 .label PLAYER_ALLOWED_MOVE=$0
-.label skip_joy_right=$dba
+.label skip_joy_right=$dbd
 .label ANIMATION_FRAMES_LIST_HI=$13b5
 .label div_num2_0=$1256
 .label ZERO_PAGE_ADDRESS=$20
@@ -690,4 +690,4 @@
 .label space_4_str=$120f
 .label DEFAULT_SCREEN_EXTRA_COLOR_2=$9
 .label SPRITE_X_POS=$13b1
-.label sleep_sprite_inner_loop=$e23
+.label sleep_sprite_inner_loop=$e26
