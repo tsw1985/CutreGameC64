@@ -2,6 +2,7 @@
 
 PENDING:
 =======
+    - Refactor Functions Check wall collisions. Separe functions
     - Animations rotations
     - Main Screen
     - Animation bullet if impact with enemy. Show a implosion
