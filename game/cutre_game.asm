@@ -180,8 +180,8 @@ simulate_game_loop:
         
         //print x
         //lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
-        //lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
-        lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
+        lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
 
         sta sum_res_0
         lda #0
@@ -193,8 +193,8 @@ simulate_game_loop:
 
         //print y IN TEXT MODE COORDS
         //lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
-        //lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
-        lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
+        lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
 
         sta sum_res_0
         lda #0
@@ -271,11 +271,6 @@ rts
 */
 joy_up:
 
-    // Check tank collision with Wall
-    jsr SPRITE_LIB.check_wall_top_collision_tank_1
-
-
-
     lda #1
     sta PLAYER_1_TANK_IS_IN_MOVING
 
@@ -286,26 +281,92 @@ joy_up:
     // Clean all flags fire directions. Where player fired.
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
-
     // set new tank direction
     lda #PLAYER_UP
     sta PLAYER_1_TANK_FIRED_IN_UP
 
+
+    /* Check CANNON TIP */
+    lda #50
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
+    lda #12
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_X
+    jsr SPRITE_LIB.check_wall_cannon_tip_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_CANNON_TIP_Y
+    sta SCREEN_ROW_POS
+    lda PLAYER_1_TANK_1_CANNON_TIP_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
+    cmp #BRIK
+    beq no_move_up
+    
+    /* End Check CANNON TIP */
+
+    /*  Check LEFT chain */
+    lda #45
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #18
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_up
+    /* End check LEFT Chain */
+
+    /* Check RIGHT chain */
+    lda #45
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #6
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_up
+    /* End Check RIGHT chain */
+
+    // ------------------ END CHECK COLLISIONS -----------------
+
     skip_joy_up:
+        
+        // move to left
+        jsr SPRITE_LIB.sprite_0_decrement_y
+
+    no_move_up:
 
         // put animation
         jsr SPRITE_LIB.sprite_set_animation_rotate_tank_up
-
-        // move to left
-        jsr SPRITE_LIB.sprite_0_decrement_y
 rts
 
 
 joy_left:
-
-
-    // Check tank collision with Wall
-    jsr SPRITE_LIB.check_wall_left_collision_tank_1
 
 
     lda #1
@@ -322,12 +383,87 @@ joy_left:
     lda #PLAYER_LEFT
     sta PLAYER_1_TANK_FIRED_IN_LEFT
 
+
+    /* Check CANNON TIP */
+    lda #40
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
+    lda #24
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_X
+    jsr SPRITE_LIB.check_wall_cannon_tip_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_CANNON_TIP_Y
+    sta SCREEN_ROW_POS
+    lda PLAYER_1_TANK_1_CANNON_TIP_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
+    cmp #BRIK
+    beq no_move_left
+    
+    /* End Check CANNON TIP */
+
+    /*  Check LEFT chain */
+    lda #34
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #18
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_left
+    /* End check LEFT Chain */
+
+    /* Check RIGHT chain */
+    lda #45
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #18
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_left
+    /* End Check RIGHT chain */
+    
+
+    // -------- END CHECK COLLISIONS
+    
+
     // move to left
     skip_joy_left:
 
+        jsr SPRITE_LIB.sprite_0_decrement_x
+
+        
+    no_move_left:
+
         // Rotamos el tanque lanzando la animacion
         jsr SPRITE_LIB.sprite_set_animation_rotate_tank_left
-        jsr SPRITE_LIB.sprite_0_decrement_x
 
 rts
 
@@ -336,16 +472,12 @@ rts
 joy_right:
 
 
-    jsr SPRITE_LIB.check_wall_right_collision_tank_1
-
     lda #1
     sta PLAYER_1_TANK_IS_IN_MOVING
-
 
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
     beq skip_joy_right
-
 
     // Clean all flags fire directions. Where player fired.
     jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
@@ -354,27 +486,95 @@ joy_right:
     lda #PLAYER_RIGHT
     sta PLAYER_1_TANK_FIRED_IN_RIGHT
 
-    skip_joy_right:
 
-        // Rotamos el tanque lanzando la animacion
-        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
+    /* Check CANNON TIP */
+    lda #40
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
+    lda #0
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_X
+    jsr SPRITE_LIB.check_wall_cannon_tip_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_CANNON_TIP_Y
+    sta SCREEN_ROW_POS
+    lda PLAYER_1_TANK_1_CANNON_TIP_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
+    cmp #BRIK
+    beq no_move_right
+    
+    /* End Check CANNON TIP */
+
+    /*  Check LEFT chain */
+    lda #47
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #6
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_right
+    /* End check LEFT Chain */
+
+    /* Check RIGHT chain */
+    lda #35
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #6
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_right
+    /* End Check RIGHT chain */
+
+    //-------- END CHECK COLLISION ---------
+
+
+    skip_joy_right:
 
         // Move to right
         jsr SPRITE_LIB.sprite_0_increment_x
 
+    no_move_right:
+
+
+        // Rotamos el tanque lanzando la animacion
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_right
 rts
 
 
     
 joy_down:
 
-    // Check tank collision with Wall
-    jsr SPRITE_LIB.check_wall_bottom_collision_tank_1
-
 
     lda #1
     sta PLAYER_1_TANK_IS_IN_MOVING
-
 
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1
@@ -387,16 +587,92 @@ joy_down:
     lda #PLAYER_DOWN
     sta PLAYER_1_TANK_FIRED_IN_DOWN
 
+
+
+    /* Check CANNON TIP */
+    lda #29
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
+    lda #12
+    sta PLAYER_1_TANK_OFFSET_CANNON_TIP_X
+    jsr SPRITE_LIB.check_wall_cannon_tip_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_CANNON_TIP_Y
+    sta SCREEN_ROW_POS
+    lda PLAYER_1_TANK_1_CANNON_TIP_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
+    cmp #BRIK
+    beq no_move_down
     
+    /* End Check CANNON TIP */
+
+    /*  Check LEFT chain */
+    lda #36
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #6
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_down
+    /* End check LEFT Chain */
+
+    /* Check RIGHT chain */
+    lda #35
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #18
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq no_move_down
+    /* End Check RIGHT chain */
+    
+
+    //---------- END CHECK COLLISION
+
+
+
     skip_joy_down:
-        // reset index frame to 0 for Sprite 0 ( player 1)
-        //jsr SPRITE_LIB.sprite_reset_0_sprite_index_player_1
+
+        // Move to right
+        jsr SPRITE_LIB.sprite_0_increment_y
+
+        
+
+    no_move_down:
 
         // Rotamos el tanque lanzando la animacion
         jsr SPRITE_LIB.sprite_set_animation_rotate_tank_down
 
-        // move to down
-        jsr SPRITE_LIB.sprite_0_increment_y
+
 
 rts
 

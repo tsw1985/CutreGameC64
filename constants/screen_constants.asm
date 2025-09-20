@@ -97,12 +97,18 @@
 //GAME SPRITE CONSTANTS
 //=====================
 
+/* Chars Representations*/
+.label BRIK = 67
+
+
+
 /* Player 1 */
-    .label SPRITE_TANK_1 = 0
-    .label SPRITE_BULLET_TANK_1 = 1
+.label SPRITE_TANK_1 = 0
+.label SPRITE_BULLET_TANK_1 = 1
+
 
 /* Player 2 */
-    .label SPRITE_TANK_2 = 2
-    .label SPRITE_BULLET_TANK_2 = 3
+.label SPRITE_TANK_2 = 2
+.label SPRITE_BULLET_TANK_2 = 3
 
 

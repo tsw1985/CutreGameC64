@@ -10,7 +10,25 @@ PLAYER_1_TANK_FIRED_IN_RIGHT: .byte 0
 PLAYER_1_TANK_FIRED_IN_LEFT:  .byte 0
 PLAYER_1_TANK_FIRED_IN_DOWN:  .byte 0
 PLAYER_1_TANK_FIRED_IN_UP:    .byte 0
-PLAYER_1_TANK_IS_FIRING: .byte 0
+PLAYER_1_TANK_IS_FIRING:      .byte 0
+
+/* Variable to apply a offset to calculate in the tank the CANNON TIP,
+LEFT TOP CHAIN and RIGHT TOP CHAIN ( whiles of tank ) */
+PLAYER_1_TANK_OFFSET_CANNON_TIP_Y:  .byte 0
+PLAYER_1_TANK_OFFSET_CANNON_TIP_X:  .byte 0
+
+
+
+PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y:  .byte 0
+PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X:  .byte 0
+
+
+PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y: .byte 0
+PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X: .byte 0
+
+
+
+
 
 /* Variable to check if the player tank 1 is in moving */
 PLAYER_1_TANK_IS_IN_MOVING: .byte 0
