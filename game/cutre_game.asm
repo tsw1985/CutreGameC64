@@ -180,8 +180,8 @@ simulate_game_loop:
         
         //print x
         //lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
-        lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
-        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
+        //lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
+        lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
 
         sta sum_res_0
         lda #0
@@ -193,8 +193,8 @@ simulate_game_loop:
 
         //print y IN TEXT MODE COORDS
         //lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
-        lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
-        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
+        //lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
+        lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
 
         sta sum_res_0
         lda #0
