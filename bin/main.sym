@@ -245,9 +245,12 @@
 .label JOY_GO_DOWN=$2
 .label sprite_player_1_animation_right_down_tank=$1479
 .label JOYSTICK_LIB=$503b {
-  .label no_move_up=$5127 {
-  }
+  .label no_move_up=$5115
   .label read_joystick=$503b {
+  }
+  .label no_fire_right=$5255 {
+  }
+  .label no_fire_down=$52ec {
   }
   .label skip_fire=$5327 {
   }
@@ -256,6 +259,8 @@
   }
   .label input_up_check=$5063
   .label input_left_check=$5045
+  .label no_fire_up=$5127 {
+  }
   .label joy_right=$51c4 {
   }
   .label finish_read_stick=$5090 {
@@ -264,16 +269,15 @@
   }
   .label joy_fire=$52f2 {
   }
-  .label no_move_down=$52ec {
-  }
+  .label no_move_down=$52da
   .label input_down_check=$5072
   .label joy_down=$525b {
   }
-  .label no_move_right=$5255 {
-  }
-  .label no_move_left=$51be {
-  }
+  .label no_move_right=$5243
+  .label no_move_left=$51ac
   .label input_right_check=$5054
+  .label no_fire_left=$51be {
+  }
 }
 .label SOUND_LIB=$5d47 {
   .label stop_sound=$5d5c {
