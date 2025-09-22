@@ -1,0 +1,1 @@
+.label KERNAL_GETIN = $ffe4  // Get pressed key. Value in A

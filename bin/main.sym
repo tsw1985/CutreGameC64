@@ -48,7 +48,7 @@
 .label sprites_coord_table_y=$13f4
 .label PLAYER_1_TANK_IS_FIRING=$1385
 .label PLAYER_1_TANK_OFFSET_CANNON_TIP_Y=$1386
-.label check_joy_up=$d43
+.label check_joy_up=$d55
 .label PLAYER_1_TANK_OFFSET_CANNON_TIP_X=$1387
 .label MAP_SIZE=$c0
 .label SPRITE_TO_ENABLE=$13a4
@@ -166,6 +166,8 @@
 .label NUMBER_TO_PRINT_TABLE=$123c
 .label keys_buffer=$120a
 .label INTERRUPT_CONTROL=$d01a
+.label start_read_keyboard=$d21 {
+}
 .label SPRITE_ANIMATION_VALUE_OFFSET=$13b9
 .label sprite_player_1_up_and_right_tank=$1453
 .label SPRITE_0_MEM_X=$d000
@@ -214,7 +216,7 @@
 .label DARK_GRAY=$b
 .label LIBRARIES_ADDRESS=$4800
 .label GREY=$c
-.label sleep_sprite=$d6d {
+.label sleep_sprite=$d7f {
 }
 .label sprite_animations_list_HI_table_backup=$13d4
 .label sub_num1_3=$1279
@@ -230,7 +232,7 @@
 .label INPUT_CURSOR_COL=$1320
 .label PLAYER_RIGHT=$2
 .label sprite_player_1_animation_left_down_tank=$148d
-.label check_joy_down=$d50
+.label check_joy_down=$d62
 .label counter_table=$124d
 .label Row_Color_LO=$4032
 .label SCREEN_BACKGROUND_COLOR=$d021
@@ -291,6 +293,7 @@
 .label PLAYER_2_TANK_POSITION=$1395
 .label ZERO_PAGE_SPRITE_HIGHT_BYTE=$27
 .label calc_offset_str=$121a
+.label getin_loop=$d26
 .label TABLES_ADDRESS=$4000
 .label sprite_player_1_up_tank=$1447
 .label sprite_player_1_right_tank=$1450
@@ -299,7 +302,7 @@
 .label SCREEN_WIDTH=$28
 .label SPRITE_4_MEM_X=$d008
 .label OLD_IRQ_HIGH=$137a
-.label start_read_joystick=$d21 {
+.label start_read_joystick=$d33 {
 }
 .label sprites_raster_counters_table_backup=$141c
 .label SPRITE_4_MEM_Y=$d009
@@ -309,6 +312,7 @@
 .label sprite_animations_list_LO_table_backup=$13cc
 .label MAP_COL=$14bc
 .label SCREEN_INPUT_COL_POS_CLS=$12dd
+.label KERNAL_GETIN=$ffe4
 .label PLAYER_1_TANK_IS_IN_MOVING=$138c
 .label VARIABLES_ADDRESS=$1200
 .label sprite_player_1_down_and_left_tank=$1457
@@ -332,7 +336,7 @@
 .label KEY_FLAGS=$1283
 .label TASK_COUNTER=$14b3
 .label main=$811
-.label check_joy_fire=$d5d
+.label check_joy_fire=$d6f
 .label sprite_animations_list_HI_table=$13c4
 .label CURRENT_RASTER_LINE=$d012
 .label KEYS_TO_SCREEN_STR=$1325
@@ -340,7 +344,7 @@
 .label SPRITE_6_MEM_Y=$d00d
 .label MAIN_CODE_ADDRESS=$810
 .label SPRITE_6_MEM_X=$d00c
-.label end_read_joystick=$d67 {
+.label end_read_joystick=$d79 {
 }
 .label Map_LO=$4064
 .label div_num1_2=$1254
@@ -353,7 +357,7 @@
 .label MAP_TEMP_Y=$14be
 .label div_num1_0=$1252
 .label ZERO_PAGE_ROW_COLOR_HIGHT_BYTE=$25
-.label sleep_sprite_outer_loop=$d74 {
+.label sleep_sprite_outer_loop=$d86 {
 }
 .label div_num1_1=$1253
 .label PLAYER_NOT_ALLOWED_MOVE=$1
@@ -702,9 +706,9 @@
 .label div_res_2=$125c
 .label div_res_3=$125d
 .label DEFAULT_SCREEN_EXTRA_COLOR_1=$e
-.label check_joy_right=$d36
+.label check_joy_right=$d48
 .label system_status=$810
 .label space_4_str=$120f
 .label DEFAULT_SCREEN_EXTRA_COLOR_2=$9
 .label SPRITE_X_POS=$13b7
-.label sleep_sprite_inner_loop=$d76
+.label sleep_sprite_inner_loop=$d88

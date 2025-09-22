@@ -210,6 +210,26 @@ simulate_game_loop:
 jmp simulate_game_loop
 
 
+/* PLAYER 2 Using keyboard - Move tank 2*/
+start_read_keyboard:
+push_regs_to_stack()
+
+    getin_loop:
+    jsr KERNAL_GETIN   // Call to GETIN . Return value in A
+    cmp #$00           // ¿Hay alguna tecla pulsada?
+    beq getin_loop     //  A= =0, go getin_loop
+    /* If KEY , check key */
+
+    /* MOVE UP */
+    /* MOVE DOWN */
+    /* MOVE LEFT */
+    /* MOVE RIGHT */
+
+
+pull_regs_from_stack()
+rts
+
+
 
 /* Function to read the joystick port */
 start_read_joystick:
