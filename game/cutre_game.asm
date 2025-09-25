@@ -4,6 +4,23 @@
 lda #PLAYER_UP
 sta PLAYER_1_TANK_CURRENT_DIRECTION
 
+
+/* Init position Player 1 to TOP */
+/* Player 2 Keyboard */
+// Port A = enter
+lda #$00
+sta $DC02 //; ---> $DC00
+
+// Port B = exit
+lda #$ff
+sta $DC03 //; ---> $DC01
+
+
+
+lda #PLAYER_DOWN
+sta PLAYER_2_TANK_CURRENT_DIRECTION
+
+
 /* Load map #0 */
 print_map(0)
 
@@ -86,10 +103,8 @@ simulate_game_loop:
     lda sprite_animations_list_HI_table,x
     sta sprite_current_anim_HI_table,x
     
+    jsr start_read_keyboard
     jsr start_read_joystick
-
-    /* Move bullets tanks */ 
-    //jsr SPRITE_LIB.sprite_move_bullets_tank_1
 
 
     /* lag move sprite in screen */
@@ -214,17 +229,39 @@ jmp simulate_game_loop
 start_read_keyboard:
 push_regs_to_stack()
 
-    getin_loop:
-    jsr KERNAL_GETIN   // Call to GETIN . Return value in A
-    cmp #$00           // ¿Hay alguna tecla pulsada?
-    beq getin_loop     //  A= =0, go getin_loop
-    /* If KEY , check key */
+    jsr INPUT_LIB.clear_key_pressed_table
+    jsr INPUT_LIB.scan_only_pressed_keys //Value returned under PRESSED_KEY_TABLE
 
-    /* MOVE UP */
-    /* MOVE DOWN */
-    /* MOVE LEFT */
-    /* MOVE RIGHT */
 
+    ldx #KEY_W
+    lda PRESSED_KEY_TABLE,x
+    beq check_down_key
+    inc $d020
+    jmp end_read_key
+
+    check_down_key:
+        ldx #KEY_S
+        lda PRESSED_KEY_TABLE,x
+        beq check_left_key
+        inc $d020
+        jmp end_read_key
+
+    check_left_key:
+        ldx #KEY_A
+        lda PRESSED_KEY_TABLE,x
+        beq check_right_key
+        inc $d020
+        jmp end_read_key
+
+    check_right_key:
+        ldx #KEY_D  
+        lda PRESSED_KEY_TABLE,x
+        beq end_read_key
+        inc $d020
+    
+    
+    end_read_key:
+    
 
 pull_regs_from_stack()
 rts

@@ -4,6 +4,7 @@
 
 BasicUpstart2(main)
 
+
 *=MAIN_CODE_ADDRESS "Main Code"
 #import "/includes/main_code.asm"
 
@@ -30,3 +31,5 @@ BasicUpstart2(main)
 
 *=MAP_ADDRESS "Maps"
 .import binary "/maps/backgroundmap.bin"
+
+

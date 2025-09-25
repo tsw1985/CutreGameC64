@@ -9,3 +9,4 @@
 #import "/libraries/sprite_lib/sprite_lib.asm"
 #import "/libraries/tiles_lib/tiles_lib.asm"
 #import "/libraries/sound_lib/sound_lib.asm"
+#import "/libraries/keyboard_lib/keyboard_lib.asm"

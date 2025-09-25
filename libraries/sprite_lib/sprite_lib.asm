@@ -1623,7 +1623,7 @@ rts
 /*          ANIMATIONS            */
 /**********************************/
 /* Play animation rotation: UP */
-sprite_set_animation_rotate_tank_up:
+sprite_set_animation_rotate_tank_1_up:
 push_regs_to_stack()
 
     ldx #0 // <--- Sprite 0 Player
@@ -1636,7 +1636,7 @@ pull_regs_from_stack()
 rts
 
 /* Play animation rotation: RIGHT */
-sprite_set_animation_rotate_tank_right:
+sprite_set_animation_rotate_tank_1_right:
 push_regs_to_stack()
 
     ldx #0 // <--- Sprite 0 Player
@@ -1648,10 +1648,8 @@ push_regs_to_stack()
 pull_regs_from_stack()
 rts
 
-
-
 /* Play animation rotation: LEFT */
-sprite_set_animation_rotate_tank_left:
+sprite_set_animation_rotate_tank_1_left:
 push_regs_to_stack()
 
     ldx #0 // <--- Sprite 0 Player
@@ -1663,9 +1661,8 @@ push_regs_to_stack()
 pull_regs_from_stack()
 rts
 
-
 /* Play animation rotation: DOWN */
-sprite_set_animation_rotate_tank_down:
+sprite_set_animation_rotate_tank_1_down:
 push_regs_to_stack()
 
     ldx #0 // <--- Sprite 0 Player
@@ -1676,6 +1673,70 @@ push_regs_to_stack()
 
 pull_regs_from_stack()
 rts
+
+
+/************************************************/
+/*        ANIMATIONS PLAYER 2                   */
+/************************************************/
+sprite_set_animation_rotate_tank_2_up:
+push_regs_to_stack()
+
+    ldx #2 // <--- Sprite 0 Player
+    lda #<sprite_player_2_up_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_2_up_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+/* Play animation rotation: RIGHT */
+sprite_set_animation_rotate_tank_2_right:
+push_regs_to_stack()
+
+    ldx #2 // <--- Sprite 0 Player
+    lda #<sprite_player_2_right_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_2_right_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+/* Play animation rotation: LEFT */
+sprite_set_animation_rotate_tank_2_left:
+push_regs_to_stack()
+
+    ldx #2 // <--- Sprite 0 Player
+    lda #<sprite_player_2_left_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_2_left_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+/* Play animation rotation: DOWN */
+sprite_set_animation_rotate_tank_2_down:
+push_regs_to_stack()
+
+    ldx #2 // <--- Sprite Tank 2
+    lda #<sprite_player_2_down_tank
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_player_2_down_tank
+    sta sprite_animations_list_HI_table,x
+
+pull_regs_from_stack()
+rts
+
+
+
+
+
+
+
+
+
 
 
 

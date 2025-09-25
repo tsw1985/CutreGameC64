@@ -18,15 +18,12 @@ PLAYER_1_TANK_OFFSET_CANNON_TIP_Y:  .byte 0
 PLAYER_1_TANK_OFFSET_CANNON_TIP_X:  .byte 0
 
 
-
 PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y:  .byte 0
 PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X:  .byte 0
 
 
 PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y: .byte 0
 PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X: .byte 0
-
-
 
 
 
@@ -51,8 +48,6 @@ PLAYER_1_TANK_1_RIGHT_CHAIN_Y: .byte 0
 PLAYER_1_TANK_1_RIGHT_CHAIN_X: .byte 0
 
 
-
-
 /* Variable to set if the player 1 can move. This is used in the moment of
 animation rotation. We want block the sprite movement in this rotation move.
 0 = true
@@ -68,8 +63,71 @@ PLAYER_1_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
  */
 
 
-/* PLAYER 2 */
-PLAYER_2_TANK_POSITION: .byte PLAYER_DOWN
+/* Variables to save the position tank player 1 */
+PLAYER_2_TANK_CURRENT_DIRECTION: .byte PLAYER_UP
+
+/* Variables to save the NEW position tank player 1 */
+PLAYER_2_TANK_NEW_DIRECTION: .byte PLAYER_UP 
+PLAYER_2_TANK_IS_ROTATING:   .byte 0
+
+/* Variables to save the position when the player press fire button */
+PLAYER_2_TANK_FIRED_IN_RIGHT: .byte 0
+PLAYER_2_TANK_FIRED_IN_LEFT:  .byte 0
+PLAYER_2_TANK_FIRED_IN_DOWN:  .byte 0
+PLAYER_2_TANK_FIRED_IN_UP:    .byte 0
+PLAYER_2_TANK_IS_FIRING:      .byte 0
+
+/* Variable to apply a offset to calculate in the tank the CANNON TIP,
+LEFT TOP CHAIN and RIGHT TOP CHAIN ( whiles of tank ) */
+PLAYER_2_TANK_OFFSET_CANNON_TIP_Y:  .byte 0
+PLAYER_2_TANK_OFFSET_CANNON_TIP_X:  .byte 0
+
+
+PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y:  .byte 0
+PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X:  .byte 0
+
+
+PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y: .byte 0
+PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X: .byte 0
+
+
+
+/* Variable to check if the player tank 1 is in moving */
+PLAYER_2_TANK_IS_IN_MOVING: .byte 0
+
+
+/* Variable to save the current screen char from cannon of tank 1 */
+PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON: .byte 0
+
+
+/* Variables to save the zones of tank to collision with walls*/
+PLAYER_2_TANK_1_CANNON_TIP_Y: .byte 0
+PLAYER_2_TANK_1_CANNON_TIP_X: .byte 0
+
+/* Variables to save the left chains of tank to collision with walls*/
+PLAYER_2_TANK_1_LEFT_CHAIN_Y: .byte 0
+PLAYER_2_TANK_1_LEFT_CHAIN_X: .byte 0
+
+/* Variables to save the right chains of tank to collision with walls*/
+PLAYER_2_TANK_1_RIGHT_CHAIN_Y: .byte 0
+PLAYER_2_TANK_1_RIGHT_CHAIN_X: .byte 0
+
+
+/* Variable to set if the player 1 can move. This is used in the moment of
+animation rotation. We want block the sprite movement in this rotation move.
+0 = true
+1 = false
+ */
+PLAYER_2_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
+
+
+
+
+
+
+
+
+
 
 
 /* Pointer where start the sprites information, the pictures.
@@ -308,7 +366,7 @@ animation list.
 sprites_rasters_limit_table:
     .byte 1 // Speed for Sprite 1
     .byte 1 // Speed for Sprite 2 Bullet Player 1
-    .byte 40 // Speed for Sprite 3
+    .byte 1 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
     .byte 15 // Speed for Sprite 6
@@ -319,7 +377,7 @@ sprites_rasters_limit_table:
 sprites_rasters_limit_table_backup:
     .byte 1 // Speed for Sprite 1
     .byte 1 // Speed for Sprite 2 Bullet Player 1
-    .byte 40 // Speed for Sprite 3
+    .byte 1 // Speed for Sprite 3
     .byte 50 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
     .byte 15 // Speed for Sprite 6
@@ -451,6 +509,47 @@ sprite_player_1_right_tank:
     .byte 8   // Frame 0 in Sprite pad
     .byte 75
     .byte 255
+
+/* Player 1 BULLET */
+sprite_player_1_bullet_tank:
+    .byte 79   // Frame 0 in Sprite pad
+    .byte 255    
+
+
+/*************************************************/
+/* TANK 2 POSITIONS */
+/*************************************************/    
+/* Player 2 UP */
+sprite_player_2_up_tank:
+    .byte 0   // Frame 0 in Sprite pad
+    .byte 76
+    .byte 255
+
+/* Player 2 DOWN */
+sprite_player_2_down_tank:
+    .byte 37   // Frame 0 in Sprite pad
+    .byte 78
+    .byte 255
+
+/* Player 2 LEFT */
+sprite_player_2_left_tank:
+    .byte 19   // Frame 0 in Sprite pad
+    .byte 77
+    .byte 255
+
+/* Player 2 RIGHT */
+sprite_player_2_right_tank:
+    .byte 8   // Frame 0 in Sprite pad
+    .byte 75
+    .byte 255
+
+
+
+
+
+
+
+
 
 
 
@@ -605,16 +704,5 @@ sprite_player_1_animation_down_right_tank:
     .byte 255
 
 
-sprite_player_2_down_tank:
-    .byte 37   // Frame 0 in Sprite pad
-    .byte 255
 
-
-sprite_player_1_bullet_tank:
-    .byte 79   // Frame 0 in Sprite pad
-    .byte 255    
-
-sprite_player_2_up_bullet_tank:
-    .byte 75   // Frame 0 in Sprite pad
-    .byte 255    
 

@@ -1,10 +1,12 @@
 /* Values to check joystick positions */
-.label JOY_GO_LEFT   = %00000100
-.label JOY_GO_RIGHT  = %00001000  
 .label JOY_GO_UP     = %00000001
 .label JOY_GO_DOWN   = %00000010
+.label JOY_GO_LEFT   = %00000100
+.label JOY_GO_RIGHT  = %00001000  
 .label JOY_GO_FIRE   = %00010000
 
+.label JOYSTICK_PORT_1 = $DC01
+.label JOYSTICK_PORT_0 = $DC00
 
 /* Tank Positions */
 .label PLAYER_UP    = 1

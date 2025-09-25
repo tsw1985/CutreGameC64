@@ -307,6 +307,57 @@ scan_all_keys:
 rts   // finish function
 
 
+
+/* Function to get only pressed keys in the offset table */
+scan_only_pressed_keys:
+    
+    push_regs_to_stack()
+    ldx #0
+    only_pressed_keys_scan_rows_loop:
+
+        lda TABLE_KEY_BOARD_ROW,x   // get keyboard row to explore
+        cli
+        sta $DC01                   // and set it on PORT B
+
+        lda $DC00                   // get keyboard col to explore if some
+        
+                                    // key is pressed
+        eor #%11111111              // invert values of rows cols ( 0 to 1)
+        sta KEY_PRESSED             // save the inverted value on A
+                                    // once we have the result of the pressed
+        sei                            // keys, we go to retrieve the COL ROW
+                                    // table
+
+        ldy #0                    // we start to retrieve all cols ( 0 to 7)
+        only_pressed_keys_scan_cols_loop:
+
+            lda KEY_PRESSED        //load current key pressed ( bits with 1)
+            and TABLE_KEY_BOARD_COL,y  // match some bit with some col row?
+            beq only_pressed_keys_no_key_detected     // if does not match, continue with next
+                                 // column 
+
+            // calculation of offset
+            jsr calculate_offset_for_ascii_table
+
+            /* Normal approach */
+            // save the offset result in the table
+            jsr save_key_pressed
+
+        only_pressed_keys_no_key_detected:
+
+
+            iny                // increment Y ( columns )
+            cpy #8             // 8 cols ?
+            bne only_pressed_keys_scan_cols_loop // if not , continue retrieving cols
+
+            inx                // increment X ( rows)
+            cpx #8             // are 8 rows ???
+            bne only_pressed_keys_scan_rows_loop // not ?? continue retrieving rows
+
+    pull_regs_from_stack()
+rts   // finish function
+
+
 /* Main function :
     
     This is the main function. This means, once all keys were pressed, we
