@@ -2112,7 +2112,7 @@ rts
 sprite_set_animation_rotate_tank_1_left:
 push_regs_to_stack()
 
-    ldx #0 // <--- Sprite 0 Player
+    ldx #SPRITE_TANK_1 // <--- Sprite 0 Player
     lda #<sprite_player_1_left_tank
     sta sprite_animations_list_LO_table,x 
     lda #>sprite_player_1_left_tank
@@ -2125,7 +2125,7 @@ rts
 sprite_set_animation_rotate_tank_1_down:
 push_regs_to_stack()
 
-    ldx #0 // <--- Sprite 0 Player
+    ldx #SPRITE_TANK_1 // <--- Sprite 0 Player
     lda #<sprite_player_1_down_tank
     sta sprite_animations_list_LO_table,x 
     lda #>sprite_player_1_down_tank
@@ -2141,7 +2141,7 @@ rts
 sprite_set_animation_rotate_tank_2_up:
 push_regs_to_stack()
 
-    ldx #2 // <--- Sprite 0 Player
+    ldx #SPRITE_TANK_2 
     lda #<sprite_player_2_up_tank
     sta sprite_animations_list_LO_table,x 
     lda #>sprite_player_2_up_tank
@@ -2154,7 +2154,7 @@ rts
 sprite_set_animation_rotate_tank_2_right:
 push_regs_to_stack()
 
-    ldx #2 // <--- Sprite 0 Player
+    ldx #SPRITE_TANK_2 
     lda #<sprite_player_2_right_tank
     sta sprite_animations_list_LO_table,x 
     lda #>sprite_player_2_right_tank
@@ -2167,7 +2167,7 @@ rts
 sprite_set_animation_rotate_tank_2_left:
 push_regs_to_stack()
 
-    ldx #2 // <--- Sprite 0 Player
+    ldx #SPRITE_TANK_2
     lda #<sprite_player_2_left_tank
     sta sprite_animations_list_LO_table,x 
     lda #>sprite_player_2_left_tank
@@ -2180,7 +2180,7 @@ rts
 sprite_set_animation_rotate_tank_2_down:
 push_regs_to_stack()
 
-    ldx #2 // <--- Sprite Tank 2
+    ldx #SPRITE_TANK_2
     lda #<sprite_player_2_down_tank
     sta sprite_animations_list_LO_table,x 
     lda #>sprite_player_2_down_tank

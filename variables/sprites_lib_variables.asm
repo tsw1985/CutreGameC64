@@ -66,10 +66,10 @@ PLAYER_1_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
 
 
 /* Variables to save the position tank player 1 */
-PLAYER_2_TANK_CURRENT_DIRECTION: .byte PLAYER_UP
+PLAYER_2_TANK_CURRENT_DIRECTION: .byte PLAYER_DOWN
 
 /* Variables to save the NEW position tank player 1 */
-PLAYER_2_TANK_NEW_DIRECTION: .byte PLAYER_UP 
+PLAYER_2_TANK_NEW_DIRECTION: .byte PLAYER_DOWN
 PLAYER_2_TANK_IS_ROTATING:   .byte 0
 
 /* Variables to save the position when the player press fire button */
@@ -268,6 +268,10 @@ sprite_animations_list_HI_table:
     .byte 0  // Animation for sprite 7
     .byte 0  // Animation for sprite 8
 
+
+
+
+/* BACKUP TABLE */
 sprite_animations_list_LO_table_backup:
     .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2

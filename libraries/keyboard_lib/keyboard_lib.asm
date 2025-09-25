@@ -77,19 +77,19 @@ keyboard_up:
 
 
     no_move_up:
-    lda PLAYER_2_TANK_IS_FIRING
-    cmp #1
-    beq no_fire_up
+        lda PLAYER_2_TANK_IS_FIRING
+        cmp #1
+        beq no_fire_up
 
-    // Clean all flags fire directions. Where player fired.
-    jsr SPRITE_LIB.sprite_reset_player_2_fire_directions
+        // Clean all flags fire directions. Where player fired.
+        jsr SPRITE_LIB.sprite_reset_player_2_fire_directions
 
-    // put animation
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_2_up
+        // put animation
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_2_up
 
-    // set new tank direction
-    lda #PLAYER_UP
-    sta PLAYER_2_TANK_FIRED_IN_UP
+        // set new tank direction
+        lda #PLAYER_UP
+        sta PLAYER_2_TANK_FIRED_IN_UP
     
     no_fire_up:
 

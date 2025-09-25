@@ -144,19 +144,19 @@ joy_up:
 
 
     no_move_up:
-    lda PLAYER_1_TANK_IS_FIRING
-    cmp #1
-    beq no_fire_up
+        lda PLAYER_1_TANK_IS_FIRING
+        cmp #1
+        beq no_fire_up
 
-    // Clean all flags fire directions. Where player fired.
-    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+        // Clean all flags fire directions. Where player fired.
+        jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
-    // put animation
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_up
+        // put animation
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_up
 
-    // set new tank direction
-    lda #PLAYER_UP
-    sta PLAYER_1_TANK_FIRED_IN_UP
+        // set new tank direction
+        lda #PLAYER_UP
+        sta PLAYER_1_TANK_FIRED_IN_UP
     
     no_fire_up:
 
@@ -240,19 +240,19 @@ joy_left:
 
 
     no_move_left:
-    lda PLAYER_1_TANK_IS_FIRING
-    cmp #1
-    beq no_fire_left
+        lda PLAYER_1_TANK_IS_FIRING
+        cmp #1
+        beq no_fire_left
 
-    // Clean all flags fire directions. Where player fired.
-    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+        // Clean all flags fire directions. Where player fired.
+        jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
-    // put animation
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_left
+        // put animation
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_left
 
-    // set new tank direction
-    lda #PLAYER_LEFT
-    sta PLAYER_1_TANK_FIRED_IN_LEFT
+        // set new tank direction
+        lda #PLAYER_LEFT
+        sta PLAYER_1_TANK_FIRED_IN_LEFT
 
     no_fire_left:
     pull_regs_from_stack()
@@ -336,19 +336,19 @@ joy_right:
 
 
     no_move_right:
-    lda PLAYER_1_TANK_IS_FIRING
-    cmp #1
-    beq no_fire_right
+        lda PLAYER_1_TANK_IS_FIRING
+        cmp #1
+        beq no_fire_right
 
-    // Clean all flags fire directions. Where player fired.
-    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+        // Clean all flags fire directions. Where player fired.
+        jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
-    // put animation
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_right
+        // put animation
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_right
 
-    // set new tank direction
-    lda #PLAYER_RIGHT
-    sta PLAYER_1_TANK_FIRED_IN_RIGHT
+        // set new tank direction
+        lda #PLAYER_RIGHT
+        sta PLAYER_1_TANK_FIRED_IN_RIGHT
 
     no_fire_right:
     pull_regs_from_stack()
@@ -433,28 +433,24 @@ joy_down:
 
 
     no_move_down:
-    lda PLAYER_1_TANK_IS_FIRING
-    cmp #1
-    beq no_fire_down
+        lda PLAYER_1_TANK_IS_FIRING
+        cmp #1
+        beq no_fire_down
 
-    // Clean all flags fire directions. Where player fired.
-    jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
+        // Clean all flags fire directions. Where player fired.
+        jsr SPRITE_LIB.sprite_reset_player_1_fire_directions
 
-    // put animation
-    jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_down
+        // put animation
+        jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_down
 
-    // set new tank direction
-    lda #PLAYER_DOWN
-    sta PLAYER_1_TANK_FIRED_IN_DOWN
+        // set new tank direction
+        lda #PLAYER_DOWN
+        sta PLAYER_1_TANK_FIRED_IN_DOWN
 
     no_fire_down:
 
     pull_regs_from_stack()
 rts
-
-
-
-
 
 
 joy_fire:
