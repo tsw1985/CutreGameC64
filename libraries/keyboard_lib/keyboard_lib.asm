@@ -381,6 +381,34 @@ rts
 
 
 
+keyboard_fire:
+    push_regs_to_stack()
+
+    lda PLAYER_2_TANK_IS_FIRING
+    cmp #1
+    beq skip_fire
+
+
+    sprite_load_like_multicolor(3)
+    sprite_enable_sprite(3)
+    sprite_set_color(3,YELLOW)
+    sprite_set_frame_to_sprite(74,3) // bullet frame
+
+
+    // Tank is firing
+    lda #1
+    sta PLAYER_2_TANK_IS_FIRING
+
+    // Draw bullet
+    jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
+
+    skip_fire:   
+
+
+
+pull_regs_from_stack()
+rts
+
 
 
 }

@@ -251,7 +251,7 @@ sprite_animations_list_LO_table:
     .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
     .byte <sprite_player_2_down_tank  // Animation for sprite 3
-    .byte 0  // Animation for sprite 4
+    .byte <sprite_player_2_bullet_tank  // Animation for sprite 4
     .byte 0  // Animation for sprite 5
     .byte 0  // Animation for sprite 6
     .byte 0  // Animation for sprite 7
@@ -262,7 +262,7 @@ sprite_animations_list_HI_table:
     .byte >sprite_player_1_up_tank  // Animation for sprite 1
     .byte >sprite_player_1_bullet_tank// Animation for sprite 2
     .byte >sprite_player_2_down_tank  // Animation for sprite 3
-    .byte 0  // Animation for sprite 4
+    .byte >sprite_player_2_bullet_tank  // Animation for sprite 4
     .byte 0  // Animation for sprite 5
     .byte 0  // Animation for sprite 6
     .byte 0  // Animation for sprite 7
@@ -272,7 +272,7 @@ sprite_animations_list_LO_table_backup:
     .byte <sprite_player_1_up_tank  // Animation for sprite 1
     .byte <sprite_player_1_bullet_tank  // Animation for sprite 2
     .byte <sprite_player_2_down_tank  // Animation for sprite 3
-    .byte 0  // Animation for sprite 4
+    .byte <sprite_player_2_bullet_tank  // Animation for sprite 4
     .byte 0  // Animation for sprite 5
     .byte 0  // Animation for sprite 6
     .byte 0  // Animation for sprite 7
@@ -283,7 +283,7 @@ sprite_animations_list_HI_table_backup:
     .byte >sprite_player_1_up_tank  // Animation for sprite 1
     .byte >sprite_player_1_bullet_tank  // Animation for sprite 2
     .byte >sprite_player_2_down_tank  // Animation for sprite 3
-    .byte 0  // Animation for sprite 4
+    .byte >sprite_player_2_bullet_tank  // Animation for sprite 4
     .byte 0  // Animation for sprite 5
     .byte 0  // Animation for sprite 6
     .byte 0  // Animation for sprite 7
@@ -367,7 +367,7 @@ sprites_rasters_limit_table:
     .byte 1 // Speed for Sprite 1
     .byte 1 // Speed for Sprite 2 Bullet Player 1
     .byte 1 // Speed for Sprite 3
-    .byte 50 // Speed for Sprite 4
+    .byte 1 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
     .byte 15 // Speed for Sprite 6
     .byte 8 // Speed for Sprite 7
@@ -378,7 +378,7 @@ sprites_rasters_limit_table_backup:
     .byte 1 // Speed for Sprite 1
     .byte 1 // Speed for Sprite 2 Bullet Player 1
     .byte 1 // Speed for Sprite 3
-    .byte 50 // Speed for Sprite 4
+    .byte 1 // Speed for Sprite 4
     .byte 25 // Speed for Sprite 5
     .byte 15 // Speed for Sprite 6
     .byte 8 // Speed for Sprite 7
@@ -544,6 +544,10 @@ sprite_player_2_right_tank:
     .byte 255
 
 
+/* Player 2 BULLET */
+sprite_player_2_bullet_tank:
+    .byte 79   // Frame 0 in Sprite pad
+    .byte 255    
 
 
 

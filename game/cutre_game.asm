@@ -30,11 +30,7 @@ sprite_set_extra_colors(LIGHT_GREEN,GREEN)
 
 /* Enable sprites */
 sprite_enable_sprite(0) // Player 1 down
-//sprite_enable_sprite(1) // Bullet Player 1
-
-
 sprite_enable_sprite(2) // Player 2 Up
-//sprite_enable_sprite(3) // Bullet Player 2
 
 
 /* Setup for sprite 1 PLAYER */
@@ -249,8 +245,8 @@ push_regs_to_stack()
         ldx #KEY_SPACE
         lda PRESSED_KEY_TABLE,x
         beq end_read_key
-        inc $d020
-   
+        jsr KEYBOARD_LIB.keyboard_fire
+           
     
     end_read_key:
     

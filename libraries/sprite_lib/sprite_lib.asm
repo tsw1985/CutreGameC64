@@ -601,7 +601,14 @@ actions_in_raster:
             lda SPRITE_INDEX_COUNTER_RASTER_LOOP
             cmp #0                                  // 0 is Player tank 1 SPRITE
             beq is_sprite_tank_1
+            //jmp continue_default
+
+            lda SPRITE_INDEX_COUNTER_RASTER_LOOP
+            cmp #2                                  // 2 is Player tank 2 SPRITE
+            beq is_sprite_tank_2
             jmp continue_default
+
+
             is_sprite_tank_1:
 
                 // if sprite is in moving
@@ -621,9 +628,31 @@ actions_in_raster:
                     sta PLAYER_1_TANK_IS_IN_MOVING
                     jmp continue_put_animation_frame_in_screen
 
+
+            is_sprite_tank_2:
+
+                // if sprite is in moving
+                lda PLAYER_2_TANK_IS_IN_MOVING
+                cmp #1
+                beq player_2_is_in_moving
+                jmp continue_put_animation_frame_in_screen
+
+                player_2_is_in_moving:
+
+                   /* if player 1 is in moving, we change the frame animation */
+                    inc sprites_current_animation_index_position_table,x
+
+                    /* Reset to 0 again the flag if tank is in movement.
+                       When the player move the joystick again, this will be 1*/
+                    lda #0
+                    sta PLAYER_2_TANK_IS_IN_MOVING
+                    jmp continue_put_animation_frame_in_screen                
+
+
             continue_default:
                 // default
                 inc sprites_current_animation_index_position_table,x    
+
 
             continue_put_animation_frame_in_screen:
 
@@ -743,6 +772,7 @@ actions_in_raster:
 
         // Move bullets
         jsr SPRITE_LIB.sprite_move_bullets_tank_1
+        jsr SPRITE_LIB.sprite_move_bullets_tank_2
 
 
         /* Call to check collision in any sprite */
@@ -1223,6 +1253,287 @@ rts
 /******************************************************************************/
 /*        START PLAYER 2 FUNCTIONS */
 /******************************************************************************/
+/* This function draw the bullet of tank 1 front of it . Depending of tank
+position */
+sprite_draw_bullet_in_tank_player_2:
+push_regs_to_stack()
+
+    /* 1 - Copy coords of Tank 1 to his sprite bullet */
+    jsr SPRITE_LIB.sprite_copy_coords_tank_2_to_his_bullet
+
+    /* 2 - First step is check the position in the moment of user press fire 
+    button*/
+    lda PLAYER_2_TANK_FIRED_IN_UP    /* UP */
+    cmp #PLAYER_UP
+    beq draw_bullet_to_up_player_2
+
+    lda PLAYER_2_TANK_FIRED_IN_DOWN  /* DOWN  */
+    cmp #PLAYER_DOWN
+    beq draw_bullet_to_down_player_2
+
+    lda PLAYER_2_TANK_FIRED_IN_LEFT  /* LEFT  */
+    cmp #PLAYER_LEFT
+    beq draw_bullet_to_left_player_2
+
+    lda PLAYER_2_TANK_FIRED_IN_RIGHT  /* RIGHT  */
+    cmp #PLAYER_RIGHT
+    beq draw_bullet_to_right_player_2
+
+
+    draw_bullet_to_up_player_2:
+
+        /* Load the current Y of sprite ( bullet ). */
+        ldx #SPRITE_BULLET_TANK_2
+        lda sprites_coord_table_y,x
+
+        /* Put the bullet front the cannon . Move a little X*/
+        /* Set Y to bullet player 2 - Sprite 1 . Rest a little bit Y */
+        sec
+        sbc #15
+        sta SPRITE_3_MEM_Y           // save Y MEM of sprite 1
+        
+        ldx #SPRITE_BULLET_TANK_2        
+        sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
+        jmp exit_draw_bullet_player_2
+
+
+    draw_bullet_to_down_player_2:
+
+        /* Load the current Y of bullet. */
+        ldx #SPRITE_BULLET_TANK_2
+        lda sprites_coord_table_y,x
+
+        /* Set Y to bullet player 2 */
+        sta SPRITE_3_MEM_Y           // save Y MEM of sprite 1
+        clc
+        adc #15             // substract 10 px to put the buller front the tank
+        sta SPRITE_3_MEM_Y           // mover el sprite bala en la misma Y del sprite 
+                            // player , para eso quitamos un poco para subirlo
+        
+
+        ldx #SPRITE_BULLET_TANK_2        
+        sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
+        jmp exit_draw_bullet_player_2
+
+
+    draw_bullet_to_left_player_2:
+
+        /* Load the current Y of sprite 2 ( bullet ). */
+        ldx #SPRITE_BULLET_TANK_2
+        lda sprites_coord_table_y,x
+
+        /* Set Y to bullet player 2 */
+        sta SPRITE_3_MEM_Y           // save Y MEM of sprite 1
+        clc
+        adc #1                // substract 10 px to put the buller front the tank
+        sta SPRITE_3_MEM_Y           // mover el sprite bala en la misma Y del sprite 
+
+        /* X */
+        ldx #SPRITE_BULLET_TANK_2
+        lda sprites_coord_table_x,x
+        sta SPRITE_3_MEM_X           // save Y MEM of sprite 1
+        sec
+        sbc #20                // substract 10 px to put the buller front the tank
+        sta SPRITE_3_MEM_X           // mover el sprite bala en la misma Y del sprite 
+
+        
+        ldx #SPRITE_BULLET_TANK_2        
+        sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
+        jmp exit_draw_bullet_player_2
+
+
+    draw_bullet_to_right_player_2:
+
+        /* Load the current X of sprite 2 ( bullet ). */
+        ldx #SPRITE_BULLET_TANK_2
+        lda sprites_coord_table_x,x
+
+        /* Set X to bullet player 2 */
+        clc
+        adc #20             // substract 10 px to put the buller front the tank
+        sta SPRITE_3_MEM_X           // save Y MEM of sprite 1
+        
+        ldx #SPRITE_BULLET_TANK_2
+        sta sprites_coord_table_y,x // save the current Y pos in Sprite 2 (bullet P1)
+        jmp exit_draw_bullet_player_2
+
+    exit_draw_bullet_player_2:
+    
+pull_regs_from_stack()
+rts
+
+
+
+/* Copy coords Y - X of tank 2 to sprite bullet */
+sprite_copy_coords_tank_2_to_his_bullet:
+push_regs_to_stack()
+
+    /* Get Y from tank 2 */
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_y,x // get Y player position to put this value
+                                // in the Y of sprite 2 ( bullet)
+    
+    ldx #SPRITE_BULLET_TANK_2   
+    sta sprites_coord_table_y,x // Save the position Y of Player in Y of bullet
+    sta SPRITE_3_MEM_Y
+
+
+    /* Get X from tank 2 */
+    /* Copy X from tank 2 */
+    ldx #SPRITE_TANK_2       
+    lda sprites_coord_table_x,x // get X player position to save it in sprite 2
+
+    /* Paste X to bullet tank 2 */
+    ldx #SPRITE_BULLET_TANK_2
+    sta sprites_coord_table_x,x // Save the Player X in X of sprite 2 ( bullet )
+    
+    sta SPRITE_3_MEM_X          // writing the value directly in the Sprite 2 X
+                                // position memory
+
+pull_regs_from_stack()
+rts
+
+
+sprite_move_bullets_tank_2:
+push_regs_to_stack()
+
+
+    lda PLAYER_2_TANK_FIRED_IN_UP    /* UP */
+    cmp #PLAYER_UP
+    beq move_bullet_to_up_player_2
+
+    lda PLAYER_2_TANK_FIRED_IN_DOWN  /* DOWN  */
+    cmp #PLAYER_DOWN
+    beq move_bullet_to_down_player_2
+
+    lda PLAYER_2_TANK_FIRED_IN_LEFT  /* LEFT  */
+    cmp #PLAYER_LEFT
+    beq move_bullet_to_left_player_2
+
+    lda PLAYER_2_TANK_FIRED_IN_RIGHT  /* RIGHT  */
+    cmp #PLAYER_RIGHT
+    beq move_bullet_to_right_player_2
+
+
+    move_bullet_to_up_player_2:
+
+        lda SPRITE_3_MEM_Y // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcc bullet_limit_top_player_2               // si la bala llega a 80 px de alto
+        sec
+        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta SPRITE_3_MEM_Y
+        jmp exit_move_bullet_tank_2_player_2
+
+        bullet_limit_top_player_2:
+            //finish fire
+            lda #0
+            sta PLAYER_2_TANK_IS_FIRING
+
+            sprite_disable_sprite(3)
+
+
+            jmp exit_move_bullet_tank_2_player_2
+
+
+    move_bullet_to_down_player_2:
+
+        lda SPRITE_3_MEM_Y // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #225   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcs bullet_limit_bottom_player_2               // si la bala llega a 80 px de alto
+        clc
+        adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta SPRITE_3_MEM_Y
+        jmp exit_move_bullet_tank_2_player_2
+
+        bullet_limit_bottom_player_2:
+            
+            //finish fire
+            lda #0
+            sta PLAYER_2_TANK_IS_FIRING
+            sprite_disable_sprite(3)
+
+            jmp exit_move_bullet_tank_2_player_2
+
+
+    move_bullet_to_left_player_2:
+
+        lda SPRITE_3_MEM_X // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #40   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcc bullet_limit_left_player_2               // si la bala llega a 80 px de alto
+        sec
+        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta SPRITE_3_MEM_X
+        jmp exit_move_bullet_tank_2_player_2
+
+        bullet_limit_left_player_2:
+            
+            //finish fire
+            lda #0
+            sta PLAYER_2_TANK_IS_FIRING
+
+            sprite_disable_sprite(3)
+
+            jmp exit_move_bullet_tank_2_player_2
+
+
+    move_bullet_to_right_player_2:
+
+        lda SPRITE_3_MEM_X // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #240   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcs bullet_limit_right_player_2               // si la bala llega a 80 px de alto
+        sec
+        adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta SPRITE_3_MEM_X
+        jmp exit_move_bullet_tank_2_player_2
+
+        bullet_limit_right_player_2:
+
+            //finish fire
+            lda #0
+            sta PLAYER_2_TANK_IS_FIRING
+
+            sprite_disable_sprite(3)
+
+
+            jmp exit_move_bullet_tank_2_player_2
+
+
+    exit_move_bullet_tank_2_player_2:
+
+
+pull_regs_from_stack()
+rts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sprite_reset_player_2_fire_directions:
 push_regs_to_stack()
 
