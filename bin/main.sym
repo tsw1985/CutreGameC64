@@ -28,11 +28,12 @@
 .label BLACK=$0
 .label counter_str=$124e
 .label SPRITE_INDEX_COUNTER_RASTER_LOOP=$13b6
+.label check_fire_key=$d72
 .label sprites_coord_table_x=$1412
 .label sprites_coord_table_y=$140a
 .label PLAYER_1_TANK_IS_FIRING=$1385
 .label PLAYER_1_TANK_OFFSET_CANNON_TIP_Y=$1386
-.label check_joy_up=$d97
+.label check_joy_up=$da4
 .label PLAYER_1_TANK_OFFSET_CANNON_TIP_X=$1387
 .label SPRITE_TO_ENABLE=$13ba
 .label TILESET_ADDRESS=$1100
@@ -133,7 +134,7 @@
 .label KEY_COMMA=$3d
 .label sprites_current_animation_index_position_table_backup=$1442
 .label PLAYER_RIGHT=$2
-.label check_joy_down=$da4
+.label check_joy_down=$db1
 .label SCREEN_BACKGROUND_COLOR=$d021
 .label PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y=$13a1
 .label PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X=$13a2
@@ -189,7 +190,7 @@
 .label ZERO_PAGE_ROW_COLOR_LOW_BYTE=$24
 .label SCREEN_WIDTH=$28
 .label SPRITE_4_MEM_X=$d008
-.label start_read_joystick=$d75 {
+.label start_read_joystick=$d82 {
 }
 .label SPRITE_4_MEM_Y=$d009
 .label KEY_CMB=$2f
@@ -576,7 +577,7 @@
   .label read_tail=$495f
   .label continue_input_writing=$488f
 }
-.label end_read_key=$d6f {
+.label end_read_key=$d7c {
 }
 .label INPUT_CURSOR_ROW=$131f
 .label NUMBER_TO_PRINT_TABLE=$123c
@@ -605,7 +606,7 @@
 .label cursor_col_str=$1233
 .label SPRITE_CENTER_PLAYER_POS_X=$13ad
 .label GREY=$c
-.label sleep_sprite=$dc1 {
+.label sleep_sprite=$dce {
 }
 .label sprite_animations_list_HI_table_backup=$13ea
 .label TEMP_Y_REG=$1324
@@ -645,13 +646,13 @@
 .label SPRITE_HEIGHT=$15
 .label PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON=$138d
 .label SPRITE_PAD_INDEX=$13ce
-.label check_joy_fire=$db1
+.label check_joy_fire=$dbe
 .label sprite_animations_list_HI_table=$13da
 .label KEYS_TO_SCREEN_STR=$1325
 .label CHARSET_ADDRESS=$3800
 .label MAIN_CODE_ADDRESS=$810
 .label PLAYER_2_TANK_FIRED_IN_RIGHT=$1398
-.label end_read_joystick=$dbb {
+.label end_read_joystick=$dc8 {
 }
 .label Map_LO=$4064
 .label div_num1_2=$1254
@@ -662,7 +663,7 @@
 .label sprite_animations_list_LO_table=$13d2
 .label div_num1_0=$1252
 .label ZERO_PAGE_ROW_COLOR_HIGHT_BYTE=$25
-.label sleep_sprite_outer_loop=$dc8 {
+.label sleep_sprite_outer_loop=$dd5 {
 }
 .label div_num1_1=$1253
 .label PLAYER_2_TANK_1_RIGHT_CHAIN_Y=$13a9
@@ -801,8 +802,8 @@
 .label div_res_2=$125c
 .label div_res_3=$125d
 .label DEFAULT_SCREEN_EXTRA_COLOR_1=$e
-.label check_joy_right=$d8a
+.label check_joy_right=$d97
 .label space_4_str=$120f
 .label DEFAULT_SCREEN_EXTRA_COLOR_2=$9
 .label SPRITE_X_POS=$13cd
-.label sleep_sprite_inner_loop=$dca
+.label sleep_sprite_inner_loop=$dd7

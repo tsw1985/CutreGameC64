@@ -233,32 +233,54 @@ push_regs_to_stack()
     jsr INPUT_LIB.scan_only_pressed_keys //Value returned under PRESSED_KEY_TABLE
 
 
+
+
+
+
+
+
+      /* check_joy_right:
+        lda JOYSTICK_POSITIONS
+        and #JOY_GO_RIGHT
+        beq check_joy_up
+        jsr JOYSTICK_LIB.joy_right
+        jmp check_joy_fire*/
+
+
     ldx #KEY_W
     lda PRESSED_KEY_TABLE,x
     beq check_down_key
     inc $d020
-    jmp end_read_key
+    jmp check_fire_key
+
 
     check_down_key:
         ldx #KEY_S
         lda PRESSED_KEY_TABLE,x
         beq check_left_key
         inc $d020
-        jmp end_read_key
+        jmp check_fire_key
 
     check_left_key:
         ldx #KEY_A
         lda PRESSED_KEY_TABLE,x
         beq check_right_key
         inc $d020
-        jmp end_read_key
+        jmp check_fire_key
 
     check_right_key:
         ldx #KEY_D  
         lda PRESSED_KEY_TABLE,x
+        beq check_fire_key
+        inc $d020
+        jmp check_fire_key
+
+    check_fire_key:
+        ldx #KEY_SPACE
+        lda PRESSED_KEY_TABLE,x
         beq end_read_key
         inc $d020
-    
+   
     
     end_read_key:
     
