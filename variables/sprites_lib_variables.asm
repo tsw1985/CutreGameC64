@@ -54,13 +54,15 @@ animation rotation. We want block the sprite movement in this rotation move.
 1 = false
  */
 PLAYER_1_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
+/******************************************************************************/
+/*            ------------- END PLAYER 1 -------------                        */
+/******************************************************************************/
 
 
 
-
-/*
-    ------------- PLAYER 2 -------------
- */
+/******************************************************************************/
+/*                ------------- PLAYER 2 -------------                        */
+/******************************************************************************/
 
 
 /* Variables to save the position tank player 1 */
@@ -91,27 +93,23 @@ PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y: .byte 0
 PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X: .byte 0
 
 
-
-/* Variable to check if the player tank 1 is in moving */
+/* Variable to check if the player tank 2 is in moving */
 PLAYER_2_TANK_IS_IN_MOVING: .byte 0
 
-
-/* Variable to save the current screen char from cannon of tank 1 */
+/* Variable to save the current screen char from cannon of tank 2 */
 PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON: .byte 0
 
-
 /* Variables to save the zones of tank to collision with walls*/
-PLAYER_2_TANK_1_CANNON_TIP_Y: .byte 0
-PLAYER_2_TANK_1_CANNON_TIP_X: .byte 0
+PLAYER_2_TANK_2_CANNON_TIP_Y: .byte 0
+PLAYER_2_TANK_2_CANNON_TIP_X: .byte 0
 
 /* Variables to save the left chains of tank to collision with walls*/
-PLAYER_2_TANK_1_LEFT_CHAIN_Y: .byte 0
-PLAYER_2_TANK_1_LEFT_CHAIN_X: .byte 0
+PLAYER_2_TANK_2_LEFT_CHAIN_Y: .byte 0
+PLAYER_2_TANK_2_LEFT_CHAIN_X: .byte 0
 
 /* Variables to save the right chains of tank to collision with walls*/
-PLAYER_2_TANK_1_RIGHT_CHAIN_Y: .byte 0
-PLAYER_2_TANK_1_RIGHT_CHAIN_X: .byte 0
-
+PLAYER_2_TANK_2_RIGHT_CHAIN_Y: .byte 0
+PLAYER_2_TANK_2_RIGHT_CHAIN_X: .byte 0
 
 /* Variable to set if the player 1 can move. This is used in the moment of
 animation rotation. We want block the sprite movement in this rotation move.
@@ -121,7 +119,9 @@ animation rotation. We want block the sprite movement in this rotation move.
 PLAYER_2_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
 
 
-
+/******************************************************************************/
+/*            ------------- END PLAYER 2 -------------                        */
+/******************************************************************************/
 
 
 

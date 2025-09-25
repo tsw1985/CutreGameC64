@@ -34,7 +34,7 @@ sprite_enable_sprite(0) // Player 1 down
 
 
 sprite_enable_sprite(2) // Player 2 Up
-sprite_enable_sprite(3) // Bullet Player 2
+//sprite_enable_sprite(3) // Bullet Player 2
 
 
 /* Setup for sprite 1 PLAYER */
@@ -44,29 +44,13 @@ sprite_set_color(0,GREEN)
 sprite_set_frame_to_sprite(0,0) // $00c0 ... $00c1 ... $00c2 ...
 /* Setup for sprite 1 */
 
-/* Setup for sprite 2 Bullet Player 1 */
-/*sprite_load_like_multicolor(1)
-sprite_set_position(1,105,68)
-sprite_set_color(1,YELLOW)
-sprite_set_frame_to_sprite(24,1)*/
-/* Setup for sprite 2 */
-
 
 /* Setup for sprite 3 PLAYER 2 */
 sprite_load_like_multicolor(2)
 sprite_set_position(2,75,140)
-sprite_set_color(2,BLUE)
+sprite_set_color(2,GRAY)
 sprite_set_frame_to_sprite(37,2)
 /* Setup for sprite 3 */
-
-
-/* Setup for sprite 4 ENEMY */
-//sprite_load_like_multicolor(3)
-//sprite_set_position(3,108,154)
-//sprite_set_color(3,GREEN)
-//sprite_set_frame_to_sprite(0,3)
-/* Setup for sprite 4 */
-
 
 
 
@@ -233,24 +217,10 @@ push_regs_to_stack()
     jsr INPUT_LIB.scan_only_pressed_keys //Value returned under PRESSED_KEY_TABLE
 
 
-
-
-
-
-
-
-      /* check_joy_right:
-        lda JOYSTICK_POSITIONS
-        and #JOY_GO_RIGHT
-        beq check_joy_up
-        jsr JOYSTICK_LIB.joy_right
-        jmp check_joy_fire*/
-
-
     ldx #KEY_W
     lda PRESSED_KEY_TABLE,x
     beq check_down_key
-    inc $d020
+    jsr KEYBOARD_LIB.keyboard_up
     jmp check_fire_key
 
 
@@ -258,21 +228,21 @@ push_regs_to_stack()
         ldx #KEY_S
         lda PRESSED_KEY_TABLE,x
         beq check_left_key
-        inc $d020
+        jsr KEYBOARD_LIB.keyboard_down
         jmp check_fire_key
 
     check_left_key:
         ldx #KEY_A
         lda PRESSED_KEY_TABLE,x
         beq check_right_key
-        inc $d020
+        jsr KEYBOARD_LIB.keyboard_left
         jmp check_fire_key
 
     check_right_key:
         ldx #KEY_D  
         lda PRESSED_KEY_TABLE,x
         beq check_fire_key
-        inc $d020
+        jsr KEYBOARD_LIB.keyboard_right
         jmp check_fire_key
 
     check_fire_key:

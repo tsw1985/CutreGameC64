@@ -768,6 +768,10 @@ actions_in_raster:
 jmp INTERRUPT_RETURN // $ea81 - Return from interrupt
 
 
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+/*                       PLAYER 1 - TANK 1 FUNCTIONS                          */
 
 
 /* Function to move the bullets of tank 1 - tank 2 */
@@ -889,6 +893,8 @@ push_regs_to_stack()
 
 pull_regs_from_stack()
 rts
+
+
 
 /* This function draw the bullet of tank 1 front of it . Depending of tank
 position */
@@ -1030,19 +1036,6 @@ push_regs_to_stack()
 
 pull_regs_from_stack()
 rts
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* Reset to 0 sprite index Player 1 */
@@ -1220,10 +1213,166 @@ push_regs_to_stack()
 pull_regs_from_stack()
 rts
 
+/*                  END  PLAYER 1 - TANK 1 FUNCTIONS                          */
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
 
 
 
+/******************************************************************************/
+/*        START PLAYER 2 FUNCTIONS */
+/******************************************************************************/
+sprite_reset_player_2_fire_directions:
+push_regs_to_stack()
 
+    lda #0
+    sta PLAYER_2_TANK_FIRED_IN_RIGHT
+    sta PLAYER_2_TANK_FIRED_IN_LEFT
+    sta PLAYER_2_TANK_FIRED_IN_DOWN
+    sta PLAYER_2_TANK_FIRED_IN_UP
+
+pull_regs_from_stack()
+rts
+
+
+/*
+    Function to check CANNON TIP wall collision of tank 2.
+
+    IN: 
+
+        PLAYER_2_TANK_OFFSET_CANNON_TIP_Y
+        PLAYER_2_TANK_OFFSET_CANNON_TIP_X
+
+    OUT:
+        
+        PLAYER_2_TANK_2_CANNON_TIP_Y
+        PLAYER_2_TANK_2_CANNON_TIP_X
+*/
+check_wall_cannon_tip_collision_tank_2:
+push_regs_to_stack()
+
+    /* Checking Cannon TIP */ 
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_y,x
+
+    // apply Y offset to point to center of cannon
+    sec
+    sbc PLAYER_2_TANK_OFFSET_CANNON_TIP_Y
+    lsr
+    lsr
+    lsr
+    sta PLAYER_2_TANK_2_CANNON_TIP_Y
+
+
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_x,x
+    // apply X offset to point to center of cannon
+    sec
+    sbc PLAYER_2_TANK_OFFSET_CANNON_TIP_X
+    lsr
+    lsr
+    lsr
+    sta PLAYER_2_TANK_2_CANNON_TIP_X
+    /* end Checking Cannon TIP */ 
+
+pull_regs_from_stack()
+rts
+
+/*
+    Function to check LEFT CHAIN wall collision of tank 2.
+
+    IN: 
+
+        PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y
+        PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X
+
+    OUT:
+        
+        PLAYER_2_TANK_2_LEFT_CHAIN_Y
+        PLAYER_2_TANK_2_LEFT_CHAIN_X
+*/
+check_wall_left_chain_collision_tank_2:
+push_regs_to_stack()
+
+
+    /* Check left tank chain */
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_y,x
+
+    // apply Y offset to point to center of cannon
+    sec
+    sbc PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y
+    lsr
+    lsr
+    lsr
+    sta PLAYER_2_TANK_2_LEFT_CHAIN_Y
+    //sta SCREEN_ROW_POS   // ( Y position)
+
+
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_x,x
+    sec
+    sbc PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X
+    lsr
+    lsr
+    lsr
+    //sta SCREEN_COL_POS  // ( X position)
+    sta PLAYER_2_TANK_2_LEFT_CHAIN_X
+    /* end Check left tank chain */
+
+
+pull_regs_from_stack()
+rts
+
+
+/*
+    Function to check RIGHT CHAIN wall collision of tank 2.
+
+    IN: 
+
+        PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y
+        PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X
+
+    OUT:
+        
+        PLAYER_2_TANK_2_RIGHT_CHAIN_Y
+        PLAYER_2_TANK_2_RIGHT_CHAIN_X
+*/
+
+check_wall_right_chain_collision_tank_2:
+push_regs_to_stack()
+
+    /* Check RIGHT tank chain */
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_y,x
+
+    // apply Y offset to point to center of cannon
+    sec
+    sbc PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y
+    lsr
+    lsr
+    lsr
+    sta PLAYER_2_TANK_2_RIGHT_CHAIN_Y
+
+
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_x,x
+    sec
+    sbc PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X
+    lsr
+    lsr
+    lsr
+    sta PLAYER_2_TANK_2_RIGHT_CHAIN_X
+    /* end Check RIGHT tank chain */
+
+pull_regs_from_stack()
+rts
+
+
+/******************************************************************************/
+/*                     END PLAYER 2 FUNCITONS                                 */
+/******************************************************************************/
 
 
 
