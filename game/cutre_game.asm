@@ -83,9 +83,9 @@ simulate_game_loop:
     
     //jsr start_read_keyboard
 
+    jsr start_read_joystick_1
     jsr start_read_joystick_2
 
-    jsr start_read_joystick_1
 
 
     /* lag move sprite in screen */
