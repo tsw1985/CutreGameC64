@@ -10,25 +10,8 @@ lda #PLAYER_DOWN
 sta PLAYER_2_TANK_CURRENT_DIRECTION
 sta PLAYER_2_TANK_FIRED_IN_DOWN // Set cannon to fire down
 
-
-/* Init position Player 1 to TOP */
-/* Player 2 Keyboard */
-// Port A = enter
-//lda #$00
-//sta $DC02 //; ---> $DC00
-
-// Port B = exit
-//lda #$ff
-//sta $DC03 //; ---> $DC01
-
-
-
-
-
-
 /* Load map #0 */
 print_map(0)
-
 
 /* Global */
 sprite_set_extra_colors(LIGHT_GREEN,GREEN)
@@ -37,33 +20,24 @@ sprite_set_extra_colors(LIGHT_GREEN,GREEN)
 sprite_enable_sprite(0) // Player 1 down
 sprite_enable_sprite(2) // Player 2 Up
 
-
 /* Setup for sprite PLAYER 1 */
 sprite_load_like_multicolor(0)
 sprite_set_position(0,213,140)
 sprite_set_color(0,GREEN)
 sprite_set_frame_to_sprite(0,0) // $00c0 ... $00c1 ... $00c2 ...
 
-
 /* Setup for sprite PLAYER 2 */
 sprite_load_like_multicolor(2)
 sprite_set_position(2,75,140)
-sprite_set_color(2,GRAY)
+sprite_set_color(2,BLUE)
 sprite_set_frame_to_sprite(37,2)
-
 
 /*  RASTER INTERRUPT */
 jsr SPRITE_LIB.setupRasterInterrupt
 
 
 
-/* MAIN LOOP.
-
-    This is like a game loop
-
- */ 
-
-
+/* MAIN LOOP. This is like a game loop */ 
 simulate_game_loop:
 
         
@@ -80,13 +54,12 @@ simulate_game_loop:
 
     lda sprite_animations_list_HI_table,x
     sta sprite_current_anim_HI_table,x
-    
-    //jsr start_read_keyboard
 
+    /* Read Joysick 1 */
     jsr start_read_joystick_1
+
+    /* Read Joysick 2 */
     jsr start_read_joystick_2
-
-
 
     /* lag move sprite in screen */
     jsr sleep_sprite
