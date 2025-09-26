@@ -1,5 +1,11 @@
 // IDEAS FOR GAME:
 
+Hacer colisiones entre sprites
+Hacer colisiones de balas entre sprites (tanques)
+
+
+
+
 PENDING:
 =======
     - Refactor Functions Check wall collisions. Separe functions
