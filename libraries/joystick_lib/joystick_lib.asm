@@ -1,58 +1,114 @@
 /*
-    JOYSTICK_POSITIONS : This is the global variable where is set the bits to
+    JOYSTICK_POSITIONS_PORT_1 : This is the global variable where is set the bits to
                          know with joystick position is used.
 */
 JOYSTICK_LIB:
 {
-    read_joystick:
+    read_joystick_port_1:
 
     push_regs_to_stack()    
 
     /* reset to 0 current positions in joystick */
     lda #0
-    sta JOYSTICK_POSITIONS
+    sta JOYSTICK_POSITIONS_PORT_1
 
     input_left_check:
         lda #JOY_GO_LEFT        // mask left movement
         bit JOYSTICK_PORT_1             // bitwise "and" with joystick port 1
         bne input_right_check // if not active (==1),go to input_right_check
-        lda JOYSTICK_POSITIONS
+        lda JOYSTICK_POSITIONS_PORT_1
         ora #JOY_GO_LEFT
-        sta JOYSTICK_POSITIONS
+        sta JOYSTICK_POSITIONS_PORT_1
     
     input_right_check:
         lda #JOY_GO_RIGHT        // mask left movement (8 == bit 4 == )
         bit JOYSTICK_PORT_1             // bitwise "and" with joystick port 1
         bne input_up_check    // if not active (==1), go to .input_up_check
-        lda JOYSTICK_POSITIONS
+        lda JOYSTICK_POSITIONS_PORT_1
         ora #JOY_GO_RIGHT
-        sta JOYSTICK_POSITIONS
+        sta JOYSTICK_POSITIONS_PORT_1
     
     input_up_check:
         lda #JOY_GO_UP         // mask left movement (1 == bit 1 == )
         bit JOYSTICK_PORT_1              // bitwise "and" with joystick port 1
         bne input_down_check   // if not active (==1),goto input_down_check
-        lda JOYSTICK_POSITIONS
+        lda JOYSTICK_POSITIONS_PORT_1
         ora #JOY_GO_UP
-        sta JOYSTICK_POSITIONS
+        sta JOYSTICK_POSITIONS_PORT_1
     
     input_down_check:
         lda #JOY_GO_DOWN         // mask left movement (2 == bit 2 == )
         bit JOYSTICK_PORT_1              // bitwise "and" with joystick port 1
         bne input_fire_check   // if not active (==1), go to fire_check
-        lda JOYSTICK_POSITIONS
+        lda JOYSTICK_POSITIONS_PORT_1
         ora #JOY_GO_DOWN
-        sta JOYSTICK_POSITIONS
+        sta JOYSTICK_POSITIONS_PORT_1
     
     input_fire_check:
         lda #JOY_GO_FIRE         // mask left movement (16 == bit 5 == )
         bit JOYSTICK_PORT_1              // bitwise "and" with joystick port 1
         bne finish_read_stick  // if not active (==1),go to finish checking
-        lda JOYSTICK_POSITIONS
+        lda JOYSTICK_POSITIONS_PORT_1
         ora #JOY_GO_FIRE
-        sta JOYSTICK_POSITIONS
+        sta JOYSTICK_POSITIONS_PORT_1
 
     finish_read_stick:
+        
+    pull_regs_from_stack()
+
+rts
+
+
+
+read_joystick_port_2:
+
+    push_regs_to_stack()    
+
+    /* reset to 0 current positions in joystick */
+    lda #0
+    sta JOYSTICK_POSITIONS_PORT_2
+
+    input_left_check_2:
+        lda #JOY_GO_LEFT        // mask left movement
+        bit JOYSTICK_PORT_2             // bitwise "and" with joystick port 1
+        bne input_right_check_2 // if not active (==1),go to input_right_check
+        lda JOYSTICK_POSITIONS_PORT_2
+        ora #JOY_GO_LEFT
+        sta JOYSTICK_POSITIONS_PORT_2
+    
+    input_right_check_2:
+        lda #JOY_GO_RIGHT        // mask left movement (8 == bit 4 == )
+        bit JOYSTICK_PORT_2             // bitwise "and" with joystick port 1
+        bne input_up_check_2    // if not active (==1), go to .input_up_check
+        lda JOYSTICK_POSITIONS_PORT_2
+        ora #JOY_GO_RIGHT
+        sta JOYSTICK_POSITIONS_PORT_2
+    
+    input_up_check_2:
+        lda #JOY_GO_UP         // mask left movement (1 == bit 1 == )
+        bit JOYSTICK_PORT_2              // bitwise "and" with joystick port 1
+        bne input_down_check_2   // if not active (==1),goto input_down_check
+        lda JOYSTICK_POSITIONS_PORT_2
+        ora #JOY_GO_UP
+        sta JOYSTICK_POSITIONS_PORT_2
+    
+    input_down_check_2:
+        lda #JOY_GO_DOWN         // mask left movement (2 == bit 2 == )
+        bit JOYSTICK_PORT_2              // bitwise "and" with joystick port 1
+        bne input_fire_check_2   // if not active (==1), go to fire_check
+        lda JOYSTICK_POSITIONS_PORT_2
+        ora #JOY_GO_DOWN
+        sta JOYSTICK_POSITIONS_PORT_2
+    
+    input_fire_check_2:
+        lda #JOY_GO_FIRE         // mask left movement (16 == bit 5 == )
+        bit JOYSTICK_PORT_2              // bitwise "and" with joystick port 1
+        bne finish_read_stick_2  // if not active (==1),go to finish checking
+        lda JOYSTICK_POSITIONS_PORT_2
+        ora #JOY_GO_FIRE
+        sta JOYSTICK_POSITIONS_PORT_2
+
+    finish_read_stick_2:
         
     pull_regs_from_stack()
 
@@ -66,7 +122,7 @@ rts
                 Functions 
 /////////////////////////////////////////////
 */
-joy_up:
+joy_1_up:
 
     push_regs_to_stack()
 
@@ -164,7 +220,7 @@ joy_up:
 rts
 
 
-joy_left:
+joy_1_left:
     push_regs_to_stack()
 
     /* Check CANNON TIP */
@@ -259,7 +315,7 @@ joy_left:
 rts
 
 
-joy_right:
+joy_1_right:
 
     push_regs_to_stack()
 
@@ -356,7 +412,7 @@ rts
 
 
 
-joy_down:
+joy_1_down:
 
     push_regs_to_stack()
 
@@ -453,7 +509,7 @@ joy_down:
 rts
 
 
-joy_fire:
+joy_1_fire:
 
     push_regs_to_stack()
 

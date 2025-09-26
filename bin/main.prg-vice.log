@@ -20,7 +20,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-Main: random seed was: 0x68d5965e
+Main: random seed was: 0x68d65cfe
 Main: command line was: x64 -logfile /home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg-vice.log /home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg
 Main: VICE system file directory: '/usr/share/vice'.
 Main: VICE system file search path: '/home/lenovo1/.local/share/vice:/usr/bin:/usr/share/vice'.
@@ -87,7 +87,7 @@ Hotkeys: OK.
 Main CPU: 
 Main CPU: starting at ($FFFC).
 Main CPU: RESET.
-VIC-II: VSP Bug: safe channels are: 456. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 0134567. Emulation of memory corruption is disabled.
 AUTOSTART: Autodetecting image type of `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg'.
 Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 48.
 Filesystem Image: Unknown disk image `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg'.
@@ -97,7 +97,7 @@ CART: '/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg' is not a valid C
 AUTOSTART: Loading PRG file `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 35. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 0457. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg' recognized as program/p00 file.
 Main CPU: RESET.
@@ -106,7 +106,7 @@ Sound: reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21
 VSync: Sync reset
 Unit 8: RESET.
 AUTOSTART: Loading program 'MAIN'
-AUTOSTART: Entered ROM at $e5cf
+AUTOSTART: Entered ROM at $e5cd
 AUTOSTART: Searching for ...
 AUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
@@ -120,293 +120,185 @@ AUTOSTART: Done.
 VSync: Sync reset
 press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
 release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release   115/0x0073  0x00000027 --- -2--- -- s
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     115/0x0073  0x00000027 --- -2--- -- s
-release   100/0x0064  0x00000028 --- -2--- -- d
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     100/0x0064  0x00000028 --- -2--- -- d
-release   115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-release   100/0x0064  0x00000028 --- -2--- -- d
-release   115/0x0073  0x00000027 --- -2--- -- s
-press      97/0x0061  0x00000026 --- -2--- -- a
-release    97/0x0061  0x00000026 --- -2--- -- a
-press     119/0x0077  0x00000019 --- -2--- -- w
-release   119/0x0077  0x00000019 --- -2--- -- w
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press     119/0x0077  0x00000019 --- -2--- -- w
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release   119/0x0077  0x00000019 --- -2--- -- w
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press      97/0x0061  0x00000026 --- -2--- -- a
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release    97/0x0061  0x00000026 --- -2--- -- a
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press     119/0x0077  0x00000019 --- -2--- -- w
-release   119/0x0077  0x00000019 --- -2--- -- w
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press     100/0x0064  0x00000028 --- -2--- -- d
-release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release   100/0x0064  0x00000028 --- -2--- -- d
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-press     119/0x0077  0x00000019 --- -2--- -- w
-release   119/0x0077  0x00000019 --- -2--- -- w
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press      97/0x0061  0x00000026 --- -2--- -- a
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release    97/0x0061  0x00000026 --- -2--- -- a
-press      97/0x0061  0x00000026 --- -2--- -- a
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release    97/0x0061  0x00000026 --- -2--- -- a
-press     100/0x0064  0x00000028 --- -2--- -- d
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release   100/0x0064  0x00000028 --- -2--- -- d
 press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
 press     115/0x0073  0x00000027 --- -2--- -- s
+release   115/0x0073  0x00000027 --- -2--- -- s
+press     100/0x0064  0x00000028 --- -2--- -- d
+press     119/0x0077  0x00000019 --- -2--- -- w
+release   100/0x0064  0x00000028 --- -2--- -- d
+release   119/0x0077  0x00000019 --- -2--- -- w
 press     115/0x0073  0x00000027 --- -2--- -- s
+release   115/0x0073  0x00000027 --- -2--- -- s
+press     119/0x0077  0x00000019 --- -2--- -- w
+press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
+release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release   119/0x0077  0x00000019 --- -2--- -- w
+press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
+press      97/0x0061  0x00000026 --- -2--- -- a
+release    97/0x0061  0x00000026 --- -2--- -- a
+release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
+press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
+press     119/0x0077  0x00000019 --- -2--- -- w
+release   119/0x0077  0x00000019 --- -2--- -- w
+release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
+press     100/0x0064  0x00000028 --- -2--- -- d
+press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
+release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
+release   100/0x0064  0x00000028 --- -2--- -- d
 press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
 release   115/0x0073  0x00000027 --- -2--- -- s
 release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
-press     100/0x0064  0x00000028 --- -2--- -- d
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release   100/0x0064  0x00000028 --- -2--- -- d
-release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
+press      97/0x0061  0x00000026 --- -2--- -- a
+press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
+release    97/0x0061  0x00000026 --- -2--- -- a
+release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
 press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
 press     119/0x0077  0x00000019 --- -2--- -- w
 release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
 release   119/0x0077  0x00000019 --- -2--- -- w
+press      32/0x0020  0x00000041 --- -2--- -- space
+release    32/0x0020  0x00000041 --- -2--- -- space
+press   65456/0xffb0  0x0000005a --- -2--- -- KP_0
+release 65456/0xffb0  0x0000005a --- -2--- -- KP_0
 press      97/0x0061  0x00000026 --- -2--- -- a
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
+press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
+release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
 release    97/0x0061  0x00000026 --- -2--- -- a
+press     100/0x0064  0x00000028 --- -2--- -- d
+press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
+press   65456/0xffb0  0x0000005a --- -2--- -- KP_0
+press      32/0x0020  0x00000041 --- -2--- -- space
+release    32/0x0020  0x00000041 --- -2--- -- space
+release   100/0x0064  0x00000028 --- -2--- -- d
 release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
+release 65456/0xffb0  0x0000005a --- -2--- -- KP_0
+press     119/0x0077  0x00000019 --- -2--- -- w
+press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
+release   119/0x0077  0x00000019 --- -2--- -- w
+release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
 press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
 press      97/0x0061  0x00000026 --- -2--- -- a
-release    97/0x0061  0x00000026 --- -2--- -- a
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press      97/0x0061  0x00000026 --- -2--- -- a
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
 release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
 release    97/0x0061  0x00000026 --- -2--- -- a
+press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
+release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press     115/0x0073  0x00000027 --- -2--- -- s
+release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release   115/0x0073  0x00000027 --- -2--- -- s
+press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
+release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
+press     119/0x0077  0x00000019 --- -2--- -- w
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release   119/0x0077  0x00000019 --- -2--- -- w
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
 press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
 press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
-press     100/0x0064  0x00000028 --- -2--- -- d
 release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
+release   100/0x0064  0x00000028 --- -2--- -- d
+press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
+press      97/0x0061  0x00000026 --- -2--- -- a
+press      97/0x0061  0x00000026 --- -2--- -- a
+press      97/0x0061  0x00000026 --- -2--- -- a
+press      97/0x0061  0x00000026 --- -2--- -- a
+release    97/0x0061  0x00000026 --- -2--- -- a
+release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
+press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
+press     115/0x0073  0x00000027 --- -2--- -- s
+release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
+release   115/0x0073  0x00000027 --- -2--- -- s
+press     115/0x0073  0x00000027 --- -2--- -- s
+press      97/0x0061  0x00000026 --- -2--- -- a
+release   115/0x0073  0x00000027 --- -2--- -- s
+press      32/0x0020  0x00000041 --- -2--- -- space
+release    32/0x0020  0x00000041 --- -2--- -- space
+press   65456/0xffb0  0x0000005a --- -2--- -- KP_0
+press     119/0x0077  0x00000019 --- -2--- -- w
+release    97/0x0061  0x00000026 --- -2--- -- a
+release 65456/0xffb0  0x0000005a --- -2--- -- KP_0
+press     100/0x0064  0x00000028 --- -2--- -- d
+release   119/0x0077  0x00000019 --- -2--- -- w
 press     100/0x0064  0x00000028 --- -2--- -- d
 press     100/0x0064  0x00000028 --- -2--- -- d
 press     100/0x0064  0x00000028 --- -2--- -- d
 press     100/0x0064  0x00000028 --- -2--- -- d
+release   100/0x0064  0x00000028 --- -2--- -- d
+press     119/0x0077  0x00000019 --- -2--- -- w
+release   119/0x0077  0x00000019 --- -2--- -- w
 press     100/0x0064  0x00000028 --- -2--- -- d
 release   100/0x0064  0x00000028 --- -2--- -- d
 press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
-press     115/0x0073  0x00000027 --- -2--- -- s
-release   115/0x0073  0x00000027 --- -2--- -- s
+press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
 release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
-press     100/0x0064  0x00000028 --- -2--- -- d
-release   100/0x0064  0x00000028 --- -2--- -- d
-press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
-release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
-press     100/0x0064  0x00000028 --- -2--- -- d
-release   100/0x0064  0x00000028 --- -2--- -- d
-press     119/0x0077  0x00000019 --- -2--- -- w
-release   119/0x0077  0x00000019 --- -2--- -- w
+press   65456/0xffb0  0x0000005a --- -2--- -- KP_0
+press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
+release 65456/0xffb0  0x0000005a --- -2--- -- KP_0
+release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
+press   65456/0xffb0  0x0000005a --- -2--- -- KP_0
 press      97/0x0061  0x00000026 --- -2--- -- a
+release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
+release 65456/0xffb0  0x0000005a --- -2--- -- KP_0
 release    97/0x0061  0x00000026 --- -2--- -- a
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-release   115/0x0073  0x00000027 --- -2--- -- s
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press      97/0x0061  0x00000026 --- -2--- -- a
-press   65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release 65460/0xffb4  0x00000053 --- -2--- -- KP_4
-release    97/0x0061  0x00000026 --- -2--- -- a
-press     100/0x0064  0x00000028 --- -2--- -- d
-release   100/0x0064  0x00000028 --- -2--- -- d
-press     115/0x0073  0x00000027 --- -2--- -- s
-release   115/0x0073  0x00000027 --- -2--- -- s
-press   65458/0xffb2  0x00000058 --- -2--- -- KP_2
-press     115/0x0073  0x00000027 --- -2--- -- s
-press     115/0x0073  0x00000027 --- -2--- -- s
-release   115/0x0073  0x00000027 --- -2--- -- s
-release 65458/0xffb2  0x00000058 --- -2--- -- KP_2
-press     100/0x0064  0x00000028 --- -2--- -- d
-press   65462/0xffb6  0x00000055 --- -2--- -- KP_6
-release   100/0x0064  0x00000028 --- -2--- -- d
-release 65462/0xffb6  0x00000055 --- -2--- -- KP_6
-press   65464/0xffb8  0x00000050 --- -2--- -- KP_8
-press     119/0x0077  0x00000019 --- -2--- -- w
-release 65464/0xffb8  0x00000050 --- -2--- -- KP_8
-release   119/0x0077  0x00000019 --- -2--- -- w
 press   65513/0xffe9  0x00000040 --- -2--- -- Alt_L
 press     113/0x0071  0x00000018 --- 12--- -- q
 Render thread: Initiating render thread 0 shutdown
+OpenGL: Render thread shutdown
 Render thread: Joining render thread 0 ...
 Render thread: Joined render thread 0.
 
@@ -426,15 +318,25 @@ Window0Xpos=2048
 Window0Ypos=58
 KbdStatusbar=1
 KeymapIndex=1
-JoyDevice1=1
-JoyDevice2=0
+KeySet1North=119
+KeySet1East=100
+KeySet1South=115
+KeySet1West=97
+KeySet1Fire=32
+KeySet1Fire2=65535
+KeySet2North=119
+KeySet2East=100
+KeySet2South=115
+KeySet2West=97
+KeySet2Fire=32
+JoyDevice1=2
 
--default -logfile "/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg-vice.log" +confirmonexit -saveres -monitorfont "DM Mono Medium 10" -monitorfg "rgb(55,218,29)" -monitorxpos "2049" -monitorypos "58" -monitorwidth "1022" -monitorheight "710" -windowxpos "2048" -windowypos "58" -windowwidth "1024" -windowheight "710" -keymap "1" -kbdstatusbar -joydev1 "1" -joydev2 "0"
+-default -logfile "/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg-vice.log" +confirmonexit -saveres -monitorfont "DM Mono Medium 10" -monitorfg "rgb(55,218,29)" -monitorxpos "2049" -monitorypos "58" -monitorwidth "1022" -monitorheight "710" -windowxpos "2048" -windowypos "58" -windowwidth "1024" -windowheight "710" -keymap "1" -kbdstatusbar -joydev1 "2"
 Mainlock: VICE thread initiating shutdown
 Mainlock: VICE thread is exiting
 Main: VICE thread has been joined.
 Writing configuration file `/home/lenovo1/.config/vice/vicerc'.
-VIC-II: VSP Bug: safe channels are: 023467. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 2347. Emulation of memory corruption is disabled.
 Sound: Closing device `pulse'
 Hotkeys: shutting down.
 closed ALSA MIDI sequencer port 'VICE'

@@ -6,7 +6,7 @@
 .label JOY_GO_FIRE   = %00010000
 
 .label JOYSTICK_PORT_1 = $DC01
-.label JOYSTICK_PORT_0 = $DC00
+.label JOYSTICK_PORT_2 = $DC00
 
 /* Tank Positions */
 .label PLAYER_UP    = 1

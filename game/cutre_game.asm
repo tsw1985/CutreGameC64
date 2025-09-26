@@ -14,12 +14,12 @@ sta PLAYER_2_TANK_FIRED_IN_DOWN // Set cannon to fire down
 /* Init position Player 1 to TOP */
 /* Player 2 Keyboard */
 // Port A = enter
-lda #$00
-sta $DC02 //; ---> $DC00
+//lda #$00
+//sta $DC02 //; ---> $DC00
 
 // Port B = exit
-lda #$ff
-sta $DC03 //; ---> $DC01
+//lda #$ff
+//sta $DC03 //; ---> $DC01
 
 
 
@@ -81,8 +81,11 @@ simulate_game_loop:
     lda sprite_animations_list_HI_table,x
     sta sprite_current_anim_HI_table,x
     
-    jsr start_read_keyboard
-    jsr start_read_joystick
+    //jsr start_read_keyboard
+
+    jsr start_read_joystick_2
+
+    jsr start_read_joystick_1
 
 
     /* lag move sprite in screen */
@@ -211,7 +214,7 @@ push_regs_to_stack()
     jsr INPUT_LIB.scan_only_pressed_keys //Value returned under PRESSED_KEY_TABLE
 
 
-    ldx #KEY_W
+    ldx #KEY_Q
     lda PRESSED_KEY_TABLE,x
     beq check_down_key
     jsr KEYBOARD_LIB.keyboard_up
@@ -219,7 +222,7 @@ push_regs_to_stack()
 
 
     check_down_key:
-        ldx #KEY_S
+        ldx #KEY_W
         lda PRESSED_KEY_TABLE,x
         beq check_left_key
         jsr KEYBOARD_LIB.keyboard_down
@@ -233,14 +236,14 @@ push_regs_to_stack()
         jmp check_fire_key
 
     check_right_key:
-        ldx #KEY_D  
+        ldx #KEY_S  
         lda PRESSED_KEY_TABLE,x
         beq check_fire_key
         jsr KEYBOARD_LIB.keyboard_right
         jmp check_fire_key
 
     check_fire_key:
-        ldx #KEY_SPACE
+        ldx #KEY_D
         lda PRESSED_KEY_TABLE,x
         beq end_read_key
         jsr KEYBOARD_LIB.keyboard_fire
@@ -255,7 +258,7 @@ rts
 
 
 /* Function to read the joystick port */
-start_read_joystick:
+start_read_joystick_1:
 
     push_regs_to_stack()
 
@@ -263,45 +266,95 @@ start_read_joystick:
     //jsr sleep_sprite
 
     /* read joystick positions */
-    jsr JOYSTICK_LIB.read_joystick
+    jsr JOYSTICK_LIB.read_joystick_port_1
 
     /* actions in each joystick position */
 
-    lda JOYSTICK_POSITIONS
+    lda JOYSTICK_POSITIONS_PORT_1
     and #JOY_GO_LEFT 
-    beq check_joy_right 
-    jsr JOYSTICK_LIB.joy_left
-    jmp check_joy_fire
+    beq check_joy_1_right 
+    jsr JOYSTICK_LIB.joy_1_left
+    jmp check_joy_1_fire
 
-    check_joy_right:
-        lda JOYSTICK_POSITIONS
+    check_joy_1_right:
+        lda JOYSTICK_POSITIONS_PORT_1
         and #JOY_GO_RIGHT
-        beq check_joy_up
-        jsr JOYSTICK_LIB.joy_right
-        jmp check_joy_fire
+        beq check_joy_1_up
+        jsr JOYSTICK_LIB.joy_1_right
+        jmp check_joy_1_fire
 
-    check_joy_up:
-        lda JOYSTICK_POSITIONS
+    check_joy_1_up:
+        lda JOYSTICK_POSITIONS_PORT_1
         and #JOY_GO_UP
-        beq check_joy_down
-        jsr JOYSTICK_LIB.joy_up
-        jmp check_joy_fire
+        beq check_joy_1_down
+        jsr JOYSTICK_LIB.joy_1_up
+        jmp check_joy_1_fire
 
-    check_joy_down:
-        lda JOYSTICK_POSITIONS
+    check_joy_1_down:
+        lda JOYSTICK_POSITIONS_PORT_1
         and #JOY_GO_DOWN
-        beq check_joy_fire
-        jsr JOYSTICK_LIB.joy_down
-        jmp check_joy_fire
+        beq check_joy_1_fire
+        jsr JOYSTICK_LIB.joy_1_down
+        jmp check_joy_1_fire
 
-    check_joy_fire:
-        lda JOYSTICK_POSITIONS
+    check_joy_1_fire:
+        lda JOYSTICK_POSITIONS_PORT_1
         and #JOY_GO_FIRE
         beq end_read_joystick
-        jsr JOYSTICK_LIB.joy_fire
+        jsr JOYSTICK_LIB.joy_1_fire
 
 
     end_read_joystick:
+
+pull_regs_from_stack()
+rts
+
+
+
+
+
+start_read_joystick_2:
+
+    push_regs_to_stack()
+
+    /* read joystick positions */
+    jsr JOYSTICK_LIB.read_joystick_port_2
+
+    /* actions in each joystick position */
+    lda JOYSTICK_POSITIONS_PORT_2
+    and #JOY_GO_LEFT 
+    beq check_joy_2_right 
+    jsr KEYBOARD_LIB.keyboard_left
+    jmp check_joy_2_fire
+
+    check_joy_2_right:
+        lda JOYSTICK_POSITIONS_PORT_2
+        and #JOY_GO_RIGHT
+        beq check_joy_2_up
+        jsr KEYBOARD_LIB.keyboard_right
+        jmp check_joy_2_fire
+
+    check_joy_2_up:
+        lda JOYSTICK_POSITIONS_PORT_2
+        and #JOY_GO_UP
+        beq check_joy_2_down
+        jsr KEYBOARD_LIB.keyboard_up
+        jmp check_joy_2_fire
+
+    check_joy_2_down:
+        lda JOYSTICK_POSITIONS_PORT_2
+        and #JOY_GO_DOWN
+        beq check_joy_2_fire
+        jsr KEYBOARD_LIB.keyboard_down
+        jmp check_joy_2_fire
+
+    check_joy_2_fire:
+        lda JOYSTICK_POSITIONS_PORT_2
+        and #JOY_GO_FIRE
+        beq end_read_joystick_2
+        jsr KEYBOARD_LIB.keyboard_fire
+
+    end_read_joystick_2:
 
 pull_regs_from_stack()
 rts
