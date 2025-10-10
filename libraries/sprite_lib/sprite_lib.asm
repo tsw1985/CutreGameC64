@@ -1686,8 +1686,153 @@ rts
 /******************************************************************************/
 
 
+/******************************************************************************/
+/*              Check if tank 1 is in collision with tank 2                   */
+/*                                                                            */ 
+/*  OUT: PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2                             */
+/******************************************************************************/
+check_if_tank_1_collides_with_tank_2:
+push_regs_to_stack()
+
+    /* set to 0 the collision flag */
+    lda #0
+    sta PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+
+    /* Get current Y,X of tank 1 - SIN SUMAR NADA */
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_y,x
+    sta PLAYER_1_TANK_1_CURRENT_Y
+
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_x,x
+    sta PLAYER_1_TANK_1_CURRENT_X
+
+    /* Get current Y,X of tank 2 - SIN SUMAR NADA */
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_y,x
+    sta PLAYER_2_TANK_2_CURRENT_Y
+
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_x,x
+    sta PLAYER_2_TANK_2_CURRENT_X
+
+    /* Las 4 comparaciones para detectar colisión */
+    /* Usamos tamaño 24x21 (sprite completo) */
+    
+    // Comparación 1: x1 < x2 + 24 (izquierda de tank1 < derecha de tank2)
+    lda PLAYER_2_TANK_2_CURRENT_X
+    clc
+    adc #24                          // x2 + 24 (derecha del tank 2)
+    cmp PLAYER_1_TANK_1_CURRENT_X
+    bcc no_collision_with_tank_2     // Si x2+24 < x1, no hay colisión
+    
+    // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
+    lda PLAYER_1_TANK_1_CURRENT_X
+    clc
+    adc #24                          // x1 + 24 (derecha del tank 1)
+    cmp PLAYER_2_TANK_2_CURRENT_X
+    bcc no_collision_with_tank_2     // Si x1+24 < x2, no hay colisión
+    beq no_collision_with_tank_2     // Si x1+24 = x2, no hay colisión
+    
+    // Comparación 3: y1 < y2 + 21 (arriba de tank1 < abajo de tank2)
+    lda PLAYER_2_TANK_2_CURRENT_Y
+    clc
+    adc #21                          // y2 + 21 (abajo del tank 2)
+    cmp PLAYER_1_TANK_1_CURRENT_Y
+    bcc no_collision_with_tank_2     // Si y2+21 < y1, no hay colisión
+    
+    // Comparación 4: y1 + 21 > y2 (abajo de tank1 > arriba de tank2)
+    lda PLAYER_1_TANK_1_CURRENT_Y    // ← ¡AQUÍ ESTABA EL ERROR! Era _X y debe ser _Y
+    clc
+    adc #21                          // y1 + 21 (abajo del tank 1)
+    cmp PLAYER_2_TANK_2_CURRENT_Y
+    bcc no_collision_with_tank_2     // Si y1+21 < y2, no hay colisión
+    beq no_collision_with_tank_2     // Si y1+21 = y2, no hay colisión
+    
+    // Si llegamos aquí, ¡HAY COLISIÓN!
+    lda #1
+    sta PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+
+    no_collision_with_tank_2:
+    
+    exit_check_collision_with_tank_2:
+    pull_regs_from_stack()
+rts
 
 
+
+/******************************************************************************/
+/*              Check if tank 2 is in collision with tank 1                   */
+/*                                                                            */ 
+/*  OUT: PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1                             */
+/******************************************************************************/
+check_if_tank_2_collides_with_tank_1:
+push_regs_to_stack()
+
+    /* set to 0 the collision flag */
+    lda #0
+    sta PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
+
+    /* Get current Y,X of tank 1 - SIN SUMAR NADA */
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_y,x
+    sta PLAYER_1_TANK_1_CURRENT_Y
+
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_x,x
+    sta PLAYER_1_TANK_1_CURRENT_X
+
+    /* Get current Y,X of tank 2 - SIN SUMAR NADA */
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_y,x
+    sta PLAYER_2_TANK_2_CURRENT_Y
+
+    ldx #SPRITE_TANK_2
+    lda sprites_coord_table_x,x
+    sta PLAYER_2_TANK_2_CURRENT_X
+
+    /* Las 4 comparaciones para detectar colisión */
+    /* Usamos tamaño 24x21 (sprite completo) */
+    
+    // Comparación 1: x1 < x2 + 24 (izquierda de tank1 < derecha de tank2)
+    lda PLAYER_1_TANK_1_CURRENT_X
+    clc
+    adc #24                          // x2 + 24 (derecha del tank 2)
+    cmp PLAYER_2_TANK_2_CURRENT_X
+    bcc no_collision_with_tank_1     // Si x2+24 < x1, no hay colisión
+    
+    // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
+    lda PLAYER_2_TANK_2_CURRENT_X
+    clc
+    adc #24                          // x1 + 24 (derecha del tank 1)
+    cmp PLAYER_1_TANK_1_CURRENT_X
+    bcc no_collision_with_tank_1     // Si x1+24 < x2, no hay colisión
+    beq no_collision_with_tank_1     // Si x1+24 = x2, no hay colisión
+    
+    // Comparación 3: y1 < y2 + 21 (arriba de tank1 < abajo de tank2)
+    lda PLAYER_1_TANK_1_CURRENT_Y
+    clc
+    adc #21                          // y2 + 21 (abajo del tank 2)
+    cmp PLAYER_2_TANK_2_CURRENT_Y
+    bcc no_collision_with_tank_1     // Si y2+21 < y1, no hay colisión
+    
+    // Comparación 4: y1 + 21 > y2 (abajo de tank1 > arriba de tank2)
+    lda PLAYER_2_TANK_2_CURRENT_Y    // ← ¡AQUÍ ESTABA EL ERROR! Era _X y debe ser _Y
+    clc
+    adc #21                          // y1 + 21 (abajo del tank 1)
+    cmp PLAYER_1_TANK_1_CURRENT_Y
+    bcc no_collision_with_tank_1     // Si y1+21 < y2, no hay colisión
+    beq no_collision_with_tank_1     // Si y1+21 = y2, no hay colisión
+    
+    // Si llegamos aquí, ¡HAY COLISIÓN!
+    lda #1
+    sta PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
+
+    no_collision_with_tank_1:
+    
+    exit_check_collision_with_tank_1:
+    pull_regs_from_stack()
+rts
 
 
 

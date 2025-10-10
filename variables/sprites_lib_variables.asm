@@ -54,6 +54,16 @@ animation rotation. We want block the sprite movement in this rotation move.
 1 = false
  */
 PLAYER_1_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
+
+
+/* Variables to get current positions of tank 1*/
+PLAYER_1_TANK_1_CURRENT_Y: .byte 0
+PLAYER_1_TANK_1_CURRENT_X: .byte 0
+PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2: .byte 0
+
+
+
+
 /******************************************************************************/
 /*            ------------- END PLAYER 1 -------------                        */
 /******************************************************************************/
@@ -118,6 +128,11 @@ animation rotation. We want block the sprite movement in this rotation move.
  */
 PLAYER_2_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
 
+
+/* Variables to get current positions of tank 1*/
+PLAYER_2_TANK_2_CURRENT_Y: .byte 0
+PLAYER_2_TANK_2_CURRENT_X: .byte 0
+PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1: .byte 0
 
 /******************************************************************************/
 /*            ------------- END PLAYER 2 -------------                        */

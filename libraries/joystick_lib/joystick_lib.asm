@@ -126,6 +126,17 @@ joy_1_up:
 
     push_regs_to_stack()
 
+    /* Check if exists collision with tank 2 */
+    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2
+    lda #1
+    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+    beq no_move_up
+    jmp normal_check_tank_up
+    normal_check_tank_up:
+    /* End Check if exists collision with tank 2 */    
+
+
+
     /* Check CANNON TIP */
     lda #50
     sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
@@ -194,6 +205,7 @@ joy_1_up:
 
     // ------------------ END CHECK COLLISIONS -----------------
 
+
     lda #1
     sta PLAYER_1_TANK_IS_IN_MOVING
     jsr SPRITE_LIB.sprite_0_decrement_y
@@ -222,6 +234,17 @@ rts
 
 joy_1_left:
     push_regs_to_stack()
+
+
+    /* Check if exists collision with tank 2 */
+    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2
+    lda #1
+    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+    beq no_move_left
+    jmp normal_check_tank_left
+    normal_check_tank_left:
+    /* End Check if exists collision with tank 2 */    
+
 
     /* Check CANNON TIP */
     lda #40
@@ -319,6 +342,19 @@ joy_1_right:
 
     push_regs_to_stack()
 
+    /* Check if exists collision with tank 2 */
+    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2
+    lda #1
+    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+    beq no_move_right
+    jmp normal_check_tank_right
+    normal_check_tank_right:
+    /* End Check if exists collision with tank 2 */    
+
+
+
+
+
     /* Check CANNON TIP */
     lda #40
     sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
@@ -415,6 +451,16 @@ rts
 joy_1_down:
 
     push_regs_to_stack()
+
+    /* Check if exists collision with tank 2 */
+    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2
+    lda #1
+    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+    beq no_move_down
+    jmp normal_check_tank_down
+    normal_check_tank_down:
+    /* End Check if exists collision with tank 2 */
+
 
     /* Check CANNON TIP */
     lda #29
