@@ -1704,7 +1704,7 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_Y
 
     dec PLAYER_1_TANK_1_CURRENT_Y
-    dec PLAYER_1_TANK_1_CURRENT_Y
+    //dec PLAYER_1_TANK_1_CURRENT_Y
 
 
 
@@ -1777,7 +1777,7 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_Y
 
     inc PLAYER_1_TANK_1_CURRENT_Y
-    inc PLAYER_1_TANK_1_CURRENT_Y
+    //inc PLAYER_1_TANK_1_CURRENT_Y
 
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
@@ -1852,7 +1852,7 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_X
 
     dec PLAYER_1_TANK_1_CURRENT_X
-    dec PLAYER_1_TANK_1_CURRENT_X
+    //dec PLAYER_1_TANK_1_CURRENT_X
 
 
     /* Get current Y,X of tank 2 - SIN SUMAR NADA */
@@ -1925,7 +1925,7 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_X
 
     inc PLAYER_1_TANK_1_CURRENT_X
-    inc PLAYER_1_TANK_1_CURRENT_X
+    //inc PLAYER_1_TANK_1_CURRENT_X
 
 
     /* Get current Y,X of tank 2 - SIN SUMAR NADA */
