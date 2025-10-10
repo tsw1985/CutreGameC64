@@ -1,4 +1,4 @@
-Output dir: /home/gabriel/DEVELOPER/C64/CutreGameC64/bin
+Output dir: C:\AEM\code\CutreGameC64\bin
 parsing
 flex pass 1
 flex pass 2
@@ -18,7 +18,7 @@ Default-segment:
   $2000-$33ff Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
-  $4800-$63f7 Libraries
+  $4800-$643b Libraries
   $9c7c-$9d3b Maps
 
 Writing Symbol file: main.sym
