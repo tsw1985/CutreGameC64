@@ -55,10 +55,10 @@ simulate_game_loop:
     lda sprite_animations_list_HI_table,x
     sta sprite_current_anim_HI_table,x
 
-    /* Read Joysick 1 */
+    /* Read Joysick 1 - GREEN TANK */
     jsr start_read_joystick_1
 
-    /* Read Joysick 2 */
+    /* Read Joysick 2 - GREEN + BLUE TANK */
     jsr start_read_joystick_2
 
     /* lag move sprite in screen */
