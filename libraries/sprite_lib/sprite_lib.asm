@@ -1704,6 +1704,8 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_Y
 
     dec PLAYER_1_TANK_1_CURRENT_Y
+    dec PLAYER_1_TANK_1_CURRENT_Y
+    dec PLAYER_1_TANK_1_CURRENT_Y
     //dec PLAYER_1_TANK_1_CURRENT_Y
 
 
@@ -1727,14 +1729,14 @@ push_regs_to_stack()
     // Comparación 1: x1 < x2 + 24 (izquierda de tank1 < derecha de tank2)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_2_in_up     // Si x2+24 < x1, no hay colisión
     
     // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_2_in_up     // Si x1+24 < x2, no hay colisión
     beq no_collision_with_tank_2_in_up     // Si x1+24 = x2, no hay colisión
@@ -1777,6 +1779,8 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_Y
 
     inc PLAYER_1_TANK_1_CURRENT_Y
+    inc PLAYER_1_TANK_1_CURRENT_Y
+    inc PLAYER_1_TANK_1_CURRENT_Y
     //inc PLAYER_1_TANK_1_CURRENT_Y
 
     ldx #SPRITE_TANK_1
@@ -1798,14 +1802,14 @@ push_regs_to_stack()
     // Comparación 1: x1 < x2 + 24 (izquierda de tank1 < derecha de tank2)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_2_in_down     // Si x2+24 < x1, no hay colisión
     
     // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_2_in_down     // Si x1+24 < x2, no hay colisión
     beq no_collision_with_tank_2_in_down     // Si x1+24 = x2, no hay colisión
@@ -1852,6 +1856,8 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_X
 
     dec PLAYER_1_TANK_1_CURRENT_X
+    dec PLAYER_1_TANK_1_CURRENT_X
+    dec PLAYER_1_TANK_1_CURRENT_X
     //dec PLAYER_1_TANK_1_CURRENT_X
 
 
@@ -1870,14 +1876,14 @@ push_regs_to_stack()
     // Comparación 1: x1 < x2 + 24 (izquierda de tank1 < derecha de tank2)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_2_in_left     // Si x2+24 < x1, no hay colisión
     
     // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_2_in_left     // Si x1+24 < x2, no hay colisión
     beq no_collision_with_tank_2_in_left     // Si x1+24 = x2, no hay colisión
@@ -1925,6 +1931,8 @@ push_regs_to_stack()
     sta PLAYER_1_TANK_1_CURRENT_X
 
     inc PLAYER_1_TANK_1_CURRENT_X
+    inc PLAYER_1_TANK_1_CURRENT_X
+    inc PLAYER_1_TANK_1_CURRENT_X
 
 
     /* Get current Y,X of tank 2 - SIN SUMAR NADA */
@@ -1942,14 +1950,14 @@ push_regs_to_stack()
     // Comparación 1: x1 < x2 + 24 (izquierda de tank1 < derecha de tank2)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_2_in_right     // Si x2+24 < x1, no hay colisión
     
     // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_2_in_right     // Si x1+24 < x2, no hay colisión
     beq no_collision_with_tank_2_in_right     // Si x1+24 = x2, no hay colisión
@@ -1994,6 +2002,8 @@ push_regs_to_stack()
     sta PLAYER_2_TANK_2_CURRENT_Y
 
     dec PLAYER_2_TANK_2_CURRENT_Y
+    dec PLAYER_2_TANK_2_CURRENT_Y
+    dec PLAYER_2_TANK_2_CURRENT_Y
 
     ldx #SPRITE_TANK_2
     lda sprites_coord_table_x,x
@@ -2014,14 +2024,14 @@ push_regs_to_stack()
     // Comparación 1: x2 < x1 + 24 (izquierda de tank2 < derecha de tank1)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_1_in_up     // Si x1+24 < x2, no hay colisión
     
     // Comparación 2: x2 + 24 > x1 (derecha de tank2 > izquierda de tank1)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_1_in_up     // Si x2+24 < x1, no hay colisión
     beq no_collision_with_tank_1_in_up     // Si x2+24 = x1, no hay colisión
@@ -2064,6 +2074,8 @@ push_regs_to_stack()
     sta PLAYER_2_TANK_2_CURRENT_Y
 
     inc PLAYER_2_TANK_2_CURRENT_Y
+    inc PLAYER_2_TANK_2_CURRENT_Y
+    inc PLAYER_2_TANK_2_CURRENT_Y
 
     ldx #SPRITE_TANK_2
     lda sprites_coord_table_x,x
@@ -2084,14 +2096,14 @@ push_regs_to_stack()
     // Comparación 1: x2 < x1 + 24 (izquierda de tank2 < derecha de tank1)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_1_in_down     // Si x1+24 < x2, no hay colisión
     
     // Comparación 2: x2 + 24 > x1 (derecha de tank2 > izquierda de tank1)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_1_in_down     // Si x2+24 < x1, no hay colisión
     beq no_collision_with_tank_1_in_down     // Si x2+24 = x1, no hay colisión
@@ -2138,6 +2150,8 @@ push_regs_to_stack()
     sta PLAYER_2_TANK_2_CURRENT_X
 
     dec PLAYER_2_TANK_2_CURRENT_X
+    dec PLAYER_2_TANK_2_CURRENT_X
+    dec PLAYER_2_TANK_2_CURRENT_X
 
     /* Get current Y,X of tank 1 - SIN SUMAR NADA */
     ldx #SPRITE_TANK_1
@@ -2154,14 +2168,14 @@ push_regs_to_stack()
     // Comparación 1: x2 < x1 + 24 (izquierda de tank2 < derecha de tank1)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_1_in_left     // Si x1+24 < x2, no hay colisión
     
     // Comparación 2: x2 + 24 > x1 (derecha de tank2 > izquierda de tank1)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_1_in_left     // Si x2+24 < x1, no hay colisión
     beq no_collision_with_tank_1_in_left     // Si x2+24 = x1, no hay colisión
@@ -2208,6 +2222,8 @@ push_regs_to_stack()
     sta PLAYER_2_TANK_2_CURRENT_X
 
     inc PLAYER_2_TANK_2_CURRENT_X
+    inc PLAYER_2_TANK_2_CURRENT_X
+    inc PLAYER_2_TANK_2_CURRENT_X
 
     /* Get current Y,X of tank 1 - SIN SUMAR NADA */
     ldx #SPRITE_TANK_1
@@ -2224,14 +2240,14 @@ push_regs_to_stack()
     // Comparación 1: x2 < x1 + 24 (izquierda de tank2 < derecha de tank1)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
-    adc #24                          // x1 + 24 (derecha del tank 1)
+    adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
     bcc no_collision_with_tank_1_in_right     // Si x1+24 < x2, no hay colisión
     
     // Comparación 2: x2 + 24 > x1 (derecha de tank2 > izquierda de tank1)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
-    adc #24                          // x2 + 24 (derecha del tank 2)
+    adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
     bcc no_collision_with_tank_1_in_right     // Si x2+24 < x1, no hay colisión
     beq no_collision_with_tank_1_in_right     // Si x2+24 = x1, no hay colisión
