@@ -127,6 +127,24 @@ joy_1_up:
     push_regs_to_stack()
 
 
+    ldx #SPRITE_TANK_1
+    lda sprites_coord_table_y,x
+    cmp #211
+    bcs set_tank_1_to_limit_up
+    jmp check_cannon_tip_tank_1_up
+     
+    set_tank_1_to_limit_up:
+        ldx #SPRITE_TANK_1
+        lda #211
+        sta sprites_coord_table_y,x
+        sta $d001 // set limit in Sprit 1 X
+
+    
+    check_cannon_tip_tank_1_up:
+
+
+
+
  
     /* Check CANNON TIP */
     lda #50

@@ -12,7 +12,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x68f1549c
+random seed was: 0x68f1567a
 command line was: x64 -logfile /home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg-vice.log /home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg
 VICE system file directory: /usr/share/vice.
 Loading system file `/usr/share/vice/C64/kernal-901227-03.bin'.
@@ -105,7 +105,7 @@ CART: '/home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg' is not a valid CRT
 AUTOSTART: Loading PRG file `/home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 12567. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 02457. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `/home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg' recognized as program/p00 file.
 Main CPU: RESET.
@@ -118,3 +118,43 @@ AUTOSTART: Entered ROM at $e5cf
 AUTOSTART: Searching for ...
 AUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
+AUTOSTART: Ready
+AUTOSTART: Turning Warp mode off.
+AUTOSTART: Starting program.
+AUTOSTART: Restoring FileSystemDevice8 to 1.
+AUTOSTART: Restoring FSDevice8ConvertP00 to 1.
+AUTOSTART: Restoring FSDeviceLongNames to 0.
+AUTOSTART: Done.
+Sync reset
+Initiating render thread 0 shutdown
+Joining render thread 0 ...
+Joined render thread 0.
+
+Configure Flags:
+--enable-option-checking=fatal --prefix=/usr --enable-gtk3ui --with-pulse --disable-arch --disable-html-docs --enable-catweasel --enable-cpuhistory --enable-ethernet --enable-midi --enable-parsid --enable-pdf-docs --with-alsa --with-fastsid --with-flac --with-gif --with-lame --with-libcurl --with-libieee1284 --with-mpg123 --with-png --with-portaudio --with-resid --with-vorbis
+
+Resources with non default values:
+LogFileName="/home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg-vice.log"
+SaveResourcesOnExit=1
+ConfirmOnExit=0
+Window0Height=912
+Window0Width=1060
+Window0Xpos=3858
+Window0Ypos=12
+KeySet1North=119
+KeySet1East=100
+KeySet1South=115
+KeySet1West=97
+KeySet1Fire=32
+JoyDevice1=2
+
+reconstructed commandline options (might be incomplete):
+-default -logfile "/home/gabriel/DEVELOPER/C64/CutreGameC64/bin/main.prg-vice.log" +confirmonexit -saveres -windowxpos "3858" -windowypos "12" -windowwidth "1060" -windowheight "912" -joydev1 "2"
+
+VICE thread initiating shutdown
+VICE thread is exiting
+VICE thread has been joined.
+Writing configuration file `/home/gabriel/.config/vice/vicerc'.
+VIC-II: VSP Bug: safe channels are: 01456. Emulation of memory corruption is disabled.
+Sound: Closing device `pulse'
+Hotkeys: shutting down.
