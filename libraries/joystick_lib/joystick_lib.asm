@@ -483,7 +483,7 @@ joy_1_right:
     beq is_collision_right_tank_1
 
 
-    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2_in_back
+    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2_in_back_in_right
     lda #1
     cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
     beq is_collision_right_tank_1

@@ -320,11 +320,11 @@
   }
   .label sprite_0_increment_x=$552c {
   }
-  .label check_if_tank_1_collides_with_tank_2_in_back=$5ee4 {
-  }
   .label sprite_no_hit=$6224
   .label reset_animation=$58bc
   .label continue_default=$58b6
+  .label no_collision_with_tank_1_in_back_in_right=$6172 {
+  }
   .label sprite_0_increment_y=$568c {
   }
   .label exit_draw_bullet=$5a6f {
@@ -411,8 +411,6 @@
   .label sprite_4_decrement_y=$5634 {
   }
   .label put_animation_frame_in_screen=$58ca
-  .label no_collision_with_tank_1_in_back=$6172 {
-  }
   .label check_if_tank_1_collides_with_tank_2_in_up=$5d2c {
   }
   .label sprite_set_animation_rotate_tank_right_up=$63f1 {
@@ -423,8 +421,6 @@
   .label continue_put_animation_frame_in_screen=$58b9
   .label bullet_limit_right_player_2=$5c82
   .label sprite_set_animation_rotate_tank_1_left=$6339 {
-  }
-  .label check_if_tank_2_collides_with_tank_1_in_back=$610a {
   }
   .label draw_bullet_to_right_player_2=$5bb3
   .label no_collision_with_tank_2_in_up=$5d94 {
@@ -488,6 +484,8 @@
   .label bullet_limit_bottom=$5995
   .label setupRasterInterrupt=$580c {
   }
+  .label check_if_tank_2_collides_with_tank_1_in_back_in_right=$610a {
+  }
   .label actions_in_raster=$5849
   .label sprite_1_decrement_y=$55f2 {
   }
@@ -499,6 +497,8 @@
   }
   .label bullet_limit_right=$59d5
   .label sprite_0_decrement_y=$55dc {
+  }
+  .label check_if_tank_1_collides_with_tank_2_in_back_in_right=$5ee4 {
   }
   .label exit_check_collision=$62e5 {
   }
@@ -525,8 +525,6 @@
   .label reset_index_sprite_index_table=$58bc
   .label enableRasterInterrupt=$583d
   .label change_border_color=$61e8
-  .label no_collision_with_tank_2_in_back=$5f4c {
-  }
   .label sprite_set_animation_rotate_tank_2_up=$6367 {
   }
   .label sprite_set_animation_rotate_tank_up_right=$63c3 {
@@ -534,6 +532,8 @@
   .label bullet_limit_left=$59b5
   .label bullet_limit_left_player_2=$5c62
   .label sprite_get_current_index_sprite_pad_value_animation=$57ec {
+  }
+  .label no_collision_with_tank_2_in_back_in_right=$5f4c {
   }
   .label enable_player_1_movements=$62fb {
   }

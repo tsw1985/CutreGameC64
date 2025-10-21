@@ -448,7 +448,7 @@ keyboard_right:
     beq is_collision_right_tank_2
 
 
-    jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_back
+    jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_back_in_right
     lda #1
     cmp PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
     beq is_collision_right_tank_2

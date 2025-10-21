@@ -1988,7 +1988,7 @@ rts
 
 
 
-check_if_tank_1_collides_with_tank_2_in_back:
+check_if_tank_1_collides_with_tank_2_in_back_in_right:
 push_regs_to_stack()
 
     /* set to 0 the collision flag */
@@ -2026,36 +2026,36 @@ push_regs_to_stack()
     clc
     adc #0                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
-    bcc no_collision_with_tank_2_in_back     // Si x2+24 < x1, no hay colisión
+    bcc no_collision_with_tank_2_in_back_in_right     // Si x2+24 < x1, no hay colisión
     
     // Comparación 2: x1 + 24 > x2 (derecha de tank1 > izquierda de tank2)
     lda PLAYER_1_TANK_1_CURRENT_X
     clc
     adc #27                          // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
-    bcc no_collision_with_tank_2_in_back     // Si x1+24 < x2, no hay colisión
-    beq no_collision_with_tank_2_in_back     // Si x1+24 = x2, no hay colisión
+    bcc no_collision_with_tank_2_in_back_in_right     // Si x1+24 < x2, no hay colisión
+    beq no_collision_with_tank_2_in_back_in_right     // Si x1+24 = x2, no hay colisión
     
     // Comparación 3: y1 < y2 + 21 (arriba de tank1 < abajo de tank2)
     lda PLAYER_2_TANK_2_CURRENT_Y
     clc
     adc #0                          // y2 + 21 (abajo del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_Y
-    bcc no_collision_with_tank_2_in_back     // Si y2+21 < y1, no hay colisión
+    bcc no_collision_with_tank_2_in_back_in_right     // Si y2+21 < y1, no hay colisión
     
     // Comparación 4: y1 + 21 > y2 (abajo de tank1 > arriba de tank2)
     lda PLAYER_1_TANK_1_CURRENT_Y    // ← ¡AQUÍ ESTABA EL ERROR! Era _X y debe ser _Y
     clc
     adc #27                          // y1 + 21 (abajo del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_Y
-    bcc no_collision_with_tank_2_in_back     // Si y1+21 < y2, no hay colisión
-    beq no_collision_with_tank_2_in_back     // Si y1+21 = y2, no hay colisión
+    bcc no_collision_with_tank_2_in_back_in_right     // Si y1+21 < y2, no hay colisión
+    beq no_collision_with_tank_2_in_back_in_right     // Si y1+21 = y2, no hay colisión
     
     // Si llegamos aquí, ¡HAY COLISIÓN!
     lda #1
     sta PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
 
-    no_collision_with_tank_2_in_back:
+    no_collision_with_tank_2_in_back_in_right:
     
     pull_regs_from_stack()
 rts
@@ -2392,7 +2392,7 @@ rts
 
 
 
-check_if_tank_2_collides_with_tank_1_in_back:
+check_if_tank_2_collides_with_tank_1_in_back_in_right:
 push_regs_to_stack()
 
     /* set to 0 the collision flag */
@@ -2429,36 +2429,36 @@ push_regs_to_stack()
     clc
     adc #0                         // x1 + 24 (derecha del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_X
-    bcc no_collision_with_tank_1_in_back     // Si x1+24 < x2, no hay colisión
+    bcc no_collision_with_tank_1_in_back_in_right     // Si x1+24 < x2, no hay colisión
     
     // Comparación 2: x2 + 24 > x1 (derecha de tank2 > izquierda de tank1)
     lda PLAYER_2_TANK_2_CURRENT_X
     clc
     adc #27                          // x2 + 24 (derecha del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_X
-    bcc no_collision_with_tank_1_in_back     // Si x2+24 < x1, no hay colisión
-    beq no_collision_with_tank_1_in_back     // Si x2+24 = x1, no hay colisión
+    bcc no_collision_with_tank_1_in_back_in_right     // Si x2+24 < x1, no hay colisión
+    beq no_collision_with_tank_1_in_back_in_right     // Si x2+24 = x1, no hay colisión
     
     // Comparación 3: y2 < y1 + 21 (arriba de tank2 < abajo de tank1)
     lda PLAYER_1_TANK_1_CURRENT_Y
     clc
     adc #0                          // y1 + 21 (abajo del tank 1)
     cmp PLAYER_2_TANK_2_CURRENT_Y
-    bcc no_collision_with_tank_1_in_back     // Si y1+21 < y2, no hay colisión
+    bcc no_collision_with_tank_1_in_back_in_right     // Si y1+21 < y2, no hay colisión
     
     // Comparación 4: y2 + 21 > y1 (abajo de tank2 > arriba de tank1)
     lda PLAYER_2_TANK_2_CURRENT_Y
     clc
     adc #24                          // y2 + 21 (abajo del tank 2)
     cmp PLAYER_1_TANK_1_CURRENT_Y
-    bcc no_collision_with_tank_1_in_back     // Si y2+21 < y1, no hay colisión
-    beq no_collision_with_tank_1_in_back     // Si y2+21 = y1, no hay colisión
+    bcc no_collision_with_tank_1_in_back_in_right     // Si y2+21 < y1, no hay colisión
+    beq no_collision_with_tank_1_in_back_in_right     // Si y2+21 = y1, no hay colisión
     
     // Si llegamos aquí, ¡HAY COLISIÓN!
     lda #1
     sta PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
 
-    no_collision_with_tank_1_in_back:
+    no_collision_with_tank_1_in_back_in_right:
     
     pull_regs_from_stack()
 rts
