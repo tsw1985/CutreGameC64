@@ -397,6 +397,7 @@ joy_1_right:
     cmp #50
     bcc set_tank_1_to_limit_left
     jmp check_cannon_tip_tank_1_right
+
      
     set_tank_1_to_limit_left:
         ldx #SPRITE_TANK_1
@@ -480,6 +481,20 @@ joy_1_right:
     lda #1
     cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
     beq is_collision_right_tank_1
+
+
+    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2_in_back
+    lda #1
+    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+    beq is_collision_right_tank_1
+
+
+
+
+
+
+
+
     jmp normal_check_tank_1_right
 
     is_collision_right_tank_1:

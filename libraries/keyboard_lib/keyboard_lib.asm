@@ -370,25 +370,7 @@ keyboard_right:
     push_regs_to_stack()
 
 
-    /* Check if exists collision with tank 1 */
-    jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_right
-    lda #1
-    cmp PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
-    beq is_collision_right_tank_2
-    jmp normal_check_tank_2_right
-
-    is_collision_right_tank_2:
-        lda #1
-        sta PLAYER_2_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jmp no_move_right
-    normal_check_tank_2_right:
-    /* End Check if exists collision with tank 1 */
-
+    
 
 
 
@@ -459,7 +441,33 @@ keyboard_right:
 
     // ------------------ END CHECK COLLISIONS -----------------
 
-    
+    /* Check if exists collision with tank 1 */
+    jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_right
+    lda #1
+    cmp PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
+    beq is_collision_right_tank_2
+
+
+    jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_back
+    lda #1
+    cmp PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
+    beq is_collision_right_tank_2
+
+
+
+
+    jmp normal_check_tank_2_right
+
+    is_collision_right_tank_2:
+        lda #1
+        sta PLAYER_2_TANK_IS_IN_MOVING
+        jsr SPRITE_LIB.sprite_2_decrement_x
+        jsr SPRITE_LIB.sprite_2_decrement_x
+        jsr SPRITE_LIB.sprite_2_decrement_x
+        jmp no_move_right
+    normal_check_tank_2_right:
+    /* End Check if exists collision with tank 1 */
+
 
 
 
