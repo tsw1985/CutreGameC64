@@ -18,6 +18,7 @@ keyboard_up:
         jsr SPRITE_LIB.sprite_2_increment_y
         jsr SPRITE_LIB.sprite_2_increment_y
         jsr SPRITE_LIB.sprite_2_increment_y
+        jsr SPRITE_LIB.sprite_2_increment_y
         jmp no_move_up
 
     normal_check_tank_2_up:
@@ -248,10 +249,6 @@ keyboard_left:
     push_regs_to_stack()
 
 
-    
-
-
-
     /* Check CANNON TIP */
     lda #40
     sta PLAYER_2_TANK_OFFSET_CANNON_TIP_Y
@@ -321,13 +318,13 @@ keyboard_left:
 
     
     /* Check if exists collision with tank 2 */
-    jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2_in_left
+    jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_left
     lda #1
-    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
-    beq is_collision_left_tank_1
-    jmp normal_check_tank_1_left
+    cmp PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
+    beq is_collision_left_tank_2
+    jmp normal_check_tank_2_left
 
-    is_collision_left_tank_1:
+    is_collision_left_tank_2:
         lda #1
         sta PLAYER_2_TANK_IS_IN_MOVING
         jsr SPRITE_LIB.sprite_2_increment_x
@@ -336,7 +333,7 @@ keyboard_left:
         jsr SPRITE_LIB.sprite_2_increment_x
         jsr SPRITE_LIB.sprite_2_increment_x
         jmp no_move_left
-    normal_check_tank_1_left:
+    normal_check_tank_2_left:
     /* End Check if exists collision with tank 2 */
 
 
@@ -388,8 +385,14 @@ keyboard_right:
     lda CURRENT_CHAR_IN_SCREEN
     sta PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
     cmp #BRIK
-    beq no_move_right
+    beq no_move_right_aux //no_move_right
+    jmp continue_with_left_chain_tank_1
+    no_move_right_aux:
+    jmp no_move_right
+
     /* End Check CANNON TIP */
+
+    continue_with_left_chain_tank_1:
 
     /*  Check LEFT chain */
     lda #47
@@ -457,6 +460,8 @@ keyboard_right:
     is_collision_right_tank_2:
         lda #1
         sta PLAYER_2_TANK_IS_IN_MOVING
+        jsr SPRITE_LIB.sprite_2_decrement_x
+        jsr SPRITE_LIB.sprite_2_decrement_x
         jsr SPRITE_LIB.sprite_2_decrement_x
         jsr SPRITE_LIB.sprite_2_decrement_x
         jsr SPRITE_LIB.sprite_2_decrement_x

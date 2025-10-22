@@ -141,10 +141,6 @@ joy_1_up:
 
     
     check_cannon_tip_tank_1_up:
-
-
-
-
  
     /* Check CANNON TIP */
     lda #50
@@ -230,6 +226,7 @@ joy_1_up:
 
         lda #1
         sta PLAYER_1_TANK_IS_IN_MOVING
+        jsr SPRITE_LIB.sprite_0_increment_y
         jsr SPRITE_LIB.sprite_0_increment_y
         jsr SPRITE_LIB.sprite_0_increment_y
         jsr SPRITE_LIB.sprite_0_increment_y
@@ -426,8 +423,14 @@ joy_1_right:
     lda CURRENT_CHAR_IN_SCREEN
     sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON    
     cmp #BRIK
-    beq no_move_right
+    beq no_move_right_aux //no_move_right
+    jmp continue_with_left_chain_tank_1
+    no_move_right_aux:
+    jmp no_move_right
+
     /* End Check CANNON TIP */
+
+    continue_with_left_chain_tank_1:
 
     /*  Check LEFT chain */
     lda #47
@@ -497,6 +500,8 @@ joy_1_right:
 
         lda #1
         sta PLAYER_1_TANK_IS_IN_MOVING
+        jsr SPRITE_LIB.sprite_0_decrement_x
+        jsr SPRITE_LIB.sprite_0_decrement_x
         jsr SPRITE_LIB.sprite_0_decrement_x
         jsr SPRITE_LIB.sprite_0_decrement_x
         jsr SPRITE_LIB.sprite_0_decrement_x
@@ -635,6 +640,9 @@ joy_1_down:
         jsr SPRITE_LIB.sprite_0_decrement_y
         jsr SPRITE_LIB.sprite_0_decrement_y
         jsr SPRITE_LIB.sprite_0_decrement_y
+        jsr SPRITE_LIB.sprite_0_decrement_y
+        jsr SPRITE_LIB.sprite_0_decrement_y
+
         jmp no_move_down
     normal_check_tank_1_down:
     
