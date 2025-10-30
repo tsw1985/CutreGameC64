@@ -769,10 +769,31 @@ actions_in_raster:
 
         exit_sprites_loop:
 
+        //Before move bullet check if player press button fire
+
 
         // Move bullets
+        lda PLAYER_1_TANK_IS_FIRING
+        cmp #1
+        beq tank_1_is_firing
+
+
+        lda PLAYER_2_TANK_IS_FIRING
+        cmp #1
+        beq tank_2_is_firing
+
+
+        tank_1_is_firing:
         jsr SPRITE_LIB.sprite_move_bullets_tank_1
+        jmp continue_normal_sprite_loop
+
+
+        tank_2_is_firing:
         jsr SPRITE_LIB.sprite_move_bullets_tank_2
+        jmp continue_normal_sprite_loop
+
+
+        continue_normal_sprite_loop:
 
 
         /* Call to check collision in any sprite */
@@ -809,6 +830,16 @@ sprite_move_bullets_tank_1:
 push_regs_to_stack()
 
 
+    lda PLAYER_1_TANK_IS_FIRING
+    cmp #0
+    beq skip_move_bullet_tank_1
+    jmp start_move_bullet_tank_1
+
+    skip_move_bullet_tank_1:
+    jmp exit_move_bullet_tank_1
+
+    start_move_bullet_tank_1:
+
     lda PLAYER_1_TANK_FIRED_IN_UP    /* UP */
     cmp #PLAYER_UP
     beq move_bullet_to_up
@@ -828,6 +859,8 @@ push_regs_to_stack()
 
     move_bullet_to_up:
 
+
+        
         lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
@@ -837,13 +870,55 @@ push_regs_to_stack()
         sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d003
         jmp exit_move_bullet_tank_1
+        
+        
+
+        /*
+        lda #213
+        sta $d003
+
+        lda $d003
+        .break
+        lsr 
+        lsr
+        lsr
+        sta SCREEN_ROW_POS
+
+
+        lda #137
+        sta $d002
+
+        lda $d002
+        lsr 
+        lsr
+        lsr
+        sta SCREEN_COL_POS
+
+        jsr PRINT_LIB.get_char_value_from_video_memory
+ 
+        lda CURRENT_CHAR_IN_SCREEN
+        cmp #67
+        beq bullet_limit_top 
+
+
+        sec
+        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta $d003
+        jmp exit_move_bullet_tank_1
+        */
+        
+
 
         bullet_limit_top:
             //finish fire
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
 
-            sprite_disable_sprite(1)
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
+
+
+
+            //sprite_disable_sprite(1)
 
 
             jmp exit_move_bullet_tank_1
