@@ -861,13 +861,43 @@ push_regs_to_stack()
 
 
         
-        lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
+        //lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
+        //cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
+        //bcc bullet_limit_top           // si la bala llega a 80 px de alto
 
-        bcc bullet_limit_top               // si la bala llega a 80 px de alto
+        .break
+        lda $d003
+        //sec
+        //sbc #10
+        lsr
+        lsr
+        lsr
+        sta SCREEN_ROW_POS
+
+
+        lda $d002
+        //sec
+        //sbc #10
+        lsr
+        lsr
+        lsr
+        sta SCREEN_COL_POS
+
+        jsr PRINT_LIB.get_char_value_from_video_memory
+ 
+        
+        .break
+
+        lda CURRENT_CHAR_IN_SCREEN
+        cmp #67
+        beq bullet_limit_top
+
+
+
+        //------------- moving bullet to up ----------
         sec
-        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sbc #BULLET_SPEED              // decrement Y of bullet sprite player 1
         sta $d003
         jmp exit_move_bullet_tank_1
         
@@ -914,9 +944,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
 
-            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-
-
+            //jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
 
             //sprite_disable_sprite(1)
 
