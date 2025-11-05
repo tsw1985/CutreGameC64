@@ -871,8 +871,23 @@ push_regs_to_stack()
 
         bcc bullet_limit_top               // si la bala llega a 80 px de alto
         sec
-        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sbc #1 //BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d003
+
+        // save current Y in sprites coords table
+        ldx #1
+        lda $d003
+        sta sprites_coord_table_y,x
+
+        // also save X
+        lda $d002
+        sta sprites_coord_table_x,x
+
+
+
+
+
+
         jmp exit_move_bullet_tank_1
         
         

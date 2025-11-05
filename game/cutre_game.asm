@@ -177,22 +177,23 @@ simulate_game_loop:
 
         /* PRINT Y - X Bullet tank 1 */
 
-
-
-
+        /*
+        ldx #1 // sprite bullet tank 1
+        lda sprites_coord_table_y,x
 
         // Get screen char value
-        lda PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
         sta sum_res_0
         lda #0
         sta sum_res_1
         sta sum_res_2
         sta sum_res_3
         print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        */
 
 
         //print x
-        lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Bullet X */
+        ldx #1 // sprite bullet tank 1
+        lda sprites_coord_table_y,x
         sta sum_res_0
         lda #0
         sta sum_res_1
@@ -202,18 +203,20 @@ simulate_game_loop:
 
 
         //print y IN TEXT MODE COORDS
-        lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Bullet Y */
+        
+        ldx #1 // sprite bullet tank 1
+        lda sprites_coord_table_x,x
         sta sum_res_0
         lda #0
         sta sum_res_1
         sta sum_res_2
         sta sum_res_3
-        print_calculation_result(21,37,BLUE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        print_calculation_result(21,37,YELLOW,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        
 
 
 
-
-
+       
 
 
 
