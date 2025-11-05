@@ -135,6 +135,7 @@ simulate_game_loop:
     **************************************************/
 
         /* Print with sprite is in collision */
+        /*
         // Get screen char value
         lda PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
         sta sum_res_0
@@ -143,14 +144,15 @@ simulate_game_loop:
         sta sum_res_2
         sta sum_res_3
         print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        */
 
 
 
-        
+        /*
         //print x
-        //lda PLAYER_1_TANK_1_CANNON_TIP_X /* Punta del canon */
-        lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Cadena X izquierda */
-        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   /* Cadena X derecha */
+        //lda PLAYER_1_TANK_1_CANNON_TIP_X // Punta del canon 
+        lda PLAYER_1_TANK_1_LEFT_CHAIN_X   // Cadena X izquierda 
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_X   // Cadena X derecha 
 
         sta sum_res_0
         lda #0
@@ -161,9 +163,9 @@ simulate_game_loop:
 
 
         //print y IN TEXT MODE COORDS
-        //lda PLAYER_1_TANK_1_CANNON_TIP_Y /* Punta del canon */
-        lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Cadena Y izquierda */
-        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   /* Cadena Y derecha */
+        //lda PLAYER_1_TANK_1_CANNON_TIP_Y // Punta del canon 
+        lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  // Cadena Y izquierda
+        //lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y   // Cadena Y derecha
 
         sta sum_res_0
         lda #0
@@ -171,6 +173,70 @@ simulate_game_loop:
         sta sum_res_2
         sta sum_res_3
         print_calculation_result(10,37,YELLOW,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+    */
+
+        /* PRINT Y - X Bullet tank 1 */
+
+
+
+
+
+        // Get screen char value
+        lda PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(8,37,WHITE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
+
+        //print x
+        lda PLAYER_1_TANK_1_LEFT_CHAIN_X  /* Bullet X */
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(20,37,RED,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
+
+        //print y IN TEXT MODE COORDS
+        lda PLAYER_1_TANK_1_LEFT_CHAIN_Y  /* Bullet Y */
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(21,37,BLUE,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         

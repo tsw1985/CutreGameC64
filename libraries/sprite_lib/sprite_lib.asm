@@ -784,6 +784,10 @@ actions_in_raster:
 
 
         tank_1_is_firing:
+
+        // Check if bullet tank 1 is in char 67 ( Brik )
+
+
         jsr SPRITE_LIB.sprite_move_bullets_tank_1
         jmp continue_normal_sprite_loop
 
