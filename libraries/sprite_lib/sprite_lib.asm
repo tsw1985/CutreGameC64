@@ -864,7 +864,7 @@ lda PLAYER_1_TANK_IS_FIRING
     check_move_bullet_to_left_player_1:
         lda PLAYER_1_TANK_FIRED_IN_LEFT  /* LEFT  */
         cmp #PLAYER_LEFT
-        beq move_bullet_to_left
+        beq aux_move_bullet_to_left
         jmp check_move_bullet_to_right_player_1
 
     aux_move_bullet_to_left:
@@ -899,6 +899,9 @@ lda PLAYER_1_TANK_IS_FIRING
         // save current Y in sprites coords table
         ldx #1
         lda $d003
+
+        sec
+        sbc #50
         lsr
         lsr
         lsr
@@ -906,58 +909,41 @@ lda PLAYER_1_TANK_IS_FIRING
 
         // also save X
         lda $d002
+
+        sec     // offset for bullet
+        sbc #12
         lsr
         lsr
         lsr
         sta sprites_coord_table_x,x
 
 
+        //load coords
+        ldx #1
+        lda sprites_coord_table_x,x
+        sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1
+        
+        lda sprites_coord_table_y,x
+        sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
+
+
+        //jsr INPUT_LIB.sleep_key
+
         //detect if bullet collides with a brik
         jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_1
 
-
-
-
-
-        jmp exit_move_bullet_tank_1
-        
-        
-
-        /*
-        lda #213
-        sta $d003
-
-        lda $d003
-        .break
-        lsr 
-        lsr
-        lsr
-        sta SCREEN_ROW_POS
-
-
-        lda #137
-        sta $d002
-
-        lda $d002
-        lsr 
-        lsr
-        lsr
-        sta SCREEN_COL_POS
-
-        jsr PRINT_LIB.get_char_value_from_video_memory
- 
-        lda CURRENT_CHAR_IN_SCREEN
+        lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
         cmp #67
-        beq bullet_limit_top 
+        bne ignore_change_color 
+        inc $d020 // change border color
+
+        ignore_change_color:
 
 
-        sec
-        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
-        sta $d003
+
+        //default
         jmp exit_move_bullet_tank_1
-        */
         
-
 
         bullet_limit_top:
             //finish fire

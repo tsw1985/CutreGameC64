@@ -183,10 +183,10 @@ rts
 
 /* Get char from memory video 
 
-    IN : SCREEN_ROW_POS ( X position)
-         SCREEN_COL_POS ( Y position)
+    IN : SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1 ( X position)
+         SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1 ( Y position)
 
-    OUT: CURRENT_CHAR_IN_SCREEN
+    OUT: CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
 
 */
 get_char_value_from_video_memory_bullet_tank_1:

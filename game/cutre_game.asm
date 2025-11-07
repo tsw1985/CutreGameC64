@@ -114,6 +114,9 @@ simulate_game_loop:
     //---------
     
     lda SPRITE_CENTER_PLAYER_POS_Y
+    lsr
+    lsr
+    lsr
     sta sum_res_0
     lda #0
     sta sum_res_1
@@ -123,6 +126,9 @@ simulate_game_loop:
 
     /*  X */
     lda SPRITE_CENTER_PLAYER_POS_X
+    lsr
+    lsr
+    lsr
     sta sum_res_0
     lda #0
     sta sum_res_1
@@ -217,6 +223,17 @@ simulate_game_loop:
         
 
 
+        // show char front bullet tank 1
+
+        lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
+
+        sta sum_res_0
+        lda #0
+        sta sum_res_1
+        sta sum_res_2
+        sta sum_res_3
+        print_calculation_result(22,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        
 
        
 
