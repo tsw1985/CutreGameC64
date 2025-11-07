@@ -12,7 +12,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x690b70eb
+random seed was: 0x690e5543
 command line was: x64 -logfile /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg
 VICE system file directory: /usr/share/vice.
 Loading system file `/usr/share/vice/C64/kernal-901227-03.bin'.
@@ -105,7 +105,7 @@ CART: '/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' is not a vali
 AUTOSTART: Loading PRG file `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 0135. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 0257. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' recognized as program/p00 file.
 Main CPU: RESET.
@@ -114,7 +114,7 @@ reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
 Sync reset
 Unit 8: RESET.
 AUTOSTART: Loading program 'MAIN'
-AUTOSTART: Entered ROM at $e5d1
+AUTOSTART: Entered ROM at $e5cd
 AUTOSTART: Searching for ...
 AUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
@@ -143,10 +143,10 @@ MonitorWidth=950
 MonitorHeight=585
 MonitorFont="monospace 9.5"
 MonitorFG="rgb(0,255,48)"
-Window0Height=740
+Window0Height=706
 Window0Width=1366
-Window0Xpos=160
-Window0Ypos=900
+Window0Xpos=0
+Window0Ypos=34
 KeymapIndex=1
 KeySet1North=119
 KeySet1East=100
@@ -156,12 +156,12 @@ KeySet1Fire=32
 JoyDevice1=2
 
 reconstructed commandline options (might be incomplete):
--default -logfile "/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log" +confirmonexit -saveres -monitorfont "monospace 9.5" -monitorfg "rgb(0,255,48)" -monitorxpos "291" -monitorypos "132" -monitorwidth "950" -monitorheight "585" -windowxpos "160" -windowypos "900" -windowwidth "1366" -windowheight "740" -keymap "1" -joydev1 "2"
+-default -logfile "/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log" +confirmonexit -saveres -monitorfont "monospace 9.5" -monitorfg "rgb(0,255,48)" -monitorxpos "291" -monitorypos "132" -monitorwidth "950" -monitorheight "585" -windowxpos "0" -windowypos "34" -windowwidth "1366" -windowheight "706" -keymap "1" -joydev1 "2"
 
 VICE thread initiating shutdown
 VICE thread is exiting
 VICE thread has been joined.
 Writing configuration file `/home/gabriel/.config/vice/vicerc'.
-VIC-II: VSP Bug: safe channels are: 012357. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 0357. Emulation of memory corruption is disabled.
 Sound: Closing device `pulse'
 Hotkeys: shutting down.

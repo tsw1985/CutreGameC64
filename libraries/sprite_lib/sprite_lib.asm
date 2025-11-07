@@ -833,8 +833,7 @@ jmp INTERRUPT_RETURN // $ea81 - Return from interrupt
 sprite_move_bullets_tank_1:
 push_regs_to_stack()
 
-
-    lda PLAYER_1_TANK_IS_FIRING
+lda PLAYER_1_TANK_IS_FIRING
     cmp #0
     beq skip_move_bullet_tank_1
     jmp start_move_bullet_tank_1
@@ -844,24 +843,47 @@ push_regs_to_stack()
 
     start_move_bullet_tank_1:
 
-    lda PLAYER_1_TANK_FIRED_IN_UP    /* UP */
-    cmp #PLAYER_UP
-    beq move_bullet_to_up
+        lda PLAYER_1_TANK_FIRED_IN_UP    /* UP */
+        cmp #PLAYER_UP
+        beq aux_move_bullet_to_up_player_1
+        jmp check_move_bullet_to_down_player_1
+    aux_move_bullet_to_up_player_1:
+        jmp move_bullet_to_up
 
-    lda PLAYER_1_TANK_FIRED_IN_DOWN  /* DOWN  */
-    cmp #PLAYER_DOWN
-    beq move_bullet_to_down
 
-    lda PLAYER_1_TANK_FIRED_IN_LEFT  /* LEFT  */
-    cmp #PLAYER_LEFT
-    beq move_bullet_to_left
+    check_move_bullet_to_down_player_1:
+        lda PLAYER_1_TANK_FIRED_IN_DOWN  /* DOWN  */
+        cmp #PLAYER_DOWN
+        beq aux_move_bullet_to_down_player_1
+        jmp check_move_bullet_to_left_player_1
 
-    lda PLAYER_1_TANK_FIRED_IN_RIGHT  /* RIGHT  */
-    cmp #PLAYER_RIGHT
-    beq move_bullet_to_right
+    aux_move_bullet_to_down_player_1:
+        jmp move_bullet_to_down
+
+
+    check_move_bullet_to_left_player_1:
+        lda PLAYER_1_TANK_FIRED_IN_LEFT  /* LEFT  */
+        cmp #PLAYER_LEFT
+        beq move_bullet_to_left
+        jmp check_move_bullet_to_right_player_1
+
+    aux_move_bullet_to_left:
+        jmp move_bullet_to_left
+
+
+    check_move_bullet_to_right_player_1:
+        lda PLAYER_1_TANK_FIRED_IN_RIGHT  /* RIGHT  */
+        cmp #PLAYER_RIGHT
+        beq aux_move_bullet_to_right
+
+    aux_move_bullet_to_right:
+        jmp move_bullet_to_right
+
+
 
 
     move_bullet_to_up:
+
 
 
         
