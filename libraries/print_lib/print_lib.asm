@@ -181,7 +181,33 @@ rts
 
 
 
+/* Get char from memory video 
 
+    IN : SCREEN_ROW_POS ( X position)
+         SCREEN_COL_POS ( Y position)
+
+    OUT: CURRENT_CHAR_IN_SCREEN
+
+*/
+get_char_value_from_video_memory_bullet_tank_1:
+push_regs_to_stack()
+
+    /* Set char in row - col */
+    ldx SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
+    lda Row_LO,x                 // example: $5020 => $20
+    sta ZERO_PAGE_ROW_LOW_BYTE_BULLET_TANK_1   // save $20
+    lda Row_HI,x                 // example: $5020 => $50
+    sta ZERO_PAGE_ROW_HIGHT_BYTE_BULLET_TANK_1 // save $50
+
+
+    ldy SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1             // col = 15 
+    lda (ZERO_PAGE_ROW_LOW_BYTE_BULLET_TANK_1),y // $2005  ($0520) , 15(f) = $052F .
+    sta CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
+                                    
+
+
+pull_regs_from_stack()
+rts
 
 
 

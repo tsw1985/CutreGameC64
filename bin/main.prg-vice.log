@@ -12,7 +12,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x690e5543
+random seed was: 0x690e61a4
 command line was: x64 -logfile /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg
 VICE system file directory: /usr/share/vice.
 Loading system file `/usr/share/vice/C64/kernal-901227-03.bin'.
@@ -105,7 +105,7 @@ CART: '/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' is not a vali
 AUTOSTART: Loading PRG file `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 0257. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 0167. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' recognized as program/p00 file.
 Main CPU: RESET.
@@ -162,6 +162,6 @@ VICE thread initiating shutdown
 VICE thread is exiting
 VICE thread has been joined.
 Writing configuration file `/home/gabriel/.config/vice/vicerc'.
-VIC-II: VSP Bug: safe channels are: 0357. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 12346. Emulation of memory corruption is disabled.
 Sound: Closing device `pulse'
 Hotkeys: shutting down.

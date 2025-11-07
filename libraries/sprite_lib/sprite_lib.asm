@@ -899,12 +899,21 @@ lda PLAYER_1_TANK_IS_FIRING
         // save current Y in sprites coords table
         ldx #1
         lda $d003
+        lsr
+        lsr
+        lsr
         sta sprites_coord_table_y,x
 
         // also save X
         lda $d002
+        lsr
+        lsr
+        lsr
         sta sprites_coord_table_x,x
 
+
+        //detect if bullet collides with a brik
+        jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_1
 
 
 

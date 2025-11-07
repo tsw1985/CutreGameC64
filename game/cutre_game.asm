@@ -194,6 +194,7 @@ simulate_game_loop:
         //print x
         ldx #1 // sprite bullet tank 1
         lda sprites_coord_table_y,x
+        
         sta sum_res_0
         lda #0
         sta sum_res_1
@@ -206,6 +207,7 @@ simulate_game_loop:
         
         ldx #1 // sprite bullet tank 1
         lda sprites_coord_table_x,x
+        
         sta sum_res_0
         lda #0
         sta sum_res_1
