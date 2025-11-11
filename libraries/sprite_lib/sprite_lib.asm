@@ -893,7 +893,7 @@ lda PLAYER_1_TANK_IS_FIRING
 
         bcc bullet_limit_top               // si la bala llega a 80 px de alto
         sec
-        sbc #1 //BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sbc #10 //BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d003
 
         // save current Y in sprites coords table
@@ -901,7 +901,7 @@ lda PLAYER_1_TANK_IS_FIRING
         lda $d003
 
         sec
-        sbc #50
+        sbc #40 // 50
         lsr
         lsr
         lsr
@@ -927,15 +927,16 @@ lda PLAYER_1_TANK_IS_FIRING
         sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
 
 
-        //jsr INPUT_LIB.sleep_key
-
         //detect if bullet collides with a brik
         jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_1
 
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
         cmp #67
         bne ignore_change_color 
-        inc $d020 // change border color
+        //inc $d020 // change border color
+        jmp bullet_limit_top
+
+
 
         ignore_change_color:
 
@@ -949,14 +950,8 @@ lda PLAYER_1_TANK_IS_FIRING
             //finish fire
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
-
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-
-
-
-            //sprite_disable_sprite(1)
-
-
+            sprite_disable_sprite(1)
             jmp exit_move_bullet_tank_1
 
 
