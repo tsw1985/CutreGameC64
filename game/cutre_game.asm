@@ -114,9 +114,9 @@ simulate_game_loop:
     //---------
     
     lda SPRITE_CENTER_PLAYER_POS_Y
-    lsr
-    lsr
-    lsr
+    //lsr
+    //lsr
+    //lsr
     sta sum_res_0
     lda #0
     sta sum_res_1
@@ -126,9 +126,9 @@ simulate_game_loop:
 
     /*  X */
     lda SPRITE_CENTER_PLAYER_POS_X
-    lsr
-    lsr
-    lsr
+    //lsr
+    //lsr
+    //lsr
     sta sum_res_0
     lda #0
     sta sum_res_1
