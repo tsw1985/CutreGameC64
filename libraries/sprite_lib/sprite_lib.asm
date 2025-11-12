@@ -1017,18 +1017,6 @@ push_regs_to_stack()
 
     move_bullet_to_left:
         
-        /*
-        lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #40   // si llego al tope, o colisiona con alguna pared ( de momento 
-                  // los limites de pantalla) desaparecemos bala player 1
-
-        bcc bullet_limit_left               // si la bala llega a 80 px de alto
-        sec
-        sbc #BULLET_SPEED                  // decrement Y of bullet sprite player 1
-        sta $d002
-        jmp exit_move_bullet_tank_1 */
-
-
         lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #40   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
@@ -1037,8 +1025,6 @@ push_regs_to_stack()
         sec
         sbc #1 //BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d002
-
-
 
         // save current Y in sprites coords table
         ldx #1
@@ -1098,6 +1084,8 @@ push_regs_to_stack()
 
     move_bullet_to_right:
 
+        /*
+
         lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #240   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
@@ -1107,6 +1095,69 @@ push_regs_to_stack()
         adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d002
         jmp exit_move_bullet_tank_1
+
+        */
+
+
+        lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #240   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcs bullet_limit_right               // si la bala llega a 80 px de alto
+        clc
+        adc #1 //BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta $d002
+
+
+        // save current Y in sprites coords table
+        ldx #1
+        lda $d003
+        
+        sec //sec
+        sbc #40 //40
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_y,x
+
+        // also save X
+        lda $d002
+        
+        sec    // offset for bullet
+        sbc #-1 //15 *****
+        
+        //clc
+        //adc #0
+        
+        
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_x,x
+
+
+        //load coords
+        ldx #1
+        lda sprites_coord_table_x,x
+        sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1
+        
+        lda sprites_coord_table_y,x
+        sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
+
+
+        //detect if bullet collides with a brik
+        jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_1
+
+        lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
+        cmp #67
+        bne go_to_default_right 
+        inc $d020 // change border color
+        jmp bullet_limit_right
+
+
+        go_to_default_right:
+            jmp exit_move_bullet_tank_1
+
 
         bullet_limit_right:
 
