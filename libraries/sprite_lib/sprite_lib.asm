@@ -931,15 +931,9 @@ push_regs_to_stack()
         //inc $d020 // change border color
         jmp bullet_limit_top
 
-
-
         go_to_default_up:
-
-
-
-        //default
-        jmp exit_move_bullet_tank_1
-        
+            //default
+            jmp exit_move_bullet_tank_1
 
         bullet_limit_top:
             //finish fire
@@ -952,17 +946,7 @@ push_regs_to_stack()
 
     move_bullet_to_down:
 
-        /*
-        lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #225   // si llego al tope, o colisiona con alguna pared ( de momento 
-                  // los limites de pantalla) desaparecemos bala player 1
-
-        bcs bullet_limit_bottom               // si la bala llega a 80 px de alto
-        clc
-        adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
-        sta $d003
-        jmp exit_move_bullet_tank_1
-        */
+        
 
         lda $d003 // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #225   // si llego al tope, o colisiona con alguna pared ( de momento 
@@ -1016,7 +1000,7 @@ push_regs_to_stack()
 
 
         go_to_default_down:
-        jmp exit_move_bullet_tank_1
+            jmp exit_move_bullet_tank_1
 
 
 
@@ -1032,6 +1016,18 @@ push_regs_to_stack()
 
 
     move_bullet_to_left:
+        
+        /*
+        lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #40   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcc bullet_limit_left               // si la bala llega a 80 px de alto
+        sec
+        sbc #BULLET_SPEED                  // decrement Y of bullet sprite player 1
+        sta $d002
+        jmp exit_move_bullet_tank_1 */
+
 
         lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #40   // si llego al tope, o colisiona con alguna pared ( de momento 
@@ -1039,9 +1035,54 @@ push_regs_to_stack()
 
         bcc bullet_limit_left               // si la bala llega a 80 px de alto
         sec
-        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sbc #1 //BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta $d002
-        jmp exit_move_bullet_tank_1
+
+
+
+        // save current Y in sprites coords table
+        ldx #1
+        lda $d003
+        
+        sec //sec
+        sbc #40 //10 //sbc #40 // 50
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_y,x
+
+        // also save X
+        lda $d002
+        sec    // offset for bullet
+        sbc #15 //26 *****
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_x,x
+
+
+        //load coords
+        ldx #1
+        lda sprites_coord_table_x,x
+        sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1
+        
+        lda sprites_coord_table_y,x
+        sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
+
+
+        //detect if bullet collides with a brik
+        jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_1
+
+        lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
+        cmp #67
+        bne go_to_default_left 
+        inc $d020 // change border color
+        jmp bullet_limit_left
+
+
+        go_to_default_left:
+            jmp exit_move_bullet_tank_1
+
 
         bullet_limit_left:
             
