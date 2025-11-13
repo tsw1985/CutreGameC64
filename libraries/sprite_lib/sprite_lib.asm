@@ -1907,14 +1907,60 @@ push_regs_to_stack()
     move_bullet_to_right_player_2:
 
         lda SPRITE_3_MEM_X // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #240   // si llego al tope, o colisiona con alguna pared ( de momento 
+        cmp #254 // 240   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
 
         bcs bullet_limit_right_player_2               // si la bala llega a 80 px de alto
-        sec
+        clc
         adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta SPRITE_3_MEM_X
-        jmp exit_move_bullet_tank_2_player_2
+        
+
+        // save current Y in sprites coords table
+        ldx #3
+        lda SPRITE_3_MEM_Y
+        
+        sec //sec
+        sbc #40
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_y,x
+
+        // also save X
+        lda SPRITE_3_MEM_X
+        sec    // offset for bullet
+        sbc #8 // 
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_x,x
+
+
+        //load coords
+        ldx #3
+        lda sprites_coord_table_x,x
+        sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_2
+        
+        lda sprites_coord_table_y,x
+        sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_2
+
+
+        //detect if bullet collides with a brik
+        jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_2
+
+        lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2
+        cmp #67
+        bne go_to_default_right_player_2 
+        //inc $d020 // change border color
+        jmp bullet_limit_right_player_2
+
+
+        go_to_default_right_player_2:
+            jmp exit_move_bullet_tank_2_player_2
+
+
+
 
         bullet_limit_right_player_2:
 
