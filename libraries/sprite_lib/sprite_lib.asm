@@ -1060,21 +1060,7 @@ push_regs_to_stack()
 
     move_bullet_to_right:
 
-        /*
-
-        lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
-        cmp #240   // si llego al tope, o colisiona con alguna pared ( de momento 
-                  // los limites de pantalla) desaparecemos bala player 1
-
-        bcs bullet_limit_right               // si la bala llega a 80 px de alto
-        sec
-        adc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
-        sta $d002
-        jmp exit_move_bullet_tank_1
-
-        */
-
-
+        
         lda $d002 // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #254 // 240   // si llego al tope, o colisiona con alguna pared ( de momento 
                   // los limites de pantalla) desaparecemos bala player 1
@@ -1620,25 +1606,89 @@ rts
 sprite_move_bullets_tank_2:
 push_regs_to_stack()
 
-
-    lda PLAYER_2_TANK_FIRED_IN_UP    /* UP */
+/*
+    lda PLAYER_2_TANK_FIRED_IN_UP    // UP
     cmp #PLAYER_UP
     beq move_bullet_to_up_player_2
 
-    lda PLAYER_2_TANK_FIRED_IN_DOWN  /* DOWN  */
+    lda PLAYER_2_TANK_FIRED_IN_DOWN  // DOWN 
     cmp #PLAYER_DOWN
     beq move_bullet_to_down_player_2
 
-    lda PLAYER_2_TANK_FIRED_IN_LEFT  /* LEFT  */
+    lda PLAYER_2_TANK_FIRED_IN_LEFT  // LEFT 
     cmp #PLAYER_LEFT
     beq move_bullet_to_left_player_2
 
-    lda PLAYER_2_TANK_FIRED_IN_RIGHT  /* RIGHT  */
+    lda PLAYER_2_TANK_FIRED_IN_RIGHT  / RIGHT
     cmp #PLAYER_RIGHT
     beq move_bullet_to_right_player_2
 
+    */
 
+    lda PLAYER_2_TANK_IS_FIRING
+    cmp #0
+    beq skip_move_bullet_tank_2
+    jmp start_move_bullet_tank_2
+
+    skip_move_bullet_tank_2:
+        jmp exit_move_bullet_tank_2_player_2
+
+    start_move_bullet_tank_2:
+
+        lda PLAYER_2_TANK_FIRED_IN_UP    /* UP */
+        cmp #PLAYER_UP
+        beq aux_move_bullet_to_up_player_2
+        jmp check_move_bullet_to_down_player_2
+    aux_move_bullet_to_up_player_2:
+        jmp move_bullet_to_up_player_2
+
+
+    check_move_bullet_to_down_player_2:
+        lda PLAYER_2_TANK_FIRED_IN_DOWN  /* DOWN  */
+        cmp #PLAYER_DOWN
+        beq aux_move_bullet_to_down_player_2
+        jmp check_move_bullet_to_left_player_2
+
+    aux_move_bullet_to_down_player_2:
+        jmp move_bullet_to_down_player_2
+
+
+    check_move_bullet_to_left_player_2:
+        lda PLAYER_2_TANK_FIRED_IN_LEFT  /* LEFT  */
+        cmp #PLAYER_LEFT
+        beq aux_move_bullet_to_left_player_2
+        jmp check_move_bullet_to_right_player_2
+
+    aux_move_bullet_to_left_player_2:
+        jmp move_bullet_to_left_player_2
+
+
+    check_move_bullet_to_right_player_2:
+        lda PLAYER_2_TANK_FIRED_IN_RIGHT  /* RIGHT  */
+        cmp #PLAYER_RIGHT
+        beq aux_move_bullet_to_right_player_2
+
+    aux_move_bullet_to_right_player_2:
+        jmp move_bullet_to_right_player_2
+
+
+
+
+    //normal
     move_bullet_to_up_player_2:
+
+        /*lda SPRITE_3_MEM_Y // Comprobamos si la bala se sale de los bordes de pantalla
+        cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
+                  // los limites de pantalla) desaparecemos bala player 1
+
+        bcc bullet_limit_top_player_2               // si la bala llega a 80 px de alto
+        sec
+        sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
+        sta SPRITE_3_MEM_Y
+        jmp exit_move_bullet_tank_2_player_2
+        */
+
+
 
         lda SPRITE_3_MEM_Y // Comprobamos si la bala se sale de los bordes de pantalla
         cmp #70   // si llego al tope, o colisiona con alguna pared ( de momento 
@@ -1648,18 +1698,66 @@ push_regs_to_stack()
         sec
         sbc #BULLET_SPEED                         // decrement Y of bullet sprite player 1
         sta SPRITE_3_MEM_Y
-        jmp exit_move_bullet_tank_2_player_2
+
+        // save current Y in sprites coords table
+        ldx #3
+        lda SPRITE_3_MEM_Y
+
+        sec
+        sbc #40 // 50
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_y,x
+
+        // also save X
+        lda SPRITE_3_MEM_X
+
+        sec     // offset for bullet
+        sbc #12
+        lsr
+        lsr
+        lsr
+        sta sprites_coord_table_x,x
+
+
+        //load coords
+        ldx #3
+        lda sprites_coord_table_x,x
+        sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_2
+        
+        lda sprites_coord_table_y,x
+        sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_2
+
+
+        //detect if bullet collides with a brik
+        jsr PRINT_LIB.get_char_value_from_video_memory_bullet_tank_2
+
+        lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2
+        cmp #67
+        bne go_to_default_up_player_2 
+        //inc $d020 // change border color
+        jmp bullet_limit_top_player_2
+
+
+        go_to_default_up_player_2:
+            //default
+            jmp exit_move_bullet_tank_2_player_2
 
         bullet_limit_top_player_2:
+
             //finish fire
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
 
             sprite_disable_sprite(3)
-
-
             jmp exit_move_bullet_tank_2_player_2
 
+
+
+
+
+    //-------//
 
     move_bullet_to_down_player_2:
 

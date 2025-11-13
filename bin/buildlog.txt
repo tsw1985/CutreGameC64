@@ -1,4 +1,4 @@
-Output dir: /home/lenovo1/DEVELOPER/C64/code/cutregame/bin
+Output dir: /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin
 parsing
 flex pass 1
 flex pass 2
@@ -14,11 +14,11 @@ Default-segment:
   $0810-$0e34 Main Code
   $1000-$10ff Charset Attrib
   $1100-$11ff Tileset
-  $1200-$14ea Variables
+  $1200-$14ed Variables
   $2000-$33ff Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
-  $4800-$69ca Libraries
+  $4800-$6a41 Libraries
   $9c7c-$9d3b Maps
 
 Writing Symbol file: main.sym
