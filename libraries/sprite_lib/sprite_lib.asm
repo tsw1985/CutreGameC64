@@ -1125,7 +1125,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-            sprite_disable_sprite(1)
+            //sprite_disable_sprite(1)
             jmp exit_move_bullet_tank_1
 
 
@@ -1194,8 +1194,8 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
-            sprite_disable_sprite(1)
-
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
+            //sprite_disable_sprite(1)
             //default
             jmp exit_move_bullet_tank_1
 
@@ -1260,9 +1260,8 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
-
-            sprite_disable_sprite(1)
-
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
+            //sprite_disable_sprite(1)
             //default
             jmp exit_move_bullet_tank_1
 
@@ -1329,9 +1328,8 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
-
-            sprite_disable_sprite(1)
-
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
+            //sprite_disable_sprite(1)
             //default
             jmp exit_move_bullet_tank_1
 
@@ -1947,7 +1945,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
-            sprite_disable_sprite(3)
+            //sprite_disable_sprite(3)
             jmp exit_move_bullet_tank_2_player_2
 
 
@@ -2020,7 +2018,9 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
-            sprite_disable_sprite(3)
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
+            
+            //sprite_disable_sprite(3)
 
             jmp exit_move_bullet_tank_2_player_2
 
@@ -2102,8 +2102,10 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
+            
 
-            sprite_disable_sprite(3)
+            //sprite_disable_sprite(3)
 
             jmp exit_move_bullet_tank_2_player_2
 
@@ -2176,8 +2178,10 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
+            
 
-            sprite_disable_sprite(3)
+            //sprite_disable_sprite(3)
 
 
             jmp exit_move_bullet_tank_2_player_2
