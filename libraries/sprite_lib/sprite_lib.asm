@@ -775,9 +775,9 @@ actions_in_raster:
         jsr SPRITE_LIB.bullet_tank_1_impact_on_tank_2
 
 
+
         jsr SPRITE_LIB.sprite_move_bullets_tank_2
-
-
+        jsr SPRITE_LIB.bullet_tank_2_impact_on_tank_1
 
 
         /* Call to check collision in any sprite */
@@ -889,6 +889,114 @@ no_collision:
 end_check:
     pull_regs_from_stack()
     rts
+
+
+
+/********************************************************************************/
+/*                       Check if bullet tank 2 impact in tank 1                */
+/********************************************************************************/
+
+
+bullet_tank_2_impact_on_tank_1:
+    push_regs_to_stack()
+
+    /*
+        lda #0
+    sta SPRITE_CENTER_PLAYER_POS_X_BULLET_1
+    sta SPRITE_CENTER_PLAYER_POS_Y_BULLET_1
+    sta SPRITE_ENEMY_X_TANK_2
+    sta SPRITE_ENEMY_Y_TANK_2
+    sta SPRITE_ENEMY_X_PLUS_OFFSET_TANK_2
+    sta SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_2
+    
+    */
+
+
+    lda #0
+    sta SPRITE_CENTER_PLAYER_POS_X_BULLET_2
+    sta SPRITE_CENTER_PLAYER_POS_Y_BULLET_2
+    sta SPRITE_ENEMY_X_TANK_1
+    sta SPRITE_ENEMY_Y_TANK_1
+    sta SPRITE_ENEMY_X_PLUS_OFFSET_TANK_1
+    sta SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_1
+
+
+
+    // ========================================
+    // PASO 1: Calcular centro de BULLET_2
+    // ========================================
+    //ldx #1                              // Sprite BULLET_1
+    //lda sprites_coord_table_x,x
+    lda SPRITE_3_MEM_X
+    clc
+    adc #12                             // Centro X (mitad de 21 = aprox 12)
+    sta SPRITE_CENTER_PLAYER_POS_X_BULLET_2
+    
+    lda SPRITE_3_MEM_Y //sprites_coord_table_y,x
+    clc
+    adc #10                             // Centro Y (mitad de 24 = aprox 10)
+    sta SPRITE_CENTER_PLAYER_POS_Y_BULLET_2
+
+    // ========================================
+    // PASO 2: Obtener límites de TANK_1
+    // ========================================
+    ldx #0                              // Sprite TANK_1
+    lda sprites_coord_table_x,x
+    sta SPRITE_ENEMY_X_TANK_1           // X izquierda
+    clc
+    adc #19//21                             // X derecha (ancho completo)
+    sta SPRITE_ENEMY_X_PLUS_OFFSET_TANK_1
+    
+    lda sprites_coord_table_y,x
+    sta SPRITE_ENEMY_Y_TANK_1           // Y superior
+    clc
+    adc #15//24                             // Y inferior (alto completo)
+    sta SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_1
+
+    // ========================================
+    // PASO 3: Comprobar colisión en eje X
+    // ========================================
+    // ¿Centro bala >= X izquierda tanque?
+    lda SPRITE_CENTER_PLAYER_POS_X_BULLET_2
+    cmp SPRITE_ENEMY_X_TANK_1
+    bcc no_collision_on_tank_1                    // Si menor, no hay colisión
+    
+    // ¿Centro bala <= X derecha tanque?
+    lda SPRITE_CENTER_PLAYER_POS_X_BULLET_2
+    cmp SPRITE_ENEMY_X_PLUS_OFFSET_TANK_1
+    beq check_y_axis_on_tank_1                    // Si igual, seguir comprobando Y
+    bcs no_collision_on_tank_1                    // Si mayor, no hay colisión
+    
+    // ========================================
+    // PASO 4: Comprobar colisión en eje Y
+    // ========================================
+check_y_axis_on_tank_1:
+    // ¿Centro bala >= Y superior tanque?
+    lda SPRITE_CENTER_PLAYER_POS_Y_BULLET_2
+    cmp SPRITE_ENEMY_Y_TANK_1
+    bcc no_collision_on_tank_1                    // Si menor, no hay colisión
+    
+    // ¿Centro bala <= Y inferior tanque?
+    lda SPRITE_CENTER_PLAYER_POS_Y_BULLET_2
+    cmp SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_1
+    beq collision_detected_on_tank_1              // Si igual, ¡colisión!
+    bcs no_collision_on_tank_1                    // Si mayor, no hay colisión
+    
+    // Si llegamos aquí es porque pasó todas las pruebas
+collision_detected_on_tank_1:
+    
+    inc $d020                           // Cambiar color del borde
+    jmp end_check_on_tank_1
+
+no_collision_on_tank_1:
+    // No hubo colisión, no hacer nada
+
+end_check_on_tank_1:
+    pull_regs_from_stack()
+    rts
+
+
+
 
 
 
@@ -1838,7 +1946,7 @@ push_regs_to_stack()
             //finish fire
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
-
+            jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
             sprite_disable_sprite(3)
             jmp exit_move_bullet_tank_2_player_2
 

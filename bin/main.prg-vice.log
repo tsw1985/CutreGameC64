@@ -12,7 +12,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x691a1bb9
+random seed was: 0x691a4bf1
 command line was: x64 -logfile /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg
 VICE system file directory: /usr/share/vice.
 Loading system file `/usr/share/vice/C64/kernal-901227-03.bin'.
@@ -105,7 +105,7 @@ CART: '/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' is not a vali
 AUTOSTART: Loading PRG file `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 2356. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 357. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
 AUTOSTART: `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' recognized as program/p00 file.
 Main CPU: RESET.
@@ -114,7 +114,7 @@ reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
 Sync reset
 Unit 8: RESET.
 AUTOSTART: Loading program 'MAIN'
-AUTOSTART: Entered ROM at $e5d1
+AUTOSTART: Entered ROM at $e5cf
 AUTOSTART: Searching for ...
 AUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
@@ -162,6 +162,6 @@ VICE thread initiating shutdown
 VICE thread is exiting
 VICE thread has been joined.
 Writing configuration file `/home/gabriel/.config/vice/vicerc'.
-VIC-II: VSP Bug: safe channels are: 0367. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 0234567. Emulation of memory corruption is disabled.
 Sound: Closing device `pulse'
 Hotkeys: shutting down.
