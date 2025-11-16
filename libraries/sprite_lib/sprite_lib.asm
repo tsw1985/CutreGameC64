@@ -1043,7 +1043,7 @@ push_regs_to_stack()
         lsr
         lsr
         lsr
-        sta sprites_coord_table_y,x
+        sta BULLET_TANK_1_Y_TEMP//sprites_coord_table_y,x
 
         // also save X
         lda $d002
@@ -1053,15 +1053,15 @@ push_regs_to_stack()
         lsr
         lsr
         lsr
-        sta sprites_coord_table_x,x
+        sta BULLET_TANK_1_X_TEMP//sprites_coord_table_x,x
 
 
         //load coords
         ldx #1
-        lda sprites_coord_table_x,x
+        lda BULLET_TANK_1_X_TEMP//sprites_coord_table_x,x
         sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1
         
-        lda sprites_coord_table_y,x
+        lda BULLET_TANK_1_Y_TEMP//sprites_coord_table_y,x
         sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
 
 
@@ -1112,7 +1112,7 @@ push_regs_to_stack()
         lsr
         lsr
         lsr
-        sta sprites_coord_table_y,x
+        sta BULLET_TANK_1_Y_TEMP//sprites_coord_table_y,x
 
         // also save X
         lda $d002
@@ -1121,15 +1121,15 @@ push_regs_to_stack()
         lsr
         lsr
         lsr
-        sta sprites_coord_table_x,x
+        sta BULLET_TANK_1_X_TEMP//sprites_coord_table_x,x
 
 
         //load coords
         ldx #1
-        lda sprites_coord_table_x,x
+        lda BULLET_TANK_1_X_TEMP//sprites_coord_table_x,x
         sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1
         
-        lda sprites_coord_table_y,x
+        lda BULLET_TANK_1_Y_TEMP//sprites_coord_table_y,x
         sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
 
 
@@ -1181,7 +1181,7 @@ push_regs_to_stack()
         lsr
         lsr
         lsr
-        sta sprites_coord_table_y,x
+        sta BULLET_TANK_1_Y_TEMP//sprites_coord_table_y,x
 
         // also save X
         lda $d002
@@ -1190,15 +1190,15 @@ push_regs_to_stack()
         lsr
         lsr
         lsr
-        sta sprites_coord_table_x,x
+        sta BULLET_TANK_1_X_TEMP//sprites_coord_table_x,x
 
 
         //load coords
         ldx #1
-        lda sprites_coord_table_x,x
+        lda BULLET_TANK_1_X_TEMP//sprites_coord_table_x,x
         sta SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1
         
-        lda sprites_coord_table_y,x
+        lda BULLET_TANK_1_Y_TEMP//sprites_coord_table_y,x
         sta SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1
 
 
