@@ -14,11 +14,11 @@ Default-segment:
   $0810-$0e34 Main Code
   $1000-$10ff Charset Attrib
   $1100-$11ff Tileset
-  $1200-$14ed Variables
+  $1200-$14f5 Variables
   $2000-$33ff Sprites
   $3800-$3fff Charset
   $4000-$40e3 Tables
-  $4800-$6ae0 Libraries
+  $4800-$6b19 Libraries
   $9c7c-$9d3b Maps
 
 Writing Symbol file: main.sym
