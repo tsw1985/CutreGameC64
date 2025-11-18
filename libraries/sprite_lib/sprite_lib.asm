@@ -335,6 +335,15 @@ disable_sprite:
     pull_regs_from_stack()
     rts
 
+
+
+
+
+
+
+
+
+
 /*
     Set frames to sprites:
     ----------------------
@@ -770,14 +779,30 @@ actions_in_raster:
         exit_sprites_loop:
 
         //move tank bullets at same time
-        jsr SPRITE_LIB.sprite_move_bullets_tank_1
-        //check if bullet tank 1 impacted in tank 2
-        jsr SPRITE_LIB.bullet_tank_1_impact_on_tank_2
+            jsr SPRITE_LIB.sprite_move_bullets_tank_1
+            jsr SPRITE_LIB.sprite_move_bullets_tank_2
+            
+            lda $d015       // detect if bullet 1 is visible
+            and #%00000010
+            bne detect_collision_in_tank_2
+            jmp go_to_check_collision_in_tank_1
+            detect_collision_in_tank_2:
+            jsr SPRITE_LIB.bullet_tank_1_impact_on_tank_2
+
+        go_to_check_collision_in_tank_1:
+
+            lda $d015       // detect if bullet 1 is visible
+            and #%00001000
+            bne detect_collision_in_tank_1
+            jmp continue_normal_bullets_behaviour
+        
+        detect_collision_in_tank_1:
+            jsr SPRITE_LIB.bullet_tank_2_impact_on_tank_1
 
 
+        continue_normal_bullets_behaviour:
 
-        jsr SPRITE_LIB.sprite_move_bullets_tank_2
-        jsr SPRITE_LIB.bullet_tank_2_impact_on_tank_1
+
 
 
         /* Call to check collision in any sprite */
@@ -881,6 +906,7 @@ check_y_axis:
 collision_detected:
     
     inc $d020                           // Cambiar color del borde
+    sprite_disable_sprite(1)
     jmp end_check
 
 no_collision:
@@ -899,18 +925,6 @@ end_check:
 
 bullet_tank_2_impact_on_tank_1:
     push_regs_to_stack()
-
-    /*
-        lda #0
-    sta SPRITE_CENTER_PLAYER_POS_X_BULLET_1
-    sta SPRITE_CENTER_PLAYER_POS_Y_BULLET_1
-    sta SPRITE_ENEMY_X_TANK_2
-    sta SPRITE_ENEMY_Y_TANK_2
-    sta SPRITE_ENEMY_X_PLUS_OFFSET_TANK_2
-    sta SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_2
-    
-    */
-
 
     lda #0
     sta SPRITE_CENTER_PLAYER_POS_X_BULLET_2
@@ -984,8 +998,9 @@ check_y_axis_on_tank_1:
     
     // Si llegamos aquí es porque pasó todas las pruebas
 collision_detected_on_tank_1:
-    
+
     inc $d020                           // Cambiar color del borde
+    sprite_disable_sprite(3)
     jmp end_check_on_tank_1
 
 no_collision_on_tank_1:
@@ -1125,7 +1140,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-            //sprite_disable_sprite(1)
+            sprite_disable_sprite(1)
             jmp exit_move_bullet_tank_1
 
 
@@ -1195,7 +1210,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-            //sprite_disable_sprite(1)
+            sprite_disable_sprite(1)
             //default
             jmp exit_move_bullet_tank_1
 
@@ -1261,7 +1276,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-            //sprite_disable_sprite(1)
+            sprite_disable_sprite(1)
             //default
             jmp exit_move_bullet_tank_1
 
@@ -1329,7 +1344,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_1_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_1
-            //sprite_disable_sprite(1)
+            sprite_disable_sprite(1)
             //default
             jmp exit_move_bullet_tank_1
 
@@ -1813,25 +1828,6 @@ rts
 sprite_move_bullets_tank_2:
 push_regs_to_stack()
 
-/*
-    lda PLAYER_2_TANK_FIRED_IN_UP    // UP
-    cmp #PLAYER_UP
-    beq move_bullet_to_up_player_2
-
-    lda PLAYER_2_TANK_FIRED_IN_DOWN  // DOWN 
-    cmp #PLAYER_DOWN
-    beq move_bullet_to_down_player_2
-
-    lda PLAYER_2_TANK_FIRED_IN_LEFT  // LEFT 
-    cmp #PLAYER_LEFT
-    beq move_bullet_to_left_player_2
-
-    lda PLAYER_2_TANK_FIRED_IN_RIGHT  / RIGHT
-    cmp #PLAYER_RIGHT
-    beq move_bullet_to_right_player_2
-
-    */
-
     lda PLAYER_2_TANK_IS_FIRING
     cmp #0
     beq skip_move_bullet_tank_2
@@ -1945,7 +1941,7 @@ push_regs_to_stack()
             lda #0
             sta PLAYER_2_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
-            //sprite_disable_sprite(3)
+            sprite_disable_sprite(3)
             jmp exit_move_bullet_tank_2_player_2
 
 
@@ -2020,7 +2016,7 @@ push_regs_to_stack()
             sta PLAYER_2_TANK_IS_FIRING
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
             
-            //sprite_disable_sprite(3)
+            sprite_disable_sprite(3)
 
             jmp exit_move_bullet_tank_2_player_2
 
@@ -2105,7 +2101,7 @@ push_regs_to_stack()
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
             
 
-            //sprite_disable_sprite(3)
+            sprite_disable_sprite(3)
 
             jmp exit_move_bullet_tank_2_player_2
 
@@ -2181,7 +2177,7 @@ push_regs_to_stack()
             jsr SPRITE_LIB.sprite_draw_bullet_in_tank_player_2
             
 
-            //sprite_disable_sprite(3)
+            sprite_disable_sprite(3)
 
 
             jmp exit_move_bullet_tank_2_player_2
