@@ -620,6 +620,16 @@ actions_in_raster:
 
             is_sprite_tank_1:
 
+                // check if tank 1 is dead
+                lda TANK_1_DEAD
+                cmp #1
+                beq tank_1_is_dead
+                jmp animate_moving_tank_1
+                tank_1_is_dead:
+                    inc sprites_current_animation_index_position_table,x
+                    jmp continue_put_animation_frame_in_screen
+
+                animate_moving_tank_1:
                 // if sprite is in moving
                 lda PLAYER_1_TANK_IS_IN_MOVING
                 cmp #1
@@ -778,7 +788,7 @@ actions_in_raster:
 
         exit_sprites_loop:
 
-        //move tank bullets at same time
+            //move tank bullets at same time
             jsr SPRITE_LIB.sprite_move_bullets_tank_1
             jsr SPRITE_LIB.sprite_move_bullets_tank_2
             
@@ -839,7 +849,6 @@ bullet_tank_1_impact_on_tank_2:
     sta SPRITE_ENEMY_Y_TANK_2
     sta SPRITE_ENEMY_X_PLUS_OFFSET_TANK_2
     sta SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_2
-
 
 
     // ========================================
@@ -904,9 +913,14 @@ check_y_axis:
     
     // Si llegamos aquí es porque pasó todas las pruebas
 collision_detected:
+
+    // tank 2 dead
+    lda #1
+    sta TANK_2_DEAD
     
     inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(1)
+    jsr SPRITE_LIB.sprite_set_animation_tank_2_dead
     jmp end_check
 
 no_collision:
@@ -999,8 +1013,13 @@ check_y_axis_on_tank_1:
     // Si llegamos aquí es porque pasó todas las pruebas
 collision_detected_on_tank_1:
 
+    // tank 1 dead
+    lda #1
+    sta TANK_1_DEAD
+
     inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(3)
+    jsr SPRITE_LIB.sprite_set_animation_tank_1_dead
     jmp end_check_on_tank_1
 
 no_collision_on_tank_1:
@@ -3632,6 +3651,62 @@ push_regs_to_stack()
 pull_regs_from_stack()
 rts
 
+
+sprite_set_animation_tank_1_dead:
+push_regs_to_stack()
+
+    ldx #SPRITE_TANK_1
+    lda #<sprite_animation_dead
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_animation_dead
+    sta sprite_animations_list_HI_table,x
+
+    // set slow speed in animation dead
+    lda #DEAD_ANIMATION_SPEED
+    sta sprites_rasters_limit_table,x
+
+
+
+
+pull_regs_from_stack()
+rts
+
+
+sprite_set_animation_tank_2_dead:
+push_regs_to_stack()
+
+    ldx #SPRITE_TANK_2
+    lda #<sprite_animation_dead
+    sta sprite_animations_list_LO_table,x 
+    lda #>sprite_animation_dead
+    sta sprite_animations_list_HI_table,x
+
+    // set slow speed in animation dead
+    lda #DEAD_ANIMATION_SPEED
+    sta sprites_rasters_limit_table,x
+
+pull_regs_from_stack()
+rts
+
+sprite_reset_default_tank_1_speed:
+push_regs_to_stack()
+
+    ldx #0
+    lda #1
+    sta sprites_rasters_limit_table,x
+
+pull_regs_from_stack()
+rts
+
+sprite_reset_default_tank_2_speed:
+push_regs_to_stack()
+
+    ldx #2
+    lda #1
+    sta sprites_rasters_limit_table,x
+
+pull_regs_from_stack()
+rts
 
 
 

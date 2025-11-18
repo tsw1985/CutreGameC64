@@ -100,3 +100,5 @@
 /* Player 2 */
 .label SPRITE_TANK_2 = 2
 .label SPRITE_BULLET_TANK_2 = 3
+
+.label DEAD_ANIMATION_SPEED = 15

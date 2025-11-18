@@ -11,6 +11,8 @@ JOYSTICK_LIB:
     /* reset to 0 current positions in joystick */
     lda #0
     sta JOYSTICK_POSITIONS_PORT_1
+    // Reset to 0 tank is dead
+    //sta TANK_1_DEAD
 
     input_left_check:
         lda #JOY_GO_LEFT        // mask left movement
@@ -67,6 +69,9 @@ read_joystick_port_2:
     /* reset to 0 current positions in joystick */
     lda #0
     sta JOYSTICK_POSITIONS_PORT_2
+
+    
+
 
     input_left_check_2:
         lda #JOY_GO_LEFT        // mask left movement
@@ -125,6 +130,12 @@ rts
 joy_1_up:
 
     push_regs_to_stack()
+
+    // Reset to 0 tank is dead
+    lda #0
+    sta TANK_1_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
 
 
     ldx #SPRITE_TANK_1
@@ -267,6 +278,11 @@ joy_1_left:
 
     push_regs_to_stack()
 
+    lda #0
+    sta TANK_1_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
+
    
     /* Check CANNON TIP */
     lda #40
@@ -388,6 +404,12 @@ rts
 joy_1_right:
 
     push_regs_to_stack()
+
+    lda #0
+    sta TANK_1_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
+
 
     ldx #SPRITE_TANK_1
     lda sprites_coord_table_x,x
@@ -543,6 +565,10 @@ joy_1_down:
 
     push_regs_to_stack()
 
+    lda #0
+    sta TANK_1_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
     
 
     
@@ -681,6 +707,12 @@ rts
 joy_1_fire:
 
     push_regs_to_stack()
+
+
+    lda #0
+    sta TANK_1_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
 
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1

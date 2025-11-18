@@ -4,6 +4,12 @@ KEYBOARD_LIB:
 keyboard_up:
     push_regs_to_stack()
 
+    lda #0
+    sta TANK_2_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_2_speed
+    
+
     /* Check if exists collision with tank 1 */
     jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_up
     lda #1
@@ -124,6 +130,11 @@ rts
 keyboard_down:
     push_regs_to_stack()
 
+    lda #0
+    sta TANK_2_DEAD
+
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_2_speed
 
     /* Check if exists collision with tank 1 */
     jsr SPRITE_LIB.check_if_tank_2_collides_with_tank_1_in_down
@@ -243,7 +254,13 @@ keyboard_down:
 rts
 
 keyboard_left:
+    
     push_regs_to_stack()
+
+    lda #0
+    sta TANK_2_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_2_speed
 
 
     /* Check CANNON TIP */
@@ -360,6 +377,11 @@ rts
 keyboard_right:
     
     push_regs_to_stack()
+
+    lda #0
+    sta TANK_2_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_2_speed
 
 
     /* Check CANNON TIP */
@@ -495,6 +517,13 @@ rts
 
 keyboard_fire:
     push_regs_to_stack()
+
+    lda #0
+    sta TANK_2_DEAD
+
+    jsr SPRITE_LIB.sprite_reset_default_tank_2_speed
+
+
 
     lda PLAYER_2_TANK_IS_FIRING
     cmp #1
