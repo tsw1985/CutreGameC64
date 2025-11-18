@@ -15,43 +15,24 @@ SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_2: .byte 0
 /* END BULLET TANK 1 in TANK 2 */
 
 
-
 /* BULLET TANK 1 in TANK 2 */
 BULLET_TANK_2_Y_TEMP: .byte 0
-BULLET_TANK_2_X_TEMP:                 .byte 0
+BULLET_TANK_2_X_TEMP: .byte 0
+
 SPRITE_CENTER_PLAYER_POS_X_BULLET_2: .byte 0
 SPRITE_CENTER_PLAYER_POS_Y_BULLET_2: .byte 0
-SPRITE_ENEMY_X_TANK_1: .byte 0
+
 SPRITE_ENEMY_X_PLUS_OFFSET_TANK_1: .byte 0
-SPRITE_ENEMY_Y_TANK_1: .byte 0
 SPRITE_ENEMY_Y_PLUS_OFFSET_TANK_1: .byte 0
+
+SPRITE_ENEMY_Y_TANK_1: .byte 0
+SPRITE_ENEMY_X_TANK_1: .byte 0
 /* END BULLET TANK 1 in TANK 2 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_2: .byte 0
 SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_2: .byte 0
 CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2: .byte 0
-
-
 
 
 /* Variables to save the position tank player 1 */
@@ -73,14 +54,11 @@ LEFT TOP CHAIN and RIGHT TOP CHAIN ( whiles of tank ) */
 PLAYER_1_TANK_OFFSET_CANNON_TIP_Y:  .byte 0
 PLAYER_1_TANK_OFFSET_CANNON_TIP_X:  .byte 0
 
-
 PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y:  .byte 0
 PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X:  .byte 0
 
-
 PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y: .byte 0
 PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X: .byte 0
-
 
 
 /* Variable to check if the player tank 1 is in moving */
@@ -116,9 +94,6 @@ PLAYER_1_ALLOWED_MOVE: .byte PLAYER_ALLOWED_MOVE
 PLAYER_1_TANK_1_CURRENT_Y: .byte 0
 PLAYER_1_TANK_1_CURRENT_X: .byte 0
 PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2: .byte 0
-
-
-
 
 /******************************************************************************/
 /*            ------------- END PLAYER 1 -------------                        */
