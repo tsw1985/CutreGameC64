@@ -516,13 +516,12 @@ rts
 
 
 keyboard_fire:
+
     push_regs_to_stack()
 
     lda #0
     sta TANK_2_DEAD
-
     jsr SPRITE_LIB.sprite_reset_default_tank_2_speed
-
 
 
     lda PLAYER_2_TANK_IS_FIRING

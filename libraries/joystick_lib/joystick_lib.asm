@@ -708,11 +708,10 @@ joy_1_fire:
 
     push_regs_to_stack()
 
-
     lda #0
     sta TANK_1_DEAD
-
     jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
+    
 
     lda PLAYER_1_TANK_IS_FIRING
     cmp #1

@@ -650,6 +650,18 @@ actions_in_raster:
 
             is_sprite_tank_2:
 
+                // check if tank 1 is dead
+                lda TANK_2_DEAD
+                cmp #1
+                beq tank_2_is_dead
+                jmp animate_moving_tank_2
+                tank_2_is_dead:
+                    inc sprites_current_animation_index_position_table,x
+                    jmp continue_put_animation_frame_in_screen
+
+
+                animate_moving_tank_2:
+
                 // if sprite is in moving
                 lda PLAYER_2_TANK_IS_IN_MOVING
                 cmp #1
@@ -788,7 +800,7 @@ actions_in_raster:
 
         exit_sprites_loop:
 
-            //move tank bullets at same time
+            // move tank bullets at same time
             jsr SPRITE_LIB.sprite_move_bullets_tank_1
             jsr SPRITE_LIB.sprite_move_bullets_tank_2
             
@@ -796,7 +808,9 @@ actions_in_raster:
             and #%00000010
             bne detect_collision_in_tank_2
             jmp go_to_check_collision_in_tank_1
-            detect_collision_in_tank_2:
+        
+        detect_collision_in_tank_2:
+            
             jsr SPRITE_LIB.bullet_tank_1_impact_on_tank_2
 
         go_to_check_collision_in_tank_1:
@@ -807,13 +821,11 @@ actions_in_raster:
             jmp continue_normal_bullets_behaviour
         
         detect_collision_in_tank_1:
+            
             jsr SPRITE_LIB.bullet_tank_2_impact_on_tank_1
 
 
         continue_normal_bullets_behaviour:
-
-
-
 
         /* Call to check collision in any sprite */
         /* This loop is execute in the last part of the RASTER Interrupt.
@@ -1012,6 +1024,7 @@ check_y_axis_on_tank_1:
     
     // Si llegamos aquí es porque pasó todas las pruebas
 collision_detected_on_tank_1:
+
 
     // tank 1 dead
     lda #1
@@ -3665,9 +3678,6 @@ push_regs_to_stack()
     lda #DEAD_ANIMATION_SPEED
     sta sprites_rasters_limit_table,x
 
-
-
-
 pull_regs_from_stack()
 rts
 
@@ -3676,8 +3686,10 @@ sprite_set_animation_tank_2_dead:
 push_regs_to_stack()
 
     ldx #SPRITE_TANK_2
+    
     lda #<sprite_animation_dead
     sta sprite_animations_list_LO_table,x 
+
     lda #>sprite_animation_dead
     sta sprite_animations_list_HI_table,x
 
@@ -3695,6 +3707,9 @@ push_regs_to_stack()
     lda #1
     sta sprites_rasters_limit_table,x
 
+    lda #0
+    sta sprites_raster_counters_table,x
+
 pull_regs_from_stack()
 rts
 
@@ -3705,17 +3720,11 @@ push_regs_to_stack()
     lda #1
     sta sprites_rasters_limit_table,x
 
+    lda #0
+    sta sprites_raster_counters_table,x
+
 pull_regs_from_stack()
 rts
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3829,39 +3838,9 @@ pull_regs_from_stack()
 rts
 
 
-
-
-
 /******************************************************************************/
 /*                    PLAYER 2 - KEYBOARD Movements                           */
 /******************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
