@@ -22,7 +22,7 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-Main: random seed was: 0x691c4aae
+Main: random seed was: 0x691c5cad
 Main: command line was: C:\C64\GTK3VICE-3.9-win64\bin\x64sc.exe -logfile c:\AEM\code\CutreGameC64\bin\main.prg-vice.log c:\AEM\code\CutreGameC64\bin\main.prg
 Main: VICE system file directory: 'C:\C64\GTK3VICE-3.9-win64\bin\..'.
 Main: VICE system file search path: 'C:\C64\GTK3VICE-3.9-win64\bin;C:\C64\GTK3VICE-3.9-win64\bin\..'.
@@ -63,8 +63,10 @@ Window:  scalexy: 2 x 2 sizexy: 1 x 1
 Window:  rmode: 1
 Window:  aspect ratio: 0.936508
 Window:  hstretch: 0 vstretch: Render thread: Created render thread 0
-Render thread inRender threSound: Available sound devices: dx wmm dummy fs dump wavSound: Available sound devices: dx wmm MIDIdrv: init driver
+Render thread initialised
+Sound: Available sound devices: dx wmm dummy fs dump wavSound: Available sound devices: dx wmm MIDIdrv: init driver
 MIDIdrv: found 0 sources
+MIDIdrv: found 1 destinationsMIDIdrv: found 0 sources
 MIDIdrv: found 1 destinations
 MIDIdrv: destination #0: Microsoft GS Wavetable Synth
 Keymap: Loading keymap `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\gtk3_sym.vkm'.
@@ -74,28 +76,23 @@ Hotkeys: OK.
 Main CPU: 
 Main CPU: starting at ($FFFC).
 Main CPU: RESET.
-VIC-II: VSP Bug: safe channels are: 014567. Emulation of memory corruption is disabled.
-AUTOSTART: Autodetecting image type of `C:\AEM\code\CutreGameC64\bin\main.prg'.
+VIC-II: VSP Bug: safe channels are: 025. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `c:\AEM\code\CutreGameC64\bin\main.prg'.
 Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 48.
-Filesystem Image: Unknown disk image `C:\AEM\code\CutreGameC64\bin\main.prg'.
-Tape: Error - Cannot open file `C:\AEM\code\CutreGameC64\bin\main.prg'
+Filesystem Image: Unknown disk image `c:\AEM\code\CutreGameC64\bin\main.prg'.
+Tape: Error - Cannot open file `c:\AEM\code\CutreGameC64\bin\main.prg'
 Error - no CRT header found.
-CART: 'C:\AEM\code\CutreGameC64\bin\main.prg' is not a valid CRT file.
-AUTOSTART: Loading PRG file `C:\AEM\code\CutreGameC64\bin\main.prg' with autostart disk image.
+CART: 'c:\AEM\code\CutreGameC64\bin\main.prg' is not a valid CRT file.
+AUTOSTART: Loading PRG file `c:\AEM\code\CutreGameC64\bin\main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 13467. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 12467. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
-AUTOSTART: `C:\AEM\code\CutreGameC64\bin\main.prg' recognized as program/p00 file.
+AUTOSTART: `c:\AEM\code\CutreGameC64\bin\main.prg' recognized as program/p00 file.
 Main CPU: RESET.
-Sound: Opened device `dx', speed 48000Hz, fragment size 2.67ms, buffer size 32.00ms
-Sound: reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
-VSync: Sync reset
-Unit 8: RESET.
-AUTOSTART: Loading program 'MAIN'
-AUTOSTART: Entered ROM at $e5cf
-AUTOSTART: Searching for ...
-AUTOSTART: Loading
+Sound: Opened device `dx', spSound: reSID: MOS8580, filter on, sampling rate 48000Hz Sound: reSID: MOS8580, filter on, sampling rate 48000Hz - resampliAUTOSTART: Loading program 'MAIN'
+AUTOSTART: Entered ROAUTOSTART: Loading program 'MAIN'
+AUTOSTAAUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
 AUTOSTART: Ready
 AUTOSTART: Turning Warp mode off.
@@ -107,7 +104,6 @@ AUTOSTART: Done.
 VSync: Sync reset
 Render thread: Initiating render thread 0 shutdown
 Render thread: Joining render thread 0 ...
-Render thread shutdown
 Render thread: Joined render thread 0.
 
 Configure Flags:
@@ -119,8 +115,8 @@ SaveResourcesOnExit=1
 ConfirmOnExit=0
 Window0Height=1009
 Window0Width=1920
-Window0Xpos=1088
-Window0Ypos=370
+Window0Xpos=1080
+Window0Ypos=362
 KeySet1North=119
 KeySet1East=100
 KeySet1South=115
@@ -129,15 +125,12 @@ KeySet1Fire=32
 JoyDevice1=2
 
 reconstructed commandline options (might be incomplete):
--default -logfile "c:\AEM\code\CutreGameC64\bin\main.prg-vice.log" +confirmonexit -saveres -windowxpos "1088" -windowypos "370" -windowwidth "1920" -windowheight "1009" -joydev1 "2"
+-default -logfile "c:\AEM\code\CutreGameC64\bin\main.prg-vice.log" +confirmonexit -saveres -windowxpos "1080" -windowypos "362" -windowwidth "1920" -windowheight "1009" -joydev1 "2"
 
 Mainlock: VICE thread initiating shutdown
 Mainlock: VICE thread is exiting
 Main: VICE thread has been joined.
 Writing configuration file `C:\Users\gabriel.gonzalezg\AppData\Roaming\vice\vice.ini'.
-VIC-II: VSP Bug: safe channels are: 01345. Emulation of memory corruption is disabled.
-Sound: Closing device `dx'
-Hotkeys: shutting down.
-
+VIC-II: VSP Bug: safe channels are: 1245. Emulation of memory corruption is disabled.
 Sound: Closing device `dx'
 Hotkeys: shutting down.

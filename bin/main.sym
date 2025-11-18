@@ -133,6 +133,7 @@
 .label PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON=$13c0
 .label start_read_keyboard=$d2b {
 }
+.label TANK_MARGIN=$11
 .label SPRITE_0_MEM_X=$d000
 .label SPRITE_0_MEM_Y=$d001
 .label sub_num2_3=$127f

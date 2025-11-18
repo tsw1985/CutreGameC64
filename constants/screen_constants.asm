@@ -15,6 +15,9 @@
 .label MAP_SIZE   = MAP_WIDTH * MAP_HEIGHT
 
 
+// Tanks Margin:
+.label TANK_MARGIN = 17
+
 
 //COLORS:
 //=======
