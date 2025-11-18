@@ -133,7 +133,6 @@
 .label PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON=$13c0
 .label start_read_keyboard=$d2b {
 }
-.label TANK_MARGIN=$11
 .label SPRITE_0_MEM_X=$d000
 .label SPRITE_0_MEM_Y=$d001
 .label sub_num2_3=$127f
@@ -242,7 +241,7 @@
   .label play_sound=$686f {
   }
 }
-.label BULLET_SPEED=$1
+.label BULLET_SPEED=$4
 .label PLAYER_2_TANK_FIRED_IN_LEFT=$13b5
 .label sprite_player_1_up_tank=$147c
 .label sprite_player_1_right_tank=$1485
@@ -256,6 +255,8 @@
 .label SPRITE_CENTER_PLAYER_POS_X_BULLET_2=$138e
 .label ORANGE=$8
 .label sprite_animations_list_LO_table_backup=$1401
+.label TANK_MARGIN_X=$f
+.label TANK_MARGIN_Y=$d
 .label KERNAL_GETIN=$ffe4
 .label sprite_player_1_down_and_left_tank=$149c
 .label BRIK=$43
