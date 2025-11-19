@@ -927,6 +927,8 @@ collision_detected:
     inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(1)
     jsr SPRITE_LIB.sprite_set_animation_tank_2_dead
+    
+    jsr SOUND_LIB.play_explosion
 
     // end game to reset
     lda #1
@@ -1032,6 +1034,8 @@ collision_detected_on_tank_1:
     inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(3)
     jsr SPRITE_LIB.sprite_set_animation_tank_1_dead
+
+    jsr SOUND_LIB.play_explosion
 
     // end game to reset
     lda #1
@@ -3304,7 +3308,7 @@ push_regs_to_stack()
         //inc $d020 // change border color
 
         /* Play sound */
-        //jsr SOUND_LIB.play_sound
+        
 
         /* Save positions of enemy Y-X for print them in the main loop */
         lda SPRITE_ENEMY_Y

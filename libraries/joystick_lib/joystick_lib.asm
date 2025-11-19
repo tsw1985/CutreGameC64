@@ -723,6 +723,9 @@ joy_1_fire:
     beq skip_fire
 
 
+    jsr SOUND_LIB.play_sound
+    
+
     sprite_load_like_multicolor(1)
     sprite_enable_sprite(1)
     sprite_set_color(1,YELLOW)

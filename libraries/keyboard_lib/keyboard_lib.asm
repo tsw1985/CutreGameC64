@@ -534,6 +534,9 @@ keyboard_fire:
     cmp #1
     beq skip_fire
 
+    jsr SOUND_LIB.play_sound
+    
+
 
     sprite_load_like_multicolor(3)
     sprite_enable_sprite(3)
