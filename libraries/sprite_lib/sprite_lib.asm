@@ -927,6 +927,11 @@ collision_detected:
     inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(1)
     jsr SPRITE_LIB.sprite_set_animation_tank_2_dead
+
+    // end game to reset
+    lda #1
+    sta GAME_OVER
+
     jmp end_check
 
 no_collision:
@@ -1027,6 +1032,12 @@ collision_detected_on_tank_1:
     inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(3)
     jsr SPRITE_LIB.sprite_set_animation_tank_1_dead
+
+    // end game to reset
+    lda #1
+    sta GAME_OVER
+
+
     jmp end_check_on_tank_1
 
 no_collision_on_tank_1:

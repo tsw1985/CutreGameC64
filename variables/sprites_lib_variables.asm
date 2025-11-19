@@ -1,3 +1,5 @@
+GAME_OVER: .byte 0
+
 TANK_1_DEAD: .byte 0
 TANK_2_DEAD: .byte 0
 

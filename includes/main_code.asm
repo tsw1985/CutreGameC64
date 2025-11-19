@@ -13,6 +13,10 @@ main:
 
 init_code:
 
+    //set GAME OVER to 0
+    lda #0
+    sta GAME_OVER
+
     //Your code here ...
     jsr PRINT_LIB.clean_screen
 
@@ -20,12 +24,12 @@ init_code:
 
 
     // uncommet in develop time
-    wait_until_press_any_key()
+    //wait_until_press_any_key()
 
 
     // NOT REMOVEEE !!!
     //restore setup
-    jsr SYSTEM.restore_system
-    jsr PRINT_LIB.clean_screen
+    //jsr SYSTEM.restore_system
+    //jsr PRINT_LIB.clean_screen
 
     //rts // exit to basic

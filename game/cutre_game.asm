@@ -234,35 +234,23 @@ simulate_game_loop:
         sta sum_res_3
         print_calculation_result(22,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
         
-
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
 }
+
+
+
+// if not GAME OVER , continue game , if not, reset it.
+
+// end game to reset
+    lda GAME_OVER
+    cmp #1
+    beq reset_game
+    jmp continue_loop_game
+
+    reset_game:
+        jmp init_code
+
+    continue_loop_game:
+
 
 jmp simulate_game_loop
 
