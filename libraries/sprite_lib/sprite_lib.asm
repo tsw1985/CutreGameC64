@@ -338,12 +338,6 @@ disable_sprite:
 
 
 
-
-
-
-
-
-
 /*
     Set frames to sprites:
     ----------------------

@@ -519,6 +519,12 @@ keyboard_fire:
 
     push_regs_to_stack()
 
+    // If tank is dead , is not allowed fire
+    lda TANK_2_DEAD
+    cmp #1
+    beq skip_fire
+
+
     lda #0
     sta TANK_2_DEAD
     jsr SPRITE_LIB.sprite_reset_default_tank_2_speed

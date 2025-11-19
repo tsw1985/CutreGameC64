@@ -708,6 +708,11 @@ joy_1_fire:
 
     push_regs_to_stack()
 
+    // If tank is dead , is not allowed fire
+    lda TANK_1_DEAD
+    cmp #1
+    beq skip_fire
+
     lda #0
     sta TANK_1_DEAD
     jsr SPRITE_LIB.sprite_reset_default_tank_1_speed
