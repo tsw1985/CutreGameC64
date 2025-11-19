@@ -1,6 +1,12 @@
 
 
 /* Init position Player 1 to TOP */
+lda #0
+sta PLAYER_1_TANK_IS_FIRING
+sta PLAYER_1_TANK_IS_IN_MOVING
+sta TANK_1_DEAD
+
+
 lda #PLAYER_UP
 sta PLAYER_1_TANK_CURRENT_DIRECTION
 sta PLAYER_1_TANK_FIRED_IN_UP // set cannon to fire up
@@ -9,6 +15,12 @@ jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_up // draw tank in up position
 
 
 /* Init position Player 2 to TOP */
+
+lda #0
+sta PLAYER_2_TANK_IS_FIRING
+sta PLAYER_2_TANK_IS_IN_MOVING
+sta TANK_2_DEAD
+
 lda #PLAYER_DOWN
 sta PLAYER_2_TANK_CURRENT_DIRECTION
 sta PLAYER_2_TANK_FIRED_IN_DOWN // Set cannon to fire down

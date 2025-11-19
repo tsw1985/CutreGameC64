@@ -6,7 +6,7 @@
 .label PLAYER_DOWN=$3
 .label INTERRUPT_RETURN=$ea81
 .label SCREEN_EXTRA_COLOR_2=$d023
-.label simulate_game_loop=$8b4
+.label simulate_game_loop=$8ca
 .label MATH_LIB=$4f6d {
   .label sum_32=$5046 {
   }
@@ -31,7 +31,7 @@
 .label PLAYER_2_TANK_2_CANNON_TIP_X=$13c5
 .label counter_str=$1250
 .label SPRITE_INDEX_COUNTER_RASTER_LOOP=$13d8
-.label check_fire_key=$925
+.label check_fire_key=$93b
 .label sprites_coord_table_x=$1434
 .label sprites_coord_table_y=$142c
 .label PLAYER_1_TANK_IS_FIRING=$13a1
@@ -55,7 +55,7 @@
 .label coor_y_str=$1222
 .label DEFAULT_SCREEN_BORDER_COLOR=$0
 .label PLAYER_1_TANK_1_CURRENT_X=$13b2
-.label check_joy_2_right=$996
+.label check_joy_2_right=$9ac
 .label ANIMATION_FRAMES_LIST_LO=$13f2
 .label sprites_current_animation_index_position_table=$145c
 .label PLAYER_1_TANK_IS_ROTATING=$139c
@@ -70,7 +70,7 @@
 .label PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y=$13a6
 .label SCREEN_SIZE=$3e8
 .label RED=$2
-.label inner_loop_reset_game=$8d9
+.label inner_loop_reset_game=$8ef
 .label SPRITE_TO_CHECK=$13d1
 .label sum_num2_3=$1273
 .label ZERO_PAGE_ROW_LOW_BYTE_BULLET_TANK_1=$2a
@@ -132,7 +132,7 @@
   .label continue_with_left_chain_tank_1=$6c6e
 }
 .label PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON=$13c3
-.label start_read_keyboard=$8e6 {
+.label start_read_keyboard=$8fc {
 }
 .label SPRITE_0_MEM_X=$d000
 .label SPRITE_0_MEM_Y=$d001
@@ -157,8 +157,8 @@
 .label SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1=$1384
 .label SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_2=$1397
 .label WHITE=$1
-.label reset_game=$8d5
-.label continue_loop_game=$8e3
+.label reset_game=$8eb
+.label continue_loop_game=$8f9
 .label PLAYER_1_TANK_1_CANNON_TIP_Y=$13aa
 .label PLAYER_1_TANK_1_CANNON_TIP_X=$13ab
 .label PLAYER_2_TANK_IS_IN_MOVING=$13c2
@@ -273,11 +273,11 @@
 .label sprite_player_1_down_and_left_tank=$149f
 .label BRIK=$43
 .label KEY_DOT=$25
-.label check_left_key=$90b
+.label check_left_key=$921
 .label PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y=$13be
 .label sprites_raster_counters_table=$144c
 .label PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X=$13bf
-.label check_joy_2_down=$9b0
+.label check_joy_2_down=$9c6
 .label TILE_COUNTER=$14f6
 .label SPRITE_BULLET_TANK_2=$3
 .label SPRITE_5_MEM_Y=$d00b
@@ -292,13 +292,13 @@
 .label TASK_COUNTER=$14f5
 .label main=$811
 .label CURRENT_RASTER_LINE=$d012
-.label end_read_joystick_2=$9c7 {
+.label end_read_joystick_2=$9dd {
 }
 .label SPRITE_6_MEM_Y=$d00d
 .label SPRITE_ENEMY_X_PLUS_OFFSET_TANK_1=$1393
 .label SPRITE_ENEMY_X_PLUS_OFFSET_TANK_2=$138c
 .label SPRITE_6_MEM_X=$d00c
-.label outer_loop_reset_game=$8d7
+.label outer_loop_reset_game=$8ed
 .label TILE_ROW=$14fd
 .label MAP_TEMP_X=$14fb
 .label MAP_TEMP_Y=$14fc
@@ -657,7 +657,7 @@
 .label PLAYER_LEFT=$4
 .label ROTATE_INDEX=$12da
 .label TILE_TEMP_Y=$14f9
-.label check_right_key=$918
+.label check_right_key=$92e
 .label TILE_TEMP_X=$14f8
 .label system_status=$810
 .label sprite_player_2_bullet_tank=$1499
@@ -709,16 +709,16 @@
 .label sum_res_1=$1275
 .label sum_res_3=$1277
 .label BULLET_TANK_1_Y_TEMP=$1387
-.label check_down_key=$8fe
+.label check_down_key=$914
 .label PLAYER_2_TANK_2_LEFT_CHAIN_X=$13c7
 .label PLAYER_2_TANK_2_LEFT_CHAIN_Y=$13c6
 .label MAP_SIZE=$c0
-.label check_joy_1_up=$957
+.label check_joy_1_up=$96d
 .label SCREEN_COL_POS_SCREEN_CHAR=$1247
 .label IRQ_COUNTER=$1379
 .label LIGHT_GRAY=$f
 .label sprites_rasters_limit_table_backup=$1444
-.label check_joy_1_fire=$971
+.label check_joy_1_fire=$987
 .label PLAYER_UP=$1
 .label sprite_player_1_left_tank=$1485
 .label debug_mode=$0
@@ -799,7 +799,7 @@
   .label read_tail=$499f
   .label continue_input_writing=$488f
 }
-.label end_read_key=$92f {
+.label end_read_key=$945 {
 }
 .label SPRITE_CENTER_PLAYER_POS_Y_BULLET_2=$1392
 .label INPUT_CURSOR_ROW=$1321
@@ -813,7 +813,7 @@
 .label SPRITE_FRAME_POINTER=$13db
 .label sprite_player_1_up_and_left_tank=$14a1
 .label ZERO_PAGE_MAP_LO=$28
-.label check_joy_2_up=$9a3
+.label check_joy_2_up=$9b9
 .label SPRITE_1_MEM_X=$d002
 .label SPRITE_1_MEM_Y=$d003
 .label BULLET_TANK_2_Y_TEMP=$138f
@@ -831,11 +831,11 @@
 .label cursor_col_str=$1233
 .label SPRITE_CENTER_PLAYER_POS_X=$13cf
 .label GREY=$c
-.label sleep_sprite=$9cd {
+.label sleep_sprite=$9e3 {
 }
 .label sprite_animations_list_HI_table_backup=$140c
 .label PLAYER_2_TANK_2_RIGHT_CHAIN_Y=$13c8
-.label check_joy_2_fire=$9bd
+.label check_joy_2_fire=$9d3
 .label PLAYER_2_TANK_2_RIGHT_CHAIN_X=$13c9
 .label TEMP_Y_REG=$1326
 .label INPUT_STR_LIMIT=$12d9
@@ -873,8 +873,8 @@
 .label SPRITE_Y_POS=$13ee
 .label SPRITE_HEIGHT=$15
 .label PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON=$13a9
-.label check_joy_1_right=$94a
-.label check_joy_1_down=$964
+.label check_joy_1_right=$960
+.label check_joy_1_down=$97a
 .label SPRITE_PAD_INDEX=$13f0
 .label sprite_animations_list_HI_table=$13fc
 .label KEYS_TO_SCREEN_STR=$1327
@@ -884,7 +884,7 @@
 .label SPRITE_ENEMY_Y_TANK_2=$138d
 .label MAIN_CODE_ADDRESS=$810
 .label PLAYER_2_TANK_FIRED_IN_RIGHT=$13b7
-.label end_read_joystick=$97b {
+.label end_read_joystick=$991 {
 }
 .label SPRITE_ENEMY_Y_TANK_1=$1395
 .label Map_LO=$4064
@@ -895,7 +895,7 @@
 .label sprite_animations_list_LO_table=$13f4
 .label div_num1_0=$1254
 .label ZERO_PAGE_ROW_COLOR_HIGHT_BYTE=$25
-.label sleep_sprite_outer_loop=$9d4 {
+.label sleep_sprite_outer_loop=$9ea {
 }
 .label div_num1_1=$1255
 .label mul_num2_2=$1266
@@ -1043,10 +1043,10 @@
 .label space_4_str=$120f
 .label DEFAULT_SCREEN_EXTRA_COLOR_2=$9
 .label SPRITE_X_POS=$13ef
-.label sleep_sprite_inner_loop=$9d6
+.label sleep_sprite_inner_loop=$9ec
 .label PLAYER_2_TANK_2_CURRENT_X=$13cc
-.label start_read_joystick_2=$981 {
+.label start_read_joystick_2=$997 {
 }
-.label start_read_joystick_1=$935 {
+.label start_read_joystick_1=$94b {
 }
 .label PLAYER_2_TANK_2_CURRENT_Y=$13cb
