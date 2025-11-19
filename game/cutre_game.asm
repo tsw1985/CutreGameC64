@@ -4,11 +4,15 @@
 lda #PLAYER_UP
 sta PLAYER_1_TANK_CURRENT_DIRECTION
 sta PLAYER_1_TANK_FIRED_IN_UP // set cannon to fire up
+jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_up // draw tank in up position
+
+
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_DOWN
 sta PLAYER_2_TANK_CURRENT_DIRECTION
 sta PLAYER_2_TANK_FIRED_IN_DOWN // Set cannon to fire down
+jsr SPRITE_LIB.sprite_set_animation_rotate_tank_2_down // draw tank in down position
 
 /* Load map #0 */
 print_map(0)
@@ -247,6 +251,19 @@ simulate_game_loop:
     jmp continue_loop_game
 
     reset_game:
+
+        //add delay to jump again to main code
+        ldx #255
+        outer_loop_reset_game:
+            ldy #255
+        inner_loop_reset_game:
+            nop
+            dey
+            bne inner_loop_reset_game
+            dex
+            bne outer_loop_reset_game
+
+        // when delay is done , reset the game
         jmp init_code
 
     continue_loop_game:

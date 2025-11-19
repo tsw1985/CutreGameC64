@@ -451,8 +451,8 @@ sleep_key:
         dex
         bne outer_loop
         
-        pull_regs_from_stack()
-        rts
+pull_regs_from_stack()
+rts
 
 /* 
     Function:
