@@ -18,7 +18,12 @@ BasicUpstart2(main)
 #import "/includes/variables.asm"
 
 *=SPRITES_ADDRESS "Sprites"
-.import binary "/sprites/tank_sprite_set.bin"
+
+.if(debug_mode == 1){
+    .import binary "/sprites/tank_sprite_set_debug.bin"
+}else{
+    .import binary "/sprites/tank_sprite_set_final.bin"
+}
 
 *=CHARSET_ADDRESS "Charset"
 .import binary "/charset/cutregamecharset.bin"

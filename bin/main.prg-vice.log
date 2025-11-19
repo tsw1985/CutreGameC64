@@ -22,33 +22,16 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-Main: random seed was: 0x691d94d7
-Main: command line was: C:\C64\GTK3VICE-3.9-win64\bin\x64sc.exe -logfile c:\AEM\code\CutreGameC64\bin\main.prg-vice.log c:\AEM\code\CutreGameC64\bin\main.prg
-Main: VICE system file directory: 'C:\C64\GTK3VICE-3.9-win64\bin\..'.
-Main: VICE system file search path: 'C:\C64\GTK3VICE-3.9-win64\bin;C:\C64\GTK3VICE-3.9-win64\bin\..'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\kernal-901227-03.bin'.
-C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\basic-901226-01.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\chargen-901225-01.bin'.
-Palette: Loading palette `C:\C64\GTK3VICE-3.9-win64\bin\..\PRINTER\mps803.vpl'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\PRINTER\nl10.bin'.
-Palette: Loading palette `C:\C64\GTK3VICE-3.9-win64\bin\..\PRINTER\nl10.vpl'.
-NL10: Printer driver initialized.
+Main: random seed was: 0x691dcf1b
+Main: command line was: C:\C64\GTK3VICE-3.9-win64\bin\x64sc.exe C:\AEM\code\CutreGameC64\bin\main.prg
+Main: VICE system file directory: 'C:\C64\GTK3VICE-3.9-win64\bVICE s.
+Main: VICE system file search path: 'C:\C64\GTK3VICE-3.9Main: VICE system file search path: 'C:\C64\GTKLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C6Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\kernal-901227-03.bin'.
+C64MEM: Kernal rev #3 ($03) Sum: 50954 (Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C6Loading system file `C:\CLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\C6Loading system file `C:\C64Palette: Loading palette `C:\C64\GTK3VICE-3.9-win64\bin\Palette: Loading palette Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\PRLoading system filPalette: Loading palette `C:\C64\GTK3VICE-3.9-win64\bin\Palette: Loading palette `C:\C64\GTK3VICE-3.9-win64\bin.
 Palette: Loading palette `C:\C64\GTK3VICE-3.9-win64\bin\..\PRINTER\1520.vpl'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1540-325302+3-01.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1541-325302-01+901229-05.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1541ii-251968-03.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1570-315090-01.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1571-310654-05.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1581-318045-02.bin'.
-DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
-DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
-DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos2031-901484-03+05.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos2040-901468-06+07.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos3040-901468-11-13.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos4040-901468-14-16.bin'.
-Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1001-901887+8-01.bin'.
+Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTK3Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1541-325302-01+901229-05.bin'.
+Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTK3Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1571-310654-05.bin'.
+Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTDriveROM: Error - 2000 ROM image not found. Hardware-levDriveROM: Error - 2000 ROM image not DriveROM: Error - 4000 ROM image not found. Hardware-levDriveROM: Error - 4000 ROM image not DriveROM: Error - CMDHD ROM image not found. Hardware-leDriveROM: Error - CMDHD ROM image not fLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTK3VLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos2040-901468-06+07.bin'.
+Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTK3VLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRLoading system file `C:\C64\GTK3VLoading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos1001-901887+8-01.bin'.
 Loading system file `C:\C64\GTK3VICE-3.9-win64\bin\..\DRIVES\dos9000-300516+7-revC.bin'.
 Drive: Finished loading ROM images.
 VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
@@ -56,59 +39,52 @@ Window: using GTK3 backend: DirectX
 Window: chip_name: VICII
 Window:  screen_size: 384 x 312
 Window:  gfx_size: 320 x 200
-Window:  gfx_position: 32 x 51
-Window:  first/last displayed line: 16 x 287
-Window:  extra offscreen border left/right: 0 x 0
-Window:  scalexy: 2 x 2 sizexy: 1 x 1
+Window:  gfx_position: 32 WindowWindow:  first/last dispWindow:  gfx_position: 32 x 51 extra offscreen border left/right: 0 x 0
+Win
+Window:  extra offscreen border1
 Window:  rmode: 1
 Window:  aspect ratio: 0.936508
-Window:  hstretch: 0 vstretch: Render thread: Created render thread 0
-Render thread inRender threSound: Available sound devices: dx wmm dummy fs dump wavSound: Available sound devices: dx wmm MIDIdrv: init driver
+Window:  hstretch: 0 vstretch: 0
+Window:  initializing with width, height: 704 x 507
+Render thread: Created render thread 0
+Render thread initialised
+Sound: Available sound devices: dx wmm dummy fs dump wavSound: Available sound devices: dx wmm MIDIdrv: init driver
 MIDIdrv: found 0 sources
-MIDIdrv: found 1 destinations
-MIDIdrv: destination #0: Microsoft GS Wavetable Synth
-Keymap: Loading keymap `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\gtk3_sym.vkm'.
+MIDIdrv: found 1 destinationsMIDIdrv: found 0 sources
+MIDIdrv: found 1 destinationsKeymap: Loading keymap `C:\C64\GTK3VICE-3.9-win64\bin\..Keymap: Loading keymap `C:\C64\GTK3VICE-3.9-win64\bin\..\C64\gtk3_sym.vkm'.
 Hotkeys: Initializing hotkeys.
-Hotkeys: parsing default file 'C:\C64\GTK3VICE-3.9-win64\bin\..\hotkeys\hotkeys.vhk' for machine C64
-Hotkeys: OK.
+Hotkeys: parsing default file 'C:\C64\GTK3VICEHotkeys: OK.
 Main CPU: 
 Main CPU: starting at ($FFFC).
 Main CPU: RESET.
-VIC-II: VSP Bug: safe channels are: 012. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 356. Emulation of memory corruption is disabled.
 AUTOSTART: Autodetecting image type of `C:\AEM\code\CutreGameC64\bin\main.prg'.
-Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 48.
-Filesystem Image: Unknown disk image `C:\AEM\code\CutreGameC64\bin\main.prg'.
-Tape: Error - Cannot open file `C:\AEM\code\CutreGameC64\bin\main.prg'
-Error - no CRT header found.
+Filesystem Image Probe: Error - Import GCR: Unknown GCR Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 48.
+Filesystem Image: UnknoTape: Error - Cannot open file `C:\AEM\code\CutreGameC64Tape: Error - CaError - no CRT header found.
 CART: 'C:\AEM\code\CutreGameC64\bin\main.prg' is not a valid CRT file.
-AUTOSTART: Loading PRG file `C:\AEM\code\CutreGameC64\bin\main.prg' with autostart disk image.
-AUTOSTART: Resetting drive 8
+AUTOSTART: Loading PRG file `C:\AEM\code\CutreGameC64\biAUTOSTART: Loading PRG file `c:\AEM\codeAUTOSTART: Resetting drive 8
+AUTOSTART: Resetting the mAUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 3456. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 067. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
-AUTOSTART: `C:\AEM\code\CutreGameC64\bin\main.prg' recognized as program/p00 file.
-Main CPU: RESET.
-Sound: Opened device `dx', speed 48000Hz, fragment size 2.67ms, buffer size 32.00ms
+AUTOSTART: `c:\AEM\code\CutreGameC64\bin\main.Sound: Opened device `dx', speed 48000Hz, fragment size 2.67ms, buffer size 32.00ms
 Sound: reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
 VSync: Sync reset
 Unit 8: RESET.
 AUTOSTART: Loading program 'MAIN'
-AUTOSTART: Entered ROM at $e5cd
-AUTOSTART: Searching for ...
-AUTOSTART: Loading
+AUTOSTART: Entered ROAUTOSTART: Loading program 'MAIN'
+AUTOSTAAUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
-Render thread: Initiating render thread 0 shutdown
-RendAUTOSTART: Ready
+AUTOSTART: Ready
+AUTOSTART: Turning Warp mode off.
+AUTAUTOSTART: Ready
 AUTOSTART: Turning Warp mode off.
 AUTOSTART: Starting program.
 AUTOSTART: Restoring FileSystemDevice8 to 1.
 AUTOSTART: Restoring FSDevice8ConvertP00 to 1.
-AUTOSTART: Restoring FSDeviceLongNames to 0.
-AUTOSTART: Done.
-VSync: Sync reset
-Render thread: Initiating render thread 0 shutdown
+AUTOSTART: Restoring FSDeviRender thread: Initiating render thread 0 shutdown
+RendRender thread: Initiating render thread 0 shutdown
 Render thread: Joining render thread 0 ...
-Render thread shutdown
 Render thread: Joined render thread 0.
 
 Configure Flags:
@@ -136,6 +112,6 @@ Mainlock: VICE thread initiating shutdown
 Mainlock: VICE thread is exiting
 Main: VICE thread has been joined.
 Writing configuration file `C:\Users\gabriel.gonzalezg\AppData\Roaming\vice\vice.ini'.
-VIC-II: VSP Bug: safe channels are: 3456. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 1236. Emulation of memory corruption is disabled.
 Sound: Closing device `dx'
 Hotkeys: shutting down.

@@ -1,4 +1,4 @@
-.label debug_mode = 1; // 1 ON - 0 OFF
+
 
 /* Init position Player 1 to TOP */
 lda #PLAYER_UP
@@ -8,7 +8,7 @@ jsr SPRITE_LIB.sprite_set_animation_rotate_tank_1_up // draw tank in up position
 
 
 
-/* Init position Player 1 to TOP */
+/* Init position Player 2 to TOP */
 lda #PLAYER_DOWN
 sta PLAYER_2_TANK_CURRENT_DIRECTION
 sta PLAYER_2_TANK_FIRED_IN_DOWN // Set cannon to fire down

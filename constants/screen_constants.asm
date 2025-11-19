@@ -1,3 +1,7 @@
+// DEBUG MODE
+// ==========
+.label debug_mode = 0; // 1 ON - 0 OFF
+
 // SCREEN CONFIG
 //=============
 .label SCREEN_WIDTH            = 40 // Cols
