@@ -13,7 +13,7 @@
 /* Configure colors in Screen */
 .macro set_default_screen_colors(){
     //set_border_color(DEFAULT_SCREEN_BORDER_COLOR)
-    set_border_color(LIGHT_BLUE)
+    set_border_color(BLACK)
     set_background_color(DEFAULT_SCREEN_BACKGROUND_COLOR)
     set_extra_color_1(DEFAULT_SCREEN_EXTRA_COLOR_1)
     set_extra_color_2(DEFAULT_SCREEN_EXTRA_COLOR_2)

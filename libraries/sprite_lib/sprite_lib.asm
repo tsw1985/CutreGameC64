@@ -924,7 +924,7 @@ collision_detected:
     lda #1
     sta TANK_2_DEAD
     
-    inc $d020                           // Cambiar color del borde
+    //inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(1)
     jsr SPRITE_LIB.sprite_set_animation_tank_2_dead
     
@@ -1031,7 +1031,7 @@ collision_detected_on_tank_1:
     lda #1
     sta TANK_1_DEAD
 
-    inc $d020                           // Cambiar color del borde
+    //inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(3)
     jsr SPRITE_LIB.sprite_set_animation_tank_1_dead
 

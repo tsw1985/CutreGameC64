@@ -95,41 +95,41 @@
 .label TASK_IRQ_COUNTER=$14f4
 .label SCREEN_BORDER_COLOR=$d020
 .label PLAYER_1_TANK_CURRENT_DIRECTION=$139a
-.label KEYBOARD_LIB=$69fe {
-  .label no_move_up=$6aa3
-  .label no_fire_right=$6cfc {
+.label KEYBOARD_LIB=$69f8 {
+  .label no_move_up=$6a9d
+  .label no_fire_right=$6cf6 {
   }
-  .label normal_check_tank_2_down=$6ae6
-  .label no_fire_down=$6b72 {
+  .label normal_check_tank_2_down=$6ae0
+  .label no_fire_down=$6b6c {
   }
-  .label skip_fire=$6d49 {
+  .label skip_fire=$6d43 {
   }
-  .label is_collision_up_tank_2=$6a18
-  .label normal_check_tank_2_left=$6c15
-  .label keyboard_fire=$6d02 {
+  .label is_collision_up_tank_2=$6a12
+  .label normal_check_tank_2_left=$6c0f
+  .label keyboard_fire=$6cfc {
   }
-  .label no_fire_up=$6ab5 {
+  .label no_fire_up=$6aaf {
   }
-  .label no_move_right_aux=$6c6b
-  .label normal_check_tank_2_right=$6ce2
-  .label is_collision_down_tank_2=$6ad5
-  .label keyboard_right=$6c35 {
+  .label no_move_right_aux=$6c65
+  .label normal_check_tank_2_right=$6cdc
+  .label is_collision_down_tank_2=$6acf
+  .label keyboard_right=$6c2f {
   }
-  .label no_move_down=$6b60
-  .label keyboard_up=$69fe {
+  .label no_move_down=$6b5a
+  .label keyboard_up=$69f8 {
   }
-  .label keyboard_down=$6abb {
+  .label keyboard_down=$6ab5 {
   }
-  .label keyboard_left=$6b78 {
+  .label keyboard_left=$6b72 {
   }
-  .label is_collision_right_tank_2=$6cd1
-  .label no_move_right=$6cea
-  .label normal_check_tank_2_up=$6a29
-  .label no_move_left=$6c1d
-  .label is_collision_left_tank_2=$6c04
-  .label no_fire_left=$6c2f {
+  .label is_collision_right_tank_2=$6ccb
+  .label no_move_right=$6ce4
+  .label normal_check_tank_2_up=$6a23
+  .label no_move_left=$6c17
+  .label is_collision_left_tank_2=$6bfe
+  .label no_fire_left=$6c29 {
   }
-  .label continue_with_left_chain_tank_1=$6c6e
+  .label continue_with_left_chain_tank_1=$6c68
 }
 .label PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON=$13c3
 .label start_read_keyboard=$8fc {
@@ -239,19 +239,19 @@
   .label check_cannon_tip_tank_1_right=$5327
   .label normal_check_tank_1_right=$53cd
 }
-.label SOUND_LIB=$6947 {
-  .label stop_sound=$69ee {
+.label SOUND_LIB=$6941 {
+  .label stop_sound=$69e8 {
   }
-  .label play_explosion=$6984 {
+  .label play_explosion=$697e {
   }
-  .label sweep_down=$69b3
-  .label delay_final=$69d8
-  .label delay1=$69ab
-  .label mini_delay=$69b8
-  .label delay_off=$697b
-  .label play_sound=$6947 {
+  .label sweep_down=$69ad
+  .label delay_final=$69d2
+  .label delay1=$69a5
+  .label mini_delay=$69b2
+  .label delay_off=$6975
+  .label play_sound=$6941 {
   }
-  .label delay_outer=$696e
+  .label delay_outer=$6968
 }
 .label BULLET_SPEED=$4
 .label PLAYER_2_TANK_FIRED_IN_LEFT=$13b8
@@ -305,9 +305,9 @@
 .label PLAYER_NOT_ALLOWED_MOVE=$1
 .label CHARSET_ATTRIB_ADDRESS=$1000
 .label SPRITE_LIB=$54fd {
-  .label check_if_tank_2_collides_with_tank_1_in_up=$630a {
+  .label check_if_tank_2_collides_with_tank_1_in_up=$6304 {
   }
-  .label no_collision_with_tank_1_in_up=$636c {
+  .label no_collision_with_tank_1_in_up=$6366 {
   }
   .label set_frame_to_sprite_0=$57e5 {
   }
@@ -316,11 +316,11 @@
   .label set_frame_to_sprite_2=$5807 {
   }
   .label disableRasterInterrupt=$58c4
-  .label check_wall_cannon_tip_collision_tank_1=$5d9b {
+  .label check_wall_cannon_tip_collision_tank_1=$5d95 {
   }
   .label set_frame_to_sprite_3=$5818 {
   }
-  .label check_wall_cannon_tip_collision_tank_2=$6087 {
+  .label check_wall_cannon_tip_collision_tank_2=$6081 {
   }
   .label set_frame_to_sprite_4=$5829 {
   }
@@ -330,22 +330,22 @@
   }
   .label set_frame_to_sprite_7=$585c {
   }
-  .label sprite_set_animation_rotate_tank_1_right=$66bc {
+  .label sprite_set_animation_rotate_tank_1_right=$66b6 {
   }
   .label sprite_0_increment_x=$55ad {
   }
-  .label sprite_no_hit=$65be
-  .label start_move_bullet_tank_2=$5ed7
-  .label start_move_bullet_tank_1=$5b28
+  .label sprite_no_hit=$65b8
+  .label start_move_bullet_tank_2=$5ed1
+  .label start_move_bullet_tank_1=$5b22
   .label sprite_0_increment_y=$570d {
   }
-  .label exit_draw_bullet=$5d43 {
+  .label exit_draw_bullet=$5d3d {
   }
   .label sprite_1_increment_x=$55c3 {
   }
   .label x_2=$5989
-  .label go_to_default_down=$5bf3
-  .label no_collision_with_tank_2_in_down=$61cc {
+  .label go_to_default_down=$5bed
+  .label no_collision_with_tank_2_in_down=$61c6 {
   }
   .label sprite_1_increment_y=$5723 {
   }
@@ -353,9 +353,9 @@
   .label sprite_2_increment_x=$55d9 {
   }
   .label x_4=$599d
-  .label go_to_default_up_player_2=$5f4a
+  .label go_to_default_up_player_2=$5f44
   .label x_3=$5993
-  .label move_bullet_to_down=$5bb1
+  .label move_bullet_to_down=$5bab
   .label x_6=$59b1
   .label sprite_2_increment_y=$5739 {
   }
@@ -367,7 +367,7 @@
   }
   .label sprite_5_increment_x=$561b {
   }
-  .label sprite_copy_coords_tank_1_to_his_bullet=$5d49 {
+  .label sprite_copy_coords_tank_1_to_his_bullet=$5d43 {
   }
   .label sprite_3_increment_y=$574f {
   }
@@ -375,160 +375,160 @@
   }
   .label sprite_4_increment_y=$5765 {
   }
-  .label check_move_bullet_to_right_player_1=$5b4f
-  .label bullet_limit_top=$5b9e
+  .label check_move_bullet_to_right_player_1=$5b49
+  .label bullet_limit_top=$5b98
   .label tank_1_is_dead=$5917
-  .label check_move_bullet_to_right_player_2=$5efe
+  .label check_move_bullet_to_right_player_2=$5ef8
   .label sprite_7_increment_x=$5647 {
   }
   .label sprite_7_increment_y=$57a7 {
   }
   .label sprite_6_increment_x=$5631 {
   }
-  .label sprite_move_bullets_tank_2=$5ec5 {
+  .label sprite_move_bullets_tank_2=$5ebf {
   }
-  .label sprite_move_bullets_tank_1=$5b16 {
+  .label sprite_move_bullets_tank_1=$5b10 {
   }
   .label reset_sprite_raster_counter_in_current_sprite=$59c2
-  .label bullet_tank_2_impact_on_tank_1=$5a89 {
+  .label bullet_tank_2_impact_on_tank_1=$5a86 {
   }
   .label sprite_6_increment_y=$5791 {
   }
   .label detect_collision_in_tank_2=$59df
-  .label move_bullet_to_right_player_2=$6010
+  .label move_bullet_to_right_player_2=$600a
   .label detect_collision_in_tank_1=$59ec
-  .label no_collision_on_tank_1=$5b10
-  .label check_if_tank_2_collides_with_tank_1_in_left=$63da {
+  .label no_collision_on_tank_1=$5b0a
+  .label check_if_tank_2_collides_with_tank_1_in_left=$63d4 {
   }
-  .label draw_bullet_to_down_player_2=$5e4d
-  .label sprite_set_animation_rotate_tank_down_left=$684d {
+  .label draw_bullet_to_down_player_2=$5e47
+  .label sprite_set_animation_rotate_tank_down_left=$6847 {
   }
-  .label go_to_default_down_player_2=$5fa2
-  .label bullet_limit_top_player_2=$5f4d
+  .label go_to_default_down_player_2=$5f9c
+  .label bullet_limit_top_player_2=$5f47
   .label put_animation_frame_in_screen=$596b
-  .label check_if_tank_1_collides_with_tank_2_in_up=$6102 {
+  .label check_if_tank_1_collides_with_tank_2_in_up=$60fc {
   }
-  .label sprite_set_animation_rotate_tank_right_up=$67f1 {
+  .label sprite_set_animation_rotate_tank_right_up=$67eb {
   }
-  .label sprite_set_animation_rotate_tank_right_down=$6808 {
+  .label sprite_set_animation_rotate_tank_right_down=$6802 {
   }
-  .label draw_bullet_to_left=$5d0c
+  .label draw_bullet_to_left=$5d06
   .label go_to_check_collision_in_tank_1=$59e2
-  .label bullet_limit_right_player_2=$6055
-  .label sprite_set_animation_rotate_tank_1_left=$66d3 {
+  .label bullet_limit_right_player_2=$604f
+  .label sprite_set_animation_rotate_tank_1_left=$66cd {
   }
-  .label go_to_default_right_player_2=$6052
-  .label no_collision_with_tank_2_in_up=$6164 {
+  .label go_to_default_right_player_2=$604c
+  .label no_collision_with_tank_2_in_up=$615e {
   }
-  .label check_move_bullet_to_left_player_1=$5b42
-  .label draw_bullet_to_left_player_2=$5e63
-  .label check_move_bullet_to_left_player_2=$5ef1
-  .label check_if_tank_1_collides_with_tank_2_in_left=$61d2 {
+  .label check_move_bullet_to_left_player_1=$5b3c
+  .label draw_bullet_to_left_player_2=$5e5d
+  .label check_move_bullet_to_left_player_2=$5eeb
+  .label check_if_tank_1_collides_with_tank_2_in_left=$61cc {
   }
-  .label check_if_tank_2_collides_with_tank_1_in_right=$6442 {
+  .label check_if_tank_2_collides_with_tank_1_in_right=$643c {
   }
-  .label sprite_set_animation_rotate_tank_2_down=$6746 {
+  .label sprite_set_animation_rotate_tank_2_down=$6740 {
   }
   .label is_sprite_tank_2=$5932
-  .label end_reset_cases=$667a
+  .label end_reset_cases=$6674
   .label is_sprite_tank_1=$590d
-  .label move_bullet_to_down_player_2=$5f60
-  .label x_enemy_2=$660b
-  .label x_enemy_3=$661e
-  .label x_enemy_4=$6631
-  .label x_enemy_5=$6644
-  .label x_enemy_6=$6657
-  .label x_enemy_7=$666a
-  .label sprite_copy_coords_tank_2_to_his_bullet=$5ea0 {
+  .label move_bullet_to_down_player_2=$5f5a
+  .label x_enemy_2=$6605
+  .label x_enemy_3=$6618
+  .label x_enemy_4=$662b
+  .label x_enemy_5=$663e
+  .label x_enemy_6=$6651
+  .label x_enemy_7=$6664
+  .label sprite_copy_coords_tank_2_to_his_bullet=$5e9a {
   }
   .label enable_sprite=$57bd {
   }
-  .label collision_detected_on_tank_1=$5af2
-  .label block_player_1_movements=$6685 {
+  .label collision_detected_on_tank_1=$5aef
+  .label block_player_1_movements=$667f {
   }
-  .label sprite_set_animation_rotate_tank_left_up=$681f {
+  .label sprite_set_animation_rotate_tank_left_up=$6819 {
   }
-  .label no_collision_with_tank_1_in_down=$63d4 {
+  .label no_collision_with_tank_1_in_down=$63ce {
   }
-  .label draw_bullet_to_right=$5d30
-  .label continue_check_1=$6561
-  .label continue_check_2=$656c
-  .label continue_check_3=$6577
+  .label draw_bullet_to_right=$5d2a
+  .label continue_check_1=$655b
+  .label continue_check_2=$6566
+  .label continue_check_3=$6571
   .label player_1_is_in_moving=$5927
-  .label check_wall_left_chain_collision_tank_2=$60b0 {
+  .label check_wall_left_chain_collision_tank_2=$60aa {
   }
-  .label check_wall_left_chain_collision_tank_1=$5dc4 {
+  .label check_wall_left_chain_collision_tank_1=$5dbe {
   }
   .label go_to_next_sprite=$59c7
-  .label aux_move_bullet_to_left_player_2=$5efb
-  .label sprite_reset_player_1_fire_directions=$5d82 {
+  .label aux_move_bullet_to_left_player_2=$5ef5
+  .label sprite_reset_player_1_fire_directions=$5d7c {
   }
-  .label check_if_tank_2_collides_with_tank_1_in_back_in_right=$64aa {
+  .label check_if_tank_2_collides_with_tank_1_in_back_in_right=$64a4 {
   }
-  .label go_to_default_left_player_2=$5ffa
+  .label go_to_default_left_player_2=$5ff4
   .label sprite_0_decrement_x=$54fd {
   }
-  .label bullet_limit_right=$5ca6
+  .label bullet_limit_right=$5ca0
   .label sprite_0_decrement_y=$565d {
   }
-  .label check_if_tank_1_collides_with_tank_2_in_back_in_right=$62a2 {
+  .label check_if_tank_1_collides_with_tank_2_in_back_in_right=$629c {
   }
-  .label exit_check_collision=$667f {
+  .label exit_check_collision=$6679 {
   }
-  .label move_bullet_to_left=$5c09
+  .label move_bullet_to_left=$5c03
   .label check_y_axis=$5a53
-  .label sprite_set_animation_rotate_tank_2_right=$6718 {
+  .label sprite_set_animation_rotate_tank_2_right=$6712 {
   }
-  .label no_collision_with_tank_1_in_left=$643c {
+  .label no_collision_with_tank_1_in_left=$6436 {
   }
-  .label aux_move_bullet_to_down_player_2=$5eee
-  .label aux_move_bullet_to_down_player_1=$5b3f
-  .label go_to_default_left=$5c4b
-  .label sprite_reset_default_tank_1_speed=$6795 {
+  .label aux_move_bullet_to_down_player_2=$5ee8
+  .label aux_move_bullet_to_down_player_1=$5b39
+  .label go_to_default_left=$5c45
+  .label sprite_reset_default_tank_1_speed=$678f {
   }
-  .label check_if_tank_1_collides_with_tank_2_in_down=$616a {
+  .label check_if_tank_1_collides_with_tank_2_in_down=$6164 {
   }
-  .label sprite_set_animation_rotate_tank_left_down=$6836 {
+  .label sprite_set_animation_rotate_tank_left_down=$6830 {
   }
   .label exit_sprites_loop=$59cf
   .label check_sprite_loop=$59f1
-  .label aux_move_bullet_to_right=$5b56
-  .label sprite_set_animation_rotate_tank_2_up=$6701 {
+  .label aux_move_bullet_to_right=$5b50
+  .label sprite_set_animation_rotate_tank_2_up=$66fb {
   }
-  .label bullet_limit_left=$5c4e
-  .label bullet_limit_left_player_2=$5ffd
+  .label bullet_limit_left=$5c48
+  .label bullet_limit_left_player_2=$5ff7
   .label sprite_get_current_index_sprite_pad_value_animation=$586d {
   }
-  .label no_collision_with_tank_2_in_back_in_right=$6304 {
+  .label no_collision_with_tank_2_in_back_in_right=$62fe {
   }
-  .label sprite_reset_default_tank_2_speed=$67ac {
+  .label sprite_reset_default_tank_2_speed=$67a6 {
   }
-  .label exit_move_bullet_tank_1=$5cb9 {
+  .label exit_move_bullet_tank_1=$5cb3 {
   }
-  .label bullet_limit_bottom_player_2=$5fa5
-  .label draw_bullet_to_down=$5cf6
-  .label move_bullet_to_up=$5b59
-  .label exit_draw_bullet_player_2=$5e9a {
+  .label bullet_limit_bottom_player_2=$5f9f
+  .label draw_bullet_to_down=$5cf0
+  .label move_bullet_to_up=$5b53
+  .label exit_draw_bullet_player_2=$5e94 {
   }
-  .label move_bullet_to_left_player_2=$5fb8
-  .label skip_exit_check_collision=$65cb
-  .label sprite_set_animation_rotate_tank_1_down=$66ea {
+  .label move_bullet_to_left_player_2=$5fb2
+  .label skip_exit_check_collision=$65c5
+  .label sprite_set_animation_rotate_tank_1_down=$66e4 {
   }
   .label continue_normal_bullets_behaviour=$59ef
-  .label check_wall_right_chain_collision_tank_2=$60d9 {
+  .label check_wall_right_chain_collision_tank_2=$60d3 {
   }
-  .label check_sprite_collisions=$6512 {
+  .label check_sprite_collisions=$650c {
   }
-  .label draw_bullet_to_up=$5ce3
-  .label check_wall_right_chain_collision_tank_1=$5ded {
+  .label draw_bullet_to_up=$5cdd
+  .label check_wall_right_chain_collision_tank_1=$5de7 {
   }
-  .label sprite_set_animation_rotate_tank_1_up=$66a5 {
+  .label sprite_set_animation_rotate_tank_1_up=$669f {
   }
   .label reset_animation=$595d
   .label continue_default=$5957
-  .label no_collision_with_tank_1_in_back_in_right=$650c {
+  .label no_collision_with_tank_1_in_back_in_right=$6506 {
   }
-  .label sprite_reset_0_sprite_index_player_1=$5d6e {
+  .label sprite_reset_0_sprite_index_player_1=$5d68 {
   }
   .label sprite_5_decrement_y=$56cb {
   }
@@ -557,44 +557,44 @@
   .label animate_moving_tank_2=$5942
   .label sprite_4_decrement_y=$56b5 {
   }
-  .label end_check_on_tank_1=$5b10 {
+  .label end_check_on_tank_1=$5b0a {
   }
   .label animate_moving_tank_1=$591d
-  .label skip_move_bullet_tank_2=$5ed4
-  .label skip_move_bullet_tank_1=$5b25
-  .label go_to_default_up=$5b9b
+  .label skip_move_bullet_tank_2=$5ece
+  .label skip_move_bullet_tank_1=$5b1f
+  .label go_to_default_up=$5b95
   .label tank_2_is_dead=$593c
   .label continue_put_animation_frame_in_screen=$595a
-  .label draw_bullet_to_right_player_2=$5e87
-  .label no_collision=$5a83
-  .label sprite_draw_bullet_in_tank_player_2=$5e16 {
+  .label draw_bullet_to_right_player_2=$5e81
+  .label no_collision=$5a80
+  .label sprite_draw_bullet_in_tank_player_2=$5e10 {
   }
-  .label sprite_draw_bullet_in_tank_player_1=$5cbf {
+  .label sprite_draw_bullet_in_tank_player_1=$5cb9 {
   }
-  .label no_collision_with_tank_1_in_right=$64a4 {
+  .label no_collision_with_tank_1_in_right=$649e {
   }
-  .label sprite_reset_player_2_fire_directions=$606e {
+  .label sprite_reset_player_2_fire_directions=$6068 {
   }
-  .label ignore_reset_animation_index=$65bb
-  .label move_bullet_to_up_player_2=$5f08
-  .label no_collision_with_tank_2_in_left=$6234 {
+  .label ignore_reset_animation_index=$65b5
+  .label move_bullet_to_up_player_2=$5f02
+  .label no_collision_with_tank_2_in_left=$622e {
   }
   .label bullet_tank_1_impact_on_tank_2=$59fc {
   }
-  .label go_to_default_right=$5ca3
-  .label sprite_set_animation_rotate_tank_up_left=$67da {
+  .label go_to_default_right=$5c9d
+  .label sprite_set_animation_rotate_tank_up_left=$67d4 {
   }
-  .label sprite_set_animation_tank_2_dead=$6779 {
+  .label sprite_set_animation_tank_2_dead=$6773 {
   }
-  .label check_y_axis_on_tank_1=$5ae0
+  .label check_y_axis_on_tank_1=$5add
   .label collision_detected=$5a65
-  .label aux_move_bullet_to_right_player_2=$5f05
-  .label check_move_bullet_to_down_player_1=$5b35
-  .label move_bullet_to_right=$5c61
-  .label check_move_bullet_to_down_player_2=$5ee4
-  .label draw_bullet_to_up_player_2=$5e3a
+  .label aux_move_bullet_to_right_player_2=$5eff
+  .label check_move_bullet_to_down_player_1=$5b2f
+  .label move_bullet_to_right=$5c5b
+  .label check_move_bullet_to_down_player_2=$5ede
+  .label draw_bullet_to_up_player_2=$5e34
   .label player_2_is_in_moving=$594c
-  .label bullet_limit_bottom=$5bf6
+  .label bullet_limit_bottom=$5bf0
   .label setupRasterInterrupt=$588d {
   }
   .label actions_in_raster=$58ca
@@ -602,32 +602,32 @@
   }
   .label sprite_1_decrement_x=$5513 {
   }
-  .label check_if_tank_1_collides_with_tank_2_in_right=$623a {
+  .label check_if_tank_1_collides_with_tank_2_in_right=$6234 {
   }
-  .label no_collision_with_tank_2_in_right=$629c {
+  .label no_collision_with_tank_2_in_right=$6296 {
   }
-  .label sprite_set_animation_rotate_tank_2_left=$672f {
+  .label sprite_set_animation_rotate_tank_2_left=$6729 {
   }
-  .label end_check=$5a83 {
+  .label end_check=$5a80 {
   }
-  .label aux_move_bullet_to_up_player_2=$5ee1
-  .label aux_move_bullet_to_up_player_1=$5b32
-  .label exit_move_bullet_tank_2_player_2=$6068 {
+  .label aux_move_bullet_to_up_player_2=$5edb
+  .label aux_move_bullet_to_up_player_1=$5b2c
+  .label exit_move_bullet_tank_2_player_2=$6062 {
   }
-  .label check_if_tank_2_collides_with_tank_1_in_down=$6372 {
+  .label check_if_tank_2_collides_with_tank_1_in_down=$636c {
   }
   .label sprites_loop=$58cf
-  .label sprite_set_animation_tank_1_dead=$675d {
+  .label sprite_set_animation_tank_1_dead=$6757 {
   }
   .label reset_index_sprite_index_table=$595d
-  .label aux_move_bullet_to_left=$5b4c
+  .label aux_move_bullet_to_left=$5b46
   .label enableRasterInterrupt=$58be
-  .label change_border_color=$6582
-  .label sprite_set_animation_rotate_tank_up_right=$67c3 {
+  .label change_border_color=$657c
+  .label sprite_set_animation_rotate_tank_up_right=$67bd {
   }
-  .label enable_player_1_movements=$6695 {
+  .label enable_player_1_movements=$668f {
   }
-  .label sprite_set_animation_rotate_tank_down_right=$6864 {
+  .label sprite_set_animation_rotate_tank_down_right=$685e {
   }
   .label process_this_sprite=$58e0
 }
@@ -675,13 +675,13 @@
 .label KEY_H=$2b
 .label KEY_K=$2c
 .label KEY_J=$14
-.label TILES_LIB=$687b {
-  .label next_tail=$6919
-  .label exit_load_map=$6941 {
+.label TILES_LIB=$6875 {
+  .label next_tail=$6913
+  .label exit_load_map=$693b {
   }
-  .label load_map=$68fd {
+  .label load_map=$68f7 {
   }
-  .label print_tile=$687b {
+  .label print_tile=$6875 {
   }
 }
 .label KEY_M=$23
