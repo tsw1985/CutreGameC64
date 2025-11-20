@@ -1,6 +1,6 @@
 // DEBUG MODE
 // ==========
-.label debug_mode = 1; // 1 ON - 0 OFF
+.label debug_mode = 0; // 1 ON - 0 OFF
 
 // SCREEN CONFIG
 //=============
