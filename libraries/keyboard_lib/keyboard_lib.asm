@@ -20,9 +20,12 @@ keyboard_up:
     is_collision_up_tank_2:
         lda #1
         sta PLAYER_2_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_2_increment_y
-        jsr SPRITE_LIB.sprite_2_increment_y
-        jsr SPRITE_LIB.sprite_2_increment_y
+        //jsr SPRITE_LIB.sprite_2_increment_y
+        //jsr SPRITE_LIB.sprite_2_increment_y
+
+        jsr SPRITE_LIB.sprite_0_decrement_y
+        jsr SPRITE_LIB.sprite_0_decrement_y
+
         jmp no_move_up
 
     normal_check_tank_2_up:
@@ -146,9 +149,13 @@ keyboard_down:
     is_collision_down_tank_2:
         lda #1
         sta PLAYER_2_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_2_decrement_y
-        jsr SPRITE_LIB.sprite_2_decrement_y
-        jsr SPRITE_LIB.sprite_2_decrement_y
+
+        //jsr SPRITE_LIB.sprite_2_decrement_y
+        //jsr SPRITE_LIB.sprite_2_decrement_y
+
+
+        jsr SPRITE_LIB.sprite_0_increment_y
+        jsr SPRITE_LIB.sprite_0_increment_y
         
         jmp no_move_down
     normal_check_tank_2_down:
@@ -341,9 +348,12 @@ keyboard_left:
     is_collision_left_tank_2:
         lda #1
         sta PLAYER_2_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_2_increment_x
-        jsr SPRITE_LIB.sprite_2_increment_x
-        jsr SPRITE_LIB.sprite_2_increment_x
+        //jsr SPRITE_LIB.sprite_2_increment_x
+        //jsr SPRITE_LIB.sprite_2_increment_x
+
+        jsr SPRITE_LIB.sprite_0_decrement_x
+        jsr SPRITE_LIB.sprite_0_decrement_x
+
         jmp no_move_left
     normal_check_tank_2_left:
     /* End Check if exists collision with tank 2 */
@@ -477,9 +487,12 @@ keyboard_right:
     is_collision_right_tank_2:
         lda #1
         sta PLAYER_2_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jsr SPRITE_LIB.sprite_2_decrement_x
-        jsr SPRITE_LIB.sprite_2_decrement_x
+        //jsr SPRITE_LIB.sprite_2_decrement_x
+        //jsr SPRITE_LIB.sprite_2_decrement_x
+
+        jsr SPRITE_LIB.sprite_0_increment_x
+        jsr SPRITE_LIB.sprite_0_increment_x
+
         jmp no_move_right
     normal_check_tank_2_right:
     /* End Check if exists collision with tank 1 */

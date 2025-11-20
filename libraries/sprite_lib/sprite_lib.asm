@@ -832,7 +832,9 @@ actions_in_raster:
             iny
             sty SPRITE_TO_CHECK
             
-            //jsr check_sprite_collisions
+            .if(debug_mode == 1){
+                jsr check_sprite_collisions
+            }
 
 
             cpy #8
@@ -923,8 +925,7 @@ collision_detected:
     // tank 2 dead
     lda #1
     sta TANK_2_DEAD
-    
-    //inc $d020                           // Cambiar color del borde
+
     sprite_disable_sprite(1)
     jsr SPRITE_LIB.sprite_set_animation_tank_2_dead
     
@@ -1031,7 +1032,6 @@ collision_detected_on_tank_1:
     lda #1
     sta TANK_1_DEAD
 
-    //inc $d020                           // Cambiar color del borde
     sprite_disable_sprite(3)
     jsr SPRITE_LIB.sprite_set_animation_tank_1_dead
 
@@ -1163,12 +1163,10 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
         cmp #67
         bne go_to_default_up 
-        //inc $d020 // change border color
+
         jmp bullet_limit_top
 
         go_to_default_up:
-
-            //inc $d020
 
             //Check if impact
             
@@ -1235,9 +1233,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
         cmp #67
         bne go_to_default_down 
-        //inc $d020 // change border color
         jmp bullet_limit_bottom
-
 
 
         go_to_default_down:
@@ -1303,7 +1299,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
         cmp #67
         bne go_to_default_left 
-        //inc $d020 // change border color
+
         jmp bullet_limit_left
 
 
@@ -1371,7 +1367,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_1
         cmp #67
         bne go_to_default_right 
-        //inc $d020 // change border color
+
         jmp bullet_limit_right
 
 
@@ -1968,7 +1964,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2
         cmp #67
         bne go_to_default_up_player_2 
-        //inc $d020 // change border color
+
         jmp bullet_limit_top_player_2
 
 
@@ -2039,7 +2035,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2
         cmp #67
         bne go_to_default_down_player_2 
-        //inc $d020 // change border color
+
         jmp bullet_limit_bottom_player_2
 
 
@@ -2125,7 +2121,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2
         cmp #67
         bne go_to_default_left_player_2 
-        //inc $d020 // change border color
+
         jmp bullet_limit_left_player_2
 
         go_to_default_left_player_2:
@@ -2200,7 +2196,7 @@ push_regs_to_stack()
         lda CURRENT_CHAR_IN_SCREEN_BULLET_TANK_2
         cmp #67
         bne go_to_default_right_player_2 
-        //inc $d020 // change border color
+
         jmp bullet_limit_right_player_2
 
 
@@ -2229,24 +2225,6 @@ push_regs_to_stack()
 
 pull_regs_from_stack()
 rts
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2476,6 +2454,9 @@ push_regs_to_stack()
     // Si llegamos aquí, ¡HAY COLISIÓN!
     lda #1
     sta PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
+
+    lda #YELLOW
+    sta $d020
 
     no_collision_with_tank_2_in_up:
     
@@ -2848,6 +2829,7 @@ push_regs_to_stack()
     lda #1
     sta PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
 
+
     no_collision_with_tank_1_in_up:
     
     pull_regs_from_stack()
@@ -2919,6 +2901,9 @@ push_regs_to_stack()
     // Si llegamos aquí, ¡HAY COLISIÓN!
     lda #1
     sta PLAYER_2_TANK_2_IN_COLLISION_WITH_TANK_1
+
+
+    // inc $d020 NO
 
     no_collision_with_tank_1_in_down:
     
@@ -3391,10 +3376,6 @@ push_regs_to_stack()
 
 
     sprite_no_hit:
-
-        // if no hit, reset border color to default
-        //lda #LIGHT_BLUE
-        //sta $d020
 
         jsr SOUND_LIB.stop_sound
 

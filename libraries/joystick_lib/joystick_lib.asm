@@ -231,17 +231,21 @@ joy_1_up:
 
     is_collision_up_tank_1:
 
-
         // TODO : Check if we Y is in the LIMIT of game
         // if NOT , do not increment Y - X
+        // test here !!!
+
+        // bo
 
         lda #1
         sta PLAYER_1_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_0_increment_y
-        jsr SPRITE_LIB.sprite_0_increment_y
-        jsr SPRITE_LIB.sprite_0_increment_y
-        jsr SPRITE_LIB.sprite_0_increment_y
-        jsr SPRITE_LIB.sprite_0_increment_y
+        //jsr SPRITE_LIB.sprite_0_increment_y
+        //jsr SPRITE_LIB.sprite_0_increment_y
+
+
+        jsr SPRITE_LIB.sprite_2_decrement_y
+        jsr SPRITE_LIB.sprite_2_decrement_y
+
         jmp no_move_up
     normal_check_tank_1_up:
     /* End Check if exists collision with tank 2 */
@@ -363,11 +367,12 @@ joy_1_left:
 
         lda #1
         sta PLAYER_1_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_0_increment_x
-        jsr SPRITE_LIB.sprite_0_increment_x
-        jsr SPRITE_LIB.sprite_0_increment_x
-        jsr SPRITE_LIB.sprite_0_increment_x
-        jsr SPRITE_LIB.sprite_0_increment_x
+        //jsr SPRITE_LIB.sprite_0_increment_x
+        //jsr SPRITE_LIB.sprite_0_increment_x
+
+        jsr SPRITE_LIB.sprite_2_decrement_x
+        jsr SPRITE_LIB.sprite_2_decrement_x
+
         jmp no_move_left
     normal_check_tank_1_left:
     /* End Check if exists collision with tank 2 */
@@ -522,11 +527,12 @@ joy_1_right:
 
         lda #1
         sta PLAYER_1_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_0_decrement_x
-        jsr SPRITE_LIB.sprite_0_decrement_x
-        jsr SPRITE_LIB.sprite_0_decrement_x
-        jsr SPRITE_LIB.sprite_0_decrement_x
-        jsr SPRITE_LIB.sprite_0_decrement_x
+        //jsr SPRITE_LIB.sprite_0_decrement_x
+        //jsr SPRITE_LIB.sprite_0_decrement_x
+
+        jsr SPRITE_LIB.sprite_2_increment_x
+        jsr SPRITE_LIB.sprite_2_increment_x
+
 
 
         jmp no_move_right
@@ -646,28 +652,18 @@ joy_1_down:
     cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
     beq is_collision_down_tank_1
 
-
-    /*jsr SPRITE_LIB.check_if_tank_1_collides_with_tank_2_in_back_in_right
-    lda #1
-    cmp PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
-    beq is_collision_down_tank_1*/
-
-
-
-
-
-    
     jmp normal_check_tank_1_down
 
     is_collision_down_tank_1:
 
         lda #1
         sta PLAYER_1_TANK_IS_IN_MOVING
-        jsr SPRITE_LIB.sprite_0_decrement_y
-        jsr SPRITE_LIB.sprite_0_decrement_y
-        jsr SPRITE_LIB.sprite_0_decrement_y
-        jsr SPRITE_LIB.sprite_0_decrement_y
-        jsr SPRITE_LIB.sprite_0_decrement_y
+        //jsr SPRITE_LIB.sprite_0_decrement_y
+        //jsr SPRITE_LIB.sprite_0_decrement_y
+
+        jsr SPRITE_LIB.sprite_2_increment_y
+        jsr SPRITE_LIB.sprite_2_increment_y
+
 
         jmp no_move_down
     normal_check_tank_1_down:
