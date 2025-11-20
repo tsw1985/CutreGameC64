@@ -3832,6 +3832,247 @@ rts
 
 
 
+/* Detect if some corner of tank 1 is under wall 
+
+    OUT: TANK_1_CORNER_IN_WALL ( 0 - 1)
+*/
+detect_if_tank_1_corners_is_under_wall:
+    
+    push_regs_to_stack()
+
+    // set to 0 CORNER VALUE
+    lda #0
+    sta TANK_1_CORNER_IN_WALL
+
+
+    /* TOP - LEFT */
+
+    /*  Check LEFT chain */
+    lda #45
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #18
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_1_is_under_a_brik
+    /* END TOP - LEFT */
+
+
+    /* TOP - RIGHT */
+    lda #45
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #6
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_1_is_under_a_brik
+    /* END TOP - RIGHT */ 
+
+
+
+    /*  BOTTOM LEFT */
+    lda #36
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #6
+    sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_1_is_under_a_brik
+    /* END BOTTOM LEFT */
+
+
+
+    /* BOTTOM RIGHT */
+    lda #35
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #18
+    sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_1
+
+    // Get ROW and COL from last function
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_1_TANK_1_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_1_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_1_is_under_a_brik
+    /* END BOTTOM RIGHT */
+
+    jmp exit_check_corners_tank_1
+
+
+corner_tank_1_is_under_a_brik:
+    lda #1
+    sta TANK_1_CORNER_IN_WALL
+    //inc $d020
+
+
+    exit_check_corners_tank_1:
+pull_regs_from_stack()
+rts
+
+
+
+
+/* Detect if some corner of tank 2 is under wall 
+
+    OUT: TANK_2_CORNER_IN_WALL ( 0 - 1)
+*/
+detect_if_tank_2_corners_is_under_wall:
+push_regs_to_stack()
+
+
+    // set to 0 CORNER VALUE
+    lda #0
+    sta TANK_2_CORNER_IN_WALL
+
+    /*  Check LEFT chain */
+    lda #45
+    sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #18
+    sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_2
+
+    // Get ROW and COL from last function
+    lda PLAYER_2_TANK_2_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_2_TANK_2_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_2_is_under_a_brik
+    /* End check LEFT Chain */
+
+
+    /* Check RIGHT chain */
+    lda #45
+    sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #6
+    sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_2
+
+    // Get ROW and COL from last function
+    lda PLAYER_2_TANK_2_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_2_TANK_2_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_2_is_under_a_brik
+    /* End Check RIGHT chain */
+
+
+
+    /*  Check LEFT chain */
+    lda #36
+    sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y
+    lda #6
+    sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_left_chain_collision_tank_2
+
+    // Get ROW and COL from last function
+    lda PLAYER_2_TANK_2_LEFT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_2_TANK_2_LEFT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_2_is_under_a_brik
+    /* End check LEFT Chain */
+
+
+    /* Check RIGHT chain */
+    lda #35
+    sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y
+    lda #18
+    sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X
+    jsr SPRITE_LIB.check_wall_right_chain_collision_tank_2
+
+    // Get ROW and COL from last function
+    lda PLAYER_2_TANK_2_RIGHT_CHAIN_Y
+    sta SCREEN_ROW_POS
+
+    lda PLAYER_2_TANK_2_RIGHT_CHAIN_X
+    sta SCREEN_COL_POS
+
+    // MODE FUNCTION TO MAIN GAME: Get char of screen
+    jsr PRINT_LIB.get_char_value_from_video_memory
+    lda CURRENT_CHAR_IN_SCREEN
+    sta PLAYER_2_TANK_CURRENT_CHAR_TANK_FRONT_CANNON
+    cmp #BRIK
+    beq corner_tank_2_is_under_a_brik
+    /* End Check RIGHT chain */
+
+    jmp exit_corner_tank_2_is_under_a_brik
+
+    corner_tank_2_is_under_a_brik:
+    lda #1
+    sta TANK_2_CORNER_IN_WALL
+    inc $d020
+
+    exit_corner_tank_2_is_under_a_brik:
+
+
+pull_regs_from_stack()
+rts
+
 
 
 

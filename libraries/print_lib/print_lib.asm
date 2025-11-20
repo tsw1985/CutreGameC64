@@ -241,37 +241,6 @@ pull_regs_from_stack()
 rts
 
 
-/* Get the video char corresponding with a CORNER tank 1 position 
-
-    IN:  
-
-        SCREEN_COL_Y_CORNER_TANK_1
-        SCREEN_ROW_X_CORNER_TANK_1
-
-    OUT: 
-        CURRENT_CHAR_IN_CORNER_TANK_1
-
-*/
-get_char_value_from_video_memory_in_corner_tank_1:
-push_regs_to_stack()
-
-    /* Set char in row - col */
-    ldx SCREEN_ROW_X_CORNER_TANK_1
-    lda Row_LO,x                 // example: $5020 => $20
-    sta ZERO_PAGE_ROW_LOW_BYTE_CORNER_TANK_1   // save $20
-    lda Row_HI,x                 // example: $5020 => $50
-    sta ZERO_PAGE_ROW_HIGHT_BYTE_CORNER_TANK_1 // save $50
-
-
-    ldy SCREEN_COL_Y_CORNER_TANK_1             // col = 15 
-    lda (ZERO_PAGE_ROW_LOW_BYTE_CORNER_TANK_1),y // $2005  ($0520) , 15(f) = $052F .
-    sta CURRENT_CHAR_IN_CORNER_TANK_1
-                                    
-
-
-pull_regs_from_stack()
-rts
-
 
 
 

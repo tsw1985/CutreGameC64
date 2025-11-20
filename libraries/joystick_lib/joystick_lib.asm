@@ -242,10 +242,16 @@ joy_1_up:
         //jsr SPRITE_LIB.sprite_0_increment_y
         //jsr SPRITE_LIB.sprite_0_increment_y
 
+        jsr SPRITE_LIB.detect_if_tank_2_corners_is_under_wall
+        lda TANK_2_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_2_up
+
 
         jsr SPRITE_LIB.sprite_2_decrement_y
         jsr SPRITE_LIB.sprite_2_decrement_y
 
+        ignore_move_tank_2_up:
         jmp no_move_up
     normal_check_tank_1_up:
     /* End Check if exists collision with tank 2 */
@@ -370,9 +376,15 @@ joy_1_left:
         //jsr SPRITE_LIB.sprite_0_increment_x
         //jsr SPRITE_LIB.sprite_0_increment_x
 
+        jsr SPRITE_LIB.detect_if_tank_2_corners_is_under_wall
+        lda TANK_2_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_2_left
+
         jsr SPRITE_LIB.sprite_2_decrement_x
         jsr SPRITE_LIB.sprite_2_decrement_x
 
+        ignore_move_tank_2_left:
         jmp no_move_left
     normal_check_tank_1_left:
     /* End Check if exists collision with tank 2 */
@@ -530,11 +542,16 @@ joy_1_right:
         //jsr SPRITE_LIB.sprite_0_decrement_x
         //jsr SPRITE_LIB.sprite_0_decrement_x
 
+        jsr SPRITE_LIB.detect_if_tank_2_corners_is_under_wall
+        lda TANK_2_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_2_right
+
         jsr SPRITE_LIB.sprite_2_increment_x
         jsr SPRITE_LIB.sprite_2_increment_x
 
 
-
+        ignore_move_tank_2_right:
         jmp no_move_right
     normal_check_tank_1_right:
     /* End Check if exists collision with tank 2 */
@@ -661,10 +678,16 @@ joy_1_down:
         //jsr SPRITE_LIB.sprite_0_decrement_y
         //jsr SPRITE_LIB.sprite_0_decrement_y
 
+
+        jsr SPRITE_LIB.detect_if_tank_2_corners_is_under_wall
+        lda TANK_2_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_2_down
+
         jsr SPRITE_LIB.sprite_2_increment_y
         jsr SPRITE_LIB.sprite_2_increment_y
 
-
+        ignore_move_tank_2_down:
         jmp no_move_down
     normal_check_tank_1_down:
     

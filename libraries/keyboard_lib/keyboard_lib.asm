@@ -23,9 +23,17 @@ keyboard_up:
         //jsr SPRITE_LIB.sprite_2_increment_y
         //jsr SPRITE_LIB.sprite_2_increment_y
 
+
+        jsr SPRITE_LIB.detect_if_tank_1_corners_is_under_wall
+        lda TANK_1_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_1_up
+
+
         jsr SPRITE_LIB.sprite_0_decrement_y
         jsr SPRITE_LIB.sprite_0_decrement_y
 
+        ignore_move_tank_1_up:
         jmp no_move_up
 
     normal_check_tank_2_up:
@@ -102,7 +110,6 @@ keyboard_up:
     // ------------------ END CHECK COLLISIONS -----------------
 
     
-    
 
     lda #1
     sta PLAYER_2_TANK_IS_IN_MOVING
@@ -153,10 +160,16 @@ keyboard_down:
         //jsr SPRITE_LIB.sprite_2_decrement_y
         //jsr SPRITE_LIB.sprite_2_decrement_y
 
+        jsr SPRITE_LIB.detect_if_tank_1_corners_is_under_wall
+        lda TANK_1_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_1_down
 
         jsr SPRITE_LIB.sprite_0_increment_y
         jsr SPRITE_LIB.sprite_0_increment_y
         
+
+        ignore_move_tank_1_down:
         jmp no_move_down
     normal_check_tank_2_down:
     
@@ -237,6 +250,7 @@ keyboard_down:
 
     lda #1
     sta PLAYER_2_TANK_IS_IN_MOVING
+    
     jsr SPRITE_LIB.sprite_2_increment_y
 
 
@@ -351,8 +365,15 @@ keyboard_left:
         //jsr SPRITE_LIB.sprite_2_increment_x
         //jsr SPRITE_LIB.sprite_2_increment_x
 
+        jsr SPRITE_LIB.detect_if_tank_1_corners_is_under_wall
+        lda TANK_1_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_1_left
+
         jsr SPRITE_LIB.sprite_0_decrement_x
         jsr SPRITE_LIB.sprite_0_decrement_x
+
+        ignore_move_tank_1_left:
 
         jmp no_move_left
     normal_check_tank_2_left:
@@ -361,6 +382,8 @@ keyboard_left:
 
     lda #1
     sta PLAYER_2_TANK_IS_IN_MOVING
+
+
     jsr SPRITE_LIB.sprite_2_decrement_x
 
 
@@ -490,19 +513,24 @@ keyboard_right:
         //jsr SPRITE_LIB.sprite_2_decrement_x
         //jsr SPRITE_LIB.sprite_2_decrement_x
 
+        jsr SPRITE_LIB.detect_if_tank_1_corners_is_under_wall
+        lda TANK_1_CORNER_IN_WALL
+        cmp #1
+        beq ignore_move_tank_1_right
+    
         jsr SPRITE_LIB.sprite_0_increment_x
         jsr SPRITE_LIB.sprite_0_increment_x
 
+        ignore_move_tank_1_right:
         jmp no_move_right
     normal_check_tank_2_right:
     /* End Check if exists collision with tank 1 */
 
 
 
-
-
     lda #1
     sta PLAYER_2_TANK_IS_IN_MOVING
+
     jsr SPRITE_LIB.sprite_2_increment_x
 
 
