@@ -4065,7 +4065,7 @@ push_regs_to_stack()
     corner_tank_2_is_under_a_brik:
     lda #1
     sta TANK_2_CORNER_IN_WALL
-    inc $d020
+    //inc $d020
 
     exit_corner_tank_2_is_under_a_brik:
 
