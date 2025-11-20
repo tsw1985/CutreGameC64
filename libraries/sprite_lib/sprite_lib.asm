@@ -2455,9 +2455,7 @@ push_regs_to_stack()
     lda #1
     sta PLAYER_1_TANK_1_IN_COLLISION_WITH_TANK_2
 
-    lda #YELLOW
-    sta $d020
-
+    
     no_collision_with_tank_2_in_up:
     
     pull_regs_from_stack()

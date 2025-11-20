@@ -10,6 +10,26 @@ BLOCK_TANK_1_MOVE: .byte 0
 BLOCK_TANK_2_MOVE: .byte 0
 
 
+/* Tank 1 check corners under wall */
+TANK_1_CORNER_IN_WALL:               .byte 0
+TANK_1_CORNER_TOP_LEFT_Y_TEMP:       .byte 0
+TANK_1_CORNER_TOP_LEFT_X_TEMP:       .byte 0
+TANK_1_CORNER_TOP_RIGHT_Y_TEMP:      .byte 0
+TANK_1_CORNER_TOP_RIGHT_X_TEMP:      .byte 0
+TANK_1_CORNER_BOTTOM_LEFT_Y_TEMP:    .byte 0
+TANK_1_CORNER_BOTTOM_LEFT_X_TEMP:    .byte 0
+TANK_1_CORNER_BOTTOM_RIGHT_Y_TEMP:   .byte 0
+TANK_1_CORNER_BOTTOM_RIGHT_X_TEMP:   .byte 0
+CURRENT_CHAR_IN_CORNER_TANK_1:       .byte 0
+
+SCREEN_ROW_X_CORNER_TANK_1:        .byte 0
+SCREEN_COL_Y_CORNER_TANK_1:        .byte 0
+
+
+/* End Tank 1 check corners under wall */
+
+
+
 /* TANK 1 BULLETS */
 SCREEN_ROW_POS_SCREEN_CHAR_BULLET_TANK_1: .byte 0
 SCREEN_COL_POS_SCREEN_CHAR_BULLET_TANK_1: .byte 0
