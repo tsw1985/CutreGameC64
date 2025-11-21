@@ -447,7 +447,7 @@ joy_1_right:
     /* Check CANNON TIP */
     lda #40
     sta PLAYER_1_TANK_OFFSET_CANNON_TIP_Y
-    lda #-4
+    lda #-1 //-4
     sta PLAYER_1_TANK_OFFSET_CANNON_TIP_X
     jsr SPRITE_LIB.check_wall_cannon_tip_collision_tank_1
 

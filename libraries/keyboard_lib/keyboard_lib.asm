@@ -420,7 +420,7 @@ keyboard_right:
     /* Check CANNON TIP */
     lda #40 // 40
     sta PLAYER_2_TANK_OFFSET_CANNON_TIP_Y
-    lda #-4  //-1
+    lda #-1  //-1
     sta PLAYER_2_TANK_OFFSET_CANNON_TIP_X
     jsr SPRITE_LIB.check_wall_cannon_tip_collision_tank_2
 
