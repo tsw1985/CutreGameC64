@@ -281,7 +281,7 @@
 .label ORANGE=$8
 .label sprite_animations_list_LO_table_backup=$140a
 .label TANK_MARGIN_X=$10
-.label TANK_MARGIN_Y=$12
+.label TANK_MARGIN_Y=$f
 .label KERNAL_GETIN=$ffe4
 .label sprite_player_1_down_and_left_tank=$14a5
 .label BRIK=$43

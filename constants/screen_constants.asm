@@ -21,7 +21,7 @@
 // Tanks Margin:
 //=============
 .label TANK_MARGIN_X = 16 //15 - 8?
-.label TANK_MARGIN_Y = 18 //10 - 18?
+.label TANK_MARGIN_Y = 15 //10 - 18?
 
 
 // COLORS:
