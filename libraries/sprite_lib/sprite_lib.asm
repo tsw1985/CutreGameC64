@@ -3848,7 +3848,7 @@ detect_if_tank_1_corners_is_under_wall:
     /* TOP - LEFT */
 
     /*  Check LEFT chain */
-    lda #45
+    lda #48 //45
     sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
     lda #18
     sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
@@ -3871,7 +3871,7 @@ detect_if_tank_1_corners_is_under_wall:
 
 
     /* TOP - RIGHT */
-    lda #45
+    lda #48 //45
     sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
     lda #6
     sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
@@ -3895,7 +3895,7 @@ detect_if_tank_1_corners_is_under_wall:
 
 
     /*  BOTTOM LEFT */
-    lda #36
+    lda #33 //36
     sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_Y
     lda #6
     sta PLAYER_1_TANK_OFFSET_LEFT_CHAIN_X
@@ -3919,7 +3919,7 @@ detect_if_tank_1_corners_is_under_wall:
 
 
     /* BOTTOM RIGHT */
-    lda #35
+    lda #33 //35
     sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_Y
     lda #18
     sta PLAYER_1_TANK_OFFSET_RIGHT_CHAIN_X
@@ -3969,7 +3969,7 @@ push_regs_to_stack()
     sta TANK_2_CORNER_IN_WALL
 
     /*  Check LEFT chain */
-    lda #45
+    lda #48 //45
     sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y
     lda #18
     sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X
@@ -3992,7 +3992,7 @@ push_regs_to_stack()
 
 
     /* Check RIGHT chain */
-    lda #45
+    lda #48//45
     sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y
     lda #6
     sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X
@@ -4016,7 +4016,7 @@ push_regs_to_stack()
 
 
     /*  Check LEFT chain */
-    lda #36
+    lda #33 //36
     sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_Y
     lda #6
     sta PLAYER_2_TANK_OFFSET_LEFT_CHAIN_X
@@ -4039,7 +4039,7 @@ push_regs_to_stack()
 
 
     /* Check RIGHT chain */
-    lda #35
+    lda #33 //36
     sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_Y
     lda #18
     sta PLAYER_2_TANK_OFFSET_RIGHT_CHAIN_X
