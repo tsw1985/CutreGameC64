@@ -1,4 +1,4 @@
-Output dir: C:\AEM\code\CutreGameC64\bin
+Output dir: /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin
 parsing
 flex pass 1
 flex pass 2
