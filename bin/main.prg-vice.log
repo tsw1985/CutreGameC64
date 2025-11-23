@@ -1,5 +1,13 @@
+registered font '/usr/share/vice/common/C64_Pro_Mono-STYLE.ttf'.
+registered font '/usr/share/vice/common/PetMe1282Y.ttf'.
+registered font '/usr/share/vice/common/PetMe128.ttf'.
+registered font '/usr/share/vice/common/PetMe2X.ttf'.
+registered font '/usr/share/vice/common/PetMe2Y.ttf'.
+registered font '/usr/share/vice/common/PetMe642Y.ttf'.
+registered font '/usr/share/vice/common/PetMe64.ttf'.
+registered font '/usr/share/vice/common/PetMe.ttf'.
  
-*** VICE Version 3.8 ***
+*** VICE Version 3.9 ***
  
 Welcome to x64sc, the free portable C64 Emulator.
  
@@ -12,9 +20,10 @@ Roberto Muscedere, June Tate-Gans, Pablo Roldan.
 This is free software with ABSOLUTELY NO WARRANTY.
 See the "About VICE" command for more info.
  
-random seed was: 0x6920e09b
-command line was: x64 -logfile /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log /home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg
-VICE system file directory: /usr/share/vice.
+Main: random seed was: 0x69238b25
+Main: command line was: x64 -logfile /home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg-vice.log /home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg
+Main: VICE system file directory: '/usr/share/vice'.
+Main: VICE system file search path: '/home/lenovo1/.local/share/vice:/usr/bin:/usr/share/vice'.
 Loading system file `/usr/share/vice/C64/kernal-901227-03.bin'.
 C64MEM: Kernal rev #3 ($03) Sum: 50954 ($C70A) SHA1: 1d503e56df85a62fee696e7618dc5b4e781df1bb.
 Loading system file `/usr/share/vice/C64/basic-901226-01.bin'.
@@ -41,80 +50,63 @@ Loading system file `/usr/share/vice/DRIVES/dos1001-901887+8-01.bin'.
 Loading system file `/usr/share/vice/DRIVES/dos9000-300516+7-revC.bin'.
 Drive: Finished loading ROM images.
 VIC-II: Initializing chip model "MOS8565" (63 cycles per line, 312 raster lines).
-using GTK3 backend: OpenGL
-chip_name: VICII
- screen_size: 384 x 312
- first/lastline: 0 x 0
- gfx_size: 320 x 200
- gfx_position: 32 x 51
- first/last displayed line: 16 x 287
- extra offscreen border left/right: 0 x 0
- screen_display_wh: 0,000000 x 0,000000
- canvas_physical_wh: 0 x 0
- scalexy: 2 x 2
- sizexy: 1 x 1
- rmode: 1
- aspect ratio: 0,936508
- hstretch: 0
- vstretch: 0
- initializing with width, height: 704 x 507
-GLX version: 1.4
-Getting matching framebuffer configs
-Found 48 matching FB configs.
-Obtained OpenGL 4.6 context
-	  Vendor: Intel
-	Renderer: Mesa Intel(R) UHD Graphics 620 (KBL GT2)
-	 Version: 4.6 (Core Profile) Mesa 25.0.7-0ubuntu0.24.04.2
-	  Legacy: no
-Direct GLX rendering context obtained
-Swap control support. glXSwapIntervalMESA: 1 glXSwapIntervalEXT: 1 glXSwapIntervalSGI: 1
-Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
-Loading fragment shader: /usr/share/vice/GLSL/builtin.frag
-Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
-Loading fragment shader: /usr/share/vice/GLSL/builtin-interlaced.frag
-Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
-Loading fragment shader: /usr/share/vice/GLSL/bicubic.frag
-Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
-Loading fragment shader: /usr/share/vice/GLSL/bicubic-interlaced.frag
-Created render thread 0
-Render thread initialised
-opening dynamic library libmp3lame.so failed!
-ERROR setting up dynamic lame lib!
+Window: using GTK3 backend: OpenGL
+Window: chip_name: VICII
+Window:  screen_size: 384 x 312
+Window:  gfx_size: 320 x 200
+Window:  gfx_position: 32 x 51
+Window:  first/last displayed line: 16 x 287
+Window:  extra offscreen border left/right: 0 x 0
+Window:  scalexy: 2 x 2 sizexy: 1 x 1
+Window:  rmode: 1
+Window:  aspect ratio: 0.936508
+Window:  hstretch: 0 vstretch: 0
+Window:  initializing with width, height: 704 x 507
+OpenGL: GLX version: 1.4
+OpenGL: Getting matching framebuffer configs
+OpenGL: Found 24 matching FB configs.
+OpenGL: Obtained OpenGL 4.2 context
+OpenGL: Direct GLX rendering context obtained
+OpenGL: Swap control support. glXSwapIntervalMESA: 1 glXSwapIntervalEXT: 1 glXSwapIntervalSGI: 1
+OpenGL: Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /usr/share/vice/GLSL/builtin.frag
+OpenGL: Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /usr/share/vice/GLSL/builtin-interlaced.frag
+OpenGL: Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /usr/share/vice/GLSL/bicubic.frag
+OpenGL: Loading vertex shader: /usr/share/vice/GLSL/viewport.vert
+OpenGL: Loading fragment shader: /usr/share/vice/GLSL/bicubic-interlaced.frag
+Render thread: Created render thread 0
+OpenGL: Render thread initialised
 Sound: Available sound devices: pulse alsa dummy fs dump wav voc iff aiff mp3 flac ogg soundmovie
-Joystick: Linux joystick interface initialization...
-Joystick: Warning - Cannot open joystick device `/dev/input/js0'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js1'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js2'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js3'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js4'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js5'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js6'.
-Joystick: Warning - Cannot open joystick device `/dev/input/js7'.
-Loading keymap `/usr/share/vice/C64/gtk3_pos.vkm'.
+evdev Joystick: Initializing Linux evdev joystick driver.
+Keymap: Loading keymap `/usr/share/vice/C64/gtk3_pos.vkm'.
 Hotkeys: Initializing hotkeys.
 Hotkeys: parsing default file '/usr/share/vice/hotkeys/hotkeys.vhk' for machine C64
 Hotkeys: OK.
+Main CPU: 
 Main CPU: starting at ($FFFC).
 Main CPU: RESET.
-AUTOSTART: Autodetecting image type of `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg'.
+VIC-II: VSP Bug: safe channels are: 0567. Emulation of memory corruption is disabled.
+AUTOSTART: Autodetecting image type of `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg'.
 Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 48.
-Filesystem Image: Unknown disk image `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg'.
-Tape: Error - Cannot open file `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg'
+Filesystem Image: Unknown disk image `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg'.
+Tape: Error - Cannot open file `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg'
 Error - no CRT header found.
-CART: '/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' is not a valid CRT file.
-AUTOSTART: Loading PRG file `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' with autostart disk image.
+CART: '/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg' is not a valid CRT file.
+AUTOSTART: Loading PRG file `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg' with autostart disk image.
 AUTOSTART: Resetting drive 8
 AUTOSTART: Resetting the machine to autostart 'MAIN'
-VIC-II: VSP Bug: safe channels are: 02367. Emulation of memory corruption is disabled.
+VIC-II: VSP Bug: safe channels are: 123457. Emulation of memory corruption is disabled.
 AUTOSTART: Turning Warp mode on.
-AUTOSTART: `/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg' recognized as program/p00 file.
+AUTOSTART: `/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg' recognized as program/p00 file.
 Main CPU: RESET.
-Sound: Opened device `pulse', speed 48000Hz, fragment size 2,67ms, buffer size 32,00ms
-reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
-Sync reset
+Sound: Opened device `pulse', speed 48000Hz, fragment size 2.67ms, buffer size 32.00ms
+Sound: reSID: MOS8580, filter on, sampling rate 48000Hz - resampling, pass to 21600Hz
+VSync: Sync reset
 Unit 8: RESET.
 AUTOSTART: Loading program 'MAIN'
-AUTOSTART: Entered ROM at $e5cd
+AUTOSTART: Entered ROM at $e5d4
 AUTOSTART: Searching for ...
 AUTOSTART: Loading
 AUTOSTART: Entered ROM at $ea21
@@ -125,43 +117,48 @@ AUTOSTART: Restoring FileSystemDevice8 to 1.
 AUTOSTART: Restoring FSDevice8ConvertP00 to 1.
 AUTOSTART: Restoring FSDeviceLongNames to 0.
 AUTOSTART: Done.
-Sync reset
-Initiating render thread 0 shutdown
-Joining render thread 0 ...
-Joined render thread 0.
+VSync: Sync reset
+press   65513/0xffe9  0x00000040 --- -2--- -- Alt_L
+press     113/0x0071  0x00000018 --- 12--- -- q
+Render thread: Initiating render thread 0 shutdown
+Render thread: Joining render thread 0 ...
+Render thread: Joined render thread 0.
 
-Configure Flags:
---enable-option-checking=fatal --prefix=/usr --enable-gtk3ui --with-pulse --disable-arch --disable-html-docs --enable-catweasel --enable-cpuhistory --enable-ethernet --enable-midi --enable-parsid --enable-pdf-docs --with-alsa --with-fastsid --with-flac --with-gif --with-lame --with-libcurl --with-libieee1284 --with-mpg123 --with-png --with-portaudio --with-resid --with-vorbis
 
-Resources with non default values:
-LogFileName="/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log"
+LogFileName="/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg-vice.log"
 SaveResourcesOnExit=1
 ConfirmOnExit=0
-MonitorXPos=291
-MonitorYPos=132
-MonitorWidth=950
-MonitorHeight=585
-MonitorFont="monospace 9.5"
-MonitorFG="rgb(0,255,48)"
+MonitorXPos=2049
+MonitorYPos=58
+MonitorWidth=1022
+MonitorHeight=710
+MonitorFont="DM Mono Medium 10"
+MonitorFG="rgb(55,218,29)"
 Window0Height=710
-Window0Width=1366
-Window0Xpos=0
-Window0Ypos=34
+Window0Width=1024
+Window0Xpos=1024
+Window0Ypos=58
+KbdStatusbar=1
 KeymapIndex=1
 KeySet1North=119
 KeySet1East=100
 KeySet1South=115
 KeySet1West=97
 KeySet1Fire=32
+KeySet1Fire2=65535
+KeySet2North=119
+KeySet2East=100
+KeySet2South=115
+KeySet2West=97
+KeySet2Fire=32
 JoyDevice1=2
 
-reconstructed commandline options (might be incomplete):
--default -logfile "/home/gabriel/DEVELOPER/c64/code/CutreGameC64/bin/main.prg-vice.log" +confirmonexit -saveres -monitorfont "monospace 9.5" -monitorfg "rgb(0,255,48)" -monitorxpos "291" -monitorypos "132" -monitorwidth "950" -monitorheight "585" -windowxpos "0" -windowypos "34" -windowwidth "1366" -windowheight "710" -keymap "1" -joydev1 "2"
-
-VICE thread initiating shutdown
-VICE thread is exiting
-VICE thread has been joined.
-Writing configuration file `/home/gabriel/.config/vice/vicerc'.
-VIC-II: VSP Bug: safe channels are: 45. Emulation of memory corruption is disabled.
+-default -logfile "/home/lenovo1/DEVELOPER/C64/code/cutregame/bin/main.prg-vice.log" +confirmonexit -saveres -monitorfont "DM Mono Medium 10" -monitorfg "rgb(55,218,29)" -monitorxpos "2049" -monitorypos "58" -monitorwidth "1022" -monitorheight "710" -windowxpos "1024" -windowypos "58" -windowwidth "1024" -windowheight "710" -keymap "1" -kbdstatusbar -joydev1 "2"
+Mainlock: VICE thread initiating shutdown
+Mainlock: VICE thread is exiting
+Main: VICE thread has been joined.
+Writing configuration file `/home/lenovo1/.config/vice/vicerc'.
+VIC-II: VSP Bug: safe channels are: 12347. Emulation of memory corruption is disabled.
 Sound: Closing device `pulse'
 Hotkeys: shutting down.
+closed ALSA MIDI sequencer port 'VICE'

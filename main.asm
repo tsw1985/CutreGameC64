@@ -8,10 +8,10 @@ BasicUpstart2(main)
 #import "/includes/main_code.asm"
 
 *=TILESET_ADDRESS "Tileset"
-.import binary "/tileset/cutregametileset.bin"
+.import binary "/tileset/tilesethierba.bin"
 
 *=CHARSET_ATTRIB_ADDRESS "Charset Attrib"
-.import binary "/charset/charsetAttrib.bin"
+.import binary "/charset/charsethierbaattributes.bin"
 
 *=VARIABLES_ADDRESS "Variables"
 #import "/includes/variables.asm"
@@ -25,7 +25,7 @@ BasicUpstart2(main)
 }
 
 *=CHARSET_ADDRESS "Charset"
-.import binary "/charset/cutregamecharset.bin"
+.import binary "/charset/charsethierba.bin"
 
 *=TABLES_ADDRESS "Tables"
 #import "/includes/tables.asm"
@@ -34,6 +34,10 @@ BasicUpstart2(main)
 #import "/includes/libraries.asm"
 
 *=MAP_ADDRESS "Maps"
-.import binary "/maps/backgroundmap.bin"
+.if(debug_mode == 1){
+    .import binary "/maps/backgroundmap.bin"
+}else{
+    .import binary "/maps/mapafinalconhierba.bin"
+}
 
 
