@@ -37,7 +37,7 @@ BasicUpstart2(main)
 .if(debug_mode == 1){
     .import binary "/maps/backgroundmap.bin"
 }else{
-    .import binary "/maps/mapafinalconhierba.bin"
+    .import binary "/maps/maphierba.bin"
 }
 
 
