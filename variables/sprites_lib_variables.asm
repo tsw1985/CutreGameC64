@@ -1,5 +1,11 @@
 GAME_OVER: .byte 0
 
+SCORE_PLAYER_1: .byte 0
+SCORE_PLAYER_2: .byte 0
+
+SCORE_PLAYER_1_OLD: .byte 0
+SCORE_PLAYER_2_OLD: .byte 0
+
 TANK_1_DEAD: .byte 0
 TANK_2_DEAD: .byte 0
 

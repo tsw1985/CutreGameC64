@@ -931,6 +931,10 @@ collision_detected:
     
     jsr SOUND_LIB.play_explosion
 
+
+    // increment point for player 1
+    inc SCORE_PLAYER_1
+
     // end game to reset
     lda #1
     sta GAME_OVER
@@ -1036,6 +1040,10 @@ collision_detected_on_tank_1:
     jsr SPRITE_LIB.sprite_set_animation_tank_1_dead
 
     jsr SOUND_LIB.play_explosion
+
+
+    // increment point for player 2
+    inc SCORE_PLAYER_2
 
     // end game to reset
     lda #1

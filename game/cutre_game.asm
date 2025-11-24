@@ -1,4 +1,6 @@
 
+/* END PRINT PLAYERS SCORE */
+
 
 /* Init position Player 1 to TOP */
 lda #0
@@ -25,6 +27,7 @@ lda #PLAYER_DOWN
 sta PLAYER_2_TANK_CURRENT_DIRECTION
 sta PLAYER_2_TANK_FIRED_IN_DOWN // Set cannon to fire down
 jsr SPRITE_LIB.sprite_set_animation_rotate_tank_2_down // draw tank in down position
+
 
 /* Load map #0 */
 print_map(0)
@@ -55,6 +58,26 @@ jsr SPRITE_LIB.setupRasterInterrupt
 
 /* MAIN LOOP. This is like a game loop */ 
 simulate_game_loop:
+
+
+    //lda GAME_OVER
+    //cmp #1 // if is game over , print the new scores
+    //beq print_player_scores
+    //jmp ignore_print_player_scores
+    //print_player_scores:
+    /* Show Player Scores */
+
+    /* PRINT PLAYERS SCORE */
+    
+
+    /* END Show Player Scores */
+    
+
+
+
+
+
+
 
         
     /* INIT SPRITE 0 animations.   
