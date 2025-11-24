@@ -30,7 +30,7 @@ jsr SPRITE_LIB.sprite_set_animation_rotate_tank_2_down // draw tank in down posi
 print_map(0)
 
 /* Global */
-sprite_set_extra_colors(LIGHT_GREEN,GREEN) //LIGHT_GREEN,GREEN
+sprite_set_extra_colors(WHITE,GREEN) //LIGHT_GREEN,GREEN
 
 /* Enable sprites */
 sprite_enable_sprite(0) // Player 1 down
@@ -45,7 +45,7 @@ sprite_set_frame_to_sprite(0,0) // $00c0 ... $00c1 ... $00c2 ...
 /* Setup for sprite PLAYER 2 */
 sprite_load_like_multicolor(2)
 sprite_set_position(2,75,140)
-sprite_set_color(2,BLUE) //BLUE
+sprite_set_color(2,LIGHT_BLUE) //BLUE
 sprite_set_frame_to_sprite(37,2)
 
 /*  RASTER INTERRUPT */
