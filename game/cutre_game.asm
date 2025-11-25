@@ -111,6 +111,8 @@ simulate_game_loop:
 
 .if(debug_mode == 1){
 
+/*
+
     // print demo A
     lda #1
     sta SCREEN_ROW_POS   // ( X position)
@@ -164,6 +166,7 @@ simulate_game_loop:
     print_calculation_result(3,37,YELLOW,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
 
     /*  X */
+    /*
     lda SPRITE_CENTER_PLAYER_POS_X
     //lsr
     //lsr
@@ -174,6 +177,9 @@ simulate_game_loop:
     sta sum_res_2
     sta sum_res_3
     print_calculation_result(4,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+    */
+
+    
     
     /************************************************
         PRINT ENEMY COORDS VALUES IN COLLISION
@@ -237,6 +243,7 @@ simulate_game_loop:
 
 
         //print x
+        /*
         ldx #1 // sprite bullet tank 1
         lda sprites_coord_table_y,x
         
@@ -246,7 +253,7 @@ simulate_game_loop:
         sta sum_res_2
         sta sum_res_3
         print_calculation_result(20,37,RED,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
-
+        
 
         //print y IN TEXT MODE COORDS
         
@@ -272,6 +279,7 @@ simulate_game_loop:
         sta sum_res_2
         sta sum_res_3
         print_calculation_result(22,37,GREEN,sum_res_0,sum_res_1,sum_res_2,sum_res_3)
+        */
         
 }
 

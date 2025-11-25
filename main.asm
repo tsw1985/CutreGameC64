@@ -35,7 +35,9 @@ BasicUpstart2(main)
 
 *=MAP_ADDRESS "Maps"
 .if(debug_mode == 1){
-    .import binary "/maps/backgroundmap.bin"
+    //.import binary "/maps/backgroundmap.bin"
+    .import binary "/maps/maphierbaDEBUG.bin"
+    //.import binary "/maps/maphierbaDEBUGNew.bin"
 }else{
     .import binary "/maps/maphierba.bin"
 }
