@@ -54,13 +54,17 @@ init_code:
 
 
     // Credits
+
+    locate_text(17,33,BLUE)
+    print_text(credits_str)
+
     locate_text(19,33,WHITE)
     print_text(author_str)
 
     locate_text(21,33,WHITE)
     print_text(help_str)
 
-    locate_text(24,34,YELLOW)
+    locate_text(24,35,YELLOW)
     print_text(year_str)
 
 
