@@ -9,8 +9,7 @@ Welcome to my first video game for Commodore 64. It is not the most optimized ga
 
 1 - Download the kickAssembler compiler : https://theweb.dk/KickAssembler/Main.html#frontpage
 
-2 - Download VICE Emulator: https://vice-emu.sourceforge.io/android.html
-
+2 - Download VICE Emulator: https://vice-emu.sourceforge.io/index.html#download
 3 - Install plugin "KickAss" in your Visual Studio Code and set up.
 
 4 - Press Control + Shift + P and select "KickAss (C64) Build and Run
