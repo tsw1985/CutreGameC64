@@ -3,7 +3,7 @@
 
 Welcome to my first video game for Commodore 64. It is not the most optimized game but , it is my first game and I¡m proud of the result , I thought the result was worse. It is a simplay game, 2 war tanks fighting with them self. 
 
-![fibob](https://github.com/tsw1985/MyTetris/blob/main/mainImage.png)
+![fibob](https://github.com/tsw1985/CutreGameC64/blob/main/main.png)
 
 # Compile
 
