@@ -15,7 +15,7 @@ Welcome to my first video game for Commodore 64. It is not the most optimized ga
 
 4 - Press Control + Shift + P and select "KickAss (C64) Build and Run
 
-5 - In the VICE emulator , setup the Joysticks with the keys in your keyboard.
+5 - In the VICE emulator , setup the Joysticks with the keys in your keyboard, joystick 1 and 2.
 
 ![fibob](https://github.com/tsw1985/CutreGameC64/blob/main/joystick_config_1_2.png)
 
