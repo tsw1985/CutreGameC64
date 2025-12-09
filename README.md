@@ -17,5 +17,9 @@ Welcome to my first video game for Commodore 64. It is not the most optimized ga
 
 5 - In the VICE emulator , setup the Joysticks with the keys in your keyboard.
 
+![fibob](https://github.com/tsw1985/CutreGameC64/blob/main/joystick_config_1_2.png)
+
+![fibob](https://github.com/tsw1985/CutreGameC64/blob/main/joystick_config_2_2.png)
+
 6 - Play and enjoy !!
 
