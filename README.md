@@ -1,3 +1,21 @@
 # CutreGameC64
 
-https://github.com/tsw1985/MyTetris/blob/main/mainImage.png
+
+Welcome to my first video game for Commodore 64. It is not the most optimized game but , it is my first game and I¡m proud of the result , I thought the result was worse. It is a simplay game, 2 war tanks fighting with them self. 
+
+![fibob](https://github.com/tsw1985/MyTetris/blob/main/mainImage.png)
+
+# Compile
+
+1 - Download the kickAssembler compiler : https://theweb.dk/KickAssembler/Main.html#frontpage
+
+2 - Download VICE Emulator: https://vice-emu.sourceforge.io/android.html
+
+3 - Install plugin "KickAss" in your Visual Studio Code and set up.
+
+4 - Press Control + Shift + P and select "KickAss (C64) Build and Run
+
+5 - In the VICE emulator , setup the Joysticks with the keys in your keyboard.
+
+6 - Play and enjoy !!
+
